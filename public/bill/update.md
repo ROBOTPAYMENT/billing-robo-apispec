@@ -1,0 +1,136 @@
+# 請求書更新
+
+`/api/v1.0/bill/update`
+
+請求書の更新処理を実行します。
+
+## リクエスト
+- Method URL: `https://billing-robo.jp:10443/api/v1.0/bill/update`
+- Preferred HTTP method: `POST`
+- Accepted content types: `application/json`
+- Encode: `UTF-8`
+
+### Parameters
+
+| 名前                   | 概要                                                                                                                  | 桁数 | 種別       |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ---- | ---------- |
+| user_id                | ユーザーID（管理画面へのログインID） <br> ※必須                                                                       | 100  | 半角英数*1 |
+| access_key             | アクセスキー <br> ※必須                                                                                               | 100  | 半角英数*3 |
+| bill                   | 請求書に属するパラメータ                                                                                              |      |            |
+| number                 | 請求書番号 <br> ※必須                                                                                                 | 100  | 半角英数*4 |
+| billing_code           | 請求先コード <br> ※必須                                                                                               | 20   | 半角英数*4 |
+| message_column         | 通信欄                                                                                                                | 112  | 文字列     |
+| sending_scheduled_date | 請求書送付予定日 <br> ※消込ステータスが完了でない場合、必須                                                           | 10   | 日付       |
+| sending_date           | 請求書送付日                                                                                                          | 10   | 日付       |
+| transfer_deadline      | 決済期限 <br> ※消込ステータスが完了でない場合、必須                                                                   | 10   | 日付       |
+| payment_status         | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 | 2    | 数値       |
+| erasure_deposit_date   | 消込計上日 <br> ※「未処理、未収」から「他の消込ステータス」へ変更した場合、計上日を選択可能                           | 10   | 日付       |
+| erasure_cancel_date    | キャンセル計上日 <br> ※「他の消込ステータス」から「未処理、未収」へ変更した場合、キャンセル計上日を選択可能           | 10   | 日付       |
+| memo                   | メモ                                                                                                                  | 300  | 文字列     |
+
+
+## レスポンス
+
+- Type: `application/json`
+- Encode: `UTF-8`
+
+### Fields
+
+| 名前                   | 概要                                | 型     |
+| ---------------------- | ----------------------------------- | ------ |
+| user_id                | ユーザーID                          | string |
+| access_key             | アクセスキー                        | string |
+| error_code             | エラーコード <br> ※正常時はnull     | string |
+| error_message          | エラーメッセージ <br> ※正常時はnull | string |
+| bill                   | 請求書に属するパラメータ            |        |
+| number                 | 請求書番号                          | string |
+| billing_code           | 請求先コード                        | string |
+| message_column         | 通信欄                              | string |
+| sending_scheduled_date | 請求書送付予定日                    | string |
+| sending_date           | 請求書送付日                        | string |
+| transfer_deadline      | 決済期限                            | string |
+| payment_status         | 消込ステータス                      | Int    |
+| erasure_deposit_date   | 消込計上日                          | string |
+| erasure_cancel_date    | キャンセル計上日                    | string |
+| memo                   | メモ                                | string |
+
+
+## 使用例
+
+### リクエスト
+
+```
+{
+    "user_id": "sample@robotpayment.co.jp",
+    "access_key": "xxxxxxxxxxxxxxxx",
+    "bill": [
+        {
+            "number": "201705-billing-1",
+            "billing_code": "billing",
+            "message_column": "",
+            "sending_scheduled_date": "",
+            "sending_date": "",
+            "transfer_deadline": "",
+            "payment_status": "",
+            "erasure_deposit_date": "",
+            "erasure_cancel_date": "",
+            "memo": ""
+        }
+    ]
+}
+```
+
+### レスポンス
+
+Status: 200 OK
+
+```
+{
+    "user_id": "sample@robotpayment.co.jp",
+    "access_key": "xxxxxxxxxxxxxxxx",
+    "bill":[
+        {
+            "error_code": null,
+            "error_message": null,
+            "number": "201705-billing-1",
+            "billing_code": "billing",
+            "message_column": "",
+            "sending_scheduled_date": "2017/05/01",
+            "sending_date": null,
+            "transfer_deadline": "2017/05/31",
+            "payment_status": 0,
+            "erasure_deposit_date": null,
+            "erasure_cancel_date": null,
+            "memo": null
+        }
+    ]
+}
+```
+
+## エラー
+
+| エラーコード | 内容                                                                 |
+| ------------ | -------------------------------------------------------------------- |
+| 1601         | 請求書番号が不正                                                     |
+| 1602         | 請求先コードが不正                                                   |
+| 1603         | 通信欄が不正                                                         |
+| 1604         | 請求書送付予定日が不正                                               |
+| 1605         | 請求書送付日が不正                                                   |
+| 1606         | 決済期限が不正                                                       |
+| 1607         | 消込ステータスが不正                                                 |
+| 1608         | 消込計上日が不正                                                     |
+| 1609         | キャンセル計上日が不正                                               |
+| 1610         | 請求書メモが不正                                                     |
+| 1611         | 既に締められた請求書発行日の場合、通信欄の編集できません。           |
+| 1612         | 既に締められた売上が存在するため編集できません。                     |
+| 1613         | 既に締められた期間への計上日となるため編集できません。               |
+| 1614         | 請求書更新に失敗                                                     |
+| 1615         | 請求書が存在しない                                                   |
+| 1616         | 決済手段がコンビニ払込票の場合は決済期限の編集不可                   |
+| 1617         | 消込ステータスが完了の場合メモ以外の任意項目の値は指定不可           |
+| 1618         | 請求書が承認依頼中                                                   |
+| 1619         | 消込計上日とキャンセル計上日は同時に指定できません。                 |
+| 1620         | 再発行により無効になった請求書は有効にできません                     |
+| 1621         | 繰越請求は変更できません。                                           |
+| 1622         | 消込が繰越の繰越ステータスは変更できません。                         |
+| 1623         | 請求先部署が無効または削除されている場合、決済期限は編集できません。 |
