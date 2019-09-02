@@ -13,3 +13,4 @@
 - [請求書参照 bill/list](bill/list.md)
 - [請求書参照 v1.0/bill/search_list](bill/search_list.md)
 - [商品登録更新(複数)](goods/bulk_upsert.md)
+- [クレジットカード登録](j-payment/mktgate.md)
