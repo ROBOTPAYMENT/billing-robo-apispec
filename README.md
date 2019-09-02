@@ -16,6 +16,7 @@
 - [請求書参照2](/public/bill/search_list2.md)
 - [商品登録更新(複数)2](/public/goods/bulk_upsert2.md)
 - [商品停止削除(複数)](/public/goods/bulk_stop.md)
+- [クレジットカード登録(トークン決済方式)](/public/j-payment/billgate_token.md)
 
 [非推奨のAPI一覧](/deprecated/index.md)
 
@@ -68,3 +69,14 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 }
 ```
 
+### 決済システムエラーコード一覧
+
+[決済システムエラーコード一覧](/public/j-payment/ec.md)
+
+## 推奨SSL/TLSバージョン
+
+請求管理ロボAPIを、正常化つ快適にご利用いただくために、以下を推奨しております。
+
+`TLS 1.2`
+
+SSL/TLSバージョンんをご確認いただき、推奨バージョンでのご利用をお願いいたします。
