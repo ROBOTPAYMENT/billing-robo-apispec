@@ -12,14 +12,14 @@
 
 ### Parameters
 
-|名前|概要|桁数|種別|
-|---|---|---|---|
-|user_id|ユーザーID（管理画面へのログインID） <br> ※必須|100|半角英数*1|
-|access_key|アクセスキー <br> ※必須|100|半角英数*3|
-|bs_department|請求元部署に属するパラメータ|||
-|code|部署コード <br> ※必須 ※登録後は変更できません|40|半角英数*4|
-|name|部署名 <br> ※必須|40|文字列|
-|journal_cooperation_code|会計ソフト連携用部署コード <br> ※仕訳オプションがONのときのみ設定可能|25|文字列|
+| 名前                     | 概要                                                                  | 桁数 | 種別       | 必須 |
+| ------------------------ | --------------------------------------------------------------------- | ---- | ---------- | ---- |
+| user_id                  | ユーザーID（管理画面へのログインID）                                  | 100  | 半角英数*1 | 必須 |
+| access_key               | アクセスキー                                                          | 100  | 半角英数*3 | 必須 |
+| bs_department            | 請求元部署に属するパラメータ                                          |      |            |      |
+| code                     | 部署コード  ※登録後は変更できません                                   | 40   | 半角英数*4 | 必須 |
+| name                     | 部署名                                                                | 40   | 文字列     | 必須 |
+| journal_cooperation_code | 会計ソフト連携用部署コード <br> ※仕訳オプションがONのときのみ設定可能 | 25   | 文字列     |      |
 
 
 ## レスポンス
@@ -29,16 +29,16 @@
 
 ### Fields
 
-|名前|概要|型|
-|---|---|---|
-|user_id|ユーザーID|string|
-|access_key|アクセスキー|string|
-|bs_department|請求元部署に属するパラメータ||
-|error_code|エラーコード <br> ※正常時はnull|string|
-|error_message|エラーメッセージ <br> ※正常時はnull|string|
-|code|部署コード|string|
-|name|部署名|string|
-|journal_cooperation_code|仕訳連携用部署コード|string|
+| 名前                     | 概要                                | 型     |
+| ------------------------ | ----------------------------------- | ------ |
+| user_id                  | ユーザーID                          | string |
+| access_key               | アクセスキー                        | string |
+| bs_department            | 請求元部署に属するパラメータ        |        |
+| error_code               | エラーコード <br> ※正常時はnull     | string |
+| error_message            | エラーメッセージ <br> ※正常時はnull | string |
+| code                     | 部署コード                          | string |
+| name                     | 部署名                              | string |
+| journal_cooperation_code | 仕訳連携用部署コード                | string |
 
 
 ## 使用例
