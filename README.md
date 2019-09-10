@@ -4,18 +4,19 @@
 
 ## API一覧
 
-- [口座振替依頼書発行](/public/billing/bulk_download_pdf.md)
-- [請求先登録更新(複数)](/public/billing/bulk_upsert.md)
-- [請求先停止削除(複数)](/public/billing/bulk_stop.md)
-- [請求情報等登録更新(複数)](/public/demand/bulk_upsert.md)
-- [請求情報停止削除(複数)](/public/demand/bulk_stop.md)
-- [即時決済 請求書合算](/public/demand/bulk_register.md)
-- [売上消込結果参照](/public/demand/search.md)
-- [請求書更新](/public/bill/update.md)
-- [請求書無効](/public/bill/stop.md)
-- [請求書参照2](/public/bill/search_list2.md)
-- [商品登録更新(複数)2](/public/goods/bulk_upsert2.md)
-- [商品停止削除(複数)](/public/goods/bulk_stop.md)
+
+- [請求先登録更新(複数) v1.0/billing/bulk_upsert](/public/billing/bulk_upsert.md)
+- [請求先停止削除(複数) v1.0/billing/bulk_stop](/public/billing/bulk_stop.md)
+- [請求情報等登録更新(複数) v1.0/demand/bulk_upsert](/public/demand/bulk_upsert.md)
+- [請求情報停止削除(複数) v1.0/demand/bulk_stop](/public/demand/bulk_stop.md)
+- [即時決済 請求書合算 v1.0/demand/bulk_register](/public/demand/bulk_register.md)
+- [売上消込結果参照 v1.0/demand/search](/public/demand/search.md)
+- [請求書更新 v1.0/bill/update](/public/bill/update.md)
+- [請求書無効 v1.0/bill/stop](/public/bill/stop.md)
+- [請求書参照2 v1.0/bill/search_list2](/public/bill/search_list2.md)
+- [商品登録更新(複数)2 v1.0/goods/bulk_upsert2](/public/goods/bulk_upsert2.md)
+- [商品停止削除(複数) v1.0/goods/bulk_stop](/public/goods/bulk_stop.md)
+- [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
 - [クレジットカード登録(トークン決済方式)](/public/j-payment/billgate_token.md)
 
 [非推奨のAPI一覧](/deprecated/index.md)
@@ -69,9 +70,10 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 }
 ```
 
-### 決済システムエラーコード一覧
+### 決済システムエラーコード
 
-[決済システムエラーコード一覧](/public/j-payment/ec.md)
+- [ER系](https://keirinomikata.zendesk.com/hc/ja/articles/360000077461-クレジットカードエラーコード表-ER系)
+- [G系](https://keirinomikata.zendesk.com/hc/ja/articles/360000077441-%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E8%A1%A8-G%E7%B3%BB)
 
 ## 推奨SSL/TLSバージョン
 
