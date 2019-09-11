@@ -21,6 +21,10 @@
 
 #### billing
 
+
+<details>
+<summary>show child arguments</summary>
+
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                         | 概要                                                                            | 桁数 | 種別                               | 必須     |
@@ -32,6 +36,9 @@
 | [sub_account_title](#billingsubaccounttitle) | 請求先補助科目に属するパラメータ <br> ※今後拡張予定です。現在利用はできません。 |      | list                               |          |
 
 #### individual
+
+<details>
+<summary>show child arguments</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -79,6 +86,9 @@
 
 #### billing.individual.sub_account_title
 
+<details>
+<summary>show child arguments</summary>
+
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                    | 概要                                                              | 桁数 | 種別   | 必須 |
@@ -87,7 +97,14 @@
 | advances_received_code  | 請求先部署前受金補助科目コード <br> ※追加省略時、nullで登録される | 25   | 文字列 |      |
 | suspense_received_code  | 請求先部署仮受金補助科目コード <br> ※追加省略時、nullで登録される | 25   | 文字列 |      |
 
+<details>
+
+</details>
+
 #### payment
+
+<details>
+<summary>show child arguments</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -110,7 +127,12 @@
 | credit_card_regist_kind    | クレジットカード登録方法 <br> 1:あとで登録 2:登録用メールを送付 <br> ※payment_method=1の場合に必要(入力は任意) <br> ※追加省略時、1で登録される                                           | 1        | 数値                               |                                    |
 | credit_card_email          | クレジットカード登録メール送信先 <br> ※credit_card_regist_kind=2の場合に必要(入力は任意) <br> ※追加省略時、emailで入力したメールアドレスに送信される                                     | 100      | [半角英数\*1](/README.md#種別注釈) |                                    |
 
+</details>
+
 #### billing.sub_account_title
+
+<details>
+<summary>show child arguments</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -119,7 +141,9 @@
 | account_title_code       | 勘定科目コード                                            | 20   | [半角英数\*4](/README.md#種別注釈) | 必須 |
 | journal_cooperation_code | 仕訳連携用補助科目コード <br> ※追加省略時、空で登録される | 25   | 文字列                             |      |
 
+</details>
 
+</details>
 
 
 ## レスポンス
@@ -413,6 +437,10 @@ Status: 200 OK
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                                                           |
 | ------------ | ------------------------------------------------------------------------------ |
