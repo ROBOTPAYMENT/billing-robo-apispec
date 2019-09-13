@@ -195,7 +195,7 @@ suspense_received_code: null
 
 Status: 200 OK
 
-```
+```json
 {
     "billing_individual": {
         "number": 1,
@@ -254,6 +254,10 @@ Status: 200 OK
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                               |
 | ------------ | ---------------------------------- |

@@ -49,13 +49,17 @@ billing_individual_code: "bicd0001"
 
 Status: 200 OK
 
-```
+```json
 {
   "url":" https://keirinomikata.jp/download_request_form?id=HyNnajensdalineavllie",
 }
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                         |
 | ------------ | -------------------------------------------- |

@@ -84,7 +84,7 @@
 
 ### リクエスト
 
-```
+```json
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
@@ -106,7 +106,7 @@
 
 Status: 200 OK
 
-```
+```json
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
@@ -131,6 +131,10 @@ Status: 200 OK
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                 |
 | ------------ | ------------------------------------ |
