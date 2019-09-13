@@ -13,11 +13,20 @@
 
 ### Parameters
 
+| 名前                                        | 概要                                 | 桁数 | 種別                               | 必須 |
+| ------------------------------------------- | ------------------------------------ | ---- | ---------------------------------- | ---- |
+| user_id                                     | ユーザーID（管理画面へのログインID） | 100  | [半角英数\*1](/README.md#種別注釈) | 必須 |
+| access_key                                  | アクセスキー                         | 100  | [半角英数\*3](/README.md#種別注釈) | 必須 |
+| [bs_bank_transfer](#bsbanktransfer-request) | 請求元銀行口座に属するパラメータ     |      | `Array(bs_bank_transfer)`          |      |
+
+#### bs_bank_transfer (request)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+
+下記のような項目のオブジェクトを持つリスト
+
 | 名前                          | 概要                                                 | 桁数 | 種別                               | 必須     |
 | ----------------------------- | ---------------------------------------------------- | ---- | ---------------------------------- | -------- |
-| user_id                       | ユーザーID（管理画面へのログインID）                 | 100  | [半角英数\*1](/README.md#種別注釈) | 必須     |
-| access_key                    | アクセスキー                                         | 100  | [半角英数\*3](/README.md#種別注釈) | 必須     |
-| bs_bank_transfer              | 請求元銀行口座に属するパラメータ                     |      |                                    |          |
 | code                          | 銀行口座コード <br> ※登録後は変更できません          | 20   | [半角英数\*4](/README.md#種別注釈) | 必須     |
 | title                         | 銀行口座名                                           | 100  | 文字列                             | (登録時  |
 | bank_code                     | 銀行コード                                           | 4    | 数値                               |          |
@@ -32,6 +41,8 @@
 | account_title_id              | 勘定科目ID <br> 普通預金：1120（固定値）             | 20   | 半角数字                           | 必須     |
 | sub_account_title_code        | 補助科目コード                                       | 25   | [半角英数\*3](/README.md#種別注釈) |          |
 
+</details>
+
 
 ## レスポンス
 
@@ -40,26 +51,35 @@
 
 ### Fields
 
-| 名前                          | 概要                                 | 型     |
-| ----------------------------- | ------------------------------------ | ------ |
-| user_id                       | ユーザーID（管理画面へのログインID） | string |
-| access_key                    | アクセスキー                         | string |
-| bs_bank_transfer              | 請求元銀行口座に属するパラメータ     |        |
-| error_code                    | エラーコード※正常時はnull            | string |
-| error_message                 | エラーメッセージ※正常時はnull        | string |
-| code                          | 銀行口座コード                       | string |
-| title                         | 銀行口座名                           | string |
-| bank_code                     | 銀行コード                           | string |
-| bank_name                     | 銀行名                               | string |
-| branch_code                   | 支店コード                           | string |
-| branch_name                   | 支店名                               | string |
-| bank_account_type             | 預金種目                             | int    |
-| bank_account_number           | 口座番号                             | string |
-| bank_account_name             | 口座名義                             | string |
-| bs_department_code            | 請求元部署コード                     | string |
-| journal_cooperation_bank_code | 会計ソフト連携用銀行コード           | string |
-| account_title_id              | 勘定科目ID                           | int    |
-| sub_account_title_code        | 補助科目コード                       | string |
+| 名前                                         | 概要                                 | 型                        |
+| -------------------------------------------- | ------------------------------------ | ------------------------- |
+| user_id                                      | ユーザーID（管理画面へのログインID） | string                    |
+| access_key                                   | アクセスキー                         | string                    |
+| [bs_bank_transfer](#bsbanktransfer-response) | 請求元銀行口座に属するパラメータ     | `Array(bs_bank_transfer)` |
+
+#### bs_bank_transfer (response)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                          | 概要                          | 型     |
+| ----------------------------- | ----------------------------- | ------ |
+| error_code                    | エラーコード※正常時はnull     | string |
+| error_message                 | エラーメッセージ※正常時はnull | string |
+| code                          | 銀行口座コード                | string |
+| title                         | 銀行口座名                    | string |
+| bank_code                     | 銀行コード                    | string |
+| bank_name                     | 銀行名                        | string |
+| branch_code                   | 支店コード                    | string |
+| branch_name                   | 支店名                        | string |
+| bank_account_type             | 預金種目                      | int    |
+| bank_account_number           | 口座番号                      | string |
+| bank_account_name             | 口座名義                      | string |
+| bs_department_code            | 請求元部署コード              | string |
+| journal_cooperation_bank_code | 会計ソフト連携用銀行コード    | string |
+| account_title_id              | 勘定科目ID                    | int    |
+| sub_account_title_code        | 補助科目コード                | string |
 
 
 ## 使用例

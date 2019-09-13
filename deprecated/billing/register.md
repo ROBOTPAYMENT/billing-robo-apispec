@@ -51,36 +51,58 @@
 
 ### Fields
 
-| 名前                                        | 概要                                                                                                               | 型     |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------ |
-| code                                        | 請求先コード                                                                                                       | string |
-| name                                        | 請求先名                                                                                                           | string |
-| billing_individual.number                   | 請求先部署番号                                                                                                     | Int    |
-| billing_individual.name                     | 請求先部署名                                                                                                       | string |
-| billing_individual. link_customer_code      | 会計ソフト連携用取引先コード                                                                                       | string |
-| billing_individual.address1                 | 宛名1                                                                                                              | string |
-| billing_individual.address2                 | 宛名2                                                                                                              | string |
-| billing_individual.address3                 | 宛名3                                                                                                              | string |
-| billing_individual.zip_code                 | 郵便番号                                                                                                           | string |
-| billing_individual.pref                     | 都道府県                                                                                                           | string |
-| billing_individual.city_address             | 市区町村番地                                                                                                       | string |
-| billing_individual.building_name            | 建物名                                                                                                             | string |
-| billing_individual.tel                      | 電話番号                                                                                                           | string |
-| billing_individual.email                    | メールアドレス                                                                                                     | string |
-| billing_individual. cc_email                | CC送信先メールアドレス                                                                                             | string |
-| billing_individual.bs_owner_code            | 請求元担当者コード                                                                                                 | string |
-| billing_individual.payment_method           | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替       | Int    |
-| billing_individual. register_status         | 登録ステータス <br> 0:未登録 1:登録待ち 2:メール送信済み 3:申請中 <br> 4:登録情報_送信エラー 5:登録完了 6:登録失敗 | Int    |
-| billing_individual.source_bank_account_name | 振込元口座名義 <br> ※payment_method=0,2以外はNULL                                                                  | string |
-| billing_individual.customer_number          | 顧客番号 <br> ※payment_method=3以外はNULL                                                                          | string |
-| billing_individual.bank_code                | 銀行コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
-| billing_individual.bank_name                | 銀行名 <br> ※payment_method=5以外はNULL                                                                            | string |
-| billing_individual.branch_code              | 支店コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
-| billing_individual.branch_name              | 支店名 <br> ※payment_method=5以外はNULL                                                                            | string |
-| billing_individual.bank_account_type        | 貯金種目 <br> 1:普通 2:当座 <br> ※payment_method=3,4,5以外はNULL                                                   | string |
-| billing_individual.bank_account_number      | 口座番号 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
-| billing_individual.bank_account_name        | 口座名義 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
-| billing_individual.cod                      | 店舗オーダー番号 <br> ※payment_method=1以外はNULL                                                                  | string |
+| 名前                         | 概要                     | 型               |
+| ---------------------------- | ------------------------ | ---------------- |
+| [billing](#billing-response) | 請求先に属するパラメータ | `Array(billing)` |
+
+#### billing (response)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                                              | 概要                         | 型                          |
+| ------------------------------------------------- | ---------------------------- | --------------------------- |
+| code                                              | 請求先コード                 | string                      |
+| name                                              | 請求先名                     | string                      |
+| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ | `Array(billing_individual)` |
+
+#### billing_individual (response)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                     | 概要                                                                                                               | 型     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------ |
+| number                   | 請求先部署番号                                                                                                     | Int    |
+| name                     | 請求先部署名                                                                                                       | string |
+| link_customer_code       | 会計ソフト連携用取引先コード                                                                                       | string |
+| address1                 | 宛名1                                                                                                              | string |
+| address2                 | 宛名2                                                                                                              | string |
+| address3                 | 宛名3                                                                                                              | string |
+| zip_code                 | 郵便番号                                                                                                           | string |
+| pref                     | 都道府県                                                                                                           | string |
+| city_address             | 市区町村番地                                                                                                       | string |
+| building_name            | 建物名                                                                                                             | string |
+| tel                      | 電話番号                                                                                                           | string |
+| email                    | メールアドレス                                                                                                     | string |
+| cc_email                 | CC送信先メールアドレス                                                                                             | string |
+| bs_owner_code            | 請求元担当者コード                                                                                                 | string |
+| payment_method           | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替       | Int    |
+| register_status          | 登録ステータス <br> 0:未登録 1:登録待ち 2:メール送信済み 3:申請中 <br> 4:登録情報_送信エラー 5:登録完了 6:登録失敗 | Int    |
+| source_bank_account_name | 振込元口座名義 <br> ※payment_method=0,2以外はNULL                                                                  | string |
+| customer_number          | 顧客番号 <br> ※payment_method=3以外はNULL                                                                          | string |
+| bank_code                | 銀行コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
+| bank_name                | 銀行名 <br> ※payment_method=5以外はNULL                                                                            | string |
+| branch_code              | 支店コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
+| branch_name              | 支店名 <br> ※payment_method=5以外はNULL                                                                            | string |
+| bank_account_type        | 貯金種目 <br> 1:普通 2:当座 <br> ※payment_method=3,4,5以外はNULL                                                   | string |
+| bank_account_number      | 口座番号 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
+| bank_account_name        | 口座名義 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
+| cod                      | 店舗オーダー番号 <br> ※payment_method=1以外はNULL                                                                  | string |
+
+</details>
 
 
 ## 使用例

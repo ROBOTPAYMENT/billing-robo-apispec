@@ -12,11 +12,19 @@
 
 ### Parameters
 
+| 名前                  | 概要                                 | 桁数 | 種別                               | 必須 |
+| --------------------- | ------------------------------------ | ---- | ---------------------------------- | ---- |
+| user_id               | ユーザーID（管理画面へのログインID） | 100  | [半角英数\*1](/README.md#種別注釈) | 必須 |
+| access_key            | アクセスキー                         | 100  | [半角英数\*3](/README.md#種別注釈) | 必須 |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `Array(bill)`                      |      |
+
+#### bill (request)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+下記のような項目のオブジェクトを持つリスト
+
 | 名前                   | 概要                                                                                                                  | 桁数 | 種別                               | 必須           |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------- | -------------- |
-| user_id                | ユーザーID（管理画面へのログインID）                                                                                  | 100  | [半角英数\*1](/README.md#種別注釈) | 必須           |
-| access_key             | アクセスキー                                                                                                          | 100  | [半角英数\*3](/README.md#種別注釈) | 必須           |
-| bill                   | 請求書に属するパラメータ                                                                                              |      |                                    |                |
 | number                 | 請求書番号                                                                                                            | 100  | [半角英数\*4](/README.md#種別注釈) | 必須           |
 | billing_code           | 請求先コード                                                                                                          | 20   | [半角英数\*4](/README.md#種別注釈) | 必須           |
 | message_column         | 通信欄                                                                                                                | 112  | 文字列                             |                |
@@ -36,23 +44,31 @@
 
 ### Fields
 
-| 名前                   | 概要                                | 型     |
-| ---------------------- | ----------------------------------- | ------ |
-| user_id                | ユーザーID                          | string |
-| access_key             | アクセスキー                        | string |
-| error_code             | エラーコード <br> ※正常時はnull     | string |
-| error_message          | エラーメッセージ <br> ※正常時はnull | string |
-| bill                   | 請求書に属するパラメータ            |        |
-| number                 | 請求書番号                          | string |
-| billing_code           | 請求先コード                        | string |
-| message_column         | 通信欄                              | string |
-| sending_scheduled_date | 請求書送付予定日                    | string |
-| sending_date           | 請求書送付日                        | string |
-| transfer_deadline      | 決済期限                            | string |
-| payment_status         | 消込ステータス                      | Int    |
-| erasure_deposit_date   | 消込計上日                          | string |
-| erasure_cancel_date    | キャンセル計上日                    | string |
-| memo                   | メモ                                | string |
+| 名前                   | 概要                                | 型            |
+| ---------------------- | ----------------------------------- | ------------- |
+| user_id                | ユーザーID                          | string        |
+| access_key             | アクセスキー                        | string        |
+| error_code             | エラーコード <br> ※正常時はnull     | string        |
+| error_message          | エラーメッセージ <br> ※正常時はnull | string        |
+| [bill](#bill-response) | 請求書に属するパラメータ            | `Array(bill)` |
+
+#### bill (response)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                   | 概要             | 型     |
+| ---------------------- | ---------------- | ------ |
+| number                 | 請求書番号       | string |
+| billing_code           | 請求先コード     | string |
+| message_column         | 通信欄           | string |
+| sending_scheduled_date | 請求書送付予定日 | string |
+| sending_date           | 請求書送付日     | string |
+| transfer_deadline      | 決済期限         | string |
+| payment_status         | 消込ステータス   | int    |
+| erasure_deposit_date   | 消込計上日       | string |
+| erasure_cancel_date    | キャンセル計上日 | string |
+| memo                   | メモ             | string |
 
 
 ## 使用例
