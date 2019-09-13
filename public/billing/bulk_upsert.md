@@ -301,6 +301,7 @@
 | journal_cooperation_code | 仕訳連携用補助科目コード            | string |
 
 </details>
+</details>
 
 
 ## 使用例
