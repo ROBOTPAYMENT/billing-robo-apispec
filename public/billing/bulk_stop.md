@@ -30,9 +30,6 @@
 
 #### billing (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                     | 概要                                                                                                 | 桁数 | 種別                                   | 必須 |
@@ -44,9 +41,6 @@
 
 #### individual (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前    | 概要                                     | 桁数 | 種別                                   | 必須                 |
@@ -55,13 +49,9 @@
 | code    | 請求先部署コード  ※両端のスペース除去    | 20   | [半角英数 + 記号](/README.md#種別) | [(請求先部署削除時)^1](/README.md#必須) |
 | del_flg | 請求先部署削除フラグ <br> 0:停止 1:削除  | 1    | 数値                                   | (請求先部署削除時)   |
 
-</details>
 
 
 #### payment (request)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -70,8 +60,6 @@
 | code    | 決済情報コード                        | 20   | [半角英数 + 記号](/README.md#種別) | (請求先決済手段削除時) |
 | del_flg | 決済情報削除フラグ <br> 0:停止 1:削除 | 1    | 数値                                   | (請求先決済手段削除時) |
 
-</details>
-</details>
 
 
 ## レスポンス
@@ -89,9 +77,6 @@
 
 #### billing (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                       | 概要                                | 型                  |
@@ -105,9 +90,6 @@
 
 #### individual (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前          | 概要                                | 型     |
@@ -118,12 +100,8 @@
 | code          | 請求先部署コード                    | string |
 | del_flg       | 請求先部署削除フラグ                | int    |
 
-</details>
 
 #### payment (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -134,8 +112,6 @@
 | code          | 決済情報コード                      | string |
 | del_flg       | 決済情報削除フラグ                  | int    |
 
-</details>
-</details>
 
 
 ## 使用例

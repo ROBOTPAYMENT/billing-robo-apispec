@@ -30,7 +30,6 @@
 
 #### demand (request)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前       | 概要                                      | 桁数 | 種別                                   | 必須     |
@@ -54,9 +53,6 @@
 | [demand](#demand-response) | 請求情報に属するパラメータ           | `array` |
 
 #### demand (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -123,9 +119,6 @@
 
 #### demand.sales (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                               | 概要                                                                                                                                                                                        | 型              |
@@ -172,9 +165,6 @@
 
 #### demand.sales.bill (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                      | 概要                                                                                                                                                                                        | 型       |
@@ -216,12 +206,8 @@
 | modified                  | 更新日時                                                                                                                                                                                    | datetime |
 | status                    | 状態 <br> 0:削除 1:有効 2:無効                                                                                                                                                              | int      |
 
-</details>
 
 #### demand.sales.result (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -238,9 +224,6 @@
 | created               | 登録日時                                                                                                                                                                                                                                                                                                                                                                         | datetime |
 | modified              | 更新日時                                                                                                                                                                                                                                                                                                                                                                         | datetime |
 
-</details>
-</details>
-</details>
 
 ## 使用例
 

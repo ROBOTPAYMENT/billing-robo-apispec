@@ -87,7 +87,6 @@
 
 #### billing (response)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                              | 概要                         | 型                          |
@@ -97,9 +96,6 @@
 | [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ | `array` |
 
 #### billing_individual (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -157,7 +153,6 @@
 | advances_received_code         | 請求先部署前受金補助科目コード                                                                                     | string |
 | suspense_received_code         | 請求先部署仮受金補助科目コード                                                                                     | string |
 
-</details>
 
 
 ## 使用例
