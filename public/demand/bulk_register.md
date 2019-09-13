@@ -5,6 +5,15 @@
 複数の請求情報登録、合算請求書発行、クレジット決済処理まで行います。
 決済手段がクレジットカードの場合のみに限られます。
 
+## アウトライン
+
+- [リクエスト](#リクエスト)
+- [レスポンス](#レスポンス)
+- [使用例](#使用例)
+  - [リクエスト例](#リクエスト例)
+  - [レスポンス例](#レスポンス例)
+- [エラー](#エラー)
+
 ## リクエスト
 - Method URL: `https://billing-robo.jp:10443/api/demand/bulk_regiseter`
 - Preferred HTTP method: `POST`
@@ -13,41 +22,64 @@
 
 ### Parameters
 
-| 名前                      | 概要                                                                                                                              | 桁数        | 種別                               | 必須                        |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------- | --------------------------- |
-| user_id                   | ユーザーID（管理画面へのログインID）                                                                                              | 100         | [半角英数\*1](/README.md#種別注釈) | 必須                        |
-| access_key                | アクセスキー                                                                                                                      | 100         | [半角英数\*3](/README.md#種別注釈) | 必須                        |
-| bill                      | 請求書に属するパラメータ                                                                                                          |             |                                    |                             |
-| billing_code              | 請求先コード                                                                                                                      | 20          | [半角英数\*4](/README.md#種別注釈) | 必須                        |
-| billing_individual_number | 請求先部署番号                                                                                                                    | 20          | 数値                               | [(必須)^1](/README.md#必須) |
-| billing_individual_code   | 請求先部署コード                                                                                                                  | 20          | [半角英数\*4](/README.md#種別注釈) | [(必須)^1](/README.md#必須) |
-| billing_method            | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送         | 1           | 数値                               | 必須                        |
-| bill_template_code        | 請求書テンプレートコード <br> 10000:基本テンプレート <br> 10010:シンプル  <br> ※合計請求書はご利用いただけません                  | 20          | 数値                               | 必須                        |
-| tax                       | 消費税率 <br> 画面上で選択できる消費税率のみ入力可能                                                                              | 2           | 数値                               | 必須                        |
-| issue_date                | 初回請求書発行日 <br> yyyy/mm/dd                                                                                                  | 10          | 文字列                             | 必須                        |
-| sending_date              | 初回請求書送付日 <br> yyyy/mm/dd                                                                                                  | 10          | 文字列                             | 必須                        |
-| deadline_date             | 初回決済期限 <br> yyyy/mm/dd                                                                                                      | 10          | 文字列                             | 必須                        |
-| bs_owner_code             | 請求元担当者コード <br> ※両端のスペース除去                                                                                       | 20          | [半角英数\*4](/README.md#種別注釈) |                             |
-| jb                        | 決済処理方法 <br> 仮実同時売上:CAPTURE                                                                                            | 7           | 文字列                             | 必須                        |
-| bill.detail               | 請求書詳細に属するパラメータ                                                                                                      |             |                                    |                             |
-| demand_type               | 請求タイプ <br> 0:単発 1:定期定額 2:定期従量                                                                                      | 1           | 数値                               | 必須                        |
-| goods_code                | 商品コード                                                                                                                        | 33          | 文字列                             |                             |
-| link_goods_code           | 会計ソフト連携用商品コード                                                                                                        | 33          | 文字列                             |                             |
-| goods_name                | 商品名                                                                                                                            | 60          | 文字列                             | 必須                        |
-| price                     | 単価  <br> 両端のスペース除去 <br> ※クレジットカード決済のため桁数上限整数7桁                                                     | 整数7,小数4 | 数値                               | (demand_type=0,1時)         |
-| quantity                  | 数量  <br> 両端のスペース除去                                                                                                     | 整数6,小数2 | 数値                               | (demand_type=0,1時)         |
-| unit                      | 単位                                                                                                                              | 3           | 文字列                             |                             |
-| tax_category              | 税区分 <br> 0:外税 1:内税 2:対象外 3:非課税                                                                                       | 1           | 数値                               | 必須                        |
-| tax                       | 消費税率 <br> 画面上で選択できる消費税率のみ入力可能 <br> tax_category=0,1の場合のみ有効 <br> ※指定しない場合はbill.taxの値を参照 | 2           | 数値                               |                             |
-| remark                    | 備考                                                                                                                              | 60×17行     | 文字列                             |                             |
-| repetition_period_number  | 繰返し周期 <br> 1～50                                                                                                             | 2           | 数値                               | (demand_type=1,2時)         |
-| repetition_period_unit    | 繰返し周期単位 <br> 1:月                                                                                                          | 1           | 数値                               | (demand_type=1,2時)         |
-| start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                                | 10          | 日付                               | 必須                        |
-| repeat_count              | 繰返し回数 <br> 0:設定しない または1～36                                                                                          | 2           | 数値                               | (demand_type=1,2時)         |
-| period_format             | 対象期間形式 <br> 0：○年○月分 <br> 1：○年○月○日分 <br> 2：○年○月～○年○月 <br> 3：○年○月○日～○年○月○日 <br> 99：非表示             | 2           | 数値                               | 必須                        |
-| period_value              | 対象期間 <br> 入力可能値:1～31                                                                                                    | 2           | 数値                               | (period_format=2,3時)       |
-| period_unit               | 対象期間単位 <br> 1:月                                                                                                            | 1           | 数値                               | (period_format=3時)         |
-| period_criterion          | 基準 <br> 0:対象期間開始日 1:対象期間終了日                                                                                       | 1           | 数値                               | (period_format=2,3時)       |
+| 名前                  | 概要                                 | 桁数 | 種別                              | 必須 |
+| --------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
+| user_id               | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
+| access_key            | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                     |      |
+
+#### bill (request)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                               | 概要                                                                                                                      | 桁数 | 種別                                   | 必須     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | -------- |
+| billing_code                       | 請求先コード                                                                                                              | 20   | [半角英数 + 記号](/README.md#種別) | 必須     |
+| billing_individual_number          | 請求先部署番号                                                                                                            | 20   | 数値                                   | (必須)^1 |
+| billing_individual_code            | 請求先部署コード                                                                                                          | 20   | [半角英数 + 記号](/README.md#種別) | (必須)^1 |
+| billing_method                     | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送 | 1    | 数値                                   | 必須     |
+| bill_template_code                 | 請求書テンプレートコード <br> 10000:基本テンプレート <br> 10010:シンプル  <br> ※合計請求書はご利用いただけません          | 20   | 数値                                   | 必須     |
+| tax                                | 消費税率 <br> 画面上で選択できる消費税率のみ入力可能                                                                      | 2    | 数値                                   | 必須     |
+| issue_date                         | 初回請求書発行日 <br> yyyy/mm/dd                                                                                          | 10   | 文字列                                 | 必須     |
+| sending_date                       | 初回請求書送付日 <br> yyyy/mm/dd                                                                                          | 10   | 文字列                                 | 必須     |
+| deadline_date                      | 初回決済期限 <br> yyyy/mm/dd                                                                                              | 10   | 文字列                                 | 必須     |
+| bs_owner_code                      | 請求元担当者コード <br> ※両端のスペース除去                                                                               | 20   | [半角英数 + 記号](/README.md#種別) |          |
+| jb                                 | 決済処理方法 <br> 仮実同時売上:CAPTURE                                                                                    | 7    | 文字列                                 | 必須     |
+| [bill.detail](#billdetail-request) | 請求書詳細に属するパラメータ                                                                                              |      | `array`                        |          |
+
+#### bill.detail (request)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                     | 概要                                                                                                                              | 桁数        | 種別   | 必須                  |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------ | --------------------- |
+| demand_type              | 請求タイプ <br> 0:単発 1:定期定額 2:定期従量                                                                                      | 1           | 数値   | 必須                  |
+| goods_code               | 商品コード                                                                                                                        | 33          | 文字列 |                       |
+| link_goods_code          | 会計ソフト連携用商品コード                                                                                                        | 33          | 文字列 |                       |
+| goods_name               | 商品名                                                                                                                            | 60          | 文字列 | 必須                  |
+| price                    | 単価  <br> 両端のスペース除去 <br> ※クレジットカード決済のため桁数上限整数7桁                                                     | 整数7,小数4 | 数値   | (demand_type=0,1時)   |
+| quantity                 | 数量  <br> 両端のスペース除去                                                                                                     | 整数6,小数2 | 数値   | (demand_type=0,1時)   |
+| unit                     | 単位                                                                                                                              | 3           | 文字列 |                       |
+| tax_category             | 税区分 <br> 0:外税 1:内税 2:対象外 3:非課税                                                                                       | 1           | 数値   | 必須                  |
+| tax                      | 消費税率 <br> 画面上で選択できる消費税率のみ入力可能 <br> tax_category=0,1の場合のみ有効 <br> ※指定しない場合はbill.taxの値を参照 | 2           | 数値   |                       |
+| remark                   | 備考                                                                                                                              | 60×17行     | 文字列 |                       |
+| repetition_period_number | 繰返し周期 <br> 1～50                                                                                                             | 2           | 数値   | (demand_type=1,2時)   |
+| repetition_period_unit   | 繰返し周期単位 <br> 1:月                                                                                                          | 1           | 数値   | (demand_type=1,2時)   |
+| start_date               | サービス提供開始日 <br> yyyy/mm/dd                                                                                                | 10          | 日付   | 必須                  |
+| repeat_count             | 繰返し回数 <br> 0:設定しない または1～36                                                                                          | 2           | 数値   | (demand_type=1,2時)   |
+| period_format            | 対象期間形式 <br> 0：○年○月分 <br> 1：○年○月○日分 <br> 2：○年○月～○年○月 <br> 3：○年○月○日～○年○月○日 <br> 99：非表示             | 2           | 数値   | 必須                  |
+| period_value             | 対象期間 <br> 入力可能値:1～31                                                                                                    | 2           | 数値   | (period_format=2,3時) |
+| period_unit              | 対象期間単位 <br> 1:月                                                                                                            | 1           | 数値   | (period_format=3時)   |
+| period_criterion         | 基準 <br> 0:対象期間開始日 1:対象期間終了日                                                                                       | 1           | 数値   | (period_format=2,3時) |
+
+</details>
+</details>
 
 
 ## レスポンス
@@ -56,6 +88,30 @@
 - Encode: `UTF-8`
 
 ### Fields
+
+| 名前 | 概要                     | 型       |
+| ---- | ------------------------ | -------- |
+| user | ユーザに属するパラメータ | `object` |
+
+
+#### user
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+| 名前                      | 概要                     | 型              |
+| ------------------------- | ------------------------ | --------------- |
+| user_id                   | ユーザID                 | string          |
+| access_key                | アクセスキー             | string          |
+| [demand](#demand-request) | 請求書に属するパラメータ | `array` |
+
+
+#### demand (response)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
 
 | 名前                      | 概要                                                                                                                                                            | 型     |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
@@ -99,12 +155,15 @@
 | jb                        | 決済処理方法                                                                                                                                                    | string |
 | bs_owner_code             | 請求元担当者コード                                                                                                                                              | string |
 
+</details>
+</details>
+
 
 ## 使用例
 
-### リクエスト
+### リクエスト例
 
-```
+```json
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
@@ -147,59 +206,65 @@
 
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 
-```
+```json
 {
-    "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
-    "demand": {
-        "billing_code": "billing",
-        "billing_name": "請求先名",
-        "billing_individual_number": 1,
-        "billing_individual_code": "bicd0001",
-        "billing_individual_name": "請求先部署名",
-        "payment_method": 0,
-        "code": 1,
-        "type": 0,
-        "goods_code": "goods",
-        "link_goods_code": "link_goods",
-        "goods_name": "商品",
-        "price": "1000.0000",
-        "quantity": "1.00",
-        "unit": "円",
-        "tax_category": 0,
-        "tax": 8,
-        "withholding_tax": 0,
-        "remark": "備考",
-        "billing_method": 0,
-        "repetition_period_number": null,
-        "repetition_period_unit": null,
-        "start_date": "2014/11/11",
-        "end_date": "2014/11/30",
-        "repeat_count": null,
-        "period_format": 0,
-        "period_value": null,
-        "period_unit": null,
-        "period_criterion": "0",
-        "issue_month": 0,
-        "issue_day": 1,
-        "sending_month": 0,
-        "sending_day": 1,
-        "deadline_month": 0,
-        "deadline_day": 1,
-        "next_issue_date": "2014/11/01",
-        "bill_template_code": 10010,
-        "jb": "CAPTURE",
-        "bs_owner_code": "bs_owner_code"
+    "user": {
+        "user_id": "sample@robotpayment.co.jp",
+        "access_key": "xxxxxxxxxxxxxxxx",
+        "demand": {
+            "billing_code": "billing",
+            "billing_name": "請求先名",
+            "billing_individual_number": 1,
+            "billing_individual_code": "bicd0001",
+            "billing_individual_name": "請求先部署名",
+            "payment_method": 0,
+            "code": 1,
+            "type": 0,
+            "goods_code": "goods",
+            "link_goods_code": "link_goods",
+            "goods_name": "商品",
+            "price": "1000.0000",
+            "quantity": "1.00",
+            "unit": "円",
+            "tax_category": 0,
+            "tax": 8,
+            "withholding_tax": 0,
+            "remark": "備考",
+            "billing_method": 0,
+            "repetition_period_number": null,
+            "repetition_period_unit": null,
+            "start_date": "2014/11/11",
+            "end_date": "2014/11/30",
+            "repeat_count": null,
+            "period_format": 0,
+            "period_value": null,
+            "period_unit": null,
+            "period_criterion": "0",
+            "issue_month": 0,
+            "issue_day": 1,
+            "sending_month": 0,
+            "sending_day": 1,
+            "deadline_month": 0,
+            "deadline_day": 1,
+            "next_issue_date": "2014/11/01",
+            "bill_template_code": 10010,
+            "jb": "CAPTURE",
+            "bs_owner_code": "bs_owner_code"
+        }
     }
 }
 
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                                  |
 | ------------ | ----------------------------------------------------- |

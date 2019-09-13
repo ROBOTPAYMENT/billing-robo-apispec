@@ -4,6 +4,15 @@
 
 請求先情報処理を実行します。
 
+## アウトライン
+
+- [リクエスト](#リクエスト)
+- [レスポンス](#レスポンス)
+- [使用例](#使用例)
+  - [リクエスト例](#リクエスト例)
+  - [レスポンス例](#レスポンス例)
+- [エラー](#エラー)
+
 ## リクエスト
 - Method URL: `https://billing-robo.jp:10443/api/billing/add`
 - Preferred HTTP method: `POST`
@@ -12,57 +21,57 @@
 
 ### Parameters
 
-| 名前                     | 概要                                                                                                                                                            | 桁数 | 種別                               | 必須                                                 |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------- | ---------------------------------------------------- |
-| user_id                  | ユーザーID（管理画面へのログインID）                                                                                                                            | 100  | [半角英数\*1](/README.md#種別注釈) | 必須                                                 |
-| access_key               | アクセスキー                                                                                                                                                    | 100  | [半角英数\*4](/README.md#種別注釈) | 必須                                                 |
-| billing_code             | 請求先コード  <br> 両端のスペース除去                                                                                                                           | 20   | [半角英数\*4](/README.md#種別注釈) | 必須                                                 |
-| billing_name             | 請求先名  <br> 両端のスペース除去                                                                                                                               | 100  | 文字列                             | 必須                                                 |
-| billing_individual_code  | 請求先部署コード <br> 両端のスペース除去                                                                                                                        | 20   | [半角英数\*4](/README.md#種別注釈) |                                                      |
-| billing_individual_name  | 請求先部署名 <br> 両端のスペース除去                                                                                                                            | 100  | 文字列                             | 必須                                                 |
-| link_customer_code       | 会計ソフト連携用取引先コード                                                                                                                                    | 20   | [半角英数\*3](/README.md#種別注釈) | 必須                                                 |
-| address1                 | 宛名1 <br> 両端のスペース除去                                                                                                                                   | 60   | 文字列                             |                                                      |
-| address2                 | 宛名2 <br> ※両端のスペース除去                                                                                                                                  | 60   | 文字列                             |                                                      |
-| address3                 | 宛名3 <br> ※両端のスペース除去                                                                                                                                  | 60   | 文字列                             |                                                      |
-| zip_code                 | 郵便番号 <br>  両端のスペース除去                                                                                                                               | 7    | 数値                               |                                                      |
-| pref                     | 都道府県                                                                                                                                                        | 4    | 文字列                             | 必須                                                 |
-| city_address             | 市区町村番地 <br> 両端のスペース除去                                                                                                                            | 56   | 文字列                             | 必須                                                 |
-| building_name            | 建物名 <br> ※両端のスペース除去                                                                                                                                 | 60   | 文字列                             |                                                      |
-| set_post_address         | 郵送宛先情報 <br> 0:使用しない 1:使用する <br> ※両端のスペース除去                                                                                              | 1    | 数値                               |                                                      |
-| post_address1            | 郵送先宛名1  <br> 両端のスペース除去                                                                                                                            | 60   | 文字列                             | (set_post_address=1時)                               |
-| post_address2            | 郵送先宛名2 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                             |                                                      |
-| post_address3            | 郵送先宛名3 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                             |                                                      |
-| post_zip_code            | 郵送先郵便番号  <br> 両端のスペース除去                                                                                                                         | 7    | 数値                               | (set_post_address=1時)                               |
-| post_pref                | 郵送先都道府県                                                                                                                                                  | 4    | 文字列                             | (set_post_address=1時)                               |
-| post_city_address        | 郵送先市区町村番地                                                                                                                                              | 56   | 文字列                             | (set_post_address=1時)                               |
-| post_building_name       | 郵送先建物名 <br> ※両端のスペース除去                                                                                                                           | 60   | 文字列                             |                                                      |
-| tel                      | 電話番号  <br> 両端のスペース除去                                                                                                                               | 15   | 数値、半角ハイフン                 | (payment_method=1,2,6,7時)                           |
-| email                    | メールアドレス <br> 両端のスペース除去                                                                                                                          | 100  | [半角英数\*1](/README.md#種別注釈) | 必須                                                 |
-| cc_email                 | CC送信先メールアドレス <br> ※両端のスペース除去                                                                                                                 | 256  | [半角英数\*1](/README.md#種別注釈) |                                                      |
-| bs_owner_code            | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数\*4](/README.md#種別注釈) |                                                      |
-| payment_method           | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | 1    | 数値                               | 必須                                                 |
-| source_bank_account_name | 振込元口座名義 <br> ※payment_method=0,2の場合に必要(入力は任意)                                                                                                 | 48   | [半角英数\*5](/README.md#種別注釈) |                                                      |
-| credit_number            | クレジットカード番号(ハイフンはつけない)  <br> 両端のスペース除去                                                                                               | 20   | 数値                               | (payment_method=1時)                                 |
-| credit_expiration_date   | クレジットカード有効期限(YYMM形式)  <br> 両端のスペース除去                                                                                                     | 4    | 数値                               | (payment_method=1時)                                 |
-| credit_first_name        | クレジットカード名義(名)  <br> 両端のスペース除去                                                                                                               | 20   | [半角英数\*2](/README.md#種別注釈) | (payment_method=1時)                                 |
-| credit_last_name         | クレジットカード名義(姓)  <br> 両端のスペース除去                                                                                                               | 20   | [半角英数\*2](/README.md#種別注釈) | (payment_method=1時)                                 |
-| customer_number          | 顧客番号 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                         | 20   | [半角英数\*3](/README.md#種別注釈) |                                                      |
-| bank_code                | 銀行コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 4    | 数値                               |                                                      |
-| bank_name                | 銀行名 <br> ※payment_method=5の場合に必要(入力は任意) <br> ※ゆうちょの場合は「ﾕｳﾁﾖ」                                                                            | 15   | [半角英数\*6](/README.md#種別注釈) |                                                      |
-| branch_code              | 支店コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 3    | 数値                               |                                                      |
-| branch_name              | 支店名 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                           | 15   | [半角英数\*6](/README.md#種別注釈) |                                                      |
-| bank_account_type        | 預金種目 <br> 1:普通 2:当座                                                                                                                                     | 1    | 数値                               | (payment_method=3,4,5時)                             |
-| bank_account_number      | 口座番号 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3でゆうちょの時の桁数は8桁固定                                                 | 7    | 数値                               |                                                      |
-| bank_account_name        | 口座名義 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3時の桁数は30桁                                                                | 100  | [半角英数\*5](/README.md#種別注釈) |                                                      |
-| ref_billing_code         | 合計請求書用請求先コード                                                                                                                                        | 20   | [半角英数\*4](/README.md#種別注釈) | (ref_individual_number or ref_individual_code指定時) |
-| ref_individual_number    | 合計請求書用請求先部署番号                                                                                                                                      | 20   | 数値                               | [(合計請求書時)^1](/README.md#必須)                  |
-| ref_individual_code      | 合計請求書用請求先部署コード                                                                                                                                    | 20   | [半角英数\*4](/README.md#種別注釈) | [(合計請求書時)^1](/README.md#必須)                  |
-| bill_template_code       | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください                                                                 |      | 数値                               |                                                      |
-| payment_method_code      | 決済情報コード                                                                                                                                                  | 20   | [半角英数\*4](/README.md#種別注釈) |                                                      |
-| payment_method_name      | 決済情報名                                                                                                                                                      | 100  | 文字列                             |                                                      |
-| account_receivable_code  | 請求先部署売掛金補助科目コード <br> ※追加省略時、nullで登録される                                                                                               | 25   | 文字列                             |                                                      |
-| advances_received_code   | 請求先部署前受金補助科目コード <br> ※追加省略時、nullで登録される                                                                                               | 25   | 文字列                             |                                                      |
-| suspense_received_code   | 請求先部署仮受金補助科目コード <br> ※追加省略時、nullで登録される                                                                                               | 25   | 文字列                             |                                                      |
+| 名前                     | 概要                                                                                                                                                            | 桁数 | 種別                                   | 必須                                                 |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | ---------------------------------------------------- |
+| user_id                  | ユーザーID（管理画面へのログインID）                                                                                                                            | 100  | [メール形式](/README.md#種別)      | 必須                                                 |
+| access_key               | アクセスキー                                                                                                                                                    | 100  | [半角英数 + 記号](/README.md#種別) | 必須                                                 |
+| billing_code             | 請求先コード  <br> 両端のスペース除去                                                                                                                           | 20   | [半角英数 + 記号](/README.md#種別) | 必須                                                 |
+| billing_name             | 請求先名  <br> 両端のスペース除去                                                                                                                               | 100  | 文字列                                 | 必須                                                 |
+| billing_individual_code  | 請求先部署コード <br> 両端のスペース除去                                                                                                                        | 20   | [半角英数 + 記号](/README.md#種別) |                                                      |
+| billing_individual_name  | 請求先部署名 <br> 両端のスペース除去                                                                                                                            | 100  | 文字列                                 | 必須                                                 |
+| link_customer_code       | 会計ソフト連携用取引先コード                                                                                                                                    | 20   | [半角英数](/README.md#種別)        | 必須                                                 |
+| address1                 | 宛名1 <br> 両端のスペース除去                                                                                                                                   | 60   | 文字列                                 |                                                      |
+| address2                 | 宛名2 <br> ※両端のスペース除去                                                                                                                                  | 60   | 文字列                                 |                                                      |
+| address3                 | 宛名3 <br> ※両端のスペース除去                                                                                                                                  | 60   | 文字列                                 |                                                      |
+| zip_code                 | 郵便番号 <br>  両端のスペース除去                                                                                                                               | 7    | 数値                                   |                                                      |
+| pref                     | 都道府県                                                                                                                                                        | 4    | 文字列                                 | 必須                                                 |
+| city_address             | 市区町村番地 <br> 両端のスペース除去                                                                                                                            | 56   | 文字列                                 | 必須                                                 |
+| building_name            | 建物名 <br> ※両端のスペース除去                                                                                                                                 | 60   | 文字列                                 |                                                      |
+| set_post_address         | 郵送宛先情報 <br> 0:使用しない 1:使用する <br> ※両端のスペース除去                                                                                              | 1    | 数値                                   |                                                      |
+| post_address1            | 郵送先宛名1  <br> 両端のスペース除去                                                                                                                            | 60   | 文字列                                 | (set_post_address=1時)                               |
+| post_address2            | 郵送先宛名2 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                                 |                                                      |
+| post_address3            | 郵送先宛名3 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                                 |                                                      |
+| post_zip_code            | 郵送先郵便番号  <br> 両端のスペース除去                                                                                                                         | 7    | 数値                                   | (set_post_address=1時)                               |
+| post_pref                | 郵送先都道府県                                                                                                                                                  | 4    | 文字列                                 | (set_post_address=1時)                               |
+| post_city_address        | 郵送先市区町村番地                                                                                                                                              | 56   | 文字列                                 | (set_post_address=1時)                               |
+| post_building_name       | 郵送先建物名 <br> ※両端のスペース除去                                                                                                                           | 60   | 文字列                                 |                                                      |
+| tel                      | 電話番号  <br> 両端のスペース除去                                                                                                                               | 15   | 数値、半角ハイフン                     | (payment_method=1,2,6,7時)                           |
+| email                    | メールアドレス <br> 両端のスペース除去                                                                                                                          | 100  | [メール形式](/README.md#種別)      | 必須                                                 |
+| cc_email                 | CC送信先メールアドレス <br> ※両端のスペース除去                                                                                                                 | 256  | [メール形式](/README.md#種別)      |                                                      |
+| bs_owner_code            | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数 + 記号](/README.md#種別) |                                                      |
+| payment_method           | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | 1    | 数値                                   | 必須                                                 |
+| source_bank_account_name | 振込元口座名義 <br> ※payment_method=0,2の場合に必要(入力は任意)                                                                                                 | 48   | [口座名義](/README.md#種別)        |                                                      |
+| credit_number            | クレジットカード番号(ハイフンはつけない)  <br> 両端のスペース除去                                                                                               | 20   | 数値                                   | (payment_method=1時)                                 |
+| credit_expiration_date   | クレジットカード有効期限(YYMM形式)  <br> 両端のスペース除去                                                                                                     | 4    | 数値                                   | (payment_method=1時)                                 |
+| credit_first_name        | クレジットカード名義(名)  <br> 両端のスペース除去                                                                                                               | 20   | [アルファベット](/README.md#種別)  | (payment_method=1時)                                 |
+| credit_last_name         | クレジットカード名義(姓)  <br> 両端のスペース除去                                                                                                               | 20   | [アルファベット](/README.md#種別)  | (payment_method=1時)                                 |
+| customer_number          | 顧客番号 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                         | 20   | [半角英数](/README.md#種別)        |                                                      |
+| bank_code                | 銀行コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 4    | 数値                                   |                                                      |
+| bank_name                | 銀行名 <br> ※payment_method=5の場合に必要(入力は任意) <br> ※ゆうちょの場合は「ﾕｳﾁﾖ」                                                                            | 15   | [銀行名等](/README.md#種別)        |                                                      |
+| branch_code              | 支店コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 3    | 数値                                   |                                                      |
+| branch_name              | 支店名 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                           | 15   | [銀行名等](/README.md#種別)        |                                                      |
+| bank_account_type        | 預金種目 <br> 1:普通 2:当座                                                                                                                                     | 1    | 数値                                   | (payment_method=3,4,5時)                             |
+| bank_account_number      | 口座番号 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3でゆうちょの時の桁数は8桁固定                                                 | 7    | 数値                                   |                                                      |
+| bank_account_name        | 口座名義 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3時の桁数は30桁                                                                | 100  | [口座名義](/README.md#種別)        |                                                      |
+| ref_billing_code         | 合計請求書用請求先コード                                                                                                                                        | 20   | [半角英数 + 記号](/README.md#種別) | (ref_individual_number or ref_individual_code指定時) |
+| ref_individual_number    | 合計請求書用請求先部署番号                                                                                                                                      | 20   | 数値                                   | (合計請求書時)^1                                     |
+| ref_individual_code      | 合計請求書用請求先部署コード                                                                                                                                    | 20   | [半角英数 + 記号](/README.md#種別) | (合計請求書時)^1                                     |
+| bill_template_code       | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください                                                                 |      | 数値                                   |                                                      |
+| payment_method_code      | 決済情報コード                                                                                                                                                  | 20   | [半角英数 + 記号](/README.md#種別) |                                                      |
+| payment_method_name      | 決済情報名                                                                                                                                                      | 100  | 文字列                                 |                                                      |
+| account_receivable_code  | 請求先部署売掛金補助科目コード <br> ※追加省略時、nullで登録される                                                                                               | 25   | 文字列                                 |                                                      |
+| advances_received_code   | 請求先部署前受金補助科目コード <br> ※追加省略時、nullで登録される                                                                                               | 25   | 文字列                                 |                                                      |
+| suspense_received_code   | 請求先部署仮受金補助科目コード <br> ※追加省略時、nullで登録される                                                                                               | 25   | 文字列                                 |                                                      |
 
 
 ## レスポンス
@@ -72,66 +81,88 @@
 
 ### Fields
 
-| 名前                                              | 概要                                                                                                               | 型     |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------ |
-| code                                              | 請求先コード                                                                                                       | string |
-| name                                              | 請求先名                                                                                                           | string |
-| billing_individual.number                         | 請求先部署番号                                                                                                     | int    |
-| billing_individual.code                           | 請求先部署コード                                                                                                   | string |
-| billing_individual.name                           | 請求先部署名                                                                                                       | string |
-| billing_individual. link_customer_code            | 会計ソフト連携用取引先コード                                                                                       | string |
-| billing_individual.address1                       | 宛名1                                                                                                              | string |
-| billing_individual.address2                       | 宛名2                                                                                                              | string |
-| billing_individual.address3                       | 宛名3                                                                                                              | string |
-| billing_individual.zip_code                       | 郵便番号                                                                                                           | string |
-| billing_individual.pref                           | 都道府県                                                                                                           | string |
-| billing_individual.city_address                   | 市区町村番地                                                                                                       | string |
-| billing_individual.building_name                  | 建物名                                                                                                             | string |
-| billing_individual. set_post_address              | 郵送宛先情報 <br> 0:使用しない 1:使用する                                                                          | int    |
-| billing_individual. post_address1                 | 郵送先宛名1                                                                                                        | string |
-| billing_individual. post_address2                 | 郵送先宛名2                                                                                                        | string |
-| billing_individual.post_address3                  | 郵送先宛名3                                                                                                        | string |
-| billing_individual.post_zip_code                  | 郵送先郵便番号                                                                                                     | string |
-| billing_individual.post_pref                      | 郵送先都道府県                                                                                                     | string |
-| billing_individual.post_city_address              | 郵送先市区町村番地                                                                                                 | string |
-| billing_individual.post_building_name             | 郵送先建物名                                                                                                       | string |
-| billing_individual.tel                            | 電話番号                                                                                                           | string |
-| billing_individual.email                          | メールアドレス                                                                                                     | string |
-| billing_individual. cc_email                      | CC送信先メールアドレス                                                                                             | string |
-| billing_individual.bs_owner_code                  | 請求元担当者コード                                                                                                 | string |
-| billing_individual.payment_method                 | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替       | int    |
-| billing_individual. register_status               | 登録ステータス <br> 0:未登録 1:登録待ち 2:メール送信済み 3:申請中 <br> 4:登録情報_送信エラー 5:登録完了 6:登録失敗 | int    |
-| billing_individual.source_bank_account_name       | 振込元口座名義 <br> ※payment_method=0,2以外はNULL                                                                  | string |
-| billing_individual.customer_number                | 顧客番号 <br> ※payment_method=5以外はNULL                                                                          | string |
-| billing_individual.bank_code                      | 銀行コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
-| billing_individual.bank_name                      | 銀行名 <br> ※payment_method=5以外はNULL                                                                            | string |
-| billing_individual.branch_code                    | 支店コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
-| billing_individual.branch_name                    | 支店名 <br> ※payment_method=5以外はNULL                                                                            | string |
-| billing_individual.bank_account_type              | 預金種目 <br> 1:普通 2:当座 <br> ※payment_method=3,4,5以外はNULL                                                   | string |
-| billing_individual.bank_account_number            | 口座番号 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
-| billing_individual.bank_account_name              | 口座名義 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
-| billing_individual.gid                            | 決済番号 <br> ※payment_method=1以外はNULL                                                                          | string |
-| billing_individual.bank_check_bank_code           | バンクチェック銀行コード <br> ※payment_method=2以外はNULL                                                          | string |
-| billing_individual.bank_check_bank_name           | バンクチェック銀行名 <br> ※payment_method=2以外はNULL                                                              | string |
-| billing_individual.bank_check_branch_code         | バンクチェック支店コード <br> ※payment_method=2以外はNULL                                                          | string |
-| billing_individual.bank_check_branch_name         | バンクチェック支店名 <br> ※payment_method=2以外はNULL                                                              | string |
-| billing_individual.bank_check_kind                | バンクチェック口座種別 <br> ※NULL string                                                                           | string |
-| billing_individual.bank_check_bank_account_number | バンクチェック口座番号 <br> ※payment_method=2以外はNULL                                                            | string |
-| billing_individual.ref_billing_code               | 合計請求書用請求先コード                                                                                           | string |
-| billing_individual.ref_individual_number          | 合計請求書用請求先部署番号                                                                                         | string |
-| billing_individual.ref_individual_code            | 合計請求書用請求先部署コード                                                                                       | string |
-| billing_individual.bill_template_code             | 請求書テンプレートコード                                                                                           | string |
-| payment_method_number                             | 決済情報番号                                                                                                       | int    |
-| payment_method_code                               | 決済情報コード                                                                                                     | string |
-| payment_method_name                               | 決済情報名                                                                                                         | string |
-| account_receivable_code                           | 請求先部署売掛金補助科目コード                                                                                     | string |
-| advances_received_code                            | 請求先部署前受金補助科目コード                                                                                     | string |
-| suspense_received_code                            | 請求先部署仮受金補助科目コード                                                                                     | string |
+| 名前                         | 概要                     | 型               |
+| ---------------------------- | ------------------------ | ---------------- |
+| [billing](#billing-response) | 請求先に属するパラメータ | `array` |
+
+#### billing (response)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                                              | 概要                         | 型                          |
+| ------------------------------------------------- | ---------------------------- | --------------------------- |
+| code                                              | 請求先コード                 | string                      |
+| name                                              | 請求先名                     | string                      |
+| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ | `array` |
+
+#### billing_individual (response)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                           | 概要                                                                                                               | 型     |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------ |
+| number                         | 請求先部署番号                                                                                                     | int    |
+| code                           | 請求先部署コード                                                                                                   | string |
+| name                           | 請求先部署名                                                                                                       | string |
+| link_customer_code             | 会計ソフト連携用取引先コード                                                                                       | string |
+| address1                       | 宛名1                                                                                                              | string |
+| address2                       | 宛名2                                                                                                              | string |
+| address3                       | 宛名3                                                                                                              | string |
+| zip_code                       | 郵便番号                                                                                                           | string |
+| pref                           | 都道府県                                                                                                           | string |
+| city_address                   | 市区町村番地                                                                                                       | string |
+| building_name                  | 建物名                                                                                                             | string |
+| set_post_address               | 郵送宛先情報 <br> 0:使用しない 1:使用する                                                                          | int    |
+| post_address1                  | 郵送先宛名1                                                                                                        | string |
+| post_address2                  | 郵送先宛名2                                                                                                        | string |
+| post_address3                  | 郵送先宛名3                                                                                                        | string |
+| post_zip_code                  | 郵送先郵便番号                                                                                                     | string |
+| post_pref                      | 郵送先都道府県                                                                                                     | string |
+| post_city_address              | 郵送先市区町村番地                                                                                                 | string |
+| post_building_name             | 郵送先建物名                                                                                                       | string |
+| tel                            | 電話番号                                                                                                           | string |
+| email                          | メールアドレス                                                                                                     | string |
+| cc_email                       | CC送信先メールアドレス                                                                                             | string |
+| bs_owner_code                  | 請求元担当者コード                                                                                                 | string |
+| payment_method                 | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替       | int    |
+| register_status                | 登録ステータス <br> 0:未登録 1:登録待ち 2:メール送信済み 3:申請中 <br> 4:登録情報_送信エラー 5:登録完了 6:登録失敗 | int    |
+| source_bank_account_name       | 振込元口座名義 <br> ※payment_method=0,2以外はNULL                                                                  | string |
+| customer_number                | 顧客番号 <br> ※payment_method=5以外はNULL                                                                          | string |
+| bank_code                      | 銀行コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
+| bank_name                      | 銀行名 <br> ※payment_method=5以外はNULL                                                                            | string |
+| branch_code                    | 支店コード <br> ※payment_method=3,4,5以外はNULL                                                                    | string |
+| branch_name                    | 支店名 <br> ※payment_method=5以外はNULL                                                                            | string |
+| bank_account_type              | 預金種目 <br> 1:普通 2:当座 <br> ※payment_method=3,4,5以外はNULL                                                   | string |
+| bank_account_number            | 口座番号 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
+| bank_account_name              | 口座名義 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
+| gid                            | 決済番号 <br> ※payment_method=1以外はNULL                                                                          | string |
+| bank_check_bank_code           | バンクチェック銀行コード <br> ※payment_method=2以外はNULL                                                          | string |
+| bank_check_bank_name           | バンクチェック銀行名 <br> ※payment_method=2以外はNULL                                                              | string |
+| bank_check_branch_code         | バンクチェック支店コード <br> ※payment_method=2以外はNULL                                                          | string |
+| bank_check_branch_name         | バンクチェック支店名 <br> ※payment_method=2以外はNULL                                                              | string |
+| bank_check_kind                | バンクチェック口座種別 <br> ※NULL string                                                                           | string |
+| bank_check_bank_account_number | バンクチェック口座番号 <br> ※payment_method=2以外はNULL                                                            | string |
+| ref_billing_code               | 合計請求書用請求先コード                                                                                           | string |
+| ref_individual_number          | 合計請求書用請求先部署番号                                                                                         | string |
+| ref_individual_code            | 合計請求書用請求先部署コード                                                                                       | string |
+| bill_template_code             | 請求書テンプレートコード                                                                                           | string |
+| payment_method_number          | 決済情報番号                                                                                                       | int    |
+| payment_method_code            | 決済情報コード                                                                                                     | string |
+| payment_method_name            | 決済情報名                                                                                                         | string |
+| account_receivable_code        | 請求先部署売掛金補助科目コード                                                                                     | string |
+| advances_received_code         | 請求先部署前受金補助科目コード                                                                                     | string |
+| suspense_received_code         | 請求先部署仮受金補助科目コード                                                                                     | string |
+
+</details>
 
 
 ## 使用例
 
-### リクエスト
+### リクエスト例
 
 ```
 user_id: "sample@robotpayment.co.jp"
@@ -185,11 +216,11 @@ advances_received_code: null
 suspense_received_code: null
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 
-```
+```json
 {
     "billing": {
         "code": "billing",
@@ -252,6 +283,10 @@ Status: 200 OK
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                                 |
 | ------------ | ---------------------------------------------------- |

@@ -5,6 +5,15 @@
 請求書、請求書明細の一覧を取得します。
 レスポンスは請求書登録日時の降順でソートし返却されます。
 
+## アウトライン
+
+- [リクエスト](#リクエスト)
+- [レスポンス](#レスポンス)
+- [使用例](#使用例)
+  - [リクエスト例](#リクエスト例)
+  - [レスポンス例](#レスポンス例)
+- [エラー](#エラー)
+
 ## リクエスト
 - Method URL: `https://billing-robo.jp:10443/api/bill/list`
 - Preferred HTTP method: `POST`
@@ -15,12 +24,12 @@
 
 | 名前                                  | 概要                                                                                                                                                            | 桁数 | 種別                              | 必須                                                         |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------- | ------------------------------------------------------------ |
-| user_id                               | ユーザーID（管理画面へのログインID）                                                                                                                            | 100  | [半角英数*1](/README.md#種別注釈) | 必須                                                         |
-| access_key                            | アクセスキー                                                                                                                                                    | 100  | [半角英数*3](/README.md#種別注釈) | 必須                                                         |
+| user_id                               | ユーザーID（管理画面へのログインID）                                                                                                                            | 100  | [メール形式](/README.md#種別) | 必須                                                         |
+| access_key                            | アクセスキー                                                                                                                                                    | 100  | [半角英数](/README.md#種別) | 必須                                                         |
 | demand_code                           | 請求情報番号                                                                                                                                                    | 20   | 数値                              |                                                              |
-| billing_code                          | 請求先コード                                                                                                                                                    | 20   | [半角英数*4](/README.md#種別注釈) | (billing_individual_number or billing_individual_code入力時) |
+| billing_code                          | 請求先コード                                                                                                                                                    | 20   | [半角英数 + 記号](/README.md#種別) | (billing_individual_number or billing_individual_code入力時) |
 | billing_individual_number             | 請求先部署番号                                                                                                                                                  | 20   | 数値                              |                                                              |
-| billing_individual_code               | 請求先部署コード                                                                                                                                                | 20   | [半角英数*4](/README.md#種別注釈) |                                                              |
+| billing_individual_code               | 請求先部署コード                                                                                                                                                | 20   | [半角英数 + 記号](/README.md#種別) |                                                              |
 | issue_start_date                      | 発行日の検索開始日 yyyy/mm/dd形式                                                                                                                               | 10   | 日付                              |                                                              |
 | issue_stop_date                       | 発行日の検索終了日yyyy/mm/dd形式                                                                                                                                | 10   | 日付                              |                                                              |
 | deadline_start_date                   | 決済期限の検索開始日yyyy/mm/dd形式                                                                                                                              | 10   | 日付                              |                                                              |
@@ -28,7 +37,7 @@
 | payment_method                        | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | 1    | 数値                              |                                                              |
 | goods_code                            | 商品コード                                                                                                                                                      | 33   | 文字列                            |                                                              |
 | carryover_payment_status              | 末端の消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消                                     | 1    | 数値                              |                                                              |
-| bs_owner_code                         | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数*4](/README.md#種別注釈) |                                                              |
+| bs_owner_code                         | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数 + 記号](/README.md#種別) |                                                              |
 | carryover_payment_complete_start_date | 末端の消込ステータス完了日時の検索開始日 <br> yyyy/mm/dd hh:ii:ss 形式                                                                                          | 19   | 日時                              |                                                              |
 | carryover_payment_complete_stop_date  | 末端の消込ステータス完了日時の検索終了日 <br> yyyy/mm/dd hh:ii:ss 形式                                                                                          | 19   | 日時                              |                                                              |
 | transfer_start_date                   | 決済日の検索開始日yyyy/mm/dd 形式                                                                                                                               | 10   | 日付                              |                                                              |
@@ -43,49 +52,71 @@
 - Encode: `UTF-8`
 
 ### Fields
+| 名前                   | 概要                     | 型            |
+| ---------------------- | ------------------------ | ------------- |
+| [bill](#bill-response) | 請求書に属するパラメータ | `array` |
 
-| 名前                                     | 概要                                                                                                                                                                           | 型     |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
-| bill                                     | 請求書に属するパラメータ                                                                                                                                                       |        |
-| number                                   | 請求書番号                                                                                                                                                                     | string |
-| billing_code                             | 請求先コード                                                                                                                                                                   | string |
-| billing_name                             | 請求先名                                                                                                                                                                       | string |
-| billing_individual_number                | 請求先部署番号                                                                                                                                                                 | string |
-| billing_individual_code                  | 請求先部署コード                                                                                                                                                               | string |
-| billing_individual_name                  | 請求先部署名                                                                                                                                                                   | string |
-| issue_date                               | 請求書発行日                                                                                                                                                                   | string |
-| sending_date                             | 請求書送付日                                                                                                                                                                   | string |
-| payment_status                           | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越                                                  | int    |
-| bill_carryover_payment_status            | 末端の消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越 <br> ※2016年2月6日よりpayment_statusと同義 | int    |
-| deadline_date                            | 決済期限                                                                                                                                                                       | string |
-| payment_method                           | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替                                                                   | int    |
-| demand_number                            | 請求件数 <br> ※請求書明細の件数                                                                                                                                                | int    |
-| subtotal_amount_billed                   | 小計                                                                                                                                                                           | int    |
-| consumption_tax_amount                   | 消費税額                                                                                                                                                                       | int    |
-| total_bill_detail_consumption_tax_amount | 明細毎消費税額合計                                                                                                                                                             | int    |
-| withholding_tax_amount                   | 源泉所得税額                                                                                                                                                                   | int    |
-| total_amount_billed                      | 合計                                                                                                                                                                           | int    |
-| billing_method                           | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送                                                      | int    |
-| carryover_total_amount_billed            | 未消込金額                                                                                                                                                                     | int    |
-| ec                                       | 決済結果エラーコード <br> ※決済システム側でのエラーコードが入ります。 エラーコードの詳細につきましては下記リンクよりご確認ください。 <br> https://jpayment.zendesk.com/hc/ja   | string |
-| bs_owner_code                            | 請求元担当者コード                                                                                                                                                             | string |
-| carryover_payment_complete_date          | 消込ステータス完了日時                                                                                                                                                         | string |
-| transfer_date                            | 決済日                                                                                                                                                                         | string |
-| update_date                              | データ更新日時                                                                                                                                                                 | string |
-| bill.bill_detail                         | 請求書明細に属するパラメータ                                                                                                                                                   |        |
-| goods_code                               | 商品コード                                                                                                                                                                     | string |
-| goods_name                               | 商品名                                                                                                                                                                         | string |
-| unit_price                               | 単価                                                                                                                                                                           | string |
-| quantity                                 | 数量                                                                                                                                                                           | string |
-| unit                                     | 単位                                                                                                                                                                           | string |
-| subtotal_amount_billed                   | 合計金額                                                                                                                                                                       | int    |
-| consumption_tax_amount                   | 消費税金額                                                                                                                                                                     | int    |
-| total_amount_billed                      | 請求金額                                                                                                                                                                       | int    |
+#### bill (response)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                                         | 概要                                                                                                                                                                           | 型                   |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| number                                       | 請求書番号                                                                                                                                                                     | string               |
+| billing_code                                 | 請求先コード                                                                                                                                                                   | string               |
+| billing_name                                 | 請求先名                                                                                                                                                                       | string               |
+| billing_individual_number                    | 請求先部署番号                                                                                                                                                                 | string               |
+| billing_individual_code                      | 請求先部署コード                                                                                                                                                               | string               |
+| billing_individual_name                      | 請求先部署名                                                                                                                                                                   | string               |
+| issue_date                                   | 請求書発行日                                                                                                                                                                   | string               |
+| sending_date                                 | 請求書送付日                                                                                                                                                                   | string               |
+| payment_status                               | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越                                                  | int                  |
+| bill_carryover_payment_status                | 末端の消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越 <br> ※2016年2月6日よりpayment_statusと同義 | int                  |
+| deadline_date                                | 決済期限                                                                                                                                                                       | string               |
+| payment_method                               | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替                                                                   | int                  |
+| demand_number                                | 請求件数 <br> ※請求書明細の件数                                                                                                                                                | int                  |
+| subtotal_amount_billed                       | 小計                                                                                                                                                                           | int                  |
+| consumption_tax_amount                       | 消費税額                                                                                                                                                                       | int                  |
+| total_bill_detail_consumption_tax_amount     | 明細毎消費税額合計                                                                                                                                                             | int                  |
+| withholding_tax_amount                       | 源泉所得税額                                                                                                                                                                   | int                  |
+| total_amount_billed                          | 合計                                                                                                                                                                           | int                  |
+| billing_method                               | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送                                                      | int                  |
+| carryover_total_amount_billed                | 未消込金額                                                                                                                                                                     | int                  |
+| ec                                           | 決済結果エラーコード <br> ※決済システム側でのエラーコードが入ります。 エラーコードの詳細につきましては下記リンクよりご確認ください。 <br> https://jpayment.zendesk.com/hc/ja   | string               |
+| bs_owner_code                                | 請求元担当者コード                                                                                                                                                             | string               |
+| carryover_payment_complete_date              | 消込ステータス完了日時                                                                                                                                                         | string               |
+| transfer_date                                | 決済日                                                                                                                                                                         | string               |
+| update_date                                  | データ更新日時                                                                                                                                                                 | string               |
+| [bill.bill_detail](#billbilldetail-response) | 請求書明細に属するパラメータ                                                                                                                                                   | `array` |
+
+#### bill.bill_detail (response)
+
+<details open>
+<summary>クリックして隠す/表示</summary>
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                   | 概要       | 型     |
+| ---------------------- | ---------- | ------ |
+| goods_code             | 商品コード | string |
+| goods_name             | 商品名     | string |
+| unit_price             | 単価       | string |
+| quantity               | 数量       | string |
+| unit                   | 単位       | string |
+| subtotal_amount_billed | 合計金額   | int    |
+| consumption_tax_amount | 消費税金額 | int    |
+| total_amount_billed    | 請求金額   | int    |
+
+</details>
+</details>
 
 
 ## 使用例
 
-### リクエスト
+### リクエスト例
 
 ```
 user_id: "sample@robotpayment.co.jp"
@@ -110,7 +141,7 @@ update_start_date: "2015/09/01 00:00:00"
 update_stop_date: "2015/09/30 00:00:00"
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 
@@ -161,6 +192,10 @@ Status: 200 OK
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                                     |
 | ------------ | -------------------------------------------------------- |

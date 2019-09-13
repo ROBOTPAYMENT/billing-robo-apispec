@@ -4,6 +4,15 @@
 
 請求書の更新処理を実行します。
 
+## アウトライン
+
+- [リクエスト](#リクエスト)
+- [レスポンス](#レスポンス)
+- [使用例](#使用例)
+  - [リクエスト例](#リクエスト例)
+  - [レスポンス例](#レスポンス例)
+- [エラー](#エラー)
+
 ## リクエスト
 - Method URL: `https://billing-robo.jp:10443/api/v1.0/bill/update`
 - Preferred HTTP method: `POST`
@@ -12,21 +21,29 @@
 
 ### Parameters
 
-| 名前                   | 概要                                                                                                                  | 桁数 | 種別                               | 必須           |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------- | -------------- |
-| user_id                | ユーザーID（管理画面へのログインID）                                                                                  | 100  | [半角英数\*1](/README.md#種別注釈) | 必須           |
-| access_key             | アクセスキー                                                                                                          | 100  | [半角英数\*3](/README.md#種別注釈) | 必須           |
-| bill                   | 請求書に属するパラメータ                                                                                              |      |                                    |                |
-| number                 | 請求書番号                                                                                                            | 100  | [半角英数\*4](/README.md#種別注釈) | 必須           |
-| billing_code           | 請求先コード                                                                                                          | 20   | [半角英数\*4](/README.md#種別注釈) | 必須           |
-| message_column         | 通信欄                                                                                                                | 112  | 文字列                             |                |
-| sending_scheduled_date | 請求書送付予定日                                                                                                      | 10   | 日付                               | (消込未完了時) |
-| sending_date           | 請求書送付日                                                                                                          | 10   | 日付                               |                |
-| transfer_deadline      | 決済期限                                                                                                              | 10   | 日付                               | (消込未完了時) |
-| payment_status         | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 | 2    | 数値                               |                |
-| erasure_deposit_date   | 消込計上日 <br> ※「未処理、未収」から「他の消込ステータス」へ変更した場合、計上日を選択可能                           | 10   | 日付                               |                |
-| erasure_cancel_date    | キャンセル計上日 <br> ※「他の消込ステータス」から「未処理、未収」へ変更した場合、キャンセル計上日を選択可能           | 10   | 日付                               |                |
-| memo                   | メモ                                                                                                                  | 300  | 文字列                             |                |
+| 名前                  | 概要                                 | 桁数 | 種別                              | 必須 |
+| --------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
+| user_id               | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
+| access_key            | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                     |      |
+
+#### bill (request)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                   | 概要                                                                                                                  | 桁数 | 種別                                   | 必須           |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | -------------- |
+| number                 | 請求書番号                                                                                                            | 100  | [半角英数 + 記号](/README.md#種別) | 必須           |
+| billing_code           | 請求先コード                                                                                                          | 20   | [半角英数 + 記号](/README.md#種別) | 必須           |
+| message_column         | 通信欄                                                                                                                | 112  | 文字列                                 |                |
+| sending_scheduled_date | 請求書送付予定日                                                                                                      | 10   | 日付                                   | (消込未完了時) |
+| sending_date           | 請求書送付日                                                                                                          | 10   | 日付                                   |                |
+| transfer_deadline      | 決済期限                                                                                                              | 10   | 日付                                   | (消込未完了時) |
+| payment_status         | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 | 2    | 数値                                   |                |
+| erasure_deposit_date   | 消込計上日 <br> ※「未処理、未収」から「他の消込ステータス」へ変更した場合、計上日を選択可能                           | 10   | 日付                                   |                |
+| erasure_cancel_date    | キャンセル計上日 <br> ※「他の消込ステータス」から「未処理、未収」へ変更した場合、キャンセル計上日を選択可能           | 10   | 日付                                   |                |
+| memo                   | メモ                                                                                                                  | 300  | 文字列                                 |                |
 
 
 ## レスポンス
@@ -36,30 +53,38 @@
 
 ### Fields
 
-| 名前                   | 概要                                | 型     |
-| ---------------------- | ----------------------------------- | ------ |
-| user_id                | ユーザーID                          | string |
-| access_key             | アクセスキー                        | string |
-| error_code             | エラーコード <br> ※正常時はnull     | string |
-| error_message          | エラーメッセージ <br> ※正常時はnull | string |
-| bill                   | 請求書に属するパラメータ            |        |
-| number                 | 請求書番号                          | string |
-| billing_code           | 請求先コード                        | string |
-| message_column         | 通信欄                              | string |
-| sending_scheduled_date | 請求書送付予定日                    | string |
-| sending_date           | 請求書送付日                        | string |
-| transfer_deadline      | 決済期限                            | string |
-| payment_status         | 消込ステータス                      | Int    |
-| erasure_deposit_date   | 消込計上日                          | string |
-| erasure_cancel_date    | キャンセル計上日                    | string |
-| memo                   | メモ                                | string |
+| 名前                   | 概要                                | 型            |
+| ---------------------- | ----------------------------------- | ------------- |
+| user_id                | ユーザーID                          | string        |
+| access_key             | アクセスキー                        | string        |
+| error_code             | エラーコード <br> ※正常時はnull     | string        |
+| error_message          | エラーメッセージ <br> ※正常時はnull | string        |
+| [bill](#bill-response) | 請求書に属するパラメータ            | `array` |
+
+#### bill (response)
+
+<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                   | 概要             | 型     |
+| ---------------------- | ---------------- | ------ |
+| number                 | 請求書番号       | string |
+| billing_code           | 請求先コード     | string |
+| message_column         | 通信欄           | string |
+| sending_scheduled_date | 請求書送付予定日 | string |
+| sending_date           | 請求書送付日     | string |
+| transfer_deadline      | 決済期限         | string |
+| payment_status         | 消込ステータス   | int    |
+| erasure_deposit_date   | 消込計上日       | string |
+| erasure_cancel_date    | キャンセル計上日 | string |
+| memo                   | メモ             | string |
 
 
 ## 使用例
 
-### リクエスト
+### リクエスト例
 
-```
+```json
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
@@ -80,11 +105,11 @@
 }
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 
-```
+```json
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
@@ -108,6 +133,10 @@ Status: 200 OK
 ```
 
 ## エラー
+
+[共通エラー](/README.md#共通エラー)
+
+個別エラー
 
 | エラーコード | 内容                                                                 |
 | ------------ | -------------------------------------------------------------------- |
