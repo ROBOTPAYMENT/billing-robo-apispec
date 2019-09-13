@@ -24,12 +24,12 @@
 
 | 名前                                  | 概要                                                                                                                                                            | 桁数 | 種別                              | 必須                                                         |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | --------------------------------- | ------------------------------------------------------------ |
-| user_id                               | ユーザーID（管理画面へのログインID）                                                                                                                            | 100  | [メール形式](/README.md#種別) | 必須                                                         |
-| access_key                            | アクセスキー                                                                                                                                                    | 100  | [半角英数](/README.md#種別) | 必須                                                         |
+| user_id                               | ユーザーID（管理画面へのログインID）                                                                                                                            | 100  | [メール形式](../../index.md#種別) | 必須                                                         |
+| access_key                            | アクセスキー                                                                                                                                                    | 100  | [半角英数](../../index.md#種別) | 必須                                                         |
 | demand_code                           | 請求情報番号                                                                                                                                                    | 20   | 数値                              |                                                              |
-| billing_code                          | 請求先コード                                                                                                                                                    | 20   | [半角英数 + 記号](/README.md#種別) | (billing_individual_number or billing_individual_code入力時) |
+| billing_code                          | 請求先コード                                                                                                                                                    | 20   | [半角英数 + 記号](../../index.md#種別) | (billing_individual_number or billing_individual_code入力時) |
 | billing_individual_number             | 請求先部署番号                                                                                                                                                  | 20   | 数値                              |                                                              |
-| billing_individual_code               | 請求先部署コード                                                                                                                                                | 20   | [半角英数 + 記号](/README.md#種別) |                                                              |
+| billing_individual_code               | 請求先部署コード                                                                                                                                                | 20   | [半角英数 + 記号](../../index.md#種別) |                                                              |
 | issue_start_date                      | 発行日の検索開始日 yyyy/mm/dd形式                                                                                                                               | 10   | 日付                              |                                                              |
 | issue_stop_date                       | 発行日の検索終了日yyyy/mm/dd形式                                                                                                                                | 10   | 日付                              |                                                              |
 | deadline_start_date                   | 決済期限の検索開始日yyyy/mm/dd形式                                                                                                                              | 10   | 日付                              |                                                              |
@@ -37,7 +37,7 @@
 | payment_method                        | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | 1    | 数値                              |                                                              |
 | goods_code                            | 商品コード                                                                                                                                                      | 33   | 文字列                            |                                                              |
 | carryover_payment_status              | 末端の消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消                                     | 1    | 数値                              |                                                              |
-| bs_owner_code                         | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数 + 記号](/README.md#種別) |                                                              |
+| bs_owner_code                         | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数 + 記号](../../index.md#種別) |                                                              |
 | carryover_payment_complete_start_date | 末端の消込ステータス完了日時の検索開始日 <br> yyyy/mm/dd hh:ii:ss 形式                                                                                          | 19   | 日時                              |                                                              |
 | carryover_payment_complete_stop_date  | 末端の消込ステータス完了日時の検索終了日 <br> yyyy/mm/dd hh:ii:ss 形式                                                                                          | 19   | 日時                              |                                                              |
 | transfer_start_date                   | 決済日の検索開始日yyyy/mm/dd 形式                                                                                                                               | 10   | 日付                              |                                                              |
@@ -185,7 +185,7 @@ Status: 200 OK
 
 ## エラー
 
-[共通エラー](/README.md#共通エラー)
+[共通エラー](../../index.md#共通エラー)
 
 個別エラー
 
