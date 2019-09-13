@@ -26,7 +26,7 @@
 | --------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id               | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key            | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [bill](#bill-request) | 請求書に属するパラメータ             |      | `Array(bill)`                     |      |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                     |      |
 
 #### bill (request)
 
@@ -48,7 +48,7 @@
 | deadline_date                      | 初回決済期限 <br> yyyy/mm/dd                                                                                              | 10   | 文字列                                 | 必須     |
 | bs_owner_code                      | 請求元担当者コード <br> ※両端のスペース除去                                                                               | 20   | [半角英数 + 記号](/README.md#種別) |          |
 | jb                                 | 決済処理方法 <br> 仮実同時売上:CAPTURE                                                                                    | 7    | 文字列                                 | 必須     |
-| [bill.detail](#billdetail-request) | 請求書詳細に属するパラメータ                                                                                              |      | `Array(detail)`                        |          |
+| [bill.detail](#billdetail-request) | 請求書詳細に属するパラメータ                                                                                              |      | `array`                        |          |
 
 #### bill.detail (request)
 
@@ -103,7 +103,7 @@
 | ------------------------- | ------------------------ | --------------- |
 | user_id                   | ユーザID                 | string          |
 | access_key                | アクセスキー             | string          |
-| [demand](#demand-request) | 請求書に属するパラメータ | `Array(demand)` |
+| [demand](#demand-request) | 請求書に属するパラメータ | `array` |
 
 
 #### demand (response)

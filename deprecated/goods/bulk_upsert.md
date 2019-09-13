@@ -25,7 +25,7 @@
 | ----------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                 | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key              | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [goods](#goods-request) | 商品に属するパラメータ               |      | `Array(goods)`                    |      |
+| [goods](#goods-request) | 商品に属するパラメータ               |      | `array`                    |      |
 
 #### goods (request)
 
@@ -81,7 +81,7 @@
 | ------------------------ | ---------------------- | -------------- |
 | user_id                  | ユーザーID             | string         |
 | access_key               | アクセスキー           | string         |
-| [goods](#goods-response) | 商品に属するパラメータ | `Array(goods)` |
+| [goods](#goods-response) | 商品に属するパラメータ | `array` |
 
 #### goods (response)
 

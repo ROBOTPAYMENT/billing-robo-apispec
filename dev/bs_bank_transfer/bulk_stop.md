@@ -25,7 +25,7 @@
 | ------------------------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                                     | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                                  | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [bs_bank_transfer](#bsbanktransfer-request) | 請求元銀行口座に属するパラメータ     |      | `Array(bs_bank_transfer)`         |      |
+| [bs_bank_transfer](#bsbanktransfer-request) | 請求元銀行口座に属するパラメータ     |      | `array`         |      |
 
 #### bs_bank_transfer (request)
 
@@ -50,7 +50,7 @@
 | -------------------------------------------- | ------------------------------------ | ------------------------- |
 | user_id                                      | ユーザーID（管理画面へのログインID） | string                    |
 | access_key                                   | アクセスキー                         | string                    |
-| [bs_bank_transfer](#bsbanktransfer-response) | 請求元銀行口座に属するパラメータ     | `Array(bs_bank_transfer)` |
+| [bs_bank_transfer](#bsbanktransfer-response) | 請求元銀行口座に属するパラメータ     | `array` |
 
 #### bs_bank_transfer (response)
 

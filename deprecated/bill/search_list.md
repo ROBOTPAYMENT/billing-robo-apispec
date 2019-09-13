@@ -27,7 +27,7 @@
 | access_key            | アクセスキー                                                                        | 100  | [[半角英数](/README.md#種別)](/README.md#種別) | 必須 |
 | limit_count           | 請求書取得件数 <br> ※0〜200の数値を設定する。省略した場合、20が設定される           | 3    | 数値                                                   |      |
 | page_count            | 請求書取得開始インデックス <br> ※0以上の数値を設定する。省略した場合、0が設定される | 2    | 数値                                                   |      |
-| [bill](#bill-request) | 請求書に属するパラメータ                                                            |      | `Array(bill)`                                          |      |
+| [bill](#bill-request) | 請求書に属するパラメータ                                                            |      | `array`                                          |      |
 
 #### bill (request)
 
@@ -70,7 +70,7 @@
 | limit_count            | 請求書取得件数 <br> ※最大件数は、リクエストで指定された「請求書取得件数」に依存                                                         | int           |
 | page_count             | 請求書取得開始インデックス <br> ※取得した請求書の開始インデックスを返却する                                                             | int           |
 | total_page_count       | 請求書取得開始インデックス合計 <br> ※指定された検索条件によって取得可能な請求書の全件数／請求書取得件数によって、算出される値を返却する | int           |
-| [bill](#bill-response) | 請求書に属するパラメータ                                                                                                                | `Array(bill)` |
+| [bill](#bill-response) | 請求書に属するパラメータ                                                                                                                | `array` |
 
 #### bill (response)
 
@@ -126,7 +126,7 @@
 | carryover_total_amount                       | 繰越金額                                                                                                                                                        | int                  |
 | download_url                                 | 請求書ダウンロードURL                                                                                                                                           | string               |
 | bill_group_key                               | 請求書合算キー                                                                                                                                                  | string               |
-| [bill.bill_detail](#billbilldetail-response) | 請求書詳細に属するパラメータ                                                                                                                                    | `Array(bill_detail)` |
+| [bill.bill_detail](#billbilldetail-response) | 請求書詳細に属するパラメータ                                                                                                                                    | `array` |
 
 #### bill.bill_detail (response)
 

@@ -26,7 +26,7 @@
 | ---------------------------------------------------------- | ---------------------------------------- | ---- | --------------------------------- | ---- |
 | user_id                                                    | ユーザーID（管理画面へのログインID）     | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                                                 | アクセスキー                             | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [bs_bank_transfer_pattern](#bsbanktransferpattern-request) | 請求元銀行口座パターンに属するパラメータ |      | `Array(bs_bank_transfer_pattern)` |      |
+| [bs_bank_transfer_pattern](#bsbanktransferpattern-request) | 請求元銀行口座パターンに属するパラメータ |      | `array` |      |
 
 #### bs_bank_transfer_pattern (request)
 
@@ -38,7 +38,7 @@
 | code                                                                                               | 銀行口座パターンコード <br> ※登録後は変更できません | 20   | [半角英数 + 記号](/README.md#種別) | 必須 |
 | name                                                                                               | 銀行口座パターン管理名                              | 40   | 文字列                                 | 必須 |
 | text                                                                                               | 請求書表示                                          | 256  | 文字列                                 | 必須 |
-| [bs_bank_transfer_pattern.link_bs_bank_transfer](#bsbanktransferpatternlinkbsbanktransfer-request) | 請求元銀振口座パターン関連に属するパラメータ        |      | `Array(bs_bank_transfer)`              |      |
+| [bs_bank_transfer_pattern.link_bs_bank_transfer](#bsbanktransferpatternlinkbsbanktransfer-request) | 請求元銀振口座パターン関連に属するパラメータ        |      | `array`              |      |
 
 #### bs_bank_transfer_pattern.link_bs_bank_transfer (request)
 
@@ -61,7 +61,7 @@
 | ----------------------------------------------------------- | ---------------------------------------- | --------------------------------- |
 | user_id                                                     | ユーザーID（管理画面へのログインID）     | string                            |
 | access_key                                                  | アクセスキー                             | string                            |
-| [bs_bank_transfer_pattern](#bsbanktransferpattern-response) | 請求元銀行口座パターンに属するパラメータ | `Array(bs_bank_transfer_pattern)` |
+| [bs_bank_transfer_pattern](#bsbanktransferpattern-response) | 請求元銀行口座パターンに属するパラメータ | `array` |
 
 #### bs_bank_transfer_pattern (response)
 
@@ -75,7 +75,7 @@
 | code                                                                                                | 銀行口座パターンコード                       | string                         |
 | name                                                                                                | 銀行口座パターン管理名                       | string                         |
 | text                                                                                                | 請求書表示                                   | string                         |
-| [bs_bank_transfer_pattern.link_bs_bank_transfer](#bsbanktransferpatternlinkbsbanktransfer-response) | 請求元銀振口座パターン関連に属するパラメータ | `Array(link_bs_bank_transfer)` |
+| [bs_bank_transfer_pattern.link_bs_bank_transfer](#bsbanktransferpatternlinkbsbanktransfer-response) | 請求元銀振口座パターン関連に属するパラメータ | `array` |
 
 #### bs_bank_transfer_pattern.link_bs_bank_transfer (response)
 

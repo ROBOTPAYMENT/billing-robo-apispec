@@ -25,7 +25,7 @@
 | --------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                     | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                  | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [billing](#billing-request) | 請求先に属するパラメータ             |      | `Array(billing)`                  |      |
+| [billing](#billing-request) | 請求先に属するパラメータ             |      | `array`                  |      |
 
 
 #### billing (request)
@@ -39,8 +39,8 @@
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | ---- |
 | code                                     | 請求先コード  <br> ※両端のスペース除去                                                               | 20   | [半角英数 + 記号](/README.md#種別) | 必須 |
 | del_flg                                  | 請求先削除フラグ <br> 0:停止 1:削除 <br> ※請求先部署のみまたは請求先決済手段のみを削除する時は、省略 | 1    | 数値                                   |      |
-| [biling.individual](#individual-request) | 請求先部署に属するパラメータ ※省略可能                                                               |      | `Array(individual)`                    |      |
-| [billing.payment](#payment-request)      | 請求先決済手段に属するパラメータ ※省略可能                                                           |      | `Array(payment)`                       |      |
+| [biling.individual](#individual-request) | 請求先部署に属するパラメータ ※省略可能                                                               |      | `array`                    |      |
+| [billing.payment](#payment-request)      | 請求先決済手段に属するパラメータ ※省略可能                                                           |      | `array`                       |      |
 
 #### individual (request)
 
@@ -85,7 +85,7 @@
 | ---------------------------- | ------------------------------------ | ---------------- |
 | user_id                      | ユーザーID（管理画面へのログインID） | string           |
 | access_key                   | アクセスキー                         | string           |
-| [billing](#billing-response) | 請求先に属するパラメータ             | `Array(billing)` |
+| [billing](#billing-response) | 請求先に属するパラメータ             | `array` |
 
 #### billing (response)
 
@@ -100,8 +100,8 @@
 | error_message                              | エラーメッセージ <br> ※正常時はnull | string              |
 | code                                       | 請求先コード                        | string              |
 | del_flg                                    | 請求先削除フラグ                    | int                 |
-| [billing.individual](#individual-response) | 請求先部署に属するパラメータ        | `Array(individual)` |
-| [billing.payment](#payment-response)       | 請求先決済手段に属するパラメータ    | `Array(payment)`    |
+| [billing.individual](#individual-response) | 請求先部署に属するパラメータ        | `array` |
+| [billing.payment](#payment-response)       | 請求先決済手段に属するパラメータ    | `array`    |
 
 #### individual (response)
 

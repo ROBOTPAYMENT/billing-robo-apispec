@@ -25,7 +25,7 @@
 | --------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                     | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                  | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [billing](#billing-request) | 請求先に属するパラメータ             |      | `Array(billing)`                  |      |
+| [billing](#billing-request) | 請求先に属するパラメータ             |      | `array`                  |      |
 
 #### billing (request)
 
@@ -39,7 +39,7 @@
 | billing.code                                     | 請求先コード  <br> 両端のスペース除去                                         | 20   | [半角英数 + 記号](/README.md#種別) | 必須 |
 | billing.name                                     | 請求先名  <br> 両端のスペース除去                                             | 100  | 文字列                                 | 必須 |
 | billing.user_id                                  | 登録ユーザーID <br> ※セールスフォース利用企業の場合はセールスフォースIDを入力 | 100  | 文字列                                 |      |
-| [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `Array(billing_individual)`            |      |
+| [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `array`            |      |
 
 #### billing_individual (request)
 
@@ -90,7 +90,7 @@
 | billing_individual.payment_method_number      | 決済情報番号 <br> ※更新時、「決済情報番号」または「決済情報コード」何れかを指定（入力は任意）                                                                   | 18   | 半角英数                               |                                                       |
 | billing_individual.payment_method_code        | 決済情報コード <br> ※更新時、「決済情報番号」または「決済情報コード」何れかを指定（入力は任意）                                                                 | 20   | [半角英数 + 記号](/README.md#種別) |                                                       |
 | billing_individual.payment_method_name        | 決済情報名                                                                                                                                                      | 100  | 文字列                                 |                                                       |
-| [sub_account_title](#subaccounttitle-request) | 請求先部署補助科目に属するパラメータ                                                                                                                            |      | `Array(sub_account_title)`)            |                                                       |
+| [sub_account_title](#subaccounttitle-request) | 請求先部署補助科目に属するパラメータ                                                                                                                            |      | `array`)            |                                                       |
 
 #### sub_account_title (request)
 
@@ -130,7 +130,7 @@
 | ---------------------------- | ------------------------------------ | ---------------- |
 | user_id                      | ユーザーID（管理画面へのログインID） | string           |
 | access_key                   | アクセスキー                         | string           |
-| [billing](#billing-response) | 請求先に属するパラメータ             | `Array(billing)` |
+| [billing](#billing-response) | 請求先に属するパラメータ             | `array` |
 
 #### billing (response)
 
@@ -146,7 +146,7 @@
 | code                                              | 請求先コード                              | string                      |
 | name                                              | 請求先名                                  | string                      |
 | user_id                                           | 登録ユーザーID                            | string                      |
-| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `Array(billing_individual)` |
+| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `array` |
 
 #### billing_individual (response)
 
@@ -207,7 +207,7 @@
 | payment_method_number                          | 決済情報番号                                                                                                       | int                        |
 | payment_method_code                            | 決済情報コード                                                                                                     | string                     |
 | payment_method_name                            | 決済情報名                                                                                                         | string                     |
-| [sub_account_title](#subaccounttitle-response) | 請求先部署補助科目に属するパラメータ                                                                               | `Array(sub_account_title)` |
+| [sub_account_title](#subaccounttitle-response) | 請求先部署補助科目に属するパラメータ                                                                               | `array` |
 
 #### sub_account_title (response)
 

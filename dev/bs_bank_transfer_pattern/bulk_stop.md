@@ -25,7 +25,7 @@
 | ---------------------------------------------------------- | ---------------------------------------- | ---- | --------------------------------- | --------------------------------- |
 | user_id                                                    | ユーザーID（管理画面へのログインID）     | 100  | [メール形式](/README.md#種別) | 必須                              |
 | access_key                                                 | アクセスキー                             | 100  | [半角英数](/README.md#種別)   | 必須                              |
-| [bs_bank_transfer_pattern](#bsbanktransferpattern-request) | 請求元銀行口座パターンに属するパラメータ |      |                                   | `Array(bs_bank_transfer_pattern)` |
+| [bs_bank_transfer_pattern](#bsbanktransferpattern-request) | 請求元銀行口座パターンに属するパラメータ |      |                                   | `array` |
 
 #### bs_bank_transfer_pattern (request)
 
@@ -49,7 +49,7 @@
 | ----------------------------------------------------------- | ---------------------------------------- | --------------------------------- |
 | user_id                                                     | ユーザーID（管理画面へのログインID）     | string                            |
 | access_key                                                  | アクセスキー                             | string                            |
-| [bs_bank_transfer_pattern](#bsbanktransferpattern-response) | 請求元銀行口座パターンに属するパラメータ | `Array(bs_bank_transfer_pattern)` |
+| [bs_bank_transfer_pattern](#bsbanktransferpattern-response) | 請求元銀行口座パターンに属するパラメータ | `array` |
 
 #### bs_bank_transfer_pattern (response)
 

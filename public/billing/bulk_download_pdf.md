@@ -26,7 +26,7 @@
 | --------------------------- | ---------------------------------- | ---- | --------------------------------- | ---- |
 | user_id                     | ユーザID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                  | アクセスキー                       | 10   | [半角英数](/README.md#種別)   | 必須 |
-| [billing](#billing-request) | 請求先に属するパラメータ           |      | `Array(billing)`                  |      |
+| [billing](#billing-request) | 請求先に属するパラメータ           |      | `array`                  |      |
 
 #### billing (request)
 
@@ -36,7 +36,7 @@
 | 名前                                       | 概要                       | 桁数 | 種別                                   | 必須 |
 | ------------------------------------------ | -------------------------- | ---- | -------------------------------------- | ---- |
 | code                                       | 請求先コード               | 20   | [半角英数 + 記号](/README.md#種別) | 必須 |
-| [billing.payment](#billingpayment-request) | 決済情報に属するパラメータ |      | `Array(payment)`                       |      |
+| [billing.payment](#billingpayment-request) | 決済情報に属するパラメータ |      | `array`                       |      |
 
 #### billing.payment (request)
 
@@ -59,7 +59,7 @@
 | ---------------------------- | ------------------------ | ---------------- |
 | user_id                      | ユーザーID               | string           |
 | access_key                   | アクセスキー             | string           |
-| [billing](#billing-response) | 請求先に属するパラメータ | `Array(billing)` |
+| [billing](#billing-response) | 請求先に属するパラメータ | `array` |
 
 #### billing (response)
 
@@ -72,7 +72,7 @@
 | error_message                               | エラーメッセージ             | string <br> (正常時はnull) |
 | code                                        | 請求先コード                 | string                     |
 | name                                        | 請求先名                     | string                     |
-| [billing.payment](#billingpayment-response) | 請求先決済情報に属するデータ | `Array(payment)`           |
+| [billing.payment](#billingpayment-response) | 請求先決済情報に属するデータ | `array`           |
 
 #### billing.payment (response)
 

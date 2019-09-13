@@ -25,7 +25,7 @@
 | -------------------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                                | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                             | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [bs_department](#bsdepartment-request) | 請求元部署に属するパラメータ         |      | `Array(bs_department)`            |      |
+| [bs_department](#bsdepartment-request) | 請求元部署に属するパラメータ         |      | `array`            |      |
 
 #### bs_department (request)
 
@@ -49,7 +49,7 @@
 | --------------------------------------- | ---------------------------- | ---------------------- |
 | user_id                                 | ユーザーID                   | string                 |
 | access_key                              | アクセスキー                 | string                 |
-| [bs_department](#bsdepartment-response) | 請求元部署に属するパラメータ | `Array(bs_department)` |
+| [bs_department](#bsdepartment-response) | 請求元部署に属するパラメータ | `array` |
 
 #### bs_department (response)
 

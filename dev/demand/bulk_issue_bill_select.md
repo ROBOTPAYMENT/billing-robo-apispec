@@ -26,7 +26,7 @@
 | ------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                   | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [demand](#demand-request) | 請求情報に属するパラメータ           |      | `Array(demand)`                   |      |
+| [demand](#demand-request) | 請求情報に属するパラメータ           |      | `array`                   |      |
 
 #### demand (request)
 
@@ -50,7 +50,7 @@
 | -------------------------- | -------------------------- | --------------- |
 | user_id                    | ユーザーID                 | string          |
 | access_key                 | アクセスキー               | string          |
-| [demand](#demand-response) | 請求情報に属するパラメータ | `Array(demand)` |
+| [demand](#demand-response) | 請求情報に属するパラメータ | `array` |
 
 #### demand (response)
 

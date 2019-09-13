@@ -25,7 +25,7 @@
 | --------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id               | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key            | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [bill](#bill-request) | 請求書に属するパラメータ             |      | `Array(bill)`                     |      |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                     |      |
 
 #### bill (request)
 
@@ -48,7 +48,7 @@
 | ---------------------- | ------------------------ | ------------- |
 | user_id                | ユーザーID               | string        |
 | access_key             | アクセスキー             | string        |
-| [bill](#bill-response) | 請求書に属するパラメータ | `Array(bill)` |
+| [bill](#bill-response) | 請求書に属するパラメータ | `array` |
 
 #### bill (response)
 

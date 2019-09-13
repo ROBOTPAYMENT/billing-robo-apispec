@@ -66,7 +66,7 @@
 
 | 名前                       | 概要                       | 型              |
 | -------------------------- | -------------------------- | --------------- |
-| [demand](#demand-response) | 請求情報に属するパラメータ | `Array(demand)` |
+| [demand](#demand-response) | 請求情報に属するパラメータ | `array` |
 
 #### demand (response)
 

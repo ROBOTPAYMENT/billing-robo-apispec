@@ -83,7 +83,7 @@
 
 | 名前                                              | 概要                         | 型                          |
 | ------------------------------------------------- | ---------------------------- | --------------------------- |
-| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ | `Array(billing_individual)` |
+| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ | `array` |
 
 #### billing_individual (response)
 

@@ -26,7 +26,7 @@
 | --------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                     | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                  | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [billing](#billing-request) | 請求先に属するパラメータ             |      | `Array(billing)`                  |      |
+| [billing](#billing-request) | 請求先に属するパラメータ             |      | `array`                  |      |
 
 #### billing (request)
 
@@ -39,9 +39,9 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------- | ---- | -------------------------------------- | -------- |
 | code                                                         | 請求先コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません             | 20   | [半角英数 + 記号](/README.md#種別) | 必須     |
 | name                                                         | 請求先名  <br> ※両端のスペース除去                                              | 100  | 文字列                                 | (追加時) |
-| [individual](#individual-request)                            | 請求先部署に属するパラメータ                                                    |      | `Array(individual)`                    |          |
-| [payment](#payment-request)                                  | 請求先決済手段に属するパラメータ ※省略可能                                      |      | `Array(payment)`                       |          |
-| [billing.sub_account_title](#billingsubaccounttitle-request) | 請求先補助科目に属するパラメータ <br> ※今後拡張予定です。現在利用はできません。 |      | `Array(billing.sub_account_title)`     |          |
+| [individual](#individual-request)                            | 請求先部署に属するパラメータ                                                    |      | `array`                    |          |
+| [payment](#payment-request)                                  | 請求先決済手段に属するパラメータ ※省略可能                                      |      | `array`                       |          |
+| [billing.sub_account_title](#billingsubaccounttitle-request) | 請求先補助科目に属するパラメータ <br> ※今後拡張予定です。現在利用はできません。 |      | `array`     |          |
 
 #### individual (request)
 
@@ -89,7 +89,7 @@
 | ref_individual_code                                                               | 合計請求書用請求先部署コード <br> ※追加省略時、nullで登録される                                                                                                                                                                             | 20   | [半角英数 + 記号](/README.md#種別)        | (合計請求書時)^2                     |
 | bill_template_code                                                                | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください <br> ※追加省略時、nullで登録される                                                                                                          | 18   | 数値                                          |                                      |
 | auto_erase_commission_amount                                                      | 手数料自動消込許容金額 <br> ※追加省略時、0で登録される                                                                                                                                                                                      | 9    | 数値                                          |                                      |
-| [billing.individual.sub_account_title](#billingindividualsubaccounttitle-request) | 請求先部署補助科目に属するパラメータ ※省略可能                                                                                                                                                                                              |      | `Array(billing.individual.sub_account_title)` |                                      |
+| [billing.individual.sub_account_title](#billingindividualsubaccounttitle-request) | 請求先部署補助科目に属するパラメータ ※省略可能                                                                                                                                                                                              |      | `array` |                                      |
 
 #### billing.individual.sub_account_title (request)
 
@@ -178,9 +178,9 @@
 | error_message                                                 | エラーメッセージ <br> ※正常時はnull | string                             |
 | code                                                          | 請求先コード                        | string                             |
 | name                                                          | 請求先名                            | string                             |
-| [individual](#individual-response)                            | 請求先部署に属するパラメータ        | `Array(individual)`                |
-| [payment](#payment-response)                                  | 請求先決済手段に属するパラメータ    | `Array(payment)`                   |
-| [billing.sub_account_title](#billingsubaccounttitle-response) | 請求先補助科目に属するパラメータ    | `Array(billing.sub_account_title)` |
+| [individual](#individual-response)                            | 請求先部署に属するパラメータ        | `array`                |
+| [payment](#payment-response)                                  | 請求先決済手段に属するパラメータ    | `array`                   |
+| [billing.sub_account_title](#billingsubaccounttitle-response) | 請求先補助科目に属するパラメータ    | `array` |
 
 #### individual (response)
 

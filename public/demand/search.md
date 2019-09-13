@@ -25,7 +25,7 @@
 | ------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                   | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [demand](#demand-request) | 請求情報に属するパラメータ           |      | `Array(demand)`                   |      |
+| [demand](#demand-request) | 請求情報に属するパラメータ           |      | `array`                   |      |
 
 
 #### demand (request)
@@ -51,7 +51,7 @@
 | -------------------------- | ------------------------------------ | --------------- |
 | user_id                    | ユーザーID（管理画面へのログインID） | string          |
 | access_key                 | アクセスキー                         | string          |
-| [demand](#demand-response) | 請求情報に属するパラメータ           | `Array(demand)` |
+| [demand](#demand-response) | 請求情報に属するパラメータ           | `array` |
 
 #### demand (response)
 
@@ -119,7 +119,7 @@
 | created                               | 登録日時                                                                                                                  | datetime              |
 | modified                              | 更新日時                                                                                                                  | datetime              |
 | status                                | 状態 <br> 0:削除 1:有効 2:無効                                                                                            | int                   |
-| [demand.sales](#demandsales-response) | 売上データに属するパラメータ                                                                                              | `Array(demand.sales)` |
+| [demand.sales](#demandsales-response) | 売上データに属するパラメータ                                                                                              | `array` |
 
 #### demand.sales (response)
 
@@ -167,8 +167,8 @@
 | created                                            | 登録日時                                                                                                                                                                                    | datetime        |
 | modified                                           | 更新日時                                                                                                                                                                                    | datetime        |
 | status                                             | 状態 <br> 0:削除 1:有効 2:無効                                                                                                                                                              | int             |
-| [demand.sales.bill](#demandsalesbill-response)     | 請求書に属するパラメータ                                                                                                                                                                    | `Array(bill)`   |
-| [demand.sales.result](#demandsalesresult-response) | 消込結果明細に属するパラメータ                                                                                                                                                              | `Array(result)` |
+| [demand.sales.bill](#demandsalesbill-response)     | 請求書に属するパラメータ                                                                                                                                                                    | `array`   |
+| [demand.sales.result](#demandsalesresult-response) | 消込結果明細に属するパラメータ                                                                                                                                                              | `array` |
 
 #### demand.sales.bill (response)
 

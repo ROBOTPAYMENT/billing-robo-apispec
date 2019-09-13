@@ -27,7 +27,7 @@
 | --------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id                     | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別) | 必須 |
 | access_key                  | アクセスキー                         | 100  | [半角英数](/README.md#種別)   | 必須 |
-| [billing](#billing-request) | 請求先に属するパラメータ             |      | `Array(billing)`                  |      |
+| [billing](#billing-request) | 請求先に属するパラメータ             |      | `array`                  |      |
 
 #### billing (request)
 
@@ -38,7 +38,7 @@
 | ------------------------------------------------ | ----------------------------------------------------------------------------- | ---- | -------------------------------------- | ---- |
 | code                                             | 請求先コード  <br> 両端のスペース除去                                         | 20   | [半角英数 + 記号](/README.md#種別) | 必須 |
 | user_id                                          | 登録ユーザーID <br> ※セールスフォース利用企業の場合はセールスフォースIDを入力 | 100  | 文字列                                 |      |
-| [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `Array(billing_individual)`            |      |
+| [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `array`            |      |
 
 #### billing_individual (request)
 
@@ -63,7 +63,7 @@
 | ---------------------------- | ------------------------------------ | ---------------- |
 | user_id                      | ユーザーID（管理画面へのログインID） | string           |
 | access_key                   | アクセスキー                         | string           |
-| [billing](#billing-response) | 請求先に属するパラメータ             | `Array(billing)` |
+| [billing](#billing-response) | 請求先に属するパラメータ             | `array` |
 
 #### billing (response)
 
@@ -76,7 +76,7 @@
 | error_message                                     | エラーメッセージ <br> ※エラー時以外はNULL | string                      |
 | code                                              | 請求先コード                              | string                      |
 | user_id                                           | 登録ユーザーID                            | string                      |
-| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `Array(billing_individual)` |
+| [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `array` |
 
 #### billing_individual (response)
 
