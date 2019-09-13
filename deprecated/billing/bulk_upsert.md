@@ -12,11 +12,11 @@
 
 ### Parameters
 
-| 名前                        | 概要                                 | 桁数 | 種別                               | 必須 |
-| --------------------------- | ------------------------------------ | ---- | ---------------------------------- | ---- |
-| user_id                     | ユーザーID（管理画面へのログインID） | 100  | [半角英数\*1](/README.md#種別注釈) | 必須 |
-| access_key                  | アクセスキー                         | 100  | [半角英数\*3](/README.md#種別注釈) | 必須 |
-| [billing](#billing-request) | 請求先に属するパラメータ             |      | `Array(billing)`                   |      |
+| 名前                        | 概要                                 | 桁数 | 種別                              | 必須 |
+| --------------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
+| user_id                     | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別注釈) | 必須 |
+| access_key                  | アクセスキー                         | 100  | [半角英数](/README.md#種別注釈)   | 必須 |
+| [billing](#billing-request) | 請求先に属するパラメータ             |      | `Array(billing)`                  |      |
 
 #### billing (request)
 
@@ -25,12 +25,12 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                                             | 概要                                                                          | 桁数 | 種別                               | 必須 |
-| ------------------------------------------------ | ----------------------------------------------------------------------------- | ---- | ---------------------------------- | ---- |
-| billing.code                                     | 請求先コード  <br> 両端のスペース除去                                         | 20   | [半角英数\*4](/README.md#種別注釈) | 必須 |
-| billing.name                                     | 請求先名  <br> 両端のスペース除去                                             | 100  | 文字列                             | 必須 |
-| billing.user_id                                  | 登録ユーザーID <br> ※セールスフォース利用企業の場合はセールスフォースIDを入力 | 100  | 文字列                             |      |
-| [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `Array(billing_individual)`        |      |
+| 名前                                             | 概要                                                                          | 桁数 | 種別                                   | 必須 |
+| ------------------------------------------------ | ----------------------------------------------------------------------------- | ---- | -------------------------------------- | ---- |
+| billing.code                                     | 請求先コード  <br> 両端のスペース除去                                         | 20   | [半角英数 + 記号](/README.md#種別注釈) | 必須 |
+| billing.name                                     | 請求先名  <br> 両端のスペース除去                                             | 100  | 文字列                                 | 必須 |
+| billing.user_id                                  | 登録ユーザーID <br> ※セールスフォース利用企業の場合はセールスフォースIDを入力 | 100  | 文字列                                 |      |
+| [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `Array(billing_individual)`            |      |
 
 #### billing_individual (request)
 
@@ -39,49 +39,49 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                                          | 概要                                                                                                                                                            | 桁数 | 種別                               | 必須                                                  |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------------------------- | ----------------------------------------------------- |
-| billing_individual.number                     | 請求先部署番号  <br> ※セールスフォース利用企業の場合はオブジェクトIDを入力 <br> 両端のスペース除去                                                              | 20   | 文字列                             | (必須)^1                                              |
-| billing_individual.code                       | 請求先部署コード  <br> 両端のスペース除去                                                                                                                       | 20   | [半角英数\*4](/README.md#種別注釈) | (必須)^1                                              |
-| billing_individual.name                       | 請求先部署名  <br> 両端のスペース除去                                                                                                                           | 100  | 文字列                             | 必須                                                  |
-| billing_individual.link_customer_code         | 会計ソフト連携用取引先コード                                                                                                                                    | 20   | [半角英数\*3](/README.md#種別注釈) |                                                       |
-| billing_individual.address1                   | 宛名1  <br> 両端のスペース除去                                                                                                                                  | 60   | 文字列                             | 必須                                                  |
-| billing_individual.address2                   | 宛名2 <br> ※両端のスペース除去                                                                                                                                  | 60   | 文字列                             |                                                       |
-| billing_individual.address3                   | 宛名3                                                                                                                                                           | 60   | 文字列                             |                                                       |
-| billing_individual.zip_code                   | 郵便番号  <br> 両端のスペース除去                                                                                                                               | 7    | 数値                               | 必須                                                  |
-| billing_individual.pref                       | 都道府県                                                                                                                                                        | 4    | 文字列                             | 必須                                                  |
-| billing_individual.city_address               | 市区町村番地  <br> 両端のスペース除去                                                                                                                           | 56   | 文字列                             | 必須                                                  |
-| billing_individual.building_name              | 建物名 <br> ※両端のスペース除去                                                                                                                                 | 60   | 文字列                             |                                                       |
-| billing_individual.set_post_address           | 郵送宛先情報 <br> 0:使用しない 1:使用する                                                                                                                       | 1    | 数値                               |                                                       |
-| billing_individual.post_address1              | 郵送先宛名1  <br> 両端のスペース除去                                                                                                                            | 60   | 文字列                             | (set_post_address=1時)                                |
-| billing_individual. post_address2             | 郵送先宛名2 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                             |                                                       |
-| billing_individual. post_address3             | 郵送先宛名3 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                             |                                                       |
-| billing_individual. post_zip_code             | 郵送先郵便番号  <br> 両端のスペース除去                                                                                                                         | 7    | 数値                               | (set_post_address=1時)                                |
-| billing_individual. post_pref                 | 郵送先都道府県                                                                                                                                                  | 4    | 文字列                             | (set_post_address=1時)                                |
-| billing_individual. post_city_address         | 郵送先市区町村番地 <br>  <br> 両端のスペース除去                                                                                                                | 56   | 文字列                             | (set_post_address=1時)                                |
-| billing_individual. post_building_name        | 郵送先建物名 <br> ※両端のスペース除去                                                                                                                           | 60   | 文字列                             |                                                       |
-| billing_individual.tel                        | 電話番号  <br> 両端のスペース除去                                                                                                                               | 15   | 数値、半角ハイフン                 | (payment_method=1,2,6,7時)                            |
-| billing_individual.email                      | メールアドレス  <br> ※両端のスペース除去                                                                                                                        | 100  | [半角英数\*1](/README.md#種別注釈) | 必須                                                  |
-| billing_individual.cc_email                   | CC送信先メールアドレス <br> ※両端のスペース除去                                                                                                                 | 256  | [半角英数\*1](/README.md#種別注釈) |                                                       |
-| billing_individual.payment_method             | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | 1    | 数値                               | 必須                                                  |
-| billing_individual.source_bank_account_name   | 振込元口座名義 <br> ※payment_method=0,2の場合に必要(入力は任意)                                                                                                 | 48   | [半角英数\*5](/README.md#種別注釈) |                                                       |
-| billing_individual. customer_number           | 顧客番号 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                         | 20   | [半角英数\*3](/README.md#種別注釈) |                                                       |
-| billing_individual.bank_code                  | 銀行コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 4    | 数値                               |                                                       |
-| billing_individual.bank_name                  | 銀行名 <br> ※payment_method=5の場合に必要(入力は任意) <br> ※ゆうちょの場合は「ﾕｳﾁﾖ」                                                                            | 15   | [半角英数\*6](/README.md#種別注釈) |                                                       |
-| billing_individual.branch_code                | 支店コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 3    | 数値                               |                                                       |
-| billing_individual.branch_name                | 支店名 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                           | 15   | [半角英数\*6](/README.md#種別注釈) |                                                       |
-| billing_individual.bank_account_type          | 預金種目 <br> 1:普通 2:当座                                                                                                                                     | 1    | 数値                               | (payment_method=3,4,5時)                              |
-| billing_individual.bank_account_number        | 口座番号 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3でゆうちょの時の桁数は8桁固定                                                 | 7    | 数値                               |                                                       |
-| billing_individual.bank_account_name          | 口座名義 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3時の桁数は30桁                                                                | 100  | [半角英数\*5](/README.md#種別注釈) |                                                       |
-| billing_individual.user_id                    | 登録ユーザーID <br> ※セールスフォース利用企業の場合はセールスフォースIDを入力                                                                                   | 100  | 文字列                             |                                                       |
-| billing_individual.ref_billing_code           | 合計請求書用請求先コード                                                                                                                                        | 20   | [半角英数\*4](/README.md#種別注釈) | (ref_individual_number or ref_individual_code 入力時) |
-| billing_individual.ref_individual_number      | 合計請求書用請求先部署番号                                                                                                                                      | 20   | 数値                               | (合計請求書時)^1                                      |
-| billing_individual.ref_individual_code        | 合計請求書用請求先部署コード                                                                                                                                    | 20   | [半角英数\*4](/README.md#種別注釈) | (合計請求書時)^1                                      |
-| billing_individual.bill_template_code         | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください                                                                 |      | 数値                               |                                                       |
-| billing_individual.payment_method_number      | 決済情報番号 <br> ※更新時、「決済情報番号」または「決済情報コード」何れかを指定（入力は任意）                                                                   | 18   | 半角英数                           |                                                       |
-| billing_individual.payment_method_code        | 決済情報コード <br> ※更新時、「決済情報番号」または「決済情報コード」何れかを指定（入力は任意）                                                                 | 20   | [半角英数\*4](/README.md#種別注釈) |                                                       |
-| billing_individual.payment_method_name        | 決済情報名                                                                                                                                                      | 100  | 文字列                             |                                                       |
-| [sub_account_title](#subaccounttitle-request) | 請求先部署補助科目に属するパラメータ                                                                                                                            |      | `Array(sub_account_title)`)        |                                                       |
+| 名前                                          | 概要                                                                                                                                                            | 桁数 | 種別                                   | 必須                                                  |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | ----------------------------------------------------- |
+| billing_individual.number                     | 請求先部署番号  <br> ※セールスフォース利用企業の場合はオブジェクトIDを入力 <br> 両端のスペース除去                                                              | 20   | 文字列                                 | (必須)^1                                              |
+| billing_individual.code                       | 請求先部署コード  <br> 両端のスペース除去                                                                                                                       | 20   | [半角英数 + 記号](/README.md#種別注釈) | (必須)^1                                              |
+| billing_individual.name                       | 請求先部署名  <br> 両端のスペース除去                                                                                                                           | 100  | 文字列                                 | 必須                                                  |
+| billing_individual.link_customer_code         | 会計ソフト連携用取引先コード                                                                                                                                    | 20   | [半角英数](/README.md#種別注釈)        |                                                       |
+| billing_individual.address1                   | 宛名1  <br> 両端のスペース除去                                                                                                                                  | 60   | 文字列                                 | 必須                                                  |
+| billing_individual.address2                   | 宛名2 <br> ※両端のスペース除去                                                                                                                                  | 60   | 文字列                                 |                                                       |
+| billing_individual.address3                   | 宛名3                                                                                                                                                           | 60   | 文字列                                 |                                                       |
+| billing_individual.zip_code                   | 郵便番号  <br> 両端のスペース除去                                                                                                                               | 7    | 数値                                   | 必須                                                  |
+| billing_individual.pref                       | 都道府県                                                                                                                                                        | 4    | 文字列                                 | 必須                                                  |
+| billing_individual.city_address               | 市区町村番地  <br> 両端のスペース除去                                                                                                                           | 56   | 文字列                                 | 必須                                                  |
+| billing_individual.building_name              | 建物名 <br> ※両端のスペース除去                                                                                                                                 | 60   | 文字列                                 |                                                       |
+| billing_individual.set_post_address           | 郵送宛先情報 <br> 0:使用しない 1:使用する                                                                                                                       | 1    | 数値                                   |                                                       |
+| billing_individual.post_address1              | 郵送先宛名1  <br> 両端のスペース除去                                                                                                                            | 60   | 文字列                                 | (set_post_address=1時)                                |
+| billing_individual. post_address2             | 郵送先宛名2 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                                 |                                                       |
+| billing_individual. post_address3             | 郵送先宛名3 <br> ※両端のスペース除去                                                                                                                            | 60   | 文字列                                 |                                                       |
+| billing_individual. post_zip_code             | 郵送先郵便番号  <br> 両端のスペース除去                                                                                                                         | 7    | 数値                                   | (set_post_address=1時)                                |
+| billing_individual. post_pref                 | 郵送先都道府県                                                                                                                                                  | 4    | 文字列                                 | (set_post_address=1時)                                |
+| billing_individual. post_city_address         | 郵送先市区町村番地 <br>  <br> 両端のスペース除去                                                                                                                | 56   | 文字列                                 | (set_post_address=1時)                                |
+| billing_individual. post_building_name        | 郵送先建物名 <br> ※両端のスペース除去                                                                                                                           | 60   | 文字列                                 |                                                       |
+| billing_individual.tel                        | 電話番号  <br> 両端のスペース除去                                                                                                                               | 15   | 数値、半角ハイフン                     | (payment_method=1,2,6,7時)                            |
+| billing_individual.email                      | メールアドレス  <br> ※両端のスペース除去                                                                                                                        | 100  | [メール形式](/README.md#種別注釈)      | 必須                                                  |
+| billing_individual.cc_email                   | CC送信先メールアドレス <br> ※両端のスペース除去                                                                                                                 | 256  | [メール形式](/README.md#種別注釈)      |                                                       |
+| billing_individual.payment_method             | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | 1    | 数値                                   | 必須                                                  |
+| billing_individual.source_bank_account_name   | 振込元口座名義 <br> ※payment_method=0,2の場合に必要(入力は任意)                                                                                                 | 48   | [口座名義](/README.md#種別注釈)        |                                                       |
+| billing_individual. customer_number           | 顧客番号 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                         | 20   | [半角英数](/README.md#種別注釈)        |                                                       |
+| billing_individual.bank_code                  | 銀行コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 4    | 数値                                   |                                                       |
+| billing_individual.bank_name                  | 銀行名 <br> ※payment_method=5の場合に必要(入力は任意) <br> ※ゆうちょの場合は「ﾕｳﾁﾖ」                                                                            | 15   | [銀行名等](/README.md#種別注釈)        |                                                       |
+| billing_individual.branch_code                | 支店コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                                                                   | 3    | 数値                                   |                                                       |
+| billing_individual.branch_name                | 支店名 <br> ※payment_method=5の場合に必要(入力は任意)                                                                                                           | 15   | [銀行名等](/README.md#種別注釈)        |                                                       |
+| billing_individual.bank_account_type          | 預金種目 <br> 1:普通 2:当座                                                                                                                                     | 1    | 数値                                   | (payment_method=3,4,5時)                              |
+| billing_individual.bank_account_number        | 口座番号 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3でゆうちょの時の桁数は8桁固定                                                 | 7    | 数値                                   |                                                       |
+| billing_individual.bank_account_name          | 口座名義 <br> ※payment_method=3,4,5の場合に必要(入力は任意) <br> ※payment_method=3時の桁数は30桁                                                                | 100  | [口座名義](/README.md#種別注釈)        |                                                       |
+| billing_individual.user_id                    | 登録ユーザーID <br> ※セールスフォース利用企業の場合はセールスフォースIDを入力                                                                                   | 100  | 文字列                                 |                                                       |
+| billing_individual.ref_billing_code           | 合計請求書用請求先コード                                                                                                                                        | 20   | [半角英数 + 記号](/README.md#種別注釈) | (ref_individual_number or ref_individual_code 入力時) |
+| billing_individual.ref_individual_number      | 合計請求書用請求先部署番号                                                                                                                                      | 20   | 数値                                   | (合計請求書時)^1                                      |
+| billing_individual.ref_individual_code        | 合計請求書用請求先部署コード                                                                                                                                    | 20   | [半角英数 + 記号](/README.md#種別注釈) | (合計請求書時)^1                                      |
+| billing_individual.bill_template_code         | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください                                                                 |      | 数値                                   |                                                       |
+| billing_individual.payment_method_number      | 決済情報番号 <br> ※更新時、「決済情報番号」または「決済情報コード」何れかを指定（入力は任意）                                                                   | 18   | 半角英数                               |                                                       |
+| billing_individual.payment_method_code        | 決済情報コード <br> ※更新時、「決済情報番号」または「決済情報コード」何れかを指定（入力は任意）                                                                 | 20   | [半角英数 + 記号](/README.md#種別注釈) |                                                       |
+| billing_individual.payment_method_name        | 決済情報名                                                                                                                                                      | 100  | 文字列                                 |                                                       |
+| [sub_account_title](#subaccounttitle-request) | 請求先部署補助科目に属するパラメータ                                                                                                                            |      | `Array(sub_account_title)`)            |                                                       |
 
 #### sub_account_title (request)
 
@@ -111,8 +111,8 @@
 
 ### Fields
 
-| 名前                   | 概要                                 | 型            |
-| ---------------------- | ------------------------------------ | ------------- |
+| 名前                   | 概要                                 | 型       |
+| ---------------------- | ------------------------------------ | -------- |
 | [user](#user-response) | ユーザーID（管理画面へのログインID） | `object` |
 
 #### user (response)
@@ -136,7 +136,7 @@
 | error_message                                     | エラーメッセージ <br> ※エラー時以外はNULL | string                      |
 | code                                              | 請求先コード                              | string                      |
 | name                                              | 請求先名                                  | string                      |
-| user_id                                           | 登録ユーザーID                            | String                      |
+| user_id                                           | 登録ユーザーID                            | string                      |
 | [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `Array(billing_individual)` |
 
 #### billing_individual (response)
