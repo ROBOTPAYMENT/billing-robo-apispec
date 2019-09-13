@@ -29,9 +29,6 @@
 
 #### billing (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                             | 概要                                                                          | 桁数 | 種別                                   | 必須 |
@@ -42,9 +39,6 @@
 | [billing_individual](#billingindividual-request) | 請求先部署に属するパラメータ                                                  |      | `array`            |      |
 
 #### billing_individual (request)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -94,9 +88,6 @@
 
 #### sub_account_title (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                    | 概要                                                              | 桁数 | 種別   | 必須 |
@@ -108,9 +99,6 @@
 - 更新時、リクエストカラムが存在しない、または値がNULLの場合はその項目を更新しない。
 必須カラムは変更がなくても入力してください
 
-</details>
-</details>
-</details>
 
 
 ## レスポンス
@@ -134,9 +122,6 @@
 
 #### billing (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                              | 概要                                      | 型                          |
@@ -149,9 +134,6 @@
 | [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `array` |
 
 #### billing_individual (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -211,9 +193,6 @@
 
 #### sub_account_title (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                    | 概要                           | 型     |
@@ -222,9 +201,6 @@
 | advances_received_code  | 請求先部署前受金補助科目コード | string |
 | suspense_received_code  | 請求先部署仮受金補助科目コード | string |
 
-</details>
-</details>
-</details>
 
 
 ## 使用例

@@ -30,9 +30,6 @@
 
 #### billing (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                                         | 概要                                                                            | 桁数 | 種別                                   | 必須     |
@@ -44,9 +41,6 @@
 | [billing.sub_account_title](#billingsubaccounttitle-request) | 請求先補助科目に属するパラメータ <br> ※今後拡張予定です。現在利用はできません。 |      | `array`     |          |
 
 #### individual (request)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -93,9 +87,6 @@
 
 #### billing.individual.sub_account_title (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                    | 概要                                                              | 桁数 | 種別   | 必須 |
@@ -104,13 +95,8 @@
 | advances_received_code  | 請求先部署前受金補助科目コード <br> ※追加省略時、nullで登録される | 25   | 文字列 |      |
 | suspense_received_code  | 請求先部署仮受金補助科目コード <br> ※追加省略時、nullで登録される | 25   | 文字列 |      |
 
-</details>
-</details>
 
 #### payment (request)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -133,12 +119,8 @@
 | credit_card_regist_kind    | クレジットカード登録方法 <br> 1:あとで登録 2:登録用メールを送付 <br> ※payment_method=1の場合に必要(入力は任意) <br> ※追加省略時、1で登録される                                           | 1        | 数値                                   |                                    |
 | credit_card_email          | クレジットカード登録メール送信先 <br> ※credit_card_regist_kind=2の場合に必要(入力は任意) <br> ※追加省略時、emailで入力したメールアドレスに送信される                                     | 100      | [メール形式](/README.md#種別)      |                                    |
 
-</details>
 
 #### billing.sub_account_title (request)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -147,9 +129,6 @@
 | account_title_code       | 勘定科目コード                                            | 20   | [半角英数 + 記号](/README.md#種別) | 必須 |
 | journal_cooperation_code | 仕訳連携用補助科目コード <br> ※追加省略時、空で登録される | 25   | 文字列                                 |      |
 
-</details>
-</details>
-</details>
 
 
 ## レスポンス
@@ -167,9 +146,6 @@
 
 #### billing (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                                          | 概要                                | 型                                 |
@@ -183,9 +159,6 @@
 | [billing.sub_account_title](#billingsubaccounttitle-response) | 請求先補助科目に属するパラメータ    | `array` |
 
 #### individual (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -234,9 +207,6 @@
 
 #### billing.individual.sub_account_title (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                    | 概要                           | 型     |
@@ -245,13 +215,8 @@
 | advances_received_code  | 請求先部署前受金補助科目コード | string |
 | suspense_received_code  | 請求先部署仮受金補助科目コード | string |
 
-</details>
-</details>
 
 #### payment (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -284,12 +249,8 @@
 | credit_card_regist_kind        | クレジットカード登録方法                                                                                                                                                         | int    |
 | credit_card_email              | クレジットカード登録メール送信先                                                                                                                                                 | string |
 
-</details>
 
 ### billing.sub_account_title (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -300,8 +261,6 @@
 | account_title_code       | 勘定科目コード                      | string |
 | journal_cooperation_code | 仕訳連携用補助科目コード            | string |
 
-</details>
-</details>
 
 
 ## 使用例

@@ -32,9 +32,6 @@
 
 #### bill (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                          | 概要                                                                                                                                                            | 桁数 | 種別                              | 必須                                                 |
@@ -56,7 +53,6 @@
 | carryover_status              | 繰越ステータス <br> 0:対象外 1:繰越待ち 2:繰越完了                                                                                                              | 2    | 数値                              |                                                      |
 | carryover_transit_bill_number | 繰越先請求書番号                                                                                                                                                | 100  | [半角英数 + 記号](/README.md#種別) |                                                      |
 
-</details>
 
 
 ## レスポンス
@@ -78,9 +74,6 @@
 | [bill](#bill-response) | 請求書に属するパラメータ                                                                                                                | `array` |
 
 #### bill (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -135,9 +128,6 @@
 
 #### bill.bill_detail (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                           | 概要                                                                                                                  | 型     |
@@ -172,8 +162,6 @@
 | valid_flg                      | 売上有効フラグ <br> 0:無効1:有効                                                                                      | int    |
 | delete_flg                     | 売上削除フラグ <br> 0:未削除 1:削除 <br> ※現行削除機能は未実装のため未削除が返却されます。                            | string |
 
-</details>
-</details>
 
 
 

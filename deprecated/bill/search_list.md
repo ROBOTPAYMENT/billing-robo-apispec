@@ -31,7 +31,6 @@
 
 #### bill (request)
 
-<!-- ネストが単純なので detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                          | 概要                                                                                                                                                            | 桁数 | 種別                                   | 必須                                                         |
@@ -73,9 +72,6 @@
 | [bill](#bill-response) | 請求書に属するパラメータ                                                                                                                | `array` |
 
 #### bill (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -130,9 +126,6 @@
 
 #### bill.bill_detail (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                           | 概要                                                                                                                  | 型     |
@@ -167,8 +160,6 @@
 | valid_flg                      | 売上有効フラグ <br> 0:無効1:有効                                                                                      | int    |
 | delete_flg                     | 売上削除フラグ <br> 0:未削除 1:削除 <br> ※現行削除機能は未実装のため未削除が返却されます。                            | string |
 
-</details>
-</details>
 
 
 ## 使用例
