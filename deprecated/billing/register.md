@@ -5,6 +5,15 @@
 請求先情報処理を実行します。
 既存の請求先登録APIとの相違点はクレジットカード登録の扱いが異なる点です。
 
+## アウトライン
+
+- [リクエスト](#リクエスト)
+- [レスポンス](#レスポンス)
+- [使用例](#使用例)
+  - [リクエスト例](#リクエスト例)
+  - [レスポンス例](#レスポンス例)
+- [エラー](#エラー)
+
 ## リクエスト
 - Method URL: `https://billing-robo.jp:10443/api/billing/register`
 - Preferred HTTP method: `POST`
@@ -15,12 +24,12 @@
 
 | 名前                     | 概要                                                                                                         | 桁数 | 種別                                   | 必須                     |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------ | ---- | -------------------------------------- | ------------------------ |
-| user_id                  | ユーザーID（管理画面へのログインID）                                                                         | 100  | [メール形式](/README.md#種別注釈)      | 必須                     |
-| access_key               | アクセスキー                                                                                                 | 100  | [半角英数 + 記号](/README.md#種別注釈) | 必須                     |
-| billing_code             | 請求先コード                                                                                                 | 20   | [半角英数](/README.md#種別注釈)        | 必須                     |
+| user_id                  | ユーザーID（管理画面へのログインID）                                                                         | 100  | [メール形式](/README.md#種別)      | 必須                     |
+| access_key               | アクセスキー                                                                                                 | 100  | [半角英数 + 記号](/README.md#種別) | 必須                     |
+| billing_code             | 請求先コード                                                                                                 | 20   | [半角英数](/README.md#種別)        | 必須                     |
 | billing_name             | 請求先名                                                                                                     | 100  | 文字列                                 | 必須                     |
 | billing_individual_name  | 請求先部署名                                                                                                 | 100  | 文字列                                 | 必須                     |
-| link_customer_code       | 会計ソフト連携用取引先コード                                                                                 | 20   | [半角英数](/README.md#種別注釈)        |                          |
+| link_customer_code       | 会計ソフト連携用取引先コード                                                                                 | 20   | [半角英数](/README.md#種別)        |                          |
 | address1                 | 宛名1                                                                                                        | 60   | 文字列                                 | 必須                     |
 | address2                 | 宛名2                                                                                                        | 60   | 文字列                                 |                          |
 | address3                 | 宛名3                                                                                                        | 60   | 文字列                                 |                          |
@@ -29,19 +38,19 @@
 | city_address             | 市区町村番地                                                                                                 | 56   | 文字列                                 | 必須                     |
 | building_name            | 建物名                                                                                                       | 60   | 文字列                                 |                          |
 | tel                      | 電話番号                                                                                                     | 15   | 数値、半角ハイフン                     | (payment_method=1,2時)   |
-| email                    | メールアドレス                                                                                               | 100  | [メール形式](/README.md#種別注釈)      | 必須                     |
-| cc_email                 | CC送信先メールアドレス                                                                                       | 256  | [メール形式](/README.md#種別注釈)      |                          |
-| bs_owner_code            | 請求元担当者コード                                                                                           | 20   | [半角英数 + 記号](/README.md#種別注釈) |                          |
+| email                    | メールアドレス                                                                                               | 100  | [メール形式](/README.md#種別)      | 必須                     |
+| cc_email                 | CC送信先メールアドレス                                                                                       | 256  | [メール形式](/README.md#種別)      |                          |
+| bs_owner_code            | 請求元担当者コード                                                                                           | 20   | [半角英数 + 記号](/README.md#種別) |                          |
 | payment_method           | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 | 1    | 数値                                   | 必須                     |
-| source_bank_account_name | 振込元口座名義 <br> ※payment_method=0,2の場合のみ必要(入力は任意)                                            | 48   | [半角英数](/README.md#種別注釈)        |                          |
-| customer_number          | 顧客番号 <br> ※payment_method=5の場合に必要(入力は任意)                                                      | 15   | [アルファベット](/README.md#種別注釈)  |                          |
+| source_bank_account_name | 振込元口座名義 <br> ※payment_method=0,2の場合のみ必要(入力は任意)                                            | 48   | [半角英数](/README.md#種別)        |                          |
+| customer_number          | 顧客番号 <br> ※payment_method=5の場合に必要(入力は任意)                                                      | 15   | [アルファベット](/README.md#種別)  |                          |
 | bank_code                | 銀行コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                | 4    | 数値                                   |                          |
-| bank_name                | 銀行名 <br> ※payment_method=5の場合に必要(入力は任意) <br> ※ゆうちょの場合は「ﾕｳﾁﾖ」                         | 15   | [銀行名等](/README.md#種別注釈)        |                          |
+| bank_name                | 銀行名 <br> ※payment_method=5の場合に必要(入力は任意) <br> ※ゆうちょの場合は「ﾕｳﾁﾖ」                         | 15   | [銀行名等](/README.md#種別)        |                          |
 | branch_code              | 支店コード <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                | 3    | 数値                                   |                          |
-| branch_name              | 支店名 <br> ※payment_method=5の場合に必要(入力は任意)                                                        | 15   | [銀行名等](/README.md#種別注釈)        |                          |
+| branch_name              | 支店名 <br> ※payment_method=5の場合に必要(入力は任意)                                                        | 15   | [銀行名等](/README.md#種別)        |                          |
 | bank_account_type        | 貯金種目 <br> 1:普通 2:当座                                                                                  | 1    | 数値                                   | (payment_method=3,4,5時) |
 | bank_account_number      | 口座番号 <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                  | 7    | 数値                                   |                          |
-| bank_account_name        | 口座名義 <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                  | 100  | [口座名義](/README.md#種別注釈)        |                          |
+| bank_account_name        | 口座名義 <br> ※payment_method=3,4,5の場合に必要(入力は任意)                                                  | 100  | [口座名義](/README.md#種別)        |                          |
 
 
 ## レスポンス
@@ -107,7 +116,7 @@
 
 ## 使用例
 
-### リクエスト
+### リクエスト例
 
 ```
 user_id: "sample@robotpayment.co.jp"
@@ -139,7 +148,7 @@ bank_account_number: null
 bank_account_name: null
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 

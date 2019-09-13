@@ -24,7 +24,7 @@
 - Firefox 最新版
 - Safari 最新版
 
-## Index
+## アウトライン
 
 - [トークンの取得](#トークンの取得)
   - [実装方式サンプル1](#ポップアップ方式)
@@ -196,7 +196,7 @@ CPToken.TokenCreate (
 
 ## クレジットカード登録
 
-### リクエスト
+### リクエスト例
 - Method URL: `https://credit.j-payment.co.jp/gateway/billgate_token.aspx`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/x-www-form-urulencoded`
@@ -215,7 +215,7 @@ CPToken.TokenCreate (
 | em   | メールアドレス                                                                                                                                                                                                        | 100  | 半角英数 | 必須 |
 
 
-### レスポンス
+### レスポンス例
 
 - Type: `Comma-Separated`
 - Encode: `UTF-8`
@@ -240,7 +240,7 @@ CPToken.TokenCreate (
 
 ### 使用例
 
-#### リクエスト
+#### リクエスト例
 
 ```
 aid: 1234567
@@ -253,7 +253,7 @@ em:"yamada.taro@mail.com"
 memo:"goods-code-01"
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 

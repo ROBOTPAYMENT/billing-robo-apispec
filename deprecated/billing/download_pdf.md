@@ -5,6 +5,15 @@
 口座振替依頼書を発行します。
 戻り値で受け取ったurlに再度アクセスすればダウンロードできます。
 
+## アウトライン
+
+- [リクエスト](#リクエスト)
+- [レスポンス](#レスポンス)
+- [使用例](#使用例)
+  - [リクエスト例](#リクエスト例)
+  - [レスポンス例](#レスポンス例)
+- [エラー](#エラー)
+
 ## リクエスト
 - Method URL: `https://billing-robo.jp:10443/api/billing/download_pdf`
 - Preferred HTTP method: `POST`
@@ -15,11 +24,11 @@
 
 | 名前                      | 概要                                 | 桁数 | 型                                     | 必須     |
 | ------------------------- | ------------------------------------ | ---- | -------------------------------------- | -------- |
-| user_id                   | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別注釈)      | 必須     |
-| access_key                | アクセスキー                         | 100  | [半角英数](/README.md#種別注釈)        | 必須     |
-| billing_code              | 請求先コード                         | 20   | [半角英数 + 記号](/README.md#種別注釈) | 必須     |
+| user_id                   | ユーザーID（管理画面へのログインID） | 100  | [メール形式](/README.md#種別)      | 必須     |
+| access_key                | アクセスキー                         | 100  | [半角英数](/README.md#種別)        | 必須     |
+| billing_code              | 請求先コード                         | 20   | [半角英数 + 記号](/README.md#種別) | 必須     |
 | billing_individual_number | 請求先部署番号                       | 20   | 数値                                   | (必須)^1 |
-| billing_individual_code   | 請求先部署コード                     | 20   | [半角英数 + 記号](/README.md#種別注釈) | (必須)^1 |
+| billing_individual_code   | 請求先部署コード                     | 20   | [半角英数 + 記号](/README.md#種別) | (必須)^1 |
 
 
 ## レスポンス
@@ -36,7 +45,7 @@
 
 ## 使用例
 
-### リクエスト
+### リクエスト例
 
 ```
 user_id: "sample@robotpayment.co.jp"
@@ -45,7 +54,7 @@ billing_code: "billing"
 billing_individual_code: "bicd0001"
 ```
 
-### レスポンス
+### レスポンス例
 
 Status: 200 OK
 
