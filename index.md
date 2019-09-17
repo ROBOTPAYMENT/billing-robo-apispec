@@ -16,9 +16,9 @@
 - [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
 - [クレジットカード登録(トークン決済方式)](/public/j-payment/billgate_token.md)
 
-[非推奨のAPI一覧](/deprecated/index.md)
-
 [開発中のAPI一覧](/dev/index.md)
+
+[非推奨のAPI一覧](/deprecated/index.md)
 
 ## 注釈
 
