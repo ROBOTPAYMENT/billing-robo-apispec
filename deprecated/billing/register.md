@@ -66,7 +66,6 @@
 
 #### billing (response)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                              | 概要                         | 型                          |
@@ -76,9 +75,6 @@
 | [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ | `array` |
 
 #### billing_individual (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -111,7 +107,6 @@
 | bank_account_name        | 口座名義 <br> ※payment_method=3,4,5以外はNULL                                                                      | string |
 | cod                      | 店舗オーダー番号 <br> ※payment_method=1以外はNULL                                                                  | string |
 
-</details>
 
 
 ## 使用例

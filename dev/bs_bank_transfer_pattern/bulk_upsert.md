@@ -30,7 +30,6 @@
 
 #### bs_bank_transfer_pattern (request)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                                                                               | 概要                                                | 桁数 | 種別                                   | 必須 |
@@ -42,7 +41,6 @@
 
 #### bs_bank_transfer_pattern.link_bs_bank_transfer (request)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前 | 概要                                  | 桁数 | 種別                                   | 必須 |
@@ -65,7 +63,6 @@
 
 #### bs_bank_transfer_pattern (response)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                                                                                | 概要                                         | 型                             |
@@ -79,7 +76,6 @@
 
 #### bs_bank_transfer_pattern.link_bs_bank_transfer (response)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 下記のような項目のオブジェクトを持つリスト
 
 | 名前 | 概要           | 型     |

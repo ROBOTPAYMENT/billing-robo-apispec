@@ -30,9 +30,6 @@
 
 #### goods (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                            | 概要                                                                                                                                                                                                                      | 桁数         | 種別                            | 必須                               |
@@ -73,7 +70,6 @@
 | account_title_id_advances_received              | 前受金勘定科目コード <br> ※固定値：2111                                                                                                                                                                                   | 20           | 半角数字                        |                                    |
 | sub_account_title_code_advances_received        | 前受金補助科目コード <br> ※補助科目コード設定対象：商品の場合登録可、商品以外の場合登録不可                                                                                                                               | 25           | [半角英数](../../index.md#種別) |                                    |
 
-</details>
 
 
 ## レスポンス
@@ -92,9 +88,6 @@
 | [goods](#goods-response) | 商品に属するパラメータ              | `array` |
 
 #### goods (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 

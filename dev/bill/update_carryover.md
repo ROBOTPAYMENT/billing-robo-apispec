@@ -29,9 +29,6 @@
 
 #### bill (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                      | 概要                                                                                                                                                                               | 桁数 | 種別                                   | 必須                                                         |
@@ -49,7 +46,6 @@
 | deadline_stop_date        | 決済期限の検索終了日 <br> ※繰越予約は決済期限が過ぎている請求書が対象です                                                                                                          | 10   | 日付                                   |                                                              |
 | carryover_flg             | 繰越予約フラグ <br> 1:繰越予約 2:予約取消  <br> ※繰越予約指定の場合は、繰越ステータスが0:対象外を対象とする <br> ※繰越予約取消指定の場合は、繰越ステータスが1:繰越待ちを対象とする | 2    | 数値                                   | 必須                                                         |
 
-</details>
 
 
 ## レスポンス
@@ -68,9 +64,6 @@
 | [bill](#bill-response) | 請求書に属するパラメータ            | `array` |
 
 #### bill (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -120,7 +113,6 @@
 | carryover_transit_bill_number | 繰越先請求書番号                                                                                                                                                                       | string |
 | carryover_total_amount        | 繰越金額                                                                                                                                                                               | int    |
 
-</details>
 
 
 ## 使用例

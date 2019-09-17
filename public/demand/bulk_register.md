@@ -30,9 +30,6 @@
 
 #### bill (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                               | 概要                                                                                                                      | 桁数 | 種別                                   | 必須     |
@@ -51,9 +48,6 @@
 | [bill.detail](#billdetail-request) | 請求書詳細に属するパラメータ                                                                                              |      | `array`                        |          |
 
 #### bill.detail (request)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -78,8 +72,6 @@
 | period_unit              | 対象期間単位 <br> 1:月                                                                                                            | 1           | 数値   | (period_format=3時)   |
 | period_criterion         | 基準 <br> 0:対象期間開始日 1:対象期間終了日                                                                                       | 1           | 数値   | (period_format=2,3時) |
 
-</details>
-</details>
 
 
 ## レスポンス
@@ -96,8 +88,6 @@
 
 #### user
 
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 | 名前                      | 概要                     | 型              |
 | ------------------------- | ------------------------ | --------------- |
@@ -107,9 +97,6 @@
 
 
 #### demand (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -155,8 +142,6 @@
 | jb                        | 決済処理方法                                                                                                                                                    | string |
 | bs_owner_code             | 請求元担当者コード                                                                                                                                              | string |
 
-</details>
-</details>
 
 
 ## 使用例

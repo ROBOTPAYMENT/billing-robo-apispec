@@ -30,9 +30,6 @@
 
 #### demand (request)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                      | 概要                                                                                                                                                                                                                                                                                                                                                        | 桁数         | 種別                                   | 必須                          |
@@ -79,7 +76,6 @@
 | account_title_code        | 勘定科目コード <br> ※両端のスペース除去 <br> ※追加省略時、4100で登録される                                                                                                                                                                                                                                                                                  | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | bill_group_key            | 請求書合算キー                                                                                                                                                                                                                                                                                                                                              | 256          | 文字列                                 |                               |
 
-</details>
 
 - 更新時、パラメータ名=””というように値を未指定（空）で送信した場合、空文字で更新されます。
 - 更新時、パラメータを送信しなかった場合、更新はされず、既存の値が保持されます。
@@ -100,9 +96,6 @@
 | [demand](#demand-response) | 請求情報に属するパラメータ           | `array` |
 
 #### demand (response)
-
-<details open>
-<summary>クリックして隠す/表示</summary>
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -155,7 +148,6 @@
 | text_pattern_code         | 文書パターンコード                                                                                                        | string |
 | bill_group_key            | 請求書合算キー                                                                                                            | string |
 
-</details>
 
 
 ## 使用例

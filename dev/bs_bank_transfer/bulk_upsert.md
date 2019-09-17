@@ -30,8 +30,6 @@
 
 #### bs_bank_transfer (request)
 
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                          | 概要                                                 | 桁数 | 種別                                   | 必須     |
@@ -50,7 +48,6 @@
 | account_title_id              | 勘定科目ID <br> 普通預金：1120（固定値）             | 20   | 半角数字                               | 必須     |
 | sub_account_title_code        | 補助科目コード                                       | 25   | [半角英数](../../index.md#種別)        |          |
 
-</details>
 
 
 ## レスポンス
@@ -67,8 +64,6 @@
 | [bs_bank_transfer](#bsbanktransfer-response) | 請求元銀行口座に属するパラメータ     | `array` |
 
 #### bs_bank_transfer (response)
-
-<!-- 要素が多くないものは detail, summaryタグを使わない (なくても見やすくため) -->
 
 下記のような項目のオブジェクトを持つリスト
 

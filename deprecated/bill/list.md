@@ -58,9 +58,6 @@
 
 #### bill (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                         | 概要                                                                                                                                                                           | 型                   |
@@ -94,9 +91,6 @@
 
 #### bill.bill_detail (response)
 
-<details open>
-<summary>クリックして隠す/表示</summary>
-
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                   | 概要       | 型     |
@@ -110,8 +104,6 @@
 | consumption_tax_amount | 消費税金額 | int    |
 | total_amount_billed    | 請求金額   | int    |
 
-</details>
-</details>
 
 
 ## 使用例
