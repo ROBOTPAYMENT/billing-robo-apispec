@@ -90,3 +90,7 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 `TLS 1.2`
 
 SSL/TLSバージョンんをご確認いただき、推奨バージョンでのご利用をお願いいたします。
+
+---
+
+[改訂履歴](https://github.com/ROBOTPAYMENT/billing-robo-apispec/releases)
