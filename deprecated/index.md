@@ -13,4 +13,5 @@
 - [請求書参照 v1.0/bill/search_list](bill/search_list.md)
 - [商品登録更新(複数) v1.0/goods/bulk_upsert](goods/bulk_upsert.md)
 - [口座振替依頼書発行 billing/download_pdf](billing/download_pdf.md)
+- [クレジットカード登録(トークン決済方式)](j-payment/billgate_token.md)
 - [クレジットカード登録](j-payment/mktgate.md)
