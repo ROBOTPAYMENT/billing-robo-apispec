@@ -14,7 +14,7 @@
 - [商品登録更新(複数)2 v1.0/goods/bulk_upsert2](/public/goods/bulk_upsert2.md)
 - [商品停止削除(複数) v1.0/goods/bulk_stop](/public/goods/bulk_stop.md)
 - [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
-- [クレジットカード登録(トークン決済方式)](/public/j-payment/billgate_token.md)
+- [クレジットカード登録(トークン方式) v1.0/billing/credit_card_token](/public/billing/credit_card_token.md)
 
 [開発中のAPI一覧](/dev/index.md)
 
@@ -90,3 +90,7 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 `TLS 1.2`
 
 SSL/TLSバージョンんをご確認いただき、推奨バージョンでのご利用をお願いいたします。
+
+---
+
+[改訂履歴](https://github.com/ROBOTPAYMENT/billing-robo-apispec/releases)
