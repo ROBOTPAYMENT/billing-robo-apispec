@@ -94,7 +94,7 @@
     }
     ```
 
-### ポップアップ方式のトークン生成用関数
+#### ポップアップ方式のトークン生成用関数
 
 ``` JavaScript
 CPToken.CardInfo (
@@ -179,7 +179,7 @@ CPToken.CardInfo (
     }
     ```
 
-### カスタマイズ方式のトークン生成用関数
+#### カスタマイズ方式のトークン生成用関数
 
 ``` JavaScript
 CPToken.TokenCreate (
