@@ -26,7 +26,7 @@
 | --------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id               | ユーザーID（管理画面へのログインID） | 100  | [メール形式](../../index.md#種別) | 必須 |
 | access_key            | アクセスキー                         | 100  | [半角英数](../../index.md#種別)   | 必須 |
-| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                     |      |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                           |      |
 
 #### bill (request)
 
@@ -45,7 +45,7 @@
 | deadline_date                      | 初回決済期限 <br> yyyy/mm/dd                                                                                              | 10   | 文字列                                 | 必須     |
 | bs_owner_code                      | 請求元担当者コード <br> ※両端のスペース除去                                                                               | 20   | [半角英数 + 記号](../../index.md#種別) |          |
 | jb                                 | 決済処理方法 <br> 仮実同時売上:CAPTURE                                                                                    | 7    | 文字列                                 | 必須     |
-| [bill.detail](#billdetail-request) | 請求書詳細に属するパラメータ                                                                                              |      | `array`                        |          |
+| [bill.detail](#billdetail-request) | 請求書詳細に属するパラメータ                                                                                              |      | `array`                                |          |
 
 #### bill.detail (request)
 
@@ -89,10 +89,10 @@
 #### user
 
 
-| 名前                      | 概要                     | 型              |
-| ------------------------- | ------------------------ | --------------- |
-| user_id                   | ユーザID                 | string          |
-| access_key                | アクセスキー             | string          |
+| 名前                      | 概要                     | 型      |
+| ------------------------- | ------------------------ | ------- |
+| user_id                   | ユーザID                 | string  |
+| access_key                | アクセスキー             | string  |
 | [demand](#demand-request) | 請求書に属するパラメータ | `array` |
 
 
@@ -131,12 +131,12 @@
 | period_value              | 対象期間 <br> ※period_format=2,3以外はNULL                                                                                                                      | int    |
 | period_unit               | 対象期間単位 <br> 1:月 <br> ※period_format=3以外はNULL                                                                                                          | string |
 | period_criterion          | 基準 <br> 0:対象期間開始日 1:対象期間終了日 <br> ※period_format=2,3以外は0                                                                                      | string |
-| issue_month               | 請求書発行日_月 <br> 入力可能値:-36～36                                                                                                                         | int    |
-| issue_day                 | 請求書発行日_日 <br> 入力可能値:1～30、99(末日)                                                                                                                 | int    |
+| issue_month               | 請求書発行日_月 <br> 入力可能値:-36～36 <br> ※次回請求書発行日が本日以前になる場合のみ有効                                                                      | int    |
+| issue_day                 | 請求書発行日_日 <br> 入力可能値:1～30、99(末日) <br> ※次回請求書発行日が本日以前になる場合のみ有効                                                              | int    |
 | sending_month             | 請求書送付日_月 <br> 入力可能値:-36～36                                                                                                                         | int    |
 | sending_day               | 請求書送付日_日 <br> 入力可能値:1～30、99(末日)                                                                                                                 | int    |
-| deadline_month            | 決済期限_月 <br> 入力可能値:-36～36                                                                                                                             | int    |
-| deadline_day              | 決済期限_日 <br> 入力可能値:1～30、99(末日)                                                                                                                     | int    |
+| deadline_month            | 決済期限_月 <br> 入力可能値:-36～36 <br> ※次回決済期限日が本日以前になる場合のみ有効                                                                            | int    |
+| deadline_day              | 決済期限_日 <br> 入力可能値:1～30、99(末日) <br> ※次回決済期限日が本日以前になる場合にも有効                                                                    | int    |
 | next_issue_date           | 次回請求書発行日 <br> yyyy/mm/dd <br> ※次回請求書が存在しない場合はNULL                                                                                         | date   |
 | bill_template_code        | 請求書テンプレートコード                                                                                                                                        | int    |
 | jb                        | 決済処理方法                                                                                                                                                    | string |
