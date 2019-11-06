@@ -14,7 +14,7 @@
 - [商品登録更新(複数)2 v1.0/goods/bulk_upsert2](/public/goods/bulk_upsert2.md)
 - [商品停止削除(複数) v1.0/goods/bulk_stop](/public/goods/bulk_stop.md)
 - [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
-- [クレジットカード登録(トークン方式) v1.0/billing/credit_card_token](/public/billing/credit_card_token.md)
+- [クレジットカード登録(トークン方式) v1.0/billing_payment_method/credit_card_token](/public/billing_payment_method/credit_card_token.md)
 
 [開発中のAPI一覧](/dev/index.md)
 

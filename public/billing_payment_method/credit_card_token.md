@@ -1,6 +1,6 @@
 # クレジットカード登録(トークン方式)
 
-`/api/v1.0/billing/credit_card_token`
+`/api/v1.0/billing_payment_method/credit_card_token`
 
 請求先登録更新後、レスポンスで返却された店舗オーダー番号をリクエストに加え、ROBOT PAYMENT決済システムにリクエスト送信する際に、ユーザーが入力するクレジットカード番号を、別の文字列（トークン）に置き換えて通信を行うことで、情報漏洩リスクを軽減しつつ請求先の決済情報のクレジットカード情報を登録することができます。
 
@@ -205,7 +205,7 @@ CPToken.TokenCreate (
 
 ### リクエスト
 
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/billing/credit_card_token`
+- Method URL: `https://billing-robo.jp:10443/api/v1.0/billing_payment_method/credit_card_token`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
