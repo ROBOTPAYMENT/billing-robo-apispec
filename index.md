@@ -15,6 +15,7 @@
 - [商品停止削除(複数) v1.0/goods/bulk_stop](/public/goods/bulk_stop.md)
 - [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
 - [クレジットカード登録(トークン方式) v1.0/billing_payment_method/credit_card_token](/public/billing_payment_method/credit_card_token.md)
+- [クレジットカード登録状況通知(Webhook)](public/webhook/webhook_credit_status.md)
 
 [開発中のAPI一覧](/dev/index.md)
 
