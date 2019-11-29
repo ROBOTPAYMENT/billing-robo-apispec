@@ -20,6 +20,9 @@
 
 [非推奨のAPI一覧](/deprecated/index.md)
 
+## Webhook一覧
+- [クレジットカード登録状況通知(Webhook)](/webhook/webhook_credit_status.md)
+
 ## 注釈
 
 ### 種別
