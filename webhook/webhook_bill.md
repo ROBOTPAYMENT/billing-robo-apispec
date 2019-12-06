@@ -1,14 +1,14 @@
-# Webhookクレジットカード登録状況
+# Webhook請求書発行イベント
 
 `Webhook URLはWebhook管理画面から設定が可能です。`
 
-クレジットカードの登録状況が変更された際に、そのステータスをWebhookとして通知します。
+請求書発行する際、その情報をWebhookとして通知します。
 
 ## アウトライン
 
 - [リクエスト](#リクエスト)
   - [共通リクエストパラメータ](#共通リクエストパラメータ)
-    - [イベントデーター](#イベントデーター)
+    - [event_detail (request)](#event_detail-request)
   - [サンプル](#サンプル)
 
 ## リクエスト
@@ -24,7 +24,7 @@
 |------------------------------------- | ------ | --------------------------------------------- |
 | BillingRoboSignaturekey              | string | ロボで自動生成する <br> Webhookページで更新可能 |
 | org                                  | string | BillingRobo_RobotPayment                     |
-| event_name                           | string | ウェブフックイベントの名称 <br> credit_status_issue |
+| event_name                           | string | ウェブフックイベントの名称 <br> bill_issue |
 | regist_time                          | string | イベント発生時刻                             |
 | notification_time                    | string | イベント通知時刻                             |
 | billing_source_id                    | int   | 請求元ID                                     |
@@ -35,9 +35,50 @@
 
 共通リクエストパラメータのevent_detailの中身
 
-| 名前                  | 型 |  概要                                      |
-| --------------------- | ---- | --------------------------------------------- |
+| 名前                                      | 型        |  概要                                         |
+| ---------------------                     | --------- | --------------------------------------------- |
+| billing_number                            | string    | 請求書番号                                    |
+| type                                      | int       | 請求書タイプ                                  |
+| bill_issue_date                           | string    | 請求書発行日                                  |
+| make_date                                 | string    | 請求書作成日                                  |
+| billing_individual_number                 | int       | 請求先部署番号                                |
+| billing_method                            | int       | 請求方法                                      |
+| bill_sending_scheduled_date               | string    | 請求送付予定日                                |
+| payment_method                            | int       | 決済手段                                      |
+| demand_number                             | int       | 請求件数                                      |
+| subtotal_amount_billed                    | int       | 請求金額小計                                  |
+| consumption_tax_amount                    | int       | 消費税額                                      |
+| total_bill_detail_consumption_tax_amount  | int       | 明細毎消費税合計                              |
+| withholding_tax_amount                    | int       | 源泉所得税額                                  |
+| total_amount_billed                       | int       | 請求金額合計                                  |
 
 ### サンプル
 ```json
+{
+  "BillingRoboSignaturekey": "$2y$10$ee1ZuZ6XSxEkzq9egVTLL.OlU7wb/WCgY0ORQyCZpfiDnhoPH2rXu",
+  "org": "BillingRobo_RobotPayment",
+  "id": "25",
+  "event_name": "bill_issue",
+  "regist_time": "2019-12-06 08:09:26",
+  "notification_time": "2019-12-06 05:09:32",
+  "billing_source_id": "1",
+  "event_detail": {
+    "bill": {
+      "billing_number": "201912-sample-3",
+      "type": 1,
+      "bill_issue_date": "2019-12-01",
+      "make_date": "2019/12/06",
+      "billing_individual_number": "1",
+      "billing_method": "0",
+      "bill_sending_scheduled_date": "2019-12-25",
+      "payment_method": "0",
+      "demand_number": 1,
+      "subtotal_amount_billed": 10000,
+      "consumption_tax_amount": 800,
+      "total_bill_detail_consumption_tax_amount": 800,
+      "withholding_tax_amount": 0,
+      "total_amount_billed": 10800
+    }
+  }
+}
 ```
