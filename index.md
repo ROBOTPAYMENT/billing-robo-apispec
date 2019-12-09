@@ -21,6 +21,8 @@
 [非推奨のAPI一覧](/deprecated/index.md)
 
 ## Webhook一覧
+- [Webhook請求書発行イベント](/webhook/webhook_bill.md)
+- [Webhook郵送通知](/webhook/webhook_postmail.md)
 - [クレジットカード登録状況通知(Webhook)](/webhook/webhook_credit_status.md)
 
 ## 注釈

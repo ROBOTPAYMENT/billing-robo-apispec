@@ -9,6 +9,7 @@
 - [リクエスト](#リクエスト)
   - [共通リクエストパラメータ](#共通リクエストパラメータ)
     - [event_detail (request)](#event_detail-request)
+      - [mail (request)](#mail-request)
   - [サンプル](#サンプル)
 
 ## リクエスト
