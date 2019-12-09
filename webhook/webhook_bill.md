@@ -39,13 +39,13 @@
 | 名前                                      | 型        |  概要                                         |
 | ----------------------------------------- | --------- | --------------------------------------------- |
 | billing_number                            | string    | 請求書番号                                    |
-| type                                      | int       | 請求書タイプ<br> 1：請求、2：繰越請求、3：親請求書、4:子請求書 |
+| type                                      | int       | 請求書タイプ<br> 1:請求 2:繰越請求 3:親請求書 4:子請求書 |
 | bill_issue_date                           | string    | 請求書発行日<br>                              |
 | make_date                                 | string    | 請求書作成日                                  |
 | billing_individual_number                 | int       | 請求先部署番号                                |
-| billing_method                            | int       | 請求方法<br> 0：送付なし、1：自動メール、2：手動メール、3：自動郵送、4：手動郵送、5：自動メール＋手動郵送、6：手動メール+手動郵送 |
+| billing_method                            | int       | 請求方法<br> 0：送付なし 1：自動メール 2：手動メール 3：自動郵送 4：手動郵送 5：自動メール＋手動郵送 6：手動メール+手動郵送 |
 | bill_sending_scheduled_date               | string    | 請求送付予定日                                |
-| payment_method                            | int       | 決済手段<br> 0:銀行振込1:クレジットカード2:バンクチェック <br> 3:RP口座振替4:RL口座振替5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) 8:その他コンビニ払込票 |
+| payment_method                            | int       | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4)  7:コンビニ払込票(ハガキ) <br> 8:その他コンビニ払込票 | 
 | demand_number                             | int       | 請求件数                                      |
 | subtotal_amount_billed                    | int       | 請求金額小計                                  |
 | consumption_tax_amount                    | int       | 消費税額                                      |

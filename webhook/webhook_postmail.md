@@ -25,7 +25,7 @@
 |-------------------------------------- | --------- | ------------------------------------------------- |
 | BillingRoboSignaturekey               | string    | ロボで自動生成する <br> Webhookページで更新可能   |
 | org                                   | string    | BillingRobo_RobotPayment                          |
-| event_name                            | string    | ウェブフックイベントの名称 <br> bill_issue        |
+| event_name                            | string    | ウェブフックイベントの名称 <br> mail_issue        |
 | regist_time                           | string    | イベント発生時刻                                  |
 | notification_time                     | string    | イベント通知時刻                                  |
 | billing_source_id                     | int       | 請求元ID                                          |
@@ -38,7 +38,7 @@
 
 | 名前                  | 型        |  概要                                             |
 | --------------------- | --------- | ------------------------------------------------- |
-| type                  | string    | 郵送タイプ <br> 郵送発注：order、郵送発注失敗：order_fail、郵送発送済み：sent、郵送失敗：fail、郵送完了：complete、郵送取消：cancel、郵送差止：injunction |
+| type                  | string    | 郵送タイプ <br> "order":郵送発注 "order_fail":郵送発注失敗 "sent":郵送発送済み "fail":郵送失敗 "complete":郵送完了 "cancel":郵送取消 "injunction":郵送差止 |
 | [mail](#mail-request) | array     | 詳細内容                                          |
 
 ##### mail (request)
@@ -48,8 +48,8 @@ event_detailパラメーターのmailの中身
 | --------------------- | --------- | --------------------------------------------- |
 | number                | int       | 郵送コード                                    |
 | bill_number           | string    | 請求書番号                                    |
-| status                | int       | 郵送ステータス<br> 0:受付中,1:発送済,2:完了,3:失敗,4:取り消し,5:差止 |
-| error_type            | int       | 郵送エラータイプ<br> 0:その他エラー,1:枚数超過,2:ロゴファイルエラー |
+| status                | int       | 郵送ステータス<br> 0:受付中 1:発送済 2:完了 3:失敗 4:取り消し 5:差止 |
+| error_type            | int       | 郵送エラータイプ<br> 0:その他エラー 1:枚数超過 2:ロゴファイルエラー |
 | order_date            | string    | 郵送注文日                                    |
 | mail_date             | string    | 郵送発送日                                    |
 | nondelivery_flg       | int       | 郵送不達フラグ                                |
