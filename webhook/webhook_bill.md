@@ -3,6 +3,7 @@
 `Webhook URLはWebhook管理画面から設定が可能です。`
 
 請求書発行する際、その情報をWebhookとして通知します。
+(手動請求書発行、自動請求書発行、請求書再発行)
 
 ## アウトライン
 
@@ -20,15 +21,15 @@
 
 下記の項目を持つJSONオブジェクトです。
 
-| 名前                                 | 型   | 概要                                      |
-|------------------------------------- | ------ | --------------------------------------------- |
-| BillingRoboSignaturekey              | string | ロボで自動生成する <br> Webhookページで更新可能 |
-| org                                  | string | BillingRobo_RobotPayment                     |
-| event_name                           | string | ウェブフックイベントの名称 <br> bill_issue |
-| regist_time                          | string | イベント発生時刻                             |
-| notification_time                    | string | イベント通知時刻                             |
-| billing_source_id                    | int   | 請求元ID                                     |
-| [event_detail](#event_detail-request)                         | array   | イベント詳細                                 |
+| 名前                                  | 型        | 概要                                              |
+|-------------------------------------- | --------- | ------------------------------------------------- |
+| BillingRoboSignaturekey               | string    | ロボで自動生成する <br> Webhookページで更新可能   |
+| org                                   | string    | BillingRobo_RobotPayment                          |
+| event_name                            | string    | ウェブフックイベントの名称 <br> bill_issue        |
+| regist_time                           | string    | イベント発生時刻                                  |
+| notification_time                     | string    | イベント通知時刻                                  |
+| billing_source_id                     | int       | 請求元ID                                          |
+| [event_detail](#event_detail-request) | array     | イベント詳細                                      |
 
 
 #### event_detail (request)
@@ -36,15 +37,15 @@
 共通リクエストパラメータのevent_detailの中身
 
 | 名前                                      | 型        |  概要                                         |
-| ---------------------                     | --------- | --------------------------------------------- |
+| ----------------------------------------- | --------- | --------------------------------------------- |
 | billing_number                            | string    | 請求書番号                                    |
-| type                                      | int       | 請求書タイプ                                  |
-| bill_issue_date                           | string    | 請求書発行日                                  |
+| type                                      | int       | 請求書タイプ<br> 1：請求、2：繰越請求、3：親請求書、4:子請求書 |
+| bill_issue_date                           | string    | 請求書発行日<br>                              |
 | make_date                                 | string    | 請求書作成日                                  |
 | billing_individual_number                 | int       | 請求先部署番号                                |
-| billing_method                            | int       | 請求方法                                      |
+| billing_method                            | int       | 請求方法 0：送付なし、1：自動メール、2：手動メール、3：自動郵送、4：手動郵送、5：自動メール＋手動郵送、6：手動メール+手動郵送 |
 | bill_sending_scheduled_date               | string    | 請求送付予定日                                |
-| payment_method                            | int       | 決済手段                                      |
+| payment_method                            | int       | 決済手段<br> 0:銀行振込1:クレジットカード2:バンクチェック <br> 3:RP口座振替4:RL口座振替5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) 8:その他コンビニ払込票 |
 | demand_number                             | int       | 請求件数                                      |
 | subtotal_amount_billed                    | int       | 請求金額小計                                  |
 | consumption_tax_amount                    | int       | 消費税額                                      |
