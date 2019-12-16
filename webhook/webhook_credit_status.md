@@ -40,7 +40,7 @@
 
 | 名前                  | 型 |  概要                                      |
 | --------------------- | ---- | --------------------------------------------- |
-| billing_id            | int | 請求先ID <br> ※[クレジットカード登録(トークン方式)](../j-payment/billgate_token.md)ではこちらに値が入りません。                                      |
+| billing_id            | int | 請求先ID <br> ※[クレジットカード登録(トークン方式)](../public/billing_payment_method/credit_card_token.md)ではこちらに値が入りません。                                      |
 | billing_code          | string | 請求先コード                                  |
 | payment_number        | int | 決済情報番号 <br> 決済情報一覧か請求先詳細ページで確認できる |
 | payment_code          | string | 決済情報コード                                |
