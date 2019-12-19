@@ -40,12 +40,12 @@
 | tax                       | 消費税率 <br> 画面上で選択できる消費税率のみ入力可能 <br> ※tax_category=0の場合以外はNULL固定。                              | 2             | 数値                                   | (tax_category=0時)    |
 | remark                    | 備考                                                                                                                         | 60×17行       | 文字列                                 |                       |
 | billing_method            | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送    | 1             | 数値                                   |                       |
-| repetition_period_number  | 繰返し周期 <br> 1～60                                                                                                        | 2             | 数値                                   | (demand_type=1,2時)   |
+| repetition_period_number  | 繰返し周期 <br> 1～50                                                                                                        | 2             | 数値                                   | (demand_type=1,2時)   |
 | repetition_period_unit    | 繰返し周期単位 <br> 1:月                                                                                                     | 1             | 数値                                   | (demand_type=1,2時)   |
 | start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                           | 10            | 日付                                   | 必須                  |
 | repeat_count              | 繰返し回数 <br> 0:設定しない または1～36                                                                                     | 2             | 数値                                   | (demand_type=1,2時)   |
 | period_format             | 対象期間形式 <br> 0：○年○月分 <br> 1：○年○月○日分 <br> 2：○年○月～○年○月 <br> 3：○年○月○日～○年○月○日 <br> 99：非表示        | 1             | 数値                                   | 必須                  |
-| period_value              | 対象期間 <br> 入力可能値:1～60                                                                                               | 2             | 数値                                   | (period_format=2,3時) |
+| period_value              | 対象期間 <br> 入力可能値:1～31                                                                                               | 2             | 数値                                   | (period_format=2,3時) |
 | period_unit               | 対象期間単位 <br> 1:月                                                                                                       | 1             | 数値                                   | (period_format=3時)   |
 | period_criterion          | 基準 <br> 0:対象期間開始日 1:対象期間終了日                                                                                  | 1             | 数値                                   | (period_format=2,3時) |
 | issue_month               | 請求書発行日_月 <br> 入力可能値:-36～36                                                                                      | 2             | 数値                                   | 必須                  |
@@ -94,7 +94,7 @@
 | withholding_tax           | 源泉所得税設定 <br> 0:無し 1:有り <br> ※請求情報登録画面上にこの項目が表示されていない場合は0固定。                       | int    |
 | remark                    | 備考                                                                                                                      | string |
 | billing_method            | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送 | int    |
-| repetition_period_number  | 繰返し周期 <br> 1～60                                                                                                     | string |
+| repetition_period_number  | 繰返し周期 <br> 1～50                                                                                                     | string |
 | repetition_period_unit    | 繰返し周期単位 <br> 1:月                                                                                                  | string |
 | start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                        | date   |
 | end_date                  | 最終サービス提供期間 <br> yyyy/mm/dd <br> ※repeat_count=0の場合はNULL                                                     | date   |
