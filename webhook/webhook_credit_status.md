@@ -44,8 +44,8 @@
 | billing_code          | string | 請求先コード                                  |
 | payment_number        | int | 決済情報番号 <br> 決済情報一覧か請求先詳細ページで確認できる |
 | payment_code          | string | 決済情報コード                                |
-| payment_status        | int | 決済情報登録状況 <br> 0:未登録 1:登録待ち 2:メール送信済 3:申請中 4:登録情報送信エラー 5:登録完了 6:登録失敗 |
-| credit_status         | int | クレジットカード登録状況 <br> 0:未処理 1:メール送信済 2:完了 3:エラー |
+| payment_status        | int | 決済情報登録状況 <br> 0:未登録 1:登録待ち 2:メール送信済 3:申請中 4:登録情報送信エラー 5:登録完了 6:登録失敗 <br> ※更新がない場合はnullになります。 |
+| credit_status         | int | クレジットカード登録状況 <br> 0:未処理 1:メール送信済 2:完了 3:エラー <br> ※更新がない場合はnullになります。 |
 | credit_error_code     | string | 失敗時のエラーコード |
 | credit_update_time    | string | credit情報更新時の時刻 |
 
