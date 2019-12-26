@@ -93,7 +93,7 @@
 | withholding_tax           | 源泉所得税設定 <br> 0:無し 1:有り <br> ※請求情報登録画面上にこの項目が表示されていない場合は0固定。                       | int    |
 | remark                    | 備考                                                                                                                      | string |
 | billing_method            | 請求方法 <br> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送 | int    |
-| repetition_period_number  | 繰返し周期 <br> 1～50                                                                                                     | string |
+| repetition_period_number  | 繰返し周期 <br> 1～50                                                                                                    | string |
 | repetition_period_unit    | 繰返し周期単位 <br> 1:月                                                                                                  | string |
 | start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                        | date   |
 | end_date                  | 最終サービス提供期間 <br> yyyy/mm/dd <br> ※repeat_count=0の場合はNULL                                                     | date   |
