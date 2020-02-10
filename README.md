@@ -8,7 +8,7 @@
 cd billing-robo-apispec
 
 # Serve your page locally
-$ docker-compose up
+$ docker-compose up -d
 
 # Open http://localhost:4000 to check your page
 ```
