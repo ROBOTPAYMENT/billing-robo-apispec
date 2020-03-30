@@ -1,6 +1,6 @@
 # 請求書送付メール
 
-`/api/v1.0/bill/send_bill_by_mail`
+`/api/v1.0/bill/send_bill_by_email`
 
 請求書送付をメールで行う場合に利用します
 
