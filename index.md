@@ -31,7 +31,7 @@
 
 | 種別            | 入力可能値                                                                                |
 | --------------- | ----------------------------------------------------------------------------------------- |
-| メール形式      | 正規表現 : `/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix` <br> (例) robot_payment@example.com |
+| メール形式      | 正規表現 : `/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]+$/ix` <br> (例) robot_payment@example.com |
 | アルファベット   | `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`                                    |
 | 半角英数        | `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`                          |
 | 半角英数 + 記号  | ``ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``  |
