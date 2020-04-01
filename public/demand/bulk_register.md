@@ -1,6 +1,6 @@
 # 即時決済 請求書合算
 
-`/api/v1.0/demand/bulk_register`
+`/api/demand/bulk_register`
 
 複数の請求情報登録、合算請求書発行、クレジット決済処理まで行います。
 決済手段がクレジットカードの場合のみに限られます。
@@ -15,7 +15,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/demand/bulk_regiseter`
+- Method URL: `https://billing-robo.jp:10443/api/demand/bulk_register`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
