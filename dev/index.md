@@ -4,4 +4,4 @@
 
 以下のリンクへ移行
 
-[API一覧](index.md)
+[API一覧](../index.md)

@@ -1,4 +1,4 @@
-# 請求元銀行口座パターン登録更新
+# 請求元銀行口座パターン停止削除
 
 `/api/v1.0/bs_bank_transfer_pattern/bulk_stop`
 
