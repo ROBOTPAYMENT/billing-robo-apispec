@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>請求元銀行口座登録更新 | billing-robo-apispec</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="請求元銀行口座登録更新" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="請求管理ロボのAPI仕様書" />
+<meta property="og:description" content="請求管理ロボのAPI仕様書" />
+<link rel="canonical" href="http://0.0.0.0:4000/public/bs_bank_transfer/bulk_upsert.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/public/bs_bank_transfer/bulk_upsert.html" />
+<meta property="og:site_name" content="billing-robo-apispec" />
+<script type="application/ld+json">
+{"headline":"請求元銀行口座登録更新","url":"http://0.0.0.0:4000/public/bs_bank_transfer/bulk_upsert.html","description":"請求管理ロボのAPI仕様書","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a2c448b5d116447955cb01efe3799a738dc0e23f">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">billing-robo-apispec</h1>
+      <h2 class="project-tagline">請求管理ロボのAPI仕様書</h2>
+      
+        <a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="請求元銀行口座登録更新">請求元銀行口座登録更新</h1>
+
+<p><code class="language-plaintext highlighter-rouge">/api/v1.0/bs_bank_transfer/bulk_upsert</code></p>
+
+<p>複数の請求元銀行口座を登録または更新する処理。
+停止中の請求元銀行口座を指定して送信すると、有効な状態に復活します。</p>
+
+<h2 id="アウトライン">アウトライン</h2>
+
+<ul>
+  <li><a href="#リクエスト">リクエスト</a></li>
+  <li><a href="#レスポンス">レスポンス</a></li>
+  <li><a href="#使用例">使用例</a>
+    <ul>
+      <li><a href="#リクエスト例">リクエスト例</a></li>
+      <li><a href="#レスポンス例">レスポンス例</a></li>
+    </ul>
+  </li>
+  <li><a href="#エラー">エラー</a></li>
+</ul>
+
+<h2 id="リクエスト">リクエスト</h2>
+<ul>
+  <li>Method URL: <code class="language-plaintext highlighter-rouge">https://billing-robo.jp:10443/api/v1.0/bs_bank_transfer/bulk_upsert</code></li>
+  <li>Preferred HTTP method: <code class="language-plaintext highlighter-rouge">POST</code></li>
+  <li>Accepted content types: <code class="language-plaintext highlighter-rouge">application/json</code></li>
+  <li>Encode: <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>ユーザーID（管理画面へのログインID）</td>
+      <td>100</td>
+      <td><a href="/#種別">メール形式</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>access_key</td>
+      <td>アクセスキー</td>
+      <td>100</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td><a href="#bsbanktransfer-request">bs_bank_transfer</a></td>
+      <td>請求元銀行口座に属するパラメータ</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="bs_bank_transfer-request">bs_bank_transfer (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>銀行口座コード <br /> ※登録後は変更できません</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>銀行口座名</td>
+      <td>100</td>
+      <td>文字列</td>
+      <td>(登録時</td>
+    </tr>
+    <tr>
+      <td>bank_code</td>
+      <td>銀行コード</td>
+      <td>4</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bank_name</td>
+      <td>銀行名</td>
+      <td>15</td>
+      <td>文字列</td>
+      <td>(登録時)</td>
+    </tr>
+    <tr>
+      <td>branch_code</td>
+      <td>支店コード</td>
+      <td>3</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>branch_name</td>
+      <td>支店名</td>
+      <td>15</td>
+      <td>文字列</td>
+      <td>(登録時)</td>
+    </tr>
+    <tr>
+      <td>bank_account_type</td>
+      <td>預金種目1:普通 2:当座</td>
+      <td>1</td>
+      <td>数値</td>
+      <td>(登録時)</td>
+    </tr>
+    <tr>
+      <td>bank_account_number</td>
+      <td>口座番号</td>
+      <td>7</td>
+      <td>数値</td>
+      <td>(登録時)</td>
+    </tr>
+    <tr>
+      <td>bank_account_name</td>
+      <td>口座名義</td>
+      <td>30</td>
+      <td><a href="/#種別">口座名義</a></td>
+      <td>(登録時)</td>
+    </tr>
+    <tr>
+      <td>bs_department_code</td>
+      <td>請求元部署コード  <br /> ※未所属の場合は「0000」を指定</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>journal_cooperation_bank_code</td>
+      <td>会計ソフト連携用銀行コード</td>
+      <td>33</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>account_title_id</td>
+      <td>勘定科目ID <br /> 普通預金：1120（固定値）</td>
+      <td>20</td>
+      <td>半角数字</td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>sub_account_title_code</td>
+      <td>補助科目コード</td>
+      <td>25</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="レスポンス">レスポンス</h2>
+
+<ul>
+  <li>Type: <code class="language-plaintext highlighter-rouge">application/json</code></li>
+  <li>Encode: <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
+</ul>
+
+<h3 id="fields">Fields</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>ユーザーID（管理画面へのログインID）</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>access_key</td>
+      <td>アクセスキー</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><a href="#bsbanktransfer-response">bs_bank_transfer</a></td>
+      <td>請求元銀行口座に属するパラメータ</td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="bs_bank_transfer-response">bs_bank_transfer (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error_code</td>
+      <td>エラーコード※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_message</td>
+      <td>エラーメッセージ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>銀行口座コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>銀行口座名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_code</td>
+      <td>銀行コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_name</td>
+      <td>銀行名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>branch_code</td>
+      <td>支店コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>branch_name</td>
+      <td>支店名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_account_type</td>
+      <td>預金種目</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>bank_account_number</td>
+      <td>口座番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_account_name</td>
+      <td>口座名義</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_department_code</td>
+      <td>請求元部署コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>journal_cooperation_bank_code</td>
+      <td>会計ソフト連携用銀行コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>account_title_id</td>
+      <td>勘定科目ID</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>sub_account_title_code</td>
+      <td>補助科目コード</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="使用例">使用例</h2>
+
+<h3 id="リクエスト例">リクエスト例</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">" bs_bank_transfer "</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行口座名"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"branch"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"branch_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"支店"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"口座名義"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_department_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"journal_cooperation_bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_title_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sub_account_title_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="レスポンス例">レスポンス例</h3>
+
+<p>Status: 200 OK</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bs_bank_transfer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"code"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行口座名"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"banl_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"branch"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"branch_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"支店"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bank_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"口座名義"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_department_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"journal_cooperation_bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_title_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sub_account_title_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="エラー">エラー</h2>
+
+<p><a href="/#共通エラー">共通エラー</a></p>
+
+<p>個別エラー</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>エラーコード</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2201</td>
+      <td>銀行口座コードが不正</td>
+    </tr>
+    <tr>
+      <td>2202</td>
+      <td>銀行口座名が不正</td>
+    </tr>
+    <tr>
+      <td>2203</td>
+      <td>銀行コードが不正</td>
+    </tr>
+    <tr>
+      <td>2204</td>
+      <td>銀行名が不正</td>
+    </tr>
+    <tr>
+      <td>2205</td>
+      <td>支店コードが不正</td>
+    </tr>
+    <tr>
+      <td>2206</td>
+      <td>支店名が不正</td>
+    </tr>
+    <tr>
+      <td>2207</td>
+      <td>預金種目が不正</td>
+    </tr>
+    <tr>
+      <td>2208</td>
+      <td>口座番号が不正</td>
+    </tr>
+    <tr>
+      <td>2209</td>
+      <td>口座名義が不正</td>
+    </tr>
+    <tr>
+      <td>2210</td>
+      <td>請求元部署コードが不正</td>
+    </tr>
+    <tr>
+      <td>2211</td>
+      <td>会計ソフト連携用銀行コードが不正</td>
+    </tr>
+    <tr>
+      <td>2212</td>
+      <td>勘定科目IDが不正</td>
+    </tr>
+    <tr>
+      <td>2213</td>
+      <td>更新対象の銀行口座が存在しません</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><a href="/">TOPへ戻る</a></p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec">billing-robo-apispec</a> is maintained by <a href="https://github.com/ROBOTPAYMENT">ROBOTPAYMENT</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

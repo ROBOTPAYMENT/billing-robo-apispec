@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>請求書参照2 | billing-robo-apispec</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="請求書参照2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="請求管理ロボのAPI仕様書" />
+<meta property="og:description" content="請求管理ロボのAPI仕様書" />
+<link rel="canonical" href="http://0.0.0.0:4000/public/bill/search_list2.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/public/bill/search_list2.html" />
+<meta property="og:site_name" content="billing-robo-apispec" />
+<script type="application/ld+json">
+{"headline":"請求書参照2","url":"http://0.0.0.0:4000/public/bill/search_list2.html","description":"請求管理ロボのAPI仕様書","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a2c448b5d116447955cb01efe3799a738dc0e23f">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">billing-robo-apispec</h1>
+      <h2 class="project-tagline">請求管理ロボのAPI仕様書</h2>
+      
+        <a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="請求書参照2">請求書参照2</h1>
+
+<p><code class="language-plaintext highlighter-rouge">/api/v1.0/bill/search_list2</code></p>
+
+<p>請求書の参照処理を実行します。
+請求書参照とは、レスポンスについて単価・数量・消費税の型が異なります。</p>
+
+<h2 id="アウトライン">アウトライン</h2>
+
+<ul>
+  <li><a href="#リクエスト">リクエスト</a></li>
+  <li><a href="#レスポンス">レスポンス</a></li>
+  <li><a href="#使用例">使用例</a>
+    <ul>
+      <li><a href="#リクエスト例">リクエスト例</a></li>
+      <li><a href="#レスポンス例">レスポンス例</a></li>
+    </ul>
+  </li>
+  <li><a href="#エラー">エラー</a></li>
+</ul>
+
+<h2 id="リクエスト">リクエスト</h2>
+<ul>
+  <li>Method URL: <code class="language-plaintext highlighter-rouge">https://billing-robo.jp:10443/api/v1.0/bill/search_list2</code></li>
+  <li>Preferred HTTP method: <code class="language-plaintext highlighter-rouge">POST</code></li>
+  <li>Accepted content types: <code class="language-plaintext highlighter-rouge">application/json</code></li>
+  <li>Encode: <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>ユーザーID（管理画面へのログインID）</td>
+      <td>100</td>
+      <td><a href="/#種別">メール形式</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>access_key</td>
+      <td>アクセスキー</td>
+      <td>100</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>limit_count</td>
+      <td>請求書取得件数 <br /> ※0〜200の数値を設定する。省略した場合、20が設定される</td>
+      <td>3</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>page_count</td>
+      <td>請求書取得開始インデックス <br /> ※0以上の数値を設定する。省略した場合、0が設定される</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="#bill-request">bill</a></td>
+      <td>請求書に属するパラメータ</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="bill-request">bill (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>請求書番号</td>
+      <td>100</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>billing_code</td>
+      <td>請求先コード</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>(請求先部署番号指定時) <br /> (請求先部署コード指定時)</td>
+    </tr>
+    <tr>
+      <td>billing_individual_number</td>
+      <td>請求先部署番号</td>
+      <td>20</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>billing_individual_code</td>
+      <td>請求先部署コード</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>issue_start_date</td>
+      <td>発行日の検索開始日</td>
+      <td>10</td>
+      <td>日付</td>
+      <td><a href="/#必須">(必須)^1</a></td>
+    </tr>
+    <tr>
+      <td>issue_stop_date</td>
+      <td>発行日の検索終了日</td>
+      <td>10</td>
+      <td>日付</td>
+      <td><a href="/#必須">(必須)^1</a></td>
+    </tr>
+    <tr>
+      <td>update_start_date</td>
+      <td>更新日の検索開始日</td>
+      <td>10</td>
+      <td>日付</td>
+      <td><a href="/#必須">(必須)^1</a></td>
+    </tr>
+    <tr>
+      <td>update_stop_date</td>
+      <td>更新日の検索終了日</td>
+      <td>10</td>
+      <td>日付</td>
+      <td><a href="/#必須">(必須)^1</a></td>
+    </tr>
+    <tr>
+      <td>deadline_start_date</td>
+      <td>決済期限の検索開始日</td>
+      <td>10</td>
+      <td>日付</td>
+      <td><a href="/#必須">(必須)^1</a></td>
+    </tr>
+    <tr>
+      <td>deadline_stop_date</td>
+      <td>決済期限の検索終了日</td>
+      <td>10</td>
+      <td>日付</td>
+      <td><a href="/#必須">(必須)^1</a></td>
+    </tr>
+    <tr>
+      <td>payment_method</td>
+      <td>決済手段 <br /> 0:銀行振込 1:クレジットカード 2:バンクチェック <br /> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br /> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ)</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>goods_code</td>
+      <td>集計用商品区分コード</td>
+      <td>33</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bs_owner_code</td>
+      <td>請求元担当者コード <br /> ※両端のスペース除去</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>payment_status</td>
+      <td>消込ステータス <br /> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>carryover_status</td>
+      <td>繰越ステータス <br /> 0:対象外 1:繰越待ち 2:繰越完了</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>carryover_transit_bill_number</td>
+      <td>繰越先請求書番号</td>
+      <td>100</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="レスポンス">レスポンス</h2>
+
+<ul>
+  <li>Type: <code class="language-plaintext highlighter-rouge">application/json</code></li>
+  <li>Encode: <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
+</ul>
+
+<h3 id="fields">Fields</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>ユーザーID</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>access_key</td>
+      <td>アクセスキー</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_code</td>
+      <td>エラーコード <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_message</td>
+      <td>エラーメッセージ <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>limit_count</td>
+      <td>請求書取得件数 <br /> ※最大件数は、リクエストで指定された「請求書取得件数」に依存</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>page_count</td>
+      <td>請求書取得開始インデックス <br /> ※取得した請求書の開始インデックスを返却する</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>total_page_count</td>
+      <td>請求書取得開始インデックス合計 <br /> ※指定された検索条件によって取得可能な請求書の全件数／請求書取得件数によって、算出される値を返却する</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td><a href="#bill-response">bill</a></td>
+      <td>請求書に属するパラメータ</td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="bill-response">bill (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>請求書番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_residence_code</td>
+      <td>請求元差出人コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>billing_code</td>
+      <td>請求先コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>billing_name</td>
+      <td>請求先名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>billing_individual_number</td>
+      <td>請求先部署番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>billing_individual_code</td>
+      <td>請求先部署コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>billing_individual_name</td>
+      <td>請求先部署名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>demand_number</td>
+      <td>請求件数</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>subtotal_amount_billed</td>
+      <td>請求金額小計</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>consumption_tax_amount</td>
+      <td>消費税額</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>total_amount_billed</td>
+      <td>請求金額合計</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>unclearing_amount</td>
+      <td>未消込金額</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>message_column</td>
+      <td>通信欄</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>billing_method</td>
+      <td>請求方法 <br /> 0：送付なし、1：自動メール、2：手動メール、3：自動郵送、4：手動郵送、5：自動メール+自動郵送、6：手動メール+手動郵送</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>issue_date</td>
+      <td>請求書発行日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>make_date</td>
+      <td>請求書作成日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>sending_scheduled_date</td>
+      <td>請求書送付予定日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>sending_date</td>
+      <td>請求書送付日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>update_date</td>
+      <td>請求書更新日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>confirm_date</td>
+      <td>請求書確認日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>mail_send_flg</td>
+      <td>メールステータス <br /> 0：未送信 1：送信済み</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>post_send_flg</td>
+      <td>郵送ステータス <br /> 0：未送信 1：送信済み</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>payment_method</td>
+      <td>決済手段 <br /> 0:銀行振込 1:クレジットカード 2:バンクチェック <br /> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br /> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ)</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>payment_method_number</td>
+      <td>決済情報番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>payment_method_code</td>
+      <td>決済情報コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>payment_method_name</td>
+      <td>決済情報名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>settlement_result</td>
+      <td>決済連携ステータス <br /> 0：申請中、1：送信失敗、2：決済成功、3：決済失敗</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>transfer_deadline</td>
+      <td>決済期限</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>slip_deadline</td>
+      <td>払込票有効期限</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>transfer_date</td>
+      <td>決済日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>payment_status</td>
+      <td>消込ステータス <br /> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>memo</td>
+      <td>メモ</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>template_code</td>
+      <td>請求書テンプレート</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_department_code</td>
+      <td>請求元部署コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_department_name</td>
+      <td>請求元部署名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_owner_code</td>
+      <td>請求元担当者コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_owner_name</td>
+      <td>請求元担当者名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>valid_flg</td>
+      <td>請求書有効フラグ <br /> 0:無効1:有効</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>delete_flg</td>
+      <td>請求書削除フラグ <br /> 0:未削除 1:削除 <br /> ※現行削除機能は未実装のため未削除が返却されます。</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>gid</td>
+      <td>決済ID</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>carryover_status</td>
+      <td>繰越ステータス <br /> 0:対象外 1:繰越待ち 2:繰越完了</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>carryover_transit_bill_number</td>
+      <td>繰越先請求書番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>carryover_total_amount</td>
+      <td>繰越金額</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>download_url</td>
+      <td>請求書ダウンロードURL</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bill_group_key</td>
+      <td>請求書合算キー</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><a href="#billbilldetail-response">bill.bill_detail</a></td>
+      <td>請求書詳細に属するパラメータ</td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="billbill_detail-response">bill.bill_detail (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>demand_number</td>
+      <td>請求情報番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>demand_code</td>
+      <td>請求情報コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>item_number</td>
+      <td>商品番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>item_code</td>
+      <td>商品コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>goods_name</td>
+      <td>商品名</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>pattern_period_format</td>
+      <td>対象期間形式 <br /> 0：○年○月分 <br /> 1：○年○月○日分 <br /> 2：○年○月～○年○月 <br /> 3：○年○月○日～○年○月○日 <br /> 99：非表示</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>demand_start_date</td>
+      <td>対象期間_開始</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>demand_end_date</td>
+      <td>対象期間_終了</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>criterion_date</td>
+      <td>基準日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>link_customer_code</td>
+      <td>仕訳連携用取引先コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>goods_code</td>
+      <td>集計用商品区分コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>link_goods_code</td>
+      <td>仕訳連携用商品コード</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>unit_price</td>
+      <td>単価</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>quantity</td>
+      <td>数量</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>単位</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>tax_category</td>
+      <td>税区分 <br /> 0:外税 1:内税 2:対象外 3:非課税</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>consumption_tax</td>
+      <td>消費税</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>subtotal_amount_billed</td>
+      <td>請求金額小計</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>consumption_tax_amount</td>
+      <td>消費税額</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>total_amount_billed</td>
+      <td>請求金額合計</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>unclearing_amount</td>
+      <td>未消込金額</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>remark</td>
+      <td>備考</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>recorded_date</td>
+      <td>売上計上日</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>payment_method</td>
+      <td>決済情報名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>payment_status</td>
+      <td>消込ステータス</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>carryover_flg</td>
+      <td>繰越フラグ <br /> 0:通常請求書明細 1:繰越請求書明細</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>carryover_original_bill_number</td>
+      <td>繰越元請求書番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>valid_flg</td>
+      <td>売上有効フラグ <br /> 0:無効1:有効</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>delete_flg</td>
+      <td>売上削除フラグ <br /> 0:未削除 1:削除 <br /> ※現行削除機能は未実装のため未削除が返却されます。</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="使用例">使用例</h2>
+
+<h3 id="リクエスト例">リクエスト例</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"limit_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bill"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_individual_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_individual_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"issue_start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016/04/01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"issue_stop_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/07/31"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"update_start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"update_stop_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deadline_start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deadline_stop_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"goods_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_owner_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="レスポンス例">レスポンス例</h3>
+
+<p>Status: 200 OK</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"limit_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_page_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bill"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201705-banche-1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_residence_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banche"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"株式001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_individual_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_individual_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_individual_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"経理"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"demand_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subtotal_amount_billed"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"consumption_tax_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total_amount_billed"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unclearing_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"message_column"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billing_method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"issue_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/03/31"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"make_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/05/16"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sending_scheduled_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/04/01"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sending_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/05/16"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confirm_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"mail_send_flg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"post_send_flg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_method_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_method_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_method_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"バンクチェック"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"settlement_result"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"transfer_deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/04/30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"slip_deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/04/30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"transfer_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016/07/06"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"template_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10010"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_department_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_department_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_owner_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bs_owner_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"valid_flg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"delete_flg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"gid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bill_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"demand_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"demand_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"item_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"goods_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"商品名"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"pattern_period_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"demand_start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-01"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"demand_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-31"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"criterion_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-31"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"link_customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"goods_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"link_goods_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000.0000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tax_category"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"consumption_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"subtotal_amount_billed"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"consumption_tax_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">370</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"total_amount_billed"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"unclearing_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"remark"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"recorded_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017/03/31"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"決済情報名"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"valid_flg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"delete_flg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="エラー">エラー</h2>
+
+<p><a href="/#共通エラー">共通エラー</a></p>
+
+<p>個別エラー</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>エラーコード</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2001</td>
+      <td>請求書番号が不正</td>
+    </tr>
+    <tr>
+      <td>2002</td>
+      <td>請求先コードが不正</td>
+    </tr>
+    <tr>
+      <td>2003</td>
+      <td>請求先部署番号が不正</td>
+    </tr>
+    <tr>
+      <td>2004</td>
+      <td>請求先部署コードが不正</td>
+    </tr>
+    <tr>
+      <td>2005</td>
+      <td>発行日の検索開始日が不正</td>
+    </tr>
+    <tr>
+      <td>2006</td>
+      <td>発行日の検索終了日が不正</td>
+    </tr>
+    <tr>
+      <td>2007</td>
+      <td>更新日の検索開始日が不正</td>
+    </tr>
+    <tr>
+      <td>2008</td>
+      <td>更新日の検索終了日が不正</td>
+    </tr>
+    <tr>
+      <td>2009</td>
+      <td>決済期限の検索開始日が不正</td>
+    </tr>
+    <tr>
+      <td>2010</td>
+      <td>決済期限の検索終了日が不正</td>
+    </tr>
+    <tr>
+      <td>2011</td>
+      <td>決済手段が不正</td>
+    </tr>
+    <tr>
+      <td>2012</td>
+      <td>集計用商品区分コードが不正</td>
+    </tr>
+    <tr>
+      <td>2013</td>
+      <td>請求元担当者コードが不正</td>
+    </tr>
+    <tr>
+      <td>2014</td>
+      <td>消込ステータスが不正</td>
+    </tr>
+    <tr>
+      <td>2015</td>
+      <td>請求書取得件数が不正</td>
+    </tr>
+    <tr>
+      <td>2016</td>
+      <td>請求書取得開始インデックスが不正</td>
+    </tr>
+    <tr>
+      <td>2017</td>
+      <td>請求書参照に失敗</td>
+    </tr>
+    <tr>
+      <td>2018</td>
+      <td>発行日、更新日、決済期限のいずれか必須。</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><a href="/">TOPへ戻る</a></p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec">billing-robo-apispec</a> is maintained by <a href="https://github.com/ROBOTPAYMENT">ROBOTPAYMENT</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

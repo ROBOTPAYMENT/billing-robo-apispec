@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>請求先登録更新(複数) | billing-robo-apispec</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="請求先登録更新(複数)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="請求管理ロボのAPI仕様書" />
+<meta property="og:description" content="請求管理ロボのAPI仕様書" />
+<link rel="canonical" href="http://0.0.0.0:4000/public/billing/bulk_upsert.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/public/billing/bulk_upsert.html" />
+<meta property="og:site_name" content="billing-robo-apispec" />
+<script type="application/ld+json">
+{"headline":"請求先登録更新(複数)","url":"http://0.0.0.0:4000/public/billing/bulk_upsert.html","description":"請求管理ロボのAPI仕様書","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a2c448b5d116447955cb01efe3799a738dc0e23f">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">billing-robo-apispec</h1>
+      <h2 class="project-tagline">請求管理ロボのAPI仕様書</h2>
+      
+        <a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="請求先登録更新複数">請求先登録更新(複数)</h1>
+
+<p><code class="language-plaintext highlighter-rouge">/api/v1.0/billing/bulk_upsert</code></p>
+
+<p>複数の請求先、請求先部署、請求先決済手段、請求先補助科目を登録または更新します。
+停止中の請求先、請求先部署、決済情報を指定して送信すると、有効な状態に復元します。</p>
+
+<h2 id="アウトライン">アウトライン</h2>
+
+<ul>
+  <li><a href="#リクエスト">リクエスト</a></li>
+  <li><a href="#レスポンス">レスポンス</a></li>
+  <li><a href="#使用例">使用例</a>
+    <ul>
+      <li><a href="#リクエスト例">リクエスト例</a></li>
+      <li><a href="#レスポンス例">レスポンス例</a></li>
+    </ul>
+  </li>
+  <li><a href="#エラー">エラー</a></li>
+</ul>
+
+<h2 id="リクエスト">リクエスト</h2>
+<ul>
+  <li>Method URL: <code class="language-plaintext highlighter-rouge">https://billing-robo.jp:10443/api/v1.0/billing/bulk_upsert</code></li>
+  <li>Preferred HTTP method: <code class="language-plaintext highlighter-rouge">POST</code></li>
+  <li>Accepted content types: <code class="language-plaintext highlighter-rouge">application/json</code></li>
+  <li>Encode: <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>ユーザーID（管理画面へのログインID）</td>
+      <td>100</td>
+      <td><a href="/#種別">メール形式</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>access_key</td>
+      <td>アクセスキー</td>
+      <td>100</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td><a href="#billing-request">billing</a></td>
+      <td>請求先に属するパラメータ</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="billing-request">billing (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>請求先コード  <br /> ※両端のスペース除去 <br /> ※登録後は変更できません</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>請求先名  <br /> ※両端のスペース除去</td>
+      <td>100</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td><a href="#individual-request">individual</a></td>
+      <td>請求先部署に属するパラメータ</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="#payment-request">payment</a></td>
+      <td>請求先決済手段に属するパラメータ ※省略可能</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="#billingsubaccounttitle-request">billing.sub_account_title</a></td>
+      <td>請求先補助科目に属するパラメータ <br /> ※今後拡張予定です。現在利用はできません。</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="individual-request">individual (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>請求先部署番号 <br /> ※両端のスペース除去 <br /> ※登録後は変更できません</td>
+      <td>18</td>
+      <td>数値</td>
+      <td>(更新時)^1</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>請求先部署コード <br /> ※両端のスペース除去 <br /> ※登録後は変更できません</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>(更新時)^1</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>請求先部署名  <br /> ※両端のスペース除去</td>
+      <td>100</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>link_customer_code</td>
+      <td>会計ソフト連携用取引先コード <br /> ※追加省略時、nullで登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>address1</td>
+      <td>宛名1  <br /> ※両端のスペース除去</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>address2</td>
+      <td>宛名2 <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>address3</td>
+      <td>宛名3 <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>zip_code</td>
+      <td>郵便番号  <br /> ※両端のスペース除去 <br /> ※ハイフンを除去した時に7桁の数字であれば可</td>
+      <td>7~</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>pref</td>
+      <td>都道府県名 or 「その他」</td>
+      <td>3~4</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>city_address</td>
+      <td>市区町村番地  <br /> ※両端のスペース除去</td>
+      <td>56</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>building_name</td>
+      <td>建物名 <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>set_post_address</td>
+      <td>郵送宛先情報 <br /> 0:使用しない 1:使用する <br /> ※省略時は、0と同義</td>
+      <td>1</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>post_address1</td>
+      <td>郵送先宛名1  <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td>(追加時でset_post_address=1時)</td>
+    </tr>
+    <tr>
+      <td>post_address2</td>
+      <td>郵送先宛名2 <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>post_address3</td>
+      <td>郵送先宛名3 <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>post_zip_code</td>
+      <td>郵送先郵便番号  <br /> ※両端のスペース除去 <br /> ※ハイフンありなしどちらでも可</td>
+      <td>7</td>
+      <td>文字列</td>
+      <td>(追加時でset_post_address=1時)</td>
+    </tr>
+    <tr>
+      <td>post_pref</td>
+      <td>郵送先都道府県  <br /> ※追加省略時、nullで登録される</td>
+      <td>4</td>
+      <td>文字列</td>
+      <td>(追加時でset_post_address=1時)</td>
+    </tr>
+    <tr>
+      <td>post_city_address</td>
+      <td>郵送先市区町村番地  <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>56</td>
+      <td>文字列</td>
+      <td>(追加時でset_post_address=1時)</td>
+    </tr>
+    <tr>
+      <td>post_building_name</td>
+      <td>郵送先建物名 <br /> ※両端のスペース除去 <br /> ※追加省略時</td>
+      <td>60</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tel</td>
+      <td>電話番号  <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される</td>
+      <td>15</td>
+      <td>数値、半角ハイフン</td>
+      <td>(追加時でpayment_method=1,2,6,7,8時)</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>メールアドレス  <br /> ※両端のスペース除去</td>
+      <td>100</td>
+      <td><a href="/#種別">メール形式</a></td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>cc_email</td>
+      <td>CC送信先メールアドレス <br /> ※両端のスペース除去 <br /> ※追加省略時、nullで登録される <br /> ,(カンマ)区切りで複数指定可</td>
+      <td>256</td>
+      <td><a href="/#種別">メール形式</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>memo</td>
+      <td>メモ <br /> ※追加省略時、nullで登録される</td>
+      <td>300</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>billing_method</td>
+      <td>請求方法 <br /> 0:送付なし 1:自動メール 2:手動メール 3:自動郵送 <br /> 4:手動郵送 5:自動メール+自動郵送 6:手動メール+手動郵送 <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>1</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>issue_month</td>
+      <td>請求書発行日_月 <br /> 入力可能値:-60～60 <br /> 例） <br /> -1：前月 <br /> 0：当月 <br /> 60：60ヵ月後 <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>issue_day</td>
+      <td>請求書発行日_日 <br /> 入力可能値:1～30、99(末日) <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sending_month</td>
+      <td>請求書送付日_月 <br /> 入力可能値:-60～60 <br /> 例） <br /> -1：前月 <br /> 0：当月 <br /> 60：60ヵ月後 <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sending_day</td>
+      <td>請求書送付日_日 <br /> 入力可能値:1～30、99(末日) <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deadline_month</td>
+      <td>決済期限_月 <br /> 入力可能値:-60～60 <br /> 例） <br /> -1：前月 <br /> 0：当月 <br /> 60：60ヵ月後 <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deadline_day</td>
+      <td>決済期限_日 <br /> 入力可能値:1～30、99(末日) <br /> ※追加省略時、nullで登録される <br /> ※請求情報を登録する際に利用する値です。事前に登録しておくことができます。</td>
+      <td>2</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>payment_method_code</td>
+      <td>決済情報コード <br /> ※追加省略時、nullで登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bs_owner_code</td>
+      <td>請求元担当者コード <br /> ※追加省略時、nullで登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ref_billing_code</td>
+      <td>合計請求書用請求先コード <br /> ※追加省略時、nullで登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ref_individual_number</td>
+      <td>合計請求書用請求先部署番号 <br /> ※追加省略時、nullで登録される</td>
+      <td>18</td>
+      <td>数値</td>
+      <td>(合計請求書時)^2</td>
+    </tr>
+    <tr>
+      <td>ref_individual_code</td>
+      <td>合計請求書用請求先部署コード <br /> ※追加省略時、nullで登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>(合計請求書時)^2</td>
+    </tr>
+    <tr>
+      <td>bill_template_code</td>
+      <td>請求書テンプレートコード <br /> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください <br /> ※追加省略時、nullで登録される</td>
+      <td>18</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>auto_erase_commission_amount</td>
+      <td>手数料自動消込許容金額 <br /> ※追加省略時、0で登録される</td>
+      <td>9</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="#billingindividualsubaccounttitle-request">billing.individual.sub_account_title</a></td>
+      <td>請求先部署補助科目に属するパラメータ ※省略可能</td>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="billingindividualsub_account_title-request">billing.individual.sub_account_title (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>account_receivable_code</td>
+      <td>請求先部署売掛金補助科目コード <br /> ※追加省略時、nullで登録される</td>
+      <td>25</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>advances_received_code</td>
+      <td>請求先部署前受金補助科目コード <br /> ※追加省略時、nullで登録される</td>
+      <td>25</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>suspense_received_code</td>
+      <td>請求先部署仮受金補助科目コード <br /> ※追加省略時、nullで登録される</td>
+      <td>25</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="payment-request">payment (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>決済情報番号  <br /> ※両端のスペース除去 <br /> ※登録後は変更できません</td>
+      <td>18</td>
+      <td>半角数字</td>
+      <td>(更新時)^3</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>決済情報コード <br /> ※両端のスペース除去 <br /> ※登録後は変更できません</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>(更新時)^3</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>決済情報名</td>
+      <td>100</td>
+      <td>文字列</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>bank_transfer_pattern_code</td>
+      <td>請求元銀行口座パターンコード <br /> ※payment_method=0の場合に必要(入力は任意) <br /> ※追加省略時、1で登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>payment_method</td>
+      <td>決済手段 <br /> 0:銀行振込 1:クレジットカード 2:バンクチェック <br /> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br /> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) 9:バーチャル口座 <br /> 10:その他決済1,11:その他決済2,12:その他決済3,13:その他決済4,14:その他決済5</td>
+      <td>1</td>
+      <td>数値</td>
+      <td>(追加時)</td>
+    </tr>
+    <tr>
+      <td>source_bank_account_name</td>
+      <td>振込元口座名義 <br /> ※payment_method=0,2,9の場合に必要(入力は任意) <br /> ※追加省略時、空で登録される <br /> ※エンドユーザーの口座名義になります</td>
+      <td>48</td>
+      <td><a href="/#種別">口座名義</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>customer_number</td>
+      <td>顧客番号 <br /> ※payment_method=5の場合に必要(入力は任意) <br /> ※追加省略時、nullで登録される</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bank_code</td>
+      <td>銀行コード <br /> ※payment_method=3,4,5,9の場合に必要(入力は任意) <br /> ※追加省略時、空で登録される</td>
+      <td>4</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bank_name</td>
+      <td>銀行名 <br /> ※payment_method=5の場合に必要(入力は任意) <br /> ※ゆうちょの場合は「ﾕｳﾁﾖ」 <br /> ※追加省略時、nullで登録される</td>
+      <td>15</td>
+      <td><a href="/#種別">銀行名等</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>branch_code</td>
+      <td>支店コード <br /> ※payment_method=3,4,5,9の場合に必要(入力は任意) <br /> ※追加省略時、空で登録される <br /> ※payment_method=3でゆうちょの時の桁数は5桁</td>
+      <td>3または5</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>branch_name</td>
+      <td>支店名 <br /> ※payment_method=5の場合に必要(入力は任意) <br /> ※追加省略時、nullで登録される</td>
+      <td>15</td>
+      <td><a href="/#種別">銀行名等</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bank_account_type</td>
+      <td>預金種目 <br /> 1:普通 2:当座</td>
+      <td>1</td>
+      <td>数値</td>
+      <td>(追加時でpayment_method=3,4,5,9時)</td>
+    </tr>
+    <tr>
+      <td>bank_account_number</td>
+      <td>口座番号 <br /> ※payment_method=3,4,5,9の場合に必要(入力は任意) <br /> ※payment_method=3でゆうちょの時の桁数は8桁 <br /> ※追加省略時、空で登録される</td>
+      <td>7または8</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bank_account_name</td>
+      <td>口座名義 <br /> ※payment_method=3,4,5の場合に必要(入力は任意) <br /> ※payment_method=3の場合の桁数は30桁 <br /> ※payment_method=3の場合は半角スペース入力不可 <br /> ※追加省略時、空で登録される</td>
+      <td>30</td>
+      <td><a href="/#種別">口座名義</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>credit_card_regist_kind</td>
+      <td>クレジットカード登録方法 <br /> 1:あとで登録 2:登録用メールを送付 <br /> ※payment_method=1の場合に必要(入力は任意) <br /> ※追加省略時、1で登録される</td>
+      <td>1</td>
+      <td>数値</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>credit_card_email</td>
+      <td>クレジットカード登録メール送信先 <br /> ※credit_card_regist_kind=2の場合に必要(入力は任意) <br /> ※追加省略時、emailで入力したメールアドレスに送信される</td>
+      <td>100</td>
+      <td><a href="/#種別">メール形式</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>clearing_key</td>
+      <td>消込キー <br /> ※payment_method=その他の場合に必要（入力は任意）<br /> ※追加省略時 <code class="language-plaintext highlighter-rouge">""</code> (空文字)で登録される</td>
+      <td>33</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="billingsub_account_title-request">billing.sub_account_title (request)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>桁数</th>
+      <th>種別</th>
+      <th>必須</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>account_title_code</td>
+      <td>勘定科目コード</td>
+      <td>20</td>
+      <td><a href="/#種別">半角英数 + 記号</a></td>
+      <td>必須</td>
+    </tr>
+    <tr>
+      <td>journal_cooperation_code</td>
+      <td>仕訳連携用補助科目コード <br /> ※追加省略時、空で登録される</td>
+      <td>25</td>
+      <td>文字列</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="レスポンス">レスポンス</h2>
+
+<ul>
+  <li>Type: <code class="language-plaintext highlighter-rouge">application/json</code></li>
+  <li>Encode: <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
+</ul>
+
+<h3 id="fields">Fields</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>user_id</td>
+      <td>ユーザーID（管理画面へのログインID）</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>access_key</td>
+      <td>アクセスキー</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><a href="#billing">billing</a></td>
+      <td>請求先に属するパラメータ</td>
+      <td>Array(billing)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="billing-response">billing (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error_code</td>
+      <td>エラーコード <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_message</td>
+      <td>エラーメッセージ <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>請求先コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>請求先名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><a href="#individual-response">individual</a></td>
+      <td>請求先部署に属するパラメータ</td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+    </tr>
+    <tr>
+      <td><a href="#payment-response">payment</a></td>
+      <td>請求先決済手段に属するパラメータ</td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+    </tr>
+    <tr>
+      <td><a href="#billingsubaccounttitle-response">billing.sub_account_title</a></td>
+      <td>請求先補助科目に属するパラメータ</td>
+      <td><code class="language-plaintext highlighter-rouge">array</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="individual-response">individual (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error_code</td>
+      <td>エラーコード <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_message</td>
+      <td>エラーメッセージ <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>請求先部署番号 <br /> ※登録時に請求管理ロボ側で発番される番号となります</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>請求先部署コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>請求先部署名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>link_customer_code</td>
+      <td>会計ソフト連携用取引先コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>address1</td>
+      <td>宛名1</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>address2</td>
+      <td>宛名2</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>address3</td>
+      <td>宛名3</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>zip_code</td>
+      <td>郵便番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>pref</td>
+      <td>都道府県</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>city_address</td>
+      <td>市区町村番地</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>building_name</td>
+      <td>建物名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>set_post_address</td>
+      <td>郵送宛先情報 <br /> 0:使用しない 1:使用する</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>post_address1</td>
+      <td>郵送先宛名1</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>post_address2</td>
+      <td>郵送先宛名2</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>post_address3</td>
+      <td>郵送先宛名3</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>post_zip_code</td>
+      <td>郵送先郵便番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>post_pref</td>
+      <td>郵送先都道府県</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>post_city_address</td>
+      <td>郵送先市区町村番地</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>post_building_name</td>
+      <td>郵送先建物名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>tel</td>
+      <td>電話番号</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>メールアドレス</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>cc_email</td>
+      <td>CC送信先メールアドレス</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>memo</td>
+      <td>メモ</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>auto_erase_commission_amount</td>
+      <td>手数料自動消込許容金額</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>billing_method</td>
+      <td>請求方法</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>issue_month</td>
+      <td>請求書発行日_月</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>issue_day</td>
+      <td>請求書発行日_日</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>sending_month</td>
+      <td>請求書送付日_月</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>sending_day</td>
+      <td>請求書送付日_日</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>deadline_month</td>
+      <td>決済期限_月</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>deadline_day</td>
+      <td>決済期限_日</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>payment_method_code</td>
+      <td>決済情報コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bs_owner_code</td>
+      <td>請求元担当者コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>ref_billing_code</td>
+      <td>合計請求書用請求先コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>ref_individual_number</td>
+      <td>合計請求書用請求先部署番号</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>ref_individual_code</td>
+      <td>合計請求書用請求先部署コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bill_template_code</td>
+      <td>請求書テンプレートコード</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>billing.individual.sub_account_title</td>
+      <td>請求先部署補助科目に属するパラメータ</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="billingindividualsub_account_title-response">billing.individual.sub_account_title (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>account_receivable_code</td>
+      <td>請求先部署売掛金補助科目コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>advances_received_code</td>
+      <td>請求先部署前受金補助科目コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>suspense_received_code</td>
+      <td>請求先部署仮受金補助科目コード</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="payment-response">payment (response)</h4>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error_code</td>
+      <td>エラーコード <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_message</td>
+      <td>エラーメッセージ <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>決済情報番号</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>決済情報コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>決済情報名</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_transfer_pattern_code</td>
+      <td>請求元銀行口座パターンコード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>payment_method</td>
+      <td>決済手段 <br /> 0:銀行振込 1:クレジットカード 2:バンクチェック <br /> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br /> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) 9:バーチャル口座 <br /> 10:その他決済1,11:その他決済2,12:その他決済3,13:その他決済4,14:その他決済5</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>register_status</td>
+      <td>登録ステータス <br /> 0:未処理 1:登録待ち 2:メール送信済み 3:申請中 <br /> 4:登録情報_送信エラー 5:登録完了 6:登録失敗</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>source_bank_account_name</td>
+      <td>振込元口座名義 <br /> ※payment_method=0,2,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>customer_number</td>
+      <td>顧客番号 <br /> ※payment_method=3,5以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_code</td>
+      <td>銀行コード <br /> ※payment_method=3,4,5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_name</td>
+      <td>銀行名 <br /> ※payment_method=5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>branch_code</td>
+      <td>支店コード <br /> ※payment_method=3,4,5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>branch_name</td>
+      <td>支店名 <br /> ※payment_method=5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_account_type</td>
+      <td>預金種目 <br /> 1:普通 2:当座 <br /> ※payment_method=3,4,5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_account_number</td>
+      <td>口座番号 <br /> ※payment_method=3,4,5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_account_name</td>
+      <td>口座名義 <br /> ※payment_method=3,4,5,9以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>cod</td>
+      <td>店舗オーダー番号 <br /> ※payment_method=1以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_check_bank_code</td>
+      <td>バンクチェック銀行コード <br /> ※payment_method=2以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_check_bank_name</td>
+      <td>バンクチェック銀行名 <br /> ※payment_method=2以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_check_branch_code</td>
+      <td>バンクチェック支店コード <br /> ※payment_method=2以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_check_branch_name</td>
+      <td>バンクチェック支店名 <br /> ※payment_method=2以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_check_kind</td>
+      <td>バンクチェック口座種別 <br /> 1:普通 2:当座 <br /> ※payment_method=2以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>bank_check_bank_account_number</td>
+      <td>バンクチェック口座番号 <br /> ※payment_method=2以外は空文字</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>credit_card_regist_kind</td>
+      <td>クレジットカード登録方法</td>
+      <td>int</td>
+    </tr>
+    <tr>
+      <td>credit_card_email</td>
+      <td>クレジットカード登録メール送信先</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>clearing_key</td>
+      <td>消込キー</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="billingsub_account_title-response">billing.sub_account_title (response)</h3>
+
+<p>下記のような項目のオブジェクトを持つリスト</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>概要</th>
+      <th>型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error_code</td>
+      <td>エラーコード <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>error_message</td>
+      <td>エラーメッセージ <br /> ※正常時はnull</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>account_title_code</td>
+      <td>勘定科目コード</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>journal_cooperation_code</td>
+      <td>仕訳連携用補助科目コード</td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="使用例">使用例</h2>
+
+<h3 id="リクエスト例">リクエスト例</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"billing_code"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"請求先名"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"individual"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-12345"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"請求先部署名"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"宛名1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1651111"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"pref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"東京都"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"city_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"渋谷区"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"sub_account_title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"account_receivable_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"advances_received_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"suspense_received_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-123"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行振込123"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_transfer_pattern_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-123"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-456"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行振込456"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_transfer_pattern_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-456"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"sub_account_title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"account_title_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc1234"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"journal_cooperation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc1234"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"account_title_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc5678"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"journal_cooperation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc5678"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="レスポンス例">レスポンス例</h3>
+
+<p>Status: 200 OK</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"billing"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"請求先名"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"individual"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc-12345"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"請求先部署名"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"link_customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"宛名1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1651111"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"pref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"東京都"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"city_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"渋谷区"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"building_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"set_post_address"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_pref"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_city_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"post_building_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"tel"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@robotpayment.co.jp"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cc_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"auto_erase_commission_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"billing_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"issue_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"issue_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"sending_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"sending_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"deadline_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"deadline_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_method_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bs_owner_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ref_billing_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ref_individual_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"ref_individual_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bill_template_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"sub_account_title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"account_receivable_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"advances_received_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"suspense_received_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-123"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行振込123"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_transfer_pattern_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-123"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"register_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"source_bank_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"customer_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"branch_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_type "</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cod"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"credit_card_regist_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-456"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"銀行振込456"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_transfer_pattern_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank-456"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"register_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"source_bank_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"customer_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"branch_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_account_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"payment_type "</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"cod"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_check_bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_check_bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_check_branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_check_branch_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_check_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"bank_check_bank_account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"credit_card_regist_kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"sub_account_title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_title_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc1234"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"journal_cooperation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc1234"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"error_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"error_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"account_title_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc5678"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"journal_cooperation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc5678"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="エラー">エラー</h2>
+
+<p><a href="/#共通エラー">共通エラー</a></p>
+
+<p>個別エラー</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>エラーコード</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1101</td>
+      <td>リクエストパラメータに請求先が存在しない</td>
+    </tr>
+    <tr>
+      <td>1102</td>
+      <td>請求先コードが不正</td>
+    </tr>
+    <tr>
+      <td>1103</td>
+      <td>請求先名が不正 <br /> 新規登録時に空白、または101桁以上で発生</td>
+    </tr>
+    <tr>
+      <td>1104</td>
+      <td>請求先部署番号が不正</td>
+    </tr>
+    <tr>
+      <td>1105</td>
+      <td>請求先部署コードが不正</td>
+    </tr>
+    <tr>
+      <td>1106</td>
+      <td>請求先部署名が不正 <br /> 新規登録時に空白、または101桁以上で発生</td>
+    </tr>
+    <tr>
+      <td>1107</td>
+      <td>会計ソフト連携用取引先コードが不正</td>
+    </tr>
+    <tr>
+      <td>1108</td>
+      <td>宛名１が不正 <br /> 新規登録時に空白、または61桁以上で発生</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>宛名２が不正</td>
+    </tr>
+    <tr>
+      <td>1110</td>
+      <td>宛名３が不正</td>
+    </tr>
+    <tr>
+      <td>1111</td>
+      <td>郵便番号が不正 <br /> 新規登録時に空白、またはハイフン(-)を除いた文字が7桁の数字でなければ発生</td>
+    </tr>
+    <tr>
+      <td>1112</td>
+      <td>都道府県名が不正 <br /> 新規登録時に空白、または都道府県名か「その他」以外の値で発生</td>
+    </tr>
+    <tr>
+      <td>1113</td>
+      <td>市区町村番地が不正 <br /> 57桁以上で発生</td>
+    </tr>
+    <tr>
+      <td>1114</td>
+      <td>建物名が不正</td>
+    </tr>
+    <tr>
+      <td>1115</td>
+      <td>郵送宛先情報が不正</td>
+    </tr>
+    <tr>
+      <td>1116</td>
+      <td>郵送先宛名１が不正</td>
+    </tr>
+    <tr>
+      <td>1117</td>
+      <td>郵送先宛先２が不正</td>
+    </tr>
+    <tr>
+      <td>1118</td>
+      <td>郵送先宛名３が不正</td>
+    </tr>
+    <tr>
+      <td>1119</td>
+      <td>郵送先郵便番号が不正</td>
+    </tr>
+    <tr>
+      <td>1120</td>
+      <td>郵送先都道府県名が不正</td>
+    </tr>
+    <tr>
+      <td>1121</td>
+      <td>郵送先市区町村番地が不正</td>
+    </tr>
+    <tr>
+      <td>1122</td>
+      <td>郵送先建物名が不正</td>
+    </tr>
+    <tr>
+      <td>1123</td>
+      <td>電話番号が不正</td>
+    </tr>
+    <tr>
+      <td>1124</td>
+      <td>メールアドレスが不正 <br /> 新規登録時に空白、101桁以上またはメール形式以外の値で発生 <br /> メールアドレスは,(カンマ)区切りで複数指定不可</td>
+    </tr>
+    <tr>
+      <td>1125</td>
+      <td>CC送信先メールアドレスが不正</td>
+    </tr>
+    <tr>
+      <td>1126</td>
+      <td>メモが不正</td>
+    </tr>
+    <tr>
+      <td>1127</td>
+      <td>請求方法が不正</td>
+    </tr>
+    <tr>
+      <td>1128</td>
+      <td>請求書発行日_月が不正</td>
+    </tr>
+    <tr>
+      <td>1129</td>
+      <td>請求書発行日_日が不正</td>
+    </tr>
+    <tr>
+      <td>1130</td>
+      <td>請求書送付日_月が不正</td>
+    </tr>
+    <tr>
+      <td>1131</td>
+      <td>請求書送付日_日が不正</td>
+    </tr>
+    <tr>
+      <td>1132</td>
+      <td>決済期限_月が不正</td>
+    </tr>
+    <tr>
+      <td>1133</td>
+      <td>決済期限_日が不正</td>
+    </tr>
+    <tr>
+      <td>1134</td>
+      <td>請求先決済情報コードが不正</td>
+    </tr>
+    <tr>
+      <td>1135</td>
+      <td>請求元担当者コードが不正</td>
+    </tr>
+    <tr>
+      <td>1136</td>
+      <td>合計請求書用請求先コードが不正</td>
+    </tr>
+    <tr>
+      <td>1137</td>
+      <td>合計請求書用請求先部署番号が不正</td>
+    </tr>
+    <tr>
+      <td>1138</td>
+      <td>合計請求書用請求先部署コードが不正</td>
+    </tr>
+    <tr>
+      <td>1139</td>
+      <td>請求書テンプレートコードが不正</td>
+    </tr>
+    <tr>
+      <td>1140</td>
+      <td>請求先決済情報コードが不正</td>
+    </tr>
+    <tr>
+      <td>1141</td>
+      <td>請求先決済情報名が不正</td>
+    </tr>
+    <tr>
+      <td>1142</td>
+      <td>請求元銀行口座パターンコードが不正</td>
+    </tr>
+    <tr>
+      <td>1143</td>
+      <td>決済手段が不正</td>
+    </tr>
+    <tr>
+      <td>1144</td>
+      <td>振込元口座名義が不正</td>
+    </tr>
+    <tr>
+      <td>1145</td>
+      <td>顧客番号が不正</td>
+    </tr>
+    <tr>
+      <td>1146</td>
+      <td>銀行コードが不正</td>
+    </tr>
+    <tr>
+      <td>1147</td>
+      <td>銀行名が不正</td>
+    </tr>
+    <tr>
+      <td>1148</td>
+      <td>支店コード</td>
+    </tr>
+    <tr>
+      <td>1149</td>
+      <td>支店名が不正</td>
+    </tr>
+    <tr>
+      <td>1150</td>
+      <td>預金種目が不正</td>
+    </tr>
+    <tr>
+      <td>1151</td>
+      <td>口座番号が不正</td>
+    </tr>
+    <tr>
+      <td>1152</td>
+      <td>口座名義が不正</td>
+    </tr>
+    <tr>
+      <td>1153</td>
+      <td>勘定科目コードが不正</td>
+    </tr>
+    <tr>
+      <td>1154</td>
+      <td>仕訳連携要補助科目コードが不正</td>
+    </tr>
+    <tr>
+      <td>1155</td>
+      <td>請求先登録に失敗</td>
+    </tr>
+    <tr>
+      <td>1156</td>
+      <td>請求先部署登録に失敗</td>
+    </tr>
+    <tr>
+      <td>1157</td>
+      <td>請求先決済手段登録に失敗</td>
+    </tr>
+    <tr>
+      <td>1158</td>
+      <td>請求先決済手段にひもづくBI系の登録に失敗</td>
+    </tr>
+    <tr>
+      <td>1159</td>
+      <td>請求先補助科目登録に失敗</td>
+    </tr>
+    <tr>
+      <td>1160</td>
+      <td>親請求先部署が存在しない</td>
+    </tr>
+    <tr>
+      <td>1161</td>
+      <td>指定した親部署が、既に他の親部署を持っている</td>
+    </tr>
+    <tr>
+      <td>1162</td>
+      <td>孫請求先部署が存在する</td>
+    </tr>
+    <tr>
+      <td>1163</td>
+      <td>合計請求書用請求先部署番号と合計請求書用請求先部署コードは両方指定できない</td>
+    </tr>
+    <tr>
+      <td>1164</td>
+      <td>請求先部署の登録ステータスが不正</td>
+    </tr>
+    <tr>
+      <td>1165</td>
+      <td>親部署のデフォルト利用可能決済手段が、請求書テンプレートで利用可能になっていません。</td>
+    </tr>
+    <tr>
+      <td>1166</td>
+      <td>請求先に紐づく請求先部署が存在しない</td>
+    </tr>
+    <tr>
+      <td>1167</td>
+      <td>請求先部署番号と請求先部署コードは同時に指定できません。</td>
+    </tr>
+    <tr>
+      <td>1168</td>
+      <td>クレジットカード登録方法が不正</td>
+    </tr>
+    <tr>
+      <td>1169</td>
+      <td>親請求先部署は承認依頼中のため使用できません。</td>
+    </tr>
+    <tr>
+      <td>1170</td>
+      <td>合計請求書テンプレートを指定する場合、合計請求書_請求先部署を指定してください。</td>
+    </tr>
+    <tr>
+      <td>1171</td>
+      <td>決済タイプが不正</td>
+    </tr>
+    <tr>
+      <td>1172</td>
+      <td>請求先決済番号が不正</td>
+    </tr>
+    <tr>
+      <td>1173</td>
+      <td>請求先決済番号と請求先決済コードは同時に指定できません。</td>
+    </tr>
+    <tr>
+      <td>1174</td>
+      <td>請求先部署売掛金補助科目コードが不正</td>
+    </tr>
+    <tr>
+      <td>1175</td>
+      <td>請求先部署前受金補助科目コードが不正</td>
+    </tr>
+    <tr>
+      <td>1176</td>
+      <td>請求先部署仮受金補助科目コードが不正</td>
+    </tr>
+    <tr>
+      <td>1177</td>
+      <td>合計請求書の設定で登録済みの請求情報があります。</td>
+    </tr>
+    <tr>
+      <td>1178</td>
+      <td>クレジットカード情報登録メール送信に失敗しました。</td>
+    </tr>
+    <tr>
+      <td>1179</td>
+      <td>手数料自動消込許容金額が不正</td>
+    </tr>
+    <tr>
+      <td>1180</td>
+      <td>バーチャル口座割当てに失敗</td>
+    </tr>
+    <tr>
+      <td>1181</td>
+      <td>バーチャル口座が使用中</td>
+    </tr>
+    <tr>
+      <td>1182</td>
+      <td>利用可能なバーチャル口座番号がない</td>
+    </tr>
+    <tr>
+      <td>1183</td>
+      <td>クレジットカード登録メール送信先が不正 <br /> 101桁以上またはメール形式以外の値で発生 <br /> メールアドレスは,(カンマ)区切りで複数指定不可</td>
+    </tr>
+    <tr>
+      <td>1184</td>
+      <td>請求先以下の内部データにエラーがあった場合</td>
+    </tr>
+    <tr>
+      <td>1185</td>
+      <td>請求先以下の同列のデータにエラーがあった場合</td>
+    </tr>
+    <tr>
+      <td>1186</td>
+      <td>有効かつ未削除の親請求先部署が存在していない場合</td>
+    </tr>
+    <tr>
+      <td>1187</td>
+      <td>バーチャル口座は変更不可能</td>
+    </tr>
+    <tr>
+      <td>1188</td>
+      <td>消込キーが不正</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p><a href="/">TOPへ戻る</a></p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec">billing-robo-apispec</a> is maintained by <a href="https://github.com/ROBOTPAYMENT">ROBOTPAYMENT</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

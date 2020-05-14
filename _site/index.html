@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>billing-robo-apispec | 請求管理ロボのAPI仕様書</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="billing-robo-apispec" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="請求管理ロボのAPI仕様書" />
+<meta property="og:description" content="請求管理ロボのAPI仕様書" />
+<link rel="canonical" href="http://0.0.0.0:4000/" />
+<meta property="og:url" content="http://0.0.0.0:4000/" />
+<meta property="og:site_name" content="billing-robo-apispec" />
+<script type="application/ld+json">
+{"headline":"billing-robo-apispec","url":"http://0.0.0.0:4000/","description":"請求管理ロボのAPI仕様書","name":"billing-robo-apispec","@type":"WebSite","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a2c448b5d116447955cb01efe3799a738dc0e23f">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">billing-robo-apispec</h1>
+      <h2 class="project-tagline">請求管理ロボのAPI仕様書</h2>
+      
+        <a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="billing-robo-apispec">billing-robo-apispec</h1>
+
+<h2 id="api一覧">API一覧</h2>
+
+<ul>
+  <li><a href="/public/billing/bulk_upsert.html">請求先登録更新(複数) v1.0/billing/bulk_upsert</a></li>
+  <li><a href="/public/billing/bulk_stop.html">請求先停止削除(複数) v1.0/billing/bulk_stop</a></li>
+  <li><a href="/public/demand/bulk_upsert.html">請求情報等登録更新(複数) v1.0/demand/bulk_upsert</a></li>
+  <li><a href="/public/demand/bulk_stop.html">請求情報停止削除(複数) v1.0/demand/bulk_stop</a></li>
+  <li><a href="/public/demand/bulk_register.html">即時決済 請求書合算 demand/bulk_register</a></li>
+  <li><a href="/public/demand/search.html">売上消込結果参照 v1.0/demand/search</a></li>
+  <li><a href="/public/bill/update.html">請求書更新 v1.0/bill/update</a></li>
+  <li><a href="/public/bill/stop.html">請求書無効 v1.0/bill/stop</a></li>
+  <li><a href="/public/bill/search_list2.html">請求書参照2 v1.0/bill/search_list2</a></li>
+  <li><a href="/public/goods/bulk_upsert2.html">商品登録更新(複数)2 v1.0/goods/bulk_upsert2</a></li>
+  <li><a href="/public/goods/bulk_stop.html">商品停止削除(複数) v1.0/goods/bulk_stop</a></li>
+  <li><a href="/public/billing/bulk_download_pdf.html">口座振替依頼書発行 v1.0/billing/bulk_download_pdf</a></li>
+  <li><a href="/public/billing_payment_method/credit_card_token.html">クレジットカード登録(トークン方式) v1.0/billing_payment_method/credit_card_token</a></li>
+  <li><a href="/public/bs_bank_transfer/bulk_upsert.html">請求元銀行口座登録更新 bs_bank_transfer/bulk_upsert</a></li>
+  <li><a href="/public/bs_bank_transfer/bulk_stop.html">請求元銀行口座停止削除 bs_bank_transfer/bulk_stop</a></li>
+  <li><a href="/public/bs_bank_transfer_pattern/bulk_upsert.html">請求元銀行口座パターン登録更新 bs_bank_transfer_pattern/bulk_upsert</a></li>
+  <li><a href="/public/bs_bank_transfer_pattern/bulk_stop.html">請求元銀行口座パターン停止削除 bs_bank_transfer_pattern/bulk_stop</a></li>
+  <li><a href="/public/bill/update_carryover.html">繰越予約 bill/update_carryover</a></li>
+  <li><a href="/public/bill/send_bill_by_email.html">請求書送付メール bill/send_bill_by_email</a></li>
+  <li><a href="/public/bill/send_bill_by_mail.html">請求書送付郵送 bill/send_bill_by_mail</a></li>
+  <li><a href="/public/bs_department/bulk_upsert.html">請求元部署登録更新 bs_department/bulk_upsert</a></li>
+  <li><a href="/public/bs_department/bulk_stop.html">請求元部署停止削除 bs_department/bulk_stop</a></li>
+  <li><a href="/public/bs_owner/bulk_upsert.html">請求元担当者登録更新 bs_owner/bulk_upsert</a></li>
+  <li><a href="/public/bs_owner/bulk_stop.html">請求元担当者停止削除 bs_owner/bulk_stop</a></li>
+  <li><a href="/public/demand/bulk_issue_bill_select.html">請求書発行 demand/bulk_issue_bill_select</a></li>
+</ul>
+
+<p><a href="/dev/">開発中のAPI一覧</a></p>
+
+<p><a href="/deprecated/">非推奨のAPI一覧</a></p>
+
+<h2 id="webhook一覧">Webhook一覧</h2>
+<ul>
+  <li><a href="/webhook/webhook_bill.html">Webhook請求書発行イベント</a></li>
+  <li><a href="/webhook/webhook_postmail.html">Webhook郵送通知</a></li>
+  <li><a href="/webhook/webhook_credit_status.html">Webhookクレジットカード登録状況通知</a></li>
+</ul>
+
+<h2 id="注釈">注釈</h2>
+
+<h3 id="種別">種別</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>種別</th>
+      <th>入力可能値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>メール形式</td>
+      <td>正規表現 : <code class="language-plaintext highlighter-rouge">/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]+$/ix</code> <br /> (例) robot_payment@example.com</td>
+    </tr>
+    <tr>
+      <td>アルファベット</td>
+      <td><code class="language-plaintext highlighter-rouge">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</code></td>
+    </tr>
+    <tr>
+      <td>半角英数</td>
+      <td><code class="language-plaintext highlighter-rouge">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</code></td>
+    </tr>
+    <tr>
+      <td>半角英数 + 記号</td>
+      <td><code class="language-plaintext highlighter-rouge">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code></td>
+    </tr>
+    <tr>
+      <td>口座名義</td>
+      <td>半角英数 + 半角カタカナ + <code class="language-plaintext highlighter-rouge">,.()\/｢｣-</code> <br /> <code class="language-plaintext highlighter-rouge">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ｦｧｨｩｪｫｬｭｮｯ-ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾂﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ,. )(\/｢｣-</code></td>
+    </tr>
+    <tr>
+      <td>銀行名等</td>
+      <td>半角英数(半角英小文字除く) + 半角カタカナ <br /><code class="language-plaintext highlighter-rouge">ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ｦｧｨｩｪｫｬｭｮｯ-ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾂﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ</code></td>
+    </tr>
+    <tr>
+      <td>日付形式</td>
+      <td>正規表現 : <code class="language-plaintext highlighter-rouge">@^([0-9]{4}(-|/)(0?[1-9]|1[012])(-|/)(0?[1-9]|[12][0-9]|3[01]))$@</code> <br /> (例) 2020-01-01 または 2020/01/01 など</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="必須">必須</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>種別</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>必須</td>
+      <td>全てのリクエストに対して必要</td>
+    </tr>
+    <tr>
+      <td>(追加時)</td>
+      <td>登録・更新両方ができるAPIに存在し、追加時のリクエストに対して必要</td>
+    </tr>
+    <tr>
+      <td>(更新時)</td>
+      <td>登録・更新両方ができるAPIに存在し、更新時のリクエストに対して必要</td>
+    </tr>
+    <tr>
+      <td>({条件})^n</td>
+      <td>{条件}時に、同じnの必須条件があるパラメータのなかでいずれかが必要</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="共通エラー">共通エラー</h2>
+<p>APIによる操作が失敗した場合、サーバは可能な限りエラーについての情報を <code class="language-plaintext highlighter-rouge">application/json</code> 形式でレスポンスします。その際、HTTPステータスは <code class="language-plaintext highlighter-rouge">400 Bad Request</code> が使われます。ログインIDやアクセスキー、接続IPに不正があった場合は、HTTPステータスは、 <code class="language-plaintext highlighter-rouge">401 Unauthorized</code> が使われます。メンテナンス中の場合は、HTTPステータスは、 <code class="language-plaintext highlighter-rouge">503 Service Unavailable</code> で返却します。</p>
+
+<p>エラー情報のレスポンスができないケースの例</p>
+<ul>
+  <li>APIサーバへの接続エラー</li>
+  <li>APIアクセスであると判断できないURIでのアクセス</li>
+  <li>サーバ内部エラー</li>
+</ul>
+
+<h3 id="エラーコード">エラーコード</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>エラーコード</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>内部エラー</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>不明なURI</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>ログインIDが不正</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>アクセスキーが不正</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>接続IPが不正</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>店舗IDが不正</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>外部システムとの連携に失敗</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>ログイン失敗</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>権限が不正</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>利用企業が不正</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>メンテナンス中</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="レスポンス例">レスポンス例</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid 'user_id'."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="決済システムエラーコード">決済システムエラーコード</h3>
+
+<p><a href="/payment_ec.html">決済システムエラーコード一覧</a></p>
+
+<h2 id="推奨ssltlsバージョン">推奨SSL/TLSバージョン</h2>
+
+<p>請求管理ロボAPIを、正常かつ快適にご利用いただくために、以下を推奨しております。</p>
+
+<p><code class="language-plaintext highlighter-rouge">TLS 1.2</code></p>
+
+<p>SSL/TLSバージョンをご確認いただき、推奨バージョンでのご利用をお願いいたします。</p>
+
+<hr />
+
+<p><a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec/releases">改訂履歴</a></p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/ROBOTPAYMENT/billing-robo-apispec">billing-robo-apispec</a> is maintained by <a href="https://github.com/ROBOTPAYMENT">ROBOTPAYMENT</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

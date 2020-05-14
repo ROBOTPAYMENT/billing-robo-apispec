@@ -1,0 +1,113 @@
+# billing-robo-apispec
+
+## API一覧
+
+- [請求先登録更新(複数) v1.0/billing/bulk_upsert](/public/billing/bulk_upsert.md)
+- [請求先停止削除(複数) v1.0/billing/bulk_stop](/public/billing/bulk_stop.md)
+- [請求情報等登録更新(複数) v1.0/demand/bulk_upsert](/public/demand/bulk_upsert.md)
+- [請求情報停止削除(複数) v1.0/demand/bulk_stop](/public/demand/bulk_stop.md)
+- [即時決済 請求書合算 demand/bulk_register](/public/demand/bulk_register.md)
+- [売上消込結果参照 v1.0/demand/search](/public/demand/search.md)
+- [請求書更新 v1.0/bill/update](/public/bill/update.md)
+- [請求書無効 v1.0/bill/stop](/public/bill/stop.md)
+- [請求書参照2 v1.0/bill/search_list2](/public/bill/search_list2.md)
+- [商品登録更新(複数)2 v1.0/goods/bulk_upsert2](/public/goods/bulk_upsert2.md)
+- [商品停止削除(複数) v1.0/goods/bulk_stop](/public/goods/bulk_stop.md)
+- [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
+- [クレジットカード登録(トークン方式) v1.0/billing_payment_method/credit_card_token](/public/billing_payment_method/credit_card_token.md)
+- [請求元銀行口座登録更新 bs_bank_transfer/bulk_upsert](/public/bs_bank_transfer/bulk_upsert.md)
+- [請求元銀行口座停止削除 bs_bank_transfer/bulk_stop](/public/bs_bank_transfer/bulk_stop.md)
+- [請求元銀行口座パターン登録更新 bs_bank_transfer_pattern/bulk_upsert](/public/bs_bank_transfer_pattern/bulk_upsert.md)
+- [請求元銀行口座パターン停止削除 bs_bank_transfer_pattern/bulk_stop](/public/bs_bank_transfer_pattern/bulk_stop.md)
+- [繰越予約 bill/update_carryover](/public/bill/update_carryover.md)
+- [請求書送付メール bill/send_bill_by_email](/public/bill/send_bill_by_email.md)
+- [請求書送付郵送 bill/send_bill_by_mail](/public/bill/send_bill_by_mail.md)
+- [請求元部署登録更新 bs_department/bulk_upsert](/public/bs_department/bulk_upsert.md)
+- [請求元部署停止削除 bs_department/bulk_stop](/public/bs_department/bulk_stop.md)
+- [請求元担当者登録更新 bs_owner/bulk_upsert](/public/bs_owner/bulk_upsert.md)
+- [請求元担当者停止削除 bs_owner/bulk_stop](/public/bs_owner/bulk_stop.md)
+- [請求書発行 demand/bulk_issue_bill_select](/public/demand/bulk_issue_bill_select.md)
+
+[開発中のAPI一覧](/dev/index.md)
+
+[非推奨のAPI一覧](/deprecated/index.md)
+
+## Webhook一覧
+- [Webhook請求書発行イベント](/webhook/webhook_bill.md)
+- [Webhook郵送通知](/webhook/webhook_postmail.md)
+- [Webhookクレジットカード登録状況通知](/webhook/webhook_credit_status.md)
+
+## 注釈
+
+### 種別
+
+| 種別            | 入力可能値                                                                                |
+| --------------- | ----------------------------------------------------------------------------------------- |
+| メール形式      | 正規表現 : `/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]+$/ix` <br> (例) robot_payment@example.com |
+| アルファベット   | `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`                                    |
+| 半角英数        | `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`                          |
+| 半角英数 + 記号  | ``ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``  |
+| 口座名義        | 半角英数 + 半角カタカナ + `,.()\/｢｣-` <br> `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ｦｧｨｩｪｫｬｭｮｯ-ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾂﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ,. )(\/｢｣-` |
+| 銀行名等        | 半角英数(半角英小文字除く) + 半角カタカナ <br>`ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ｦｧｨｩｪｫｬｭｮｯ-ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾂﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ`           |
+| 日付形式        | 正規表現 : `@^([0-9]{4}(-|/)(0?[1-9]|1[012])(-|/)(0?[1-9]|[12][0-9]|3[01]))$@` <br> (例) 2020-01-01 または 2020/01/01 など  |
+
+### 必須
+
+| 種別       | 説明                                                              |
+| ---------- | ----------------------------------------------------------------- |
+| 必須       | 全てのリクエストに対して必要                                      |
+| (追加時)   | 登録・更新両方ができるAPIに存在し、追加時のリクエストに対して必要 |
+| (更新時)   | 登録・更新両方ができるAPIに存在し、更新時のリクエストに対して必要 |
+| ({条件})^n | {条件}時に、同じnの必須条件があるパラメータのなかでいずれかが必要 |
+
+
+## 共通エラー
+APIによる操作が失敗した場合、サーバは可能な限りエラーについての情報を `application/json` 形式でレスポンスします。その際、HTTPステータスは `400 Bad Request` が使われます。ログインIDやアクセスキー、接続IPに不正があった場合は、HTTPステータスは、 `401 Unauthorized` が使われます。メンテナンス中の場合は、HTTPステータスは、 `503 Service Unavailable` で返却します。
+
+エラー情報のレスポンスができないケースの例
+- APIサーバへの接続エラー
+- APIアクセスであると判断できないURIでのアクセス
+- サーバ内部エラー
+
+### エラーコード
+
+| エラーコード | 内容                       |
+| ------------ | -------------------------- |
+| 1            | 内部エラー                 |
+| 10           | 不明なURI                  |
+| 11           | ログインIDが不正           |
+| 12           | アクセスキーが不正         |
+| 13           | 接続IPが不正               |
+| 14           | 店舗IDが不正               |
+| 15           | 外部システムとの連携に失敗 |
+| 16           | ログイン失敗               |
+| 17           | 権限が不正                 |
+| 18           | 利用企業が不正             |
+| 19           | メンテナンス中             |
+
+### レスポンス例
+
+```json
+{
+    "error": {
+        "code": 11,
+        "message": "Invalid 'user_id'."
+    }
+}
+```
+
+### 決済システムエラーコード
+
+[決済システムエラーコード一覧](./payment_ec.md)
+
+## 推奨SSL/TLSバージョン
+
+請求管理ロボAPIを、正常かつ快適にご利用いただくために、以下を推奨しております。
+
+`TLS 1.2`
+
+SSL/TLSバージョンをご確認いただき、推奨バージョンでのご利用をお願いいたします。
+
+---
+
+[改訂履歴](https://github.com/ROBOTPAYMENT/billing-robo-apispec/releases)
