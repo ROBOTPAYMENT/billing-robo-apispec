@@ -1,3 +1,7 @@
 開発中のAPI一覧(β版)
 
-- [入金無効削除 payment/bulk_stop](clearing/bulk_stop.md)
+公開APIに移行しました
+
+以下のリンクへ移行
+
+[API一覧](../index.md)
