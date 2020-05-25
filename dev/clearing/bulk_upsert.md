@@ -25,8 +25,8 @@
 | ------------------------------------------------------- | ------------------------------------ | ---- | -------------------------------- | -------- |
 | user_id                                                 | ユーザーID（管理画面へのログインID）   | 100  | [メール形式](../../index.md#種別) | 必須     |
 | access_key                                              | アクセスキー                          | 100  | [半角英数](../../index.md#種別)   | 必須     |
-| [payment_bank_transfer](#payment_bank_transfer-request) | 銀行振込形式のインポートデータ         |      | `array`                          | (必須)^1 |
-| [payment_other](#payment_other-request)                 | その他形式のインポートデータ         |      | `array`                          | (必須)^1 |
+| [payment_bank_transfer](#payment_bank_transfer-request) | 銀行振込形式に属するパラメータ         |      | `array`                          | (必須)^1 |
+| [payment_other](#payment_other-request)                 | その他形式に属するパラメータ           |      | `array`                          | (必須)^1 |
 
 #### payment_bank_transfer (request)
 
@@ -39,9 +39,9 @@
 | amount                    | 金額                                                                                                                                               | 10          | 数値                                   | 必須              |
 | account_name              | 口座名義                                                                                                                                           | 48          | [口座名義](../../index.md#種別)         | 必須              |
 | bs_bank_transfer_code     | 振込先銀行口座コード <br> ※追加省略時、nullで登録される                                                                                              | 20          | [半角英数 + 記号](../../index.md#種別)  |                   |
-| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金としてインポートしない <br> 1:仮受金としてインポートする <br> ※追加省略時、0で登録される                                      | 1           | 数値                                   |                   |
-| billing_code              | 請求先コード <br> ※仮受⾦として⼊⾦インポートする場合のみ入力 <br> ※追加省略時、nullで登録される                                                      | 20          | [半角英数 + 記号](../../index.md#種別)  | (入金インポート時) |
-| billing_individual_number | 請求先部署番号 <br> ※仮受⾦として⼊⾦インポートする場合のみ入力 <br> ※追加省略時、nullで登録される                                                    | 18          | 数値                                   | (入金インポート時) |
+| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する <br> ※追加省略時、0で登録される                                                 | 1           | 数値                                   |                   |
+| billing_code              | 請求先コード <br> ※仮受⾦として⼊⾦登録する場合のみ入力 <br> ※追加省略時、nullで登録される                                                            | 20          | [半角英数 + 記号](../../index.md#種別)  | (仮受金登録時)     |
+| billing_individual_number | 請求先部署番号 <br> ※仮受⾦として⼊⾦登録する場合のみ入力 <br> ※追加省略時、nullで登録される                                                          | 18          | 数値                                   | (仮受金登録時)     |
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込 <br> ※追加省略時、1で登録される                                                                             | 1           | 数値                                   |                   |
 | clearing_status           | 消込ステータス <br> 0:未消込 <br> 2:確認済み <br> ※追加省略時、0で登録される                                                                         | 1           | 数値                                   |                   |
 | accrued_clearing_auto_flg | 未収自動消込フラグ <br> 0:未収を自動消込の対象に含めない <br> 1:未収を自動消込の対象に含める <br> ※追加省略時、または消込方法:手動消込の場合0で登録される | 1           | 数値                                   |                   |
@@ -56,9 +56,9 @@
 | payment_date              | 入金日                                                                                                                                             | 10          | 日付                                   | 必須              |
 | amount                    | 金額                                                                                                                                               | 10          | 数値                                   | 必須              |
 | bs_bank_transfer_code     | 振込先銀行口座コード <br> ※追加省略時、nullで登録される                                                                                              | 20          | [半角英数 + 記号](../../index.md#種別)  |                   |
-| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金としてインポートしない <br> 1:仮受金としてインポートする <br> ※追加省略時、0で登録される                                      | 1           | 数値                                   |                   |
-| billing_code              | 請求先コード <br> ※仮受⾦として⼊⾦インポートする場合のみ入力 <br> ※追加省略時、nullで登録される                                                      | 20          | [半角英数 + 記号](../../index.md#種別)  | (入金インポート時) |
-| billing_individual_number | 請求先部署番号 <br> ※仮受⾦として⼊⾦インポートする場合のみ入力 <br> ※追加省略時、nullで登録される                                                    | 18          | 数値                                   | (入金インポート時) |
+| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する <br> ※追加省略時、0で登録される                                                 | 1           | 数値                                   |                   |
+| billing_code              | 請求先コード <br> ※仮受⾦として⼊⾦登録する場合のみ入力 <br> ※追加省略時、nullで登録される                                                            | 20          | [半角英数 + 記号](../../index.md#種別)  | (仮受金登録時)    |
+| billing_individual_number | 請求先部署番号 <br> ※仮受⾦として⼊⾦登録する場合のみ入力 <br> ※追加省略時、nullで登録される                                                          | 18          | 数値                                   | (借受金登録時)     |
 | payment_methot            | 決済手段 <br> 10:その他決済⼿段1 <br> 11:その他決済⼿段2 <br> 12:その他決済⼿段3 <br> 13:その他決済⼿段4 <br> 14:その他決済⼿段5                        | 2           | 数値                                   | 必須              |
 | clearing_key              | 消込キー <br> ※追加省略時、nullで登録される                                                                                                         | 33          | 文字列                                 |                   |
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込 <br> ※追加省略時、1で登録される                                                                             | 1           | 数値                                   |                   |
@@ -76,8 +76,8 @@
 | -------------------------------------------------------- | ------------------------------------ | ------- |
 | user_id                                                  | ユーザーID（管理画面へのログインID）   | string  |
 | access_key                                               | アクセスキー                          | string  |
-| [payment_bank_transfer](#payment_bank_transfer-response) | 銀行振込形式のインポートデータ         | `array` |
-| [payment_other](#payment_other-response)                 | その他形式のインポートデータ           | `array` |
+| [payment_bank_transfer](#payment_bank_transfer-response) | 銀行振込形式に属するパラメータ         | `array` |
+| [payment_other](#payment_other-response)                 | その他形式に属するパラメータ           | `array` |
 
 #### payment_bank_transfer (response)
 
@@ -92,7 +92,7 @@
 | amount                    | 金額                                                                                    | int    |
 | account_name              | 口座名義                                                                                | string |
 | bs_bank_transfer_code     | 振込先銀行口座コード                                                                     | string |
-| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金としてインポートしない <br> 1:仮受金としてインポートする          | int    |
+| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する                     | int    |
 | billing_code              | 請求先コード                                                                             | string |
 | billing_individual_number | 請求先部署番号                                                                           | int    |
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込                                                  | int    |
@@ -111,7 +111,7 @@
 | payment_date              | 入金日                                                                                                                      | string |
 | amount                    | 金額                                                                                                                        | int    |
 | bs_bank_transfer_code     | 振込先銀行口座コード                                                                                                         | string |
-| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金としてインポートしない <br> 1:仮受金としてインポートする                                              | int    |
+| suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する                                                         | int    |
 | billing_code              | 請求先コード                                                                                                                 | string |
 | billing_individual_number | 請求先部署番号                                                                                                               | int    |
 | payment_methot            | 決済手段 <br> 10:その他決済⼿段1 <br> 11:その他決済⼿段2 <br> 12:その他決済⼿段3 <br> 13:その他決済⼿段4 <br> 14:その他決済⼿段5 | int    |
