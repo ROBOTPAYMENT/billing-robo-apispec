@@ -33,7 +33,7 @@
 
 | 名前                        | 概要                            | 桁数 | 種別     | 必須 |
 | --------------------------- | ------------------------------ | ---- | -------- | ---- |
-| [payment](#payment-request) | 入金に属するパラメータ           |      | `array` | 必須 |
+| [payment](#payment-request) | 入金に属するパラメータ           |      | `array` |      |
 | [bill](#bill-request)       | 請求書に属するパラメータ         |      | `array` | 必須 |
 
 #### payment (request)
@@ -61,46 +61,46 @@
 
 ### Fields
 
-| 名前                                                     | 概要                                  | 型      |
-| -------------------------------------------------------- | ------------------------------------ | ------- |
-| user_id                                                  | ユーザーID（管理画面へのログインID）   | string  |
-| access_key                                               | アクセスキー                          | string  |
-| [clearing](#clearing-response) | 消込に属するパラメータ         | `array` |
+| 名前                           | 概要                                  | 型      |
+| ------------------------------ | ------------------------------------ | ------- |
+| user_id                        | ユーザーID（管理画面へのログインID）   | string  |
+| access_key                     | アクセスキー                          | string  |
+| [clearing](#clearing-response) | 消込に属するパラメータ                 | `array` |
 
 #### clearing (response)
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                      | 概要                                                                                    | 型     |
-| ------------------------- | --------------------------------------------------------------------------------------- | ------ |
-| [payment](#payment-response)                 | 入金に属するパラメータ           | `array` |
-| [bill](#bill-response)                 | 請求書に属するパラメータ           | `array` |
+| 名前                         | 概要                            | 型      |
+| ---------------------------- | ------------------------------ | ------- |
+| [payment](#payment-response) | 入金に属するパラメータ           | `array` |
+| [bill](#bill-response)       | 請求書に属するパラメータ         | `array` |
 
 #### payment (response)
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                      | 概要                                            | 型     |
-| ------------------------- | ----------------------------------------------- | ------ |
-| error_code                | エラーコード <br> ※正常時はnull                  | string |
-| error_message             | エラーメッセージ <br> ※正常時はnull              | string |
-| payment_id                | 入金ID                                           | int    |
-| bank_save_flg             | 口座名義学習フラグ <br> 0:学習なし <br> 1:学習あり | int    |
-| clearing_amount           | 消込金額                                         | int    |
-| unclearing_amount         | 未消込金額                                       | int    |
+| 名前                         | 概要                                            | 型     |
+| ---------------------------- | ----------------------------------------------- | ------ |
+| error_code                   | エラーコード <br> ※正常時はnull                  | string |
+| error_message                | エラーメッセージ <br> ※正常時はnull              | string |
+| payment_id                   | 入金ID                                           | int    |
+| bank_save_flg                | 口座名義学習フラグ <br> 0:学習なし <br> 1:学習あり | int    |
+| clearing_amount              | 消込金額                                         | int    |
+| unclearing_amount            | 未消込金額                                       | int    |
 | [erasure](#erasure-response) | 消込結果に属するパラメータ                        | `array` |
 
 #### bill (response)
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                      | 概要                                             | 型     |
-| ------------------------- | ------------------------------------------------ | ------ |
-| error_code                | エラーコード <br> ※正常時はnull                  | string |
-| error_message             | エラーメッセージ <br> ※正常時はnull              | string |
-| billing_number            | 請求書番号                                       | int    |
-| clearing_amount           | 消込金額                                         | int    |
-| unclearing_amount         | 未消込金額                                       | int    |
+| 名前                         | 概要                                             | 型     |
+| ---------------------------- | ------------------------------------------------ | ------ |
+| error_code                   | エラーコード <br> ※正常時はnull                  | string |
+| error_message                | エラーメッセージ <br> ※正常時はnull              | string |
+| billing_number               | 請求書番号                                       | int    |
+| clearing_amount              | 消込金額                                         | int    |
+| unclearing_amount            | 未消込金額                                       | int    |
 | [erasure](#erasure-response) | 消込結果に属するパラメータ                        | `array` |
 
 #### erasure (response)
