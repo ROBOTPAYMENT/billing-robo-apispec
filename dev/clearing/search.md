@@ -125,9 +125,9 @@ Status: 200 OK
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
-    "limit_count": "20",
-    "page_count": "0",
-    "total_page_count": "0",
+    "limit_count": 20,
+    "page_count": 0,
+    "total_page_count": 0,
     "payment": [
         {
             "error_code": "null",
