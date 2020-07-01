@@ -82,8 +82,7 @@
     "access_key": "xxxxxxxxxxxxxxxx",
     "clearing": [
         {
-            "erasure_id":12345,
-            "erasure_cancel_recorded_date":"2020/06/01"
+            "erasure_id":12345
         },
         {
             "erasure_id":6789,
@@ -94,7 +93,7 @@
 ```
 
 ### レスポンス例
-決済と請求書の消込取消の場合
+入金と請求書の消込取消の場合
 Status: 200 OK
 
 ```json
