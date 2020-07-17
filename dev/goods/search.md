@@ -26,8 +26,8 @@
 | ----------------------- | --------------------------------------------------------------------------------------- | ---- | --------------------------------- | ---- |
 | user_id                 | ユーザー ID                                                                             | 100  | [メール形式](../../index.md#種別) | 必須 |
 | access_key              | アクセスキー                                                                            | 100  | [半角英数](../../index.md#種別)   | 必須 |
-| limit_count             | 商品情報取得件数 <br> ※0〜200 の数値を設定する省略した場合、20 が設定される           | 3    | 数値                              |      |
-| page_count              | 商品情報取得開始インデックス <br> ※0〜99 の数値を設定する省略した場合、0 が設定される | 2    | 数値                              |      |
+| limit_count             | 商品情報取得件数 <br> ※0〜200 の数値を設定する。省略した場合、20 が設定される           | 3    | 数値                              |      |
+| page_count              | 商品情報取得開始インデックス <br> ※0〜99 の数値を設定する。省略した場合、0 が設定される | 2    | 数値                              |      |
 | [goods](#goods-request) | 商品に属するパラメータ                                                                  |      | `object`                          |      |
 
 #### goods (request)
@@ -101,9 +101,9 @@
 | sub_account_title_code_account_receivable_trade | 売掛金補助科目コード                                                                                                                                                                                                                                 | string |
 | account_title_id_advances_received              | 前受金勘定科目コード <br> ※固定値:2111                                                                                                                                                                                                              | int    |
 | sub_account_title_code_advances_received        | 前受金補助科目コード                                                                                                                                                                                                                                 | string |
-| [custom](#Copy-of-custom-response)              | カスタム項目に属するパラメータ                                                                                                                                                                                                                       | array  |
+| [custom](#custom-response)              | カスタム項目に属するパラメータ                                                                                                                                                                                                                       | array  |
 
-### Copy of custom (response)
+### custom (response)
 
 | 名前 | 概要               | 型     |
 | ---- | ------------------ | ------ |
@@ -182,7 +182,7 @@ Status: 200 OK
             "account_title_code_account_receivable_trade": 1162,
             "sub_account_title_code_account_receivable_trade": "5678abc",
             "account_title_code_advances_received": 2111,
-            "sub_account_title_code_advances_received": "1234cde"
+            "sub_account_title_code_advances_received": "1234cde",
             "custom":[
                 {
                  "code" : "custom_1",
@@ -194,7 +194,7 @@ Status: 200 OK
                  "name" : "カスタム項目名2",
                  "value" : "カスタム項目値2"
                 }
-            ],
+            ]
         }
     ]
 }
