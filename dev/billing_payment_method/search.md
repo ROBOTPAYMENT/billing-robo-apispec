@@ -114,7 +114,7 @@
 
 ```json
 {
-   "user_id": "sample@robotpayment.co.jp",
+    "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
     "limit_count": "",
     "page_count": "",
