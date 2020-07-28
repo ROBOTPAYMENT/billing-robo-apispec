@@ -22,12 +22,12 @@
 
 ### Parameters
 
-| 名前                                                    | 概要                                   | 桁数 | 種別                              | 必須     |
-| ------------------------------------------------------- | -------------------------------------- | ---- | --------------------------------- | -------- |
-| user_id                                                 | ユーザー ID（管理画面へのログイン ID） | 100  | [メール形式](../../index.md#種別) | 必須     |
-| access_key                                              | アクセスキー                           | 100  | [半角英数](../../index.md#種別)   | 必須     |
-| [payment_bank_transfer](#payment_bank_transfer-request) | 銀行振込形式に属するパラメータ         |      | `array`                           | (必須)^1 |
-| [payment_other](#payment_other-request)                 | その他形式に属するパラメータ           |      | `array`                           | (必須)^1 |
+| 名前                                                    | 概要                                         | 桁数 | 種別                              | 必須     |
+| ------------------------------------------------------- | -------------------------------------------- | ---- | --------------------------------- | -------- |
+| user_id                                                 | ユーザー ID <br> （管理画面へのログイン ID） | 100  | [メール形式](../../index.md#種別) | 必須     |
+| access_key                                              | アクセスキー                                 | 100  | [半角英数](../../index.md#種別)   | 必須     |
+| [payment_bank_transfer](#payment_bank_transfer-request) | 銀行振込形式に属するパラメータ               |      | `array`                           | (必須)^1 |
+| [payment_other](#payment_other-request)                 | その他形式に属するパラメータ                 |      | `array`                           | (必須)^1 |
 
 #### payment_bank_transfer (request)
 
@@ -36,7 +36,7 @@
 | 名前                      | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概要&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 桁数 | 種別                                   | 必須           |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | -------------- |
 | payment_id                | 入金 ID <br> ※値ありの場合は更新                                                                                                                                                                                                                                                                                                                                             | 18   | 数値                                   | (更新時)       |
-| payment_date              | 入金日                                                                                                                                                                                                                                                                                                                                                                       | 10   | 日付                                   | 必須           |
+| payment_transfer_date     | 入金日                                                                                                                                                                                                                                                                                                                                                                       | 10   | 日付                                   | 必須           |
 | amount                    | 金額                                                                                                                                                                                                                                                                                                                                                                         | 10   | 数値                                   | 必須           |
 | account_name              | 口座名義                                                                                                                                                                                                                                                                                                                                                                     | 48   | [口座名義](../../index.md#種別)        | 必須           |
 | bs_bank_transfer_code     | 振込先銀行口座コード <br> ※追加省略時、null で登録される                                                                                                                                                                                                                                                                                                                     | 20   | [半角英数 + 記号](../../index.md#種別) |                |
@@ -54,7 +54,7 @@
 | 名前                      | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概要&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 桁数 | 種別                                   | 必須           |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | -------------- |
 | payment_id                | 入金 ID <br> ※値ありの場合は更新                                                                                                                                                                                                                                                                                                                                             | 18   | 数値                                   | (更新時)       |
-| payment_date              | 入金日                                                                                                                                                                                                                                                                                                                                                                       | 10   | 日付                                   | 必須           |
+| payment_transfer_date     | 入金日                                                                                                                                                                                                                                                                                                                                                                       | 10   | 日付                                   | 必須           |
 | amount                    | 金額                                                                                                                                                                                                                                                                                                                                                                         | 10   | 数値                                   | 必須           |
 | bs_bank_transfer_code     | 振込先銀行口座コード <br> ※追加省略時、null で登録される                                                                                                                                                                                                                                                                                                                     | 20   | [半角英数 + 記号](../../index.md#種別) |                |
 | suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する <br> ※追加省略時、0 で登録される                                                                                                                                                                                                                                                                      | 1    | 数値                                   |                |
@@ -89,7 +89,7 @@
 | error_code                | エラーコード <br> ※正常時は null                                                             | string |
 | error_message             | エラーメッセージ <br> ※正常時は null                                                         | string |
 | payment_id                | 入金 ID                                                                                      | int    |
-| payment_date              | 入金日                                                                                       | string |
+| payment_transfer_date     | 入金日                                                                                       | string |
 | amount                    | 金額                                                                                         | int    |
 | account_name              | 口座名義                                                                                     | string |
 | bs_bank_transfer_code     | 振込先銀行口座コード                                                                         | string |
@@ -109,7 +109,7 @@
 | error_code                | エラーコード <br> ※正常時は null                                                                                                      | string |
 | error_message             | エラーメッセージ <br> ※正常時は null                                                                                                  | string |
 | payment_id                | 入金 ID                                                                                                                               | int    |
-| payment_date              | 入金日                                                                                                                                | string |
+| payment_transfer_date     | 入金日                                                                                                                                | string |
 | amount                    | 金額                                                                                                                                  | int    |
 | bs_bank_transfer_code     | 振込先銀行口座コード                                                                                                                  | string |
 | suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する                                                                | int    |
@@ -142,7 +142,7 @@
   "payment_bank_transfer": [
     {
       "pyament_id": "",
-      "payment_date": "2020/04/01",
+      "payment_transfer_date": "2020/04/01",
       "amount": 10000,
       "account_name": "ｺｳｻﾞﾒｲｷﾞ",
       "bs_bank_transfer_code": 246,
@@ -155,7 +155,7 @@
     },
     {
       "pyament_id": 2,
-      "payment_date": "2020/04/03",
+      "payment_transfer_date": "2020/04/03",
       "amount": 20000,
       "account_name": null,
       "bs_bank_transfer_code": null,
@@ -184,7 +184,7 @@ Status: 200 OK
       "error_code": null,
       "error_message": null,
       "pyament_id": 3,
-      "payment_date": "2020/04/01",
+      "payment_transfer_date": "2020/04/01",
       "amount": 10000,
       "account_name": "ｺｳｻﾞﾒｲｷﾞ",
       "bs_bank_transfer_code": 246,
@@ -199,7 +199,7 @@ Status: 200 OK
       "error_code": null,
       "error_message": null,
       "pyament_id": 2,
-      "payment_date": "2020/04/03",
+      "payment_transfer_date": "2020/04/03",
       "amount": 20000,
       "account_name": "ｺｳｻﾞﾒｲｷﾞｿﾉﾆ",
       "bs_bank_transfer_code": 468,
