@@ -99,7 +99,7 @@
 | ---------------------------- | ------------------------------------- | ------- |
 | error_code                   | エラーコード <br> ※正常時は null     | string  |
 | error_message                | エラーメッセージ <br> ※正常時は null | string  |
-| number                       | 請求書番号                            | int     |
+| number                       | 請求書番号                            | string   |
 | clearing_amount              | 消込金額                              | int     |
 | unclearing_amount            | 未消込金額                            | int     |
 | [erasure](#erasure-response) | 消込結果に属するパラメータ            | `array` |
