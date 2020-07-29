@@ -52,7 +52,7 @@
 
 | 名前           | 概要       | 桁数 | 種別                                   | 必須 |
 | -------------- | ---------- | ---- | -------------------------------------- | ---- |
-| billing_number | 請求書番号 | 100  | [半角英数 + 記号](../../index.md#種別) | 必須 |
+| number        | 請求書番号 | 100  | [半角英数 + 記号](../../index.md#種別) | 必須 |
 
 
 ## レスポンス
@@ -99,7 +99,7 @@
 | ---------------------------- | ------------------------------------- | ------- |
 | error_code                   | エラーコード <br> ※正常時は null     | string  |
 | error_message                | エラーメッセージ <br> ※正常時は null | string  |
-| billing_number               | 請求書番号                            | int     |
+| number                       | 請求書番号                            | string   |
 | clearing_amount              | 消込金額                              | int     |
 | unclearing_amount            | 未消込金額                            | int     |
 | [erasure](#erasure-response) | 消込結果に属するパラメータ            | `array` |
@@ -115,22 +115,40 @@
 ## 使用例
 
 ### リクエスト例
-
+入金と請求書の消込の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
   "access_key": "xxxxxxxxxxxxxxxx",
   "clearing": {
     "payment": {
-      "payment_id": 12,
+      "payment_id": 1,
       "bank_save_flg": 1
     },
     "bill": [
       {
-        "billing_number": "202005-sample-1"
+        "number": "202005-sample-1"
       },
       {
-        "billing_number": "202005-sample-2"
+        "number": "202005-sample-2"
+      }
+    ]
+  }
+}
+```
+
+請求書同士（マイナス明細請求書との相殺）の消込の場合
+```json
+{
+  "user_id": "sample@robotpayment.co.jp",
+  "access_key": "xxxxxxxxxxxxxxxx",
+  "clearing": {
+    "bill": [
+      {
+        "number": "202005-sample-3"
+      },
+      {
+        "number": "202005-sample-4"
       }
     ]
   }
@@ -139,8 +157,7 @@
 
 ### レスポンス例
 
-Status: 200 OK
-
+Status: 200 OK<br>入金と請求書の消込の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
@@ -151,7 +168,7 @@ Status: 200 OK
     "payment": {
       "error_code": null,
       "error_message": null,
-      "payment_id": 12,
+      "payment_id": 1,
       "bank_save_flg": 1,
       "clearing_amount": 1000,
       "unclearing_amount": 0,
@@ -168,7 +185,7 @@ Status: 200 OK
       {
         "error_code": null,
         "error_message": null,
-        "billing_number": "202005-sample-1",
+        "number": "202005-sample-1",
         "clearing_amount": 600,
         "unclearing_amount": 0,
         "erasure": [
@@ -180,12 +197,51 @@ Status: 200 OK
       {
         "error_code": null,
         "error_message": null,
-        "billing_number": "202005-sample-2",
+        "number": "202005-sample-2",
         "clearing_amount": 400,
         "unclearing_amount": 0,
         "erasure": [
           {
             "erasure_id": 2
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+請求書同士（マイナス明細請求書との相殺）の消込の場合
+```json
+{
+  "user_id": "sample@robotpayment.co.jp",
+  "access_key": "xxxxxxxxxxxxxxxx",
+  "clearing": {
+    "error_code": null,
+    "error_message": null,
+    "payment": null,
+    "bill": [
+      {
+        "error_code": null,
+        "error_message": null,
+        "number": "202005-sample-3",
+        "clearing_amount": -600,
+        "unclearing_amount": 0,
+        "erasure": [
+          {
+            "erasure_id": 1
+          }
+        ]
+      },
+      {
+        "error_code": null,
+        "error_message": null,
+        "number": "202005-sample-4",
+        "clearing_amount": 600,
+        "unclearing_amount": 0,
+        "erasure": [
+          {
+            "erasure_id": 1
           }
         ]
       }
@@ -222,8 +278,9 @@ Status: 200 OK
 | 3818         | 承認依頼中の入金情報があります。                           |
 | 3819         | 既に締められた期間内の入金のため消込できません。           |
 | 3820         | 処理中の入金のため変更できません。                         |
-| 3821         | 消込に失敗しました。                                       |
-| 3822         | 消込情報が存在しません。                                   |
+| 3821         | リクエスト件数が上限を超えています                          |
+| 3822         | 消込に失敗しました。                                       |
+| 3823         | 消込情報が存在しません。                                   |
 
 ---
 
