@@ -115,14 +115,14 @@
 ## 使用例
 
 ### リクエスト例
-
+入金と請求書の消込の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
   "access_key": "xxxxxxxxxxxxxxxx",
   "clearing": {
     "payment": {
-      "payment_id": 12,
+      "payment_id": 1,
       "bank_save_flg": 1
     },
     "bill": [
@@ -137,10 +137,27 @@
 }
 ```
 
+請求書同士（マイナス明細請求書との相殺）の消込の場合
+```json
+{
+  "user_id": "sample@robotpayment.co.jp",
+  "access_key": "xxxxxxxxxxxxxxxx",
+  "clearing": {
+    "bill": [
+      {
+        "number": "202005-sample-3"
+      },
+      {
+        "number": "202005-sample-4"
+      }
+    ]
+  }
+}
+```
+
 ### レスポンス例
 
-Status: 200 OK
-
+Status: 200 OK<br>入金と請求書の消込の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
@@ -151,7 +168,7 @@ Status: 200 OK
     "payment": {
       "error_code": null,
       "error_message": null,
-      "payment_id": 12,
+      "payment_id": 1,
       "bank_save_flg": 1,
       "clearing_amount": 1000,
       "unclearing_amount": 0,
@@ -186,6 +203,45 @@ Status: 200 OK
         "erasure": [
           {
             "erasure_id": 2
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+請求書同士（マイナス明細請求書との相殺）の消込の場合
+```json
+{
+  "user_id": "sample@robotpayment.co.jp",
+  "access_key": "xxxxxxxxxxxxxxxx",
+  "clearing": {
+    "error_code": null,
+    "error_message": null,
+    "payment": null,
+    "bill": [
+      {
+        "error_code": null,
+        "error_message": null,
+        "number": "202005-sample-3",
+        "clearing_amount": -600,
+        "unclearing_amount": 0,
+        "erasure": [
+          {
+            "erasure_id": 1
+          }
+        ]
+      },
+      {
+        "error_code": null,
+        "error_message": null,
+        "number": "202005-sample-4",
+        "clearing_amount": 600,
+        "unclearing_amount": 0,
+        "erasure": [
+          {
+            "erasure_id": 1
           }
         ]
       }
