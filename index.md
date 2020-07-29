@@ -27,6 +27,14 @@
 - [請求元担当者登録更新 bs_owner/bulk_upsert](/public/bs_owner/bulk_upsert.md)
 - [請求元担当者停止削除 bs_owner/bulk_stop](/public/bs_owner/bulk_stop.md)
 - [請求書発行 demand/bulk_issue_bill_select](/public/demand/bulk_issue_bill_select.md)
+- [入金参照 payment/search](/public/payment/search.md)
+- [入金登録更新(複数) payment/bulk_upsert](/public/payment/bulk_upsert.md)
+- [入金無効削除(複数) payment/bulk_stop](/public/payment/bulk_stop.md)
+- [消込 clearing/exec](/public/clearing/exec.md)
+- [消込結果参照 clearing/search](/public/clearing/search.md)
+- [消込結果明細参照 clearing_detail/search](/public/clearing_detail/search.md)
+- [消込取消 clearing/bulk_cancel](/public/clearing/bulk_cancel.md)
+
 
 [開発中のAPI一覧](/dev/index.md)
 
