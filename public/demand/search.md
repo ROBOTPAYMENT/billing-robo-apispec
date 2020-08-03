@@ -68,7 +68,7 @@
 | code                                  | 請求情報コード                                                                                                            | string                |
 | item_code                             | 商品コード                                                                                                                | string                |
 | type                                  | 請求タイプ <br> 0:単発 1:定期定額 2:定期従量                                                                              | int                   |
-| goods_code                            | 集計用商品区分コード                                                                                                      | string                |
+| goods_code                            | 集計用商品コード                                                                                                      | string                |
 | link_goods_code                       | 会計ソフト連携用商品コード                                                                                                | string                |
 | goods_name                            | 商品名                                                                                                                    | string                |
 | price                                 | 単価                                                                                                                      | int                   |
@@ -127,7 +127,7 @@
 | billing_individual_number                          | 請求先部署番号                                                                                                                                                                              | int             |
 | billing_individual_code                            | 請求先部署コード                                                                                                                                                                            | string          |
 | item_code                                          | 商品コード                                                                                                                                                                                  | string          |
-| goods_code                                         | 集計用商品区分コード                                                                                                                                                                        | string          |
+| goods_code                                         | 集計用商品コード                                                                                                                                                                        | string          |
 | link_goods_code                                    | 会計ソフト連携用商品コード                                                                                                                                                                  | string          |
 | goods_name                                         | 商品名                                                                                                                                                                                      | string          |
 | price                                              | 単価                                                                                                                                                                                        | int             |
