@@ -245,6 +245,62 @@ Status: 200 OK
 
 ```
 
+Status: 234 エラー(demandが返さない)
+
+```json
+{
+    "user": {
+        "user_id": "sample@robotpayment.co.jp",
+        "access_key": "xxxxxxxxxxxxxxxx",
+        "bill": [
+            {
+                "error_code": 234,
+                "error_message": "Credit Payment failure",
+                "number": null,
+                "billing_code": null,
+                "billing_name": null,
+                "billing_individual_number": null,
+                "billing_individual_code": null,
+                "billing_individual_name": null,
+                "issue_date": null,
+                "sending_date": null,
+                "payment_status": null,
+                "bill_carryover_payment_status": null,
+                "deadline_date": null,
+                "payment_method": null,
+                "demand_number": null,
+                "subtotal_amount_billed": null,
+                "consumption_tax_amount": null,
+                "total_bill_detail_consumption_tax_amount": null,
+                "withholding_tax_amount": null,
+                "total_amount_billed": null,
+                "billing_method": null,
+                "carryover_total_amount_billed": null,
+                "ec": "ER003",
+                "bs_owner_code": null,
+                "carryover_payment_complete_date": null,
+                "transfer_date": null,
+                "update_date": "",
+                "bill_detail": [
+                    {
+                        "error_code": null,
+                        "error_message": null,
+                        "goods_code": null,
+                        "goods_name": null,
+                        "unit_price": "",
+                        "quantity": "",
+                        "unit": null,
+                        "subtotal_amount_billed": null,
+                        "consumption_tax_amount": null,
+                        "total_amount_billed": null
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 ## エラー
 
 [共通エラー](../../index.md#共通エラー)
