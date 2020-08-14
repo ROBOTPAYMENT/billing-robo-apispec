@@ -245,7 +245,7 @@ Status: 200 OK
 
 ```
 
-Status: 234 エラー(demandが返さない)
+エラーコード error_code が 234 の時のレスポンス例
 
 ```json
 {
