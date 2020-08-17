@@ -147,12 +147,13 @@
 #### bill (response)
 
 下記のような項目のオブジェクトを持つリスト
+<br>※下記以外のパラメータは[demand](#demand-response)に含めています。（結果はnullになります）
 
 | 名前                       | 概要                            | 型     |
 | --------------------------| ------------------------------- | ------ |
 | error_code                | エラーコード※正常時はnull          | string |
-| error_code                | エラーメッセージ※正常時はnull       | string |
-| ec                        | 決済エラーコード※正常時はnull       | string |
+| error_message                | エラーメッセージ※正常時はnull       | string |
+| ec                        | 決済エラーコード※正常時又はerror_codeが234以外の時はnull       | string |
 
 ## 使用例
 
@@ -255,7 +256,7 @@ Status: 200 OK
 
 ```
 
-エラーコード error_code が 234 の時のレスポンス例
+エラーが発生した時のレスポンス例
 
 ```json
 {
