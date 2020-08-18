@@ -75,6 +75,7 @@
 | bs_owner_code             | 請求元担当者コード <br> ※両端のスペース除去 <br> ※請求先部署に登録されている場合は任意 <br> ※追加省略時、nullで登録される                                                                                                                                                                                                                                   | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | account_title_code        | 勘定科目コード <br> ※両端のスペース除去 <br> ※追加省略時、4100で登録される                                                                                                                                                                                                                                                                                  | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | bill_group_key            | 請求書合算キー                                                                                                                                                                                                                                                                                                                                              | 256          | 文字列                                 |                               |
+| outside_billing_number | 外部連携用請求書番号 | 32 | [半角英数 + 記号](../../index.md#種別) | |
 
 
 - 更新時、パラメータ名=””というように値を未指定（空）で送信した場合、空文字で更新されます。
@@ -149,6 +150,7 @@
 | account_title_code        | 勘定科目コード                                                                                                            | string |
 | text_pattern_code         | 文書パターンコード                                                                                                        | string |
 | bill_group_key            | 請求書合算キー                                                                                                            | string |
+| outside_billing_number | 外部連携用請求書番号 | string |
 
 
 
@@ -257,7 +259,9 @@ Status: 200 OK
             "bill_template_code": 10010,
             "bs_owner_code": "bs_owner_code",
             "account_title_code": "",
-            "text_pattern_code": ""
+            "text_pattern_code": "",
+            "bill_group_key" : null,
+            "outside_billing_number" : null
         },
         {
             "error_code": null,
@@ -302,7 +306,9 @@ Status: 200 OK
             "bill_template_code": 10010,
             "bs_owner_code": "bs_owner_code",
             "account_title_code": "",
-            "text_pattern_code": ""
+            "text_pattern_code": "",
+            "bill_group_key" : null,
+            "outside_billing_number" : null
         }
     ]
 }
@@ -372,6 +378,7 @@ Status: 200 OK
 | 1354         | 既に締められた期間への請求書発行日は設定できません                     |
 | 1355         | 既に締められた期間への売上計上日の指定はできません                     |
 | 1356         | 請求書合算キーが不正                                                   |
+| 1357         | 外部連携用請求書番号が不正<br>桁数や入力可能文字をご確認ください |
 
 - 注１.このデフォルト利用可能決済手段は「コンビニ払込票（ハガキ）、その他コンビニ払込票」を指します
 
