@@ -139,6 +139,7 @@
 | clearing_method               | 消込手段 <br> 0:銀行振込 <br> 1:クレジットカード <br> 2:バンクチェック <br> 3:RP 口座振替 <br> 4:RL 口座振替 <br> 5:その他口座振替 <br> 6:コンビニ払込票(A4) <br> 7:コンビニ払込票(ハガキ) <br> 8:その他コンビニ払込票 <br> 9:バーチャル口座 <br> 10:その他決済手段 1 <br> 11:その他決済手段 2 <br> 12:その他決済手段 3 <br> 13:その他決済手段 4 <br> 14:その他決済手段 5 <br> 98:相殺 <br> 101:貸倒 <br> 102:確認済み <br> 103:手数料 <br> 106:現金 <br> 107:長期滞留債権 <br> 108:破産更生等債権 <br> 109:売上取消 <br> 110:繰越 | int      |
 | clearing_amount               | 消込金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int      |
 | bill_billing_number           | 請求書番号                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | string   |
+| bill_detail_id                | 請求書明細 ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | int   |
 | bill_amount                   | 請求金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int      |
 | clearing_bill_billing_number  | 消込請求書番号                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string   |
 | payment_id                    | 入金 ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | int      |
@@ -241,6 +242,7 @@ Status: 200 OK
       "clearing_method": 0,
       "clearing_amount": 1080,
       "bill_billing_number": "202005-sample-1",
+      "bill_detail_id": 1,
       "bill_amount": 1080,
       "clearing_bill_billing_number": null,
       "payment_id": 12,
@@ -263,6 +265,7 @@ Status: 200 OK
       "clearing_method": 0,
       "clearing_amount": 1080,
       "bill_billing_number": "202005-sample-1",
+      "bill_detail_id": 2,
       "bill_amount": 1080,
       "clearing_bill_billing_number": null,
       "payment_id": 12,
@@ -285,6 +288,7 @@ Status: 200 OK
       "clearing_method": 0,
       "clearing_amount": 1080,
       "bill_billing_number": "202005-sample-1",
+      "bill_detail_id": 3,
       "bill_amount": 1080,
       "clearing_bill_billing_number": "202005-sample-5",
       "payment_id": null,
