@@ -146,7 +146,7 @@
 | bs_owner_code                  | 請求元担当者コード                                                                                                         | string    |               |
 | bs_owner_name                  | 請求元担当者名                                                                                                            | string | 発行時の情報を返却します|
 | bs_owner_post_name             | 請求元担当者役職名                                                                                                         | string | 発行時の情報を返却します|
-| carryover_status               | 繰越ステータス  <br> 0:対象外  <br> 1:繰越待ち   <br> 2:繰越完了                                                              | string    |               |
+| carryover_status               | 繰越ステータス  <br> 0:対象外  <br> 1:繰越待ち   <br> 2:繰越完了                                                              | int    |               |
 | carryover_transit_bill_number  | 繰越先請求書番号                                                                                                         | string |               |
 | carryover_total_amount         | 繰越金額                                                                                                                | int |               |
 | download_url                   | 請求書ダウンロードURL                                                                                                     | string |               |
