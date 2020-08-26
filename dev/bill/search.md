@@ -269,7 +269,7 @@ Status: 200 OK
             "bs_owner_name": "山田太郎",
             "bs_owner_post_name": "課長",
             "carryover_status": 0,
-            "carryover_transit_bill_number": "null",
+            "carryover_transit_bill_number": null,
             "carryover_total_amount": 0,
             "download_url": "http:://",
             "bill_group_key": null,
