@@ -34,7 +34,7 @@
 - [消込結果参照 clearing/search](/public/clearing/search.md)
 - [消込結果明細参照 clearing_detail/search](/public/clearing_detail/search.md)
 - [消込取消 clearing/bulk_cancel](/public/clearing/bulk_cancel.md)
-- [請求先部署参照 billing_individual/search](/public/billing_individual/search.md)
+
 
 
 [開発中のAPI一覧](/dev/index.md)
