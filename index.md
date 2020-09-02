@@ -27,6 +27,15 @@
 - [請求元担当者登録更新 bs_owner/bulk_upsert](/public/bs_owner/bulk_upsert.md)
 - [請求元担当者停止削除 bs_owner/bulk_stop](/public/bs_owner/bulk_stop.md)
 - [請求書発行 demand/bulk_issue_bill_select](/public/demand/bulk_issue_bill_select.md)
+- [入金参照 payment/search](/public/payment/search.md)
+- [入金登録更新(複数) payment/bulk_upsert](/public/payment/bulk_upsert.md)
+- [入金無効削除(複数) payment/bulk_stop](/public/payment/bulk_stop.md)
+- [消込 clearing/exec](/public/clearing/exec.md)
+- [消込結果参照 clearing/search](/public/clearing/search.md)
+- [消込結果明細参照 clearing_detail/search](/public/clearing_detail/search.md)
+- [消込取消 clearing/bulk_cancel](/public/clearing/bulk_cancel.md)
+
+
 
 [開発中のAPI一覧](/dev/index.md)
 
@@ -48,6 +57,7 @@
 | 半角英数        | `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`                          |
 | 半角英数 + 記号  | ``ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``  |
 | 口座名義        | 半角英数 + 半角カタカナ + `,.()\/｢｣-` <br> `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ｦｧｨｩｪｫｬｭｮｯ-ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾂﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ,. )(\/｢｣-` |
+| 口座名義(RP口座振替)| 半角英数 + 半角カタカナ + `().-/` <br> [(RP口座振替)口座名義使用可能文字について](https://keirinomikata.zendesk.com/hc/ja/articles/900000986386)  |
 | 銀行名等        | 半角英数(半角英小文字除く) + 半角カタカナ <br>`ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ｦｧｨｩｪｫｬｭｮｯ-ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾂﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝｶﾞｷﾞｸﾞｹﾞｺﾞｻﾞｼﾞｽﾞｾﾞｿﾞﾀﾞﾁﾞﾂﾞﾃﾞﾄﾞﾊﾞﾋﾞﾌﾞﾍﾞﾎﾞﾊﾟﾋﾟﾌﾟﾍﾟﾎﾟ`           |
 | 日付形式        | 正規表現 : `@^([0-9]{4}(-|/)(0?[1-9]|1[012])(-|/)(0?[1-9]|[12][0-9]|3[01]))$@` <br> (例) 2020-01-01 または 2020/01/01 など  |
 
@@ -84,6 +94,7 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 | 17           | 権限が不正                 |
 | 18           | 利用企業が不正             |
 | 19           | メンテナンス中             |
+| 20           | リクエスト数が不正         |
 
 ### レスポンス例
 

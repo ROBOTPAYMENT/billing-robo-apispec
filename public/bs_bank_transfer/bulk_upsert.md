@@ -107,7 +107,7 @@
             "bank_account_name": "口座名義",
             "bs_department_code": "",
             "journal_cooperation_bank_code": "",
-            "account_title_id": null,
+            "account_title_id": 1120,
             "sub_account_title_code": ""
         }
     ]
@@ -137,7 +137,7 @@ Status: 200 OK
             "bank_account_name": "口座名義",
             "bs_department_code": "",
             "journal_cooperation_bank_code": "",
-            "account_title_id": null,
+            "account_title_id": 1120,
             "sub_account_title_code": ""
         }
     ]
