@@ -224,7 +224,7 @@ Status: 200 OK
       "type": 0,
       "price": "10000.0000",
       "quantity": "1.0000",
-      "unit": 1,
+      "unit": "式",
       "tax_category": 0,
       "tax": 10,
       "remark": "備考",
