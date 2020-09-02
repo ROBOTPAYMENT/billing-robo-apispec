@@ -137,6 +137,7 @@
 | slip_deadline                  | 払込票有効期限                                                                                                             | date    |               |
 | transfer_date                  | 決済日                                                                                                                    | date    |               |
 | gid                            | 決済ID                                                                                                                    | string    |               |
+| ec                             | 決済エラーコード                                                                                                            | string    |               |
 | clearing_status                | 消込ステータス <br> 0:未処理 <br> 1:完了 <br> 2:確認済み <br> 3:未収 <br> 4:貸倒 <br> 5:手数料 <br> 6:現金 <br> 7:長期滞留債権 <br> 8:破産更生債権 <br> 9:売上取消 <br> 10:繰越   | int    |               |
 | memo                           | メモ                                                                                                                    | string    |               |
 | template_code                  | 請求書テンプレート                                                                                                        | string    |               |
@@ -259,6 +260,7 @@ Status: 200 OK
             "slip_deadline": null,
             "transfer_date": "2020/07/15",
             "gid": null,
+            "ec": null,
             "clearing_status": 1,
             "memo": "メモ",
             "template_code": "10010",
