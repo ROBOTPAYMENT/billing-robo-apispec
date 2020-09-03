@@ -28,7 +28,7 @@
 | access_key                | アクセスキー                                                                                  | 100  | [半角英数](../../index.md#種別)   | 必須 |
 | limit_count               | 請求情報取得件数 <br> ※0〜200 の数値を設定する。 <br> 省略した場合、20 が設定される           | 3    | 数値                              |      |
 | page_count                | 請求情報取得開始インデックス <br> ※0〜99 の数値を設定する。 <br> 省略した場合、0 が設定される | 2    | 数値                              |      |
-| [demand](#demand-request) | 請求情報に属するパラメータ                                                                    |      | `array`                           |      |
+| [demand](#demand-request) | 請求情報に属するパラメータ                                                                    |      | `object`                           |      |
 
 #### demand (request)
 
@@ -41,7 +41,7 @@
 | billing_individual_code   | 請求先部署コード                                                                                                                                                                                                                                                                                                                                                             | 20   | [半角英数](../../index.md#種別) | 完全一致 |
 | number                    | 請求情報番号                                                                                                                                                                                                                                                                                                                                                                 | 18   | 数値                            |          |
 | code                      | 請求情報コード                                                                                                                                                                                                                                                                                                                                                               | 20   | [半角英数](../../index.md#種別) | 完全一致 |
-| outside_billing_number    | 外部連携用請求書番号                                                                                                                                                                                                                                                                                                                                                         | 20   | [半角英数](../../index.md#種別) |          |
+| outside_billing_number    | 外部連携用請求書番号                                                                                                                                                                                                                                                                                                                                                         | 32   | [半角英数](../../index.md#種別) |          |
 | item_code                 | 商品コード                                                                                                                                                                                                                                                                                                                                                                   | 20   | [半角英数](../../index.md#種別) | 完全一致 |
 | goods_code                | 集計用商品コード                                                                                                                                                                                                                                                                                                                                                             | 33   | 文字列                          | 部分一致 |
 | type                      | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量                                                                                                                                                                                                                                                                                                                       | 1    | 数値                            |          |
@@ -223,7 +223,7 @@ Status: 200 OK
       "goods_name": "ダミー商品",
       "type": 0,
       "price": "10000.0000",
-      "quantity": "1.0000",
+      "quantity": "1.00",
       "unit": "式",
       "tax_category": 0,
       "tax": 10,
@@ -272,7 +272,7 @@ Status: 200 OK
       "custom": [
         {
           "code": 1,
-          "name": "カスタム１",
+          "name": "カスタム項目名",
           "value": "カスタム１"
         }
       ]
