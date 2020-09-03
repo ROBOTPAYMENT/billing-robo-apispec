@@ -271,7 +271,7 @@ Status: 200 OK
       "valid_flg": 0,
       "custom": [
         {
-          "code": 1,
+          "code": "code1",
           "name": "カスタム項目名",
           "value": "カスタム１"
         }
