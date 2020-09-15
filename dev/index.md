@@ -10,3 +10,4 @@
 - [請求書参照 bill/search](bill/search.md)
 - [請求情報参照 demand/search2](demand/search2.md)
 - [カスタム項目登録更新 custom_field/bulk_upsert](mst_custom_field/bulk_upsert)
+- [カスタム項目削除 custom_field/bulk_stop](mst_custom_field/bulk_stop.md)
