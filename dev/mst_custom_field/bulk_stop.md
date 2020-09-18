@@ -56,8 +56,8 @@
 
 | 名前          | 概要                                       | 型     |
 | ------------- | ------------------------------------------ | ------ |
-| error_code    | エラーコード <br> ※エラー時以外は NULL     | string |
-| error_message | エラーメッセージ <br> ※エラー時以外は NULL | string |
+| error_code    | エラーコード <br> ※正常時はnull            | string |
+| error_message | エラーメッセージ <br> ※正常時はnull        | string |
 | number        | カスタム項目番号                           | int    |
 | code          | カスタム項目コード                         | string |
 
