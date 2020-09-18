@@ -152,7 +152,7 @@
 | 名前                                                          | 概要                                | 型      |
 | ------------------------------------------------------------- | ----------------------------------- | ------- |
 | error_code                                                    | エラーコード <br> ※正常時はnull     | string  |
-| error_message                                                 | エラーメッセージ <br> ※正常時はnull | string  |
+| error_message                                                 | エラーメッセージ <br> ※正常時はnull | int     |
 | code                                                          | 請求先コード                        | string  |
 | name                                                          | 請求先名                            | string  |
 | [individual](#individual-response)                            | 請求先部署に属するパラメータ        | `array` |
@@ -166,7 +166,7 @@
 | 名前                                 | 概要                                                                  | 型     |
 | ------------------------------------ | --------------------------------------------------------------------- | ------ |
 | error_code                           | エラーコード <br> ※正常時はnull                                       | string |
-| error_message                        | エラーメッセージ <br> ※正常時はnull                                   | string |
+| error_message                        | エラーメッセージ <br> ※正常時はnull                                   | int    |
 | number                               | 請求先部署番号 <br> ※登録時に請求管理ロボ側で発番される番号となります | int    |
 | code                                 | 請求先部署コード                                                      | string |
 | name                                 | 請求先部署名                                                          | string |
