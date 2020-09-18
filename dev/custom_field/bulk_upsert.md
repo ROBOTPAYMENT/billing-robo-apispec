@@ -46,7 +46,7 @@
 - Type: `application/json`
 - Encode: `UTF-8`
 
-### Field
+### Fields
 
 | 名前                                    | 概要                                                                                                                                          | 型      |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -81,7 +81,7 @@
   "custom_field": [
     {
       "number": "",
-      "code": "mst_custom_code",
+      "code": "sample_code",
       "name": "カスタム項目名１",
       "target": 2,
       "type": 1,
@@ -103,7 +103,7 @@
       "error_code": null,
       "error_message": null,
       "number": 10,
-      "code": "mst_custom_code",
+      "code": "sample_code",
       "name": "カスタム項目名１",
       "target": 2,
       "type": 1,
