@@ -84,7 +84,7 @@
 | user_id                  | ユーザーID                          | string         |
 | access_key               | アクセスキー                        | string         |
 | error_code               | エラーコード <br> ※正常時はnull     | string         |
-| error_message            | エラーメッセージ <br> ※正常時はnull | string         |
+| error_message            | エラーメッセージ <br> ※正常時はnull | int            |
 | [goods](#goods-response) | 商品に属するパラメータ              | `array` |
 
 #### goods (response)
