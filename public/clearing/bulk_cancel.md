@@ -58,7 +58,7 @@
 | 名前                   | 概要                                 | 型      |
 | ---------------------- | ------------------------------------ | ------- |
 | error_code             | エラーコード <br> ※正常時は null     | string  |
-| error_message          | エラーメッセージ <br> ※正常時は null | string  |
+| error_message          | エラーメッセージ <br> ※正常時は null | int     |
 | erasure_id             | 消込結果 ID                          | int     |
 | payment_id             | 入金 ID                              | int     |
 | [bill](#bill-response) | 請求書に関するパラメータ             | `array` |
