@@ -57,7 +57,7 @@
 | 名前          | 概要                          | 型     |
 | ------------- | ----------------------------- | ------ |
 | error_code    | エラーコード※正常時はnull     | string |
-| error_message | エラーメッセージ※正常時はnull | string |
+| error_message | エラーメッセージ※正常時はnull | int    |
 | code          | 銀行口座コード                | string |
 | title         | 銀行口座名                    | string |
 | del_flg       | 削除フラグ0: 無効 1:削除      | int    |
