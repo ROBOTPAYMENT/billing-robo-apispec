@@ -57,7 +57,7 @@
 | 名前          | 概要                                | 型     |
 | ------------- | ----------------------------------- | ------ |
 | error_code    | エラーコード <br> ※正常時はnull     | string |
-| error_message | エラーメッセージ <br> ※正常時はnull | string |
+| error_message | エラーメッセージ <br> ※正常時はnull | int    |
 | code          | 担当者コード                        | string |
 | name          | 担当者名                            | string |
 | del_flg       | 削除フラグ <br> 0:無効 1:削除       | int    |
