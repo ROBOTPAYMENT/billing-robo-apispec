@@ -70,7 +70,7 @@
 | 名前                                              | 概要                                      | 型                          |
 | ------------------------------------------------- | ----------------------------------------- | --------------------------- |
 | error_code                                        | エラーコード <br> ※エラー時以外はNULL     | int                         |
-| error_message                                     | エラーメッセージ <br> ※エラー時以外はNULL | string                      |
+| error_message                                     | エラーメッセージ <br> ※エラー時以外はNULL | int                      |
 | code                                              | 請求先コード                              | string                      |
 | user_id                                           | 登録ユーザーID                            | string                      |
 | [billing_individual](#billingindividual-response) | 請求先部署に属するパラメータ              | `array` |
