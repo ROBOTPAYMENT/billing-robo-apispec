@@ -93,7 +93,7 @@
     "page_count": 1,
     "custom_field": {
         "number": 10,
-        "code": "sample",
+        "code": "sample_code",
         "name": "カスタム項目名１",
         "target": 2,
         "type": 1,
@@ -122,7 +122,7 @@ Status: 200 OK
             "error_code": null,
             "error_message": null,
             "number": 10,
-            "code": "sample",
+            "code": "sample_code",
             "name": "カスタム項目名１",
             "target": 2,
             "type": 1,
