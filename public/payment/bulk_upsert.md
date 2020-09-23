@@ -86,8 +86,8 @@
 
 | 名前                      | 概要                                                                                         | 型     |
 | ------------------------- | -------------------------------------------------------------------------------------------- | ------ |
-| error_code                | エラーコード <br> ※正常時は null                                                             | string |
-| error_message             | エラーメッセージ <br> ※正常時は null                                                         | int    |
+| error_code                | エラーコード <br> ※正常時は null                                                             | int     |
+| error_message             | エラーメッセージ <br> ※正常時は null                                                         | string  |
 | payment_id                | 入金 ID                                                                                      | int    |
 | payment_transfer_date     | 入金日                                                                                       | string |
 | amount                    | 金額                                                                                         | int    |

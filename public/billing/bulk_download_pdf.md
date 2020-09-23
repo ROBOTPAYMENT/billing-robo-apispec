@@ -78,7 +78,7 @@
 | 名前          | 概要                          | 型                         |
 | ------------- | ----------------------------- | -------------------------- |
 | error_code    | エラーコード                  | int <br> (正常時はnull)    |
-| error_message | エラーメッセージ              | int <br> (正常時はnull) |
+| error_message | エラーメッセージ              | string <br> (正常時はnull) |
 | number        | 決済情報番号                  | int                        |
 | code          | 決済情報コード                | string                     |
 | name          | 決済情報名                    | string                     |
