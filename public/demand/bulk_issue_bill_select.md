@@ -57,8 +57,8 @@
 
 | 名前              | 概要                                | 型     |
 | ----------------- | ----------------------------------- | ------ |
-| error_code        | エラーコード <br> ※正常時はnull     | string |
-| error_message     | エラーメッセージ <br> ※正常時はnull | int    |
+| error_code        | エラーコード <br> ※正常時はnull     | int    |
+| error_message     | エラーメッセージ <br> ※正常時はnull | string |
 | number            | 請求情報番号                        | int    |
 | code              | 請求情報コード                      | string |
 | demand.sales.bill | 請求書に属するパラメータ            |        |

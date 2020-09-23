@@ -66,7 +66,7 @@
 | 名前                                        | 概要                         | 型                         |
 | ------------------------------------------- | ---------------------------- | -------------------------- |
 | error_code                                  | エラーコード                 | int <br> (正常時はnull)    |
-| error_message                               | エラーメッセージ             | int <br> (正常時はnull) |
+| error_message                               | エラーメッセージ             | string <br> (正常時はnull) |
 | code                                        | 請求先コード                 | string                     |
 | name                                        | 請求先名                     | string                     |
 | [billing.payment](#billingpayment-response) | 請求先決済情報に属するデータ | `array`           |

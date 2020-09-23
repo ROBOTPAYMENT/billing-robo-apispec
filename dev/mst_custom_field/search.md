@@ -1,4 +1,4 @@
-# カスタム項目参照API
+# カスタム項目参照
 
 `/api/v1.0/custom_field/search`
 

@@ -1,4 +1,4 @@
-# カスタム項目登録更新
+# カスタム項目登録更新(複数)
 
 `/api/v1.0/custom_field/bulk_upsert`
 

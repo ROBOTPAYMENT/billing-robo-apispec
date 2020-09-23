@@ -63,8 +63,8 @@
 | ---------------------- | ----------------------------------- | ------- |
 | user_id                | ユーザーID                          | string  |
 | access_key             | アクセスキー                        | string  |
-| error_code             | エラーコード <br> ※正常時はnull     | string  |
-| error_message          | エラーメッセージ <br> ※正常時はnull | int     |
+| error_code             | エラーコード <br> ※正常時はnull     | int     |
+| error_message          | エラーメッセージ <br> ※正常時はnull | string  |
 | [bill](#bill-response) | 請求書に属するパラメータ            | `array` |
 
 #### bill (response)

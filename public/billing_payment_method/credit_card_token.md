@@ -236,8 +236,8 @@ CPToken.TokenCreate (
 
 | 名前    | 概要             | 型     |
 | ------- | ---------------- | ------ |
-| code    | エラーコード     | string |
-| message | エラーメッセージ | int     |
+| code    | エラーコード     | int     |
+| message | エラーメッセージ | string  |
 
 
 ### 使用例
