@@ -55,7 +55,7 @@
 
 | 名前              | 概要                                | 型     |
 | ----------------- | ----------------------------------- | ------ |
-| error_code        | エラーコード <br> ※正常時はnull     | string |
+| error_code        | エラーコード <br> ※正常時はnull     | int    |
 | error_message     | エラーメッセージ <br> ※正常時はnull | string |
 | number            | 請求書番号                          | string |
 | mail_order_number | 郵送受付番号                        | int    |

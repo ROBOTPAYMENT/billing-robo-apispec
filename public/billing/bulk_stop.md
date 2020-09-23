@@ -81,7 +81,7 @@
 
 | 名前                                       | 概要                                | 型      |
 | ------------------------------------------ | ----------------------------------- | ------- |
-| error_code                                 | エラーコード <br> ※正常時はnull     | string  |
+| error_code                                 | エラーコード <br> ※正常時はnull     | int     |
 | error_message                              | エラーメッセージ <br> ※正常時はnull | string  |
 | code                                       | 請求先コード                        | string  |
 | del_flg                                    | 請求先削除フラグ                    | int     |
@@ -94,7 +94,7 @@
 
 | 名前          | 概要                                | 型     |
 | ------------- | ----------------------------------- | ------ |
-| error_code    | エラーコード <br> ※正常時はnull     | string |
+| error_code    | エラーコード <br> ※正常時はnull     | int    |
 | error_message | エラーメッセージ <br> ※正常時はnull | string |
 | number        | 請求先部署番号                      | int    |
 | code          | 請求先部署コード                    | string |
@@ -107,7 +107,7 @@
 
 | 名前          | 概要                                | 型     |
 | ------------- | ----------------------------------- | ------ |
-| error_code    | エラーコード <br> ※正常時はnull     | string |
+| error_code    | エラーコード <br> ※正常時はnull     | int    |
 | error_message | エラーメッセージ <br> ※正常時はnull | string |
 | code          | 決済情報コード                      | string |
 | del_flg       | 決済情報削除フラグ                  | int    |

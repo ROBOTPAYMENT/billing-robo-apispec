@@ -58,7 +58,7 @@
 
 | 名前            | 概要                                | 型     |
 | --------------- | ----------------------------------- | ------ |
-| error_code      | エラーコード <br> ※正常時はnull     | string |
+| error_code      | エラーコード <br> ※正常時はnull     | int    |
 | error_message   | エラーメッセージ <br> ※正常時はnull | string |
 | code            | 担当者コード                        | string |
 | name            | 担当者名                            | string |

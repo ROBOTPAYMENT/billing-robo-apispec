@@ -56,8 +56,8 @@
 
 | 名前          | 概要                          | 型     |
 | ------------- | ----------------------------- | ------ |
-| error_code    | エラーコード※正常時はnull     | string |
-| error_message | エラーメッセージ※正常時はnull | string |
+| error_code    | エラーコード※正常時はnull     | int     |
+| error_message | エラーメッセージ※正常時はnull | string  |
 | code          | 銀行口座パターンコード        | string |
 | name          | 銀行口座パターン管理名        | string |
 | del_flg       | 削除フラグ0: 停止 1:削除      | int    |

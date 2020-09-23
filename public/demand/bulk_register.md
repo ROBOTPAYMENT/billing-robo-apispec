@@ -152,7 +152,7 @@
 
 | 名前                       | 概要                            | 型     |
 | --------------------------| ------------------------------- | ------ |
-| error_code                | エラーコード※正常時はnull          | string |
+| error_code                | エラーコード※正常時はnull          | int |
 | error_message                | エラーメッセージ※正常時はnull       | string |
 | ec                        | 決済エラーコード※正常時又はerror_codeが234以外の時はnull       | string |
 

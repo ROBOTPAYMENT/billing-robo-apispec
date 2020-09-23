@@ -1,4 +1,4 @@
-# 請求先部署参照API
+# 請求先部署参照
 
 `/api/v1.0/billing_individual/search`
 
@@ -75,8 +75,8 @@
 
 | 名前                                    | 概要                                          | 型        |
 | --------------------------------------- | -------------------------------------------- | --------- |
-| error_code                              | エラーコード <br> ※正常時はnull               | string    |
-| error_message                           | エラーメッセージ <br> ※正常時はnull            | string    |
+| error_code                              | エラーコード <br> ※正常時はnull               | int      |
+| error_message                           | エラーメッセージ <br> ※正常時はnull            | string   |
 | billing_code                            | 請求先コード                                  | string    |
 | billing_name                            | 請求先名                                      | string    |
 | number                                  | 請求先部署番号                                | int       |
