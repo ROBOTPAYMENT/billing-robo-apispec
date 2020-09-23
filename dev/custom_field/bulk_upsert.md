@@ -52,7 +52,7 @@
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | user_id                                 | ユーザー ID                                                                                                                                   | string  |
 | access_key                              | アクセスキー                                                                                                                                  | string  |
-| [custom_field](#[custom_field-response) | カスタム項目に属するパラメータ                                                                                                                  | `array` |
+| [custom_field](#custom_field-response) | カスタム項目に属するパラメータ                                                                                                                  | `array` |
 
 #### custom_field (response)
 
@@ -60,7 +60,7 @@
 
 | 名前          | 概要                                       | 型      |
 | ------------- | ------------------------------------------ | ------ |
-| error_code    | エラーコード <br> ※正常時はnull             | string |
+| error_code    | エラーコード <br> ※正常時はnull             | int |
 | error_message | エラーメッセージ <br> ※正常時はnull         | string |
 | number        | カスタム項目番号                           | int     |
 | code          | カスタム項目コード                         | string  |
