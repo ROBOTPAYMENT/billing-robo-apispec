@@ -4,7 +4,7 @@
 
 - [請求先登録更新(複数) v1.0/billing/bulk_upsert](/public/billing/bulk_upsert.md)
 - [請求先停止削除(複数) v1.0/billing/bulk_stop](/public/billing/bulk_stop.md)
-- [請求情報等登録更新(複数) v1.0/demand/bulk_upsert](/public/demand/bulk_upsert.md)
+- [請求情報登録更新(複数) v1.0/demand/bulk_upsert](/public/demand/bulk_upsert.md)
 - [請求情報停止削除(複数) v1.0/demand/bulk_stop](/public/demand/bulk_stop.md)
 - [即時決済 請求書合算 demand/bulk_register](/public/demand/bulk_register.md)
 - [売上消込結果参照 v1.0/demand/search](/public/demand/search.md)
