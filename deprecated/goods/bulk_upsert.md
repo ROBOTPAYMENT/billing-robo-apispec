@@ -1,4 +1,4 @@
-# 商品登録更新(複数)
+# 商品登録更新
 
 `/api/v1.0/goods/bulk_upsert`
 
