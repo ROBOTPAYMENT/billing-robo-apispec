@@ -80,6 +80,8 @@
 | error_code                                   | エラーコード <br> ※正常時はnull                                                                                                                                 | int                  |
 | error_message                                | エラーメッセージ <br> ※正常時はnull                                                                                                                             | string               |
 | number                                       | 請求書番号                                                                                                                                                      | string               |
+| carryover_transit_bill_number                | 繰越先請求書番号                                                                                                                                                | string               |
+| carryover_total_amount                       | 繰越金額                                                                                                                                                        | int                  |
 | bs_residence_code                            | 請求元差出人コード                                                                                                                                              | string               |
 | billing_code                                 | 請求先コード                                                                                                                                                    | string               |
 | billing_name                                 | 請求先名                                                                                                                                                        | string               |
@@ -111,8 +113,6 @@
 | transfer_date                                | 決済日                                                                                                                                                          | date                 |
 | payment_status                               | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越                                   | int                  |
 | carryover_status                             | 繰越ステータス <br> 0:対象外 1:繰越待ち 2:繰越完了                                                                                                              | int                  |
-| carryover_transit_bill_number                | 繰越先請求書番号                                                                                                                                                | string               |
-| carryover_total_amount                       | 繰越金額                                                                                                                                                        | int                  |
 | memo                                         | メモ                                                                                                                                                            | string               |
 | template_code                                | 請求書テンプレート                                                                                                                                              | string               |
 | bs_department_code                           | 請求元部署コード                                                                                                                                                | string               |
@@ -213,6 +213,8 @@ Status: 200 OK
             "error_code": null,
             "error_message": null,
             "number": "201705-banche-1",
+            "carryover_transit_bill_number": null,
+            "carryover_total_amount": 0,
             "bs_residence_code": "1",
             "billing_code": "banche",
             "billing_name": "株式001",
@@ -244,8 +246,6 @@ Status: 200 OK
             "transfer_date": "2016/07/06",
             "payment_status": 1,
             "carryover_status": 0,
-            "carryover_transit_bill_number": null,
-            "carryover_total_amount": 0,
             "memo": null,
             "template_code": "10010",
             "bs_department_code": null,
