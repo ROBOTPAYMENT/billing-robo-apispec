@@ -1,4 +1,4 @@
-# 入金無効削除(複数)
+# 入金無効削除
 
 `/api/v1.0/payment/bulk_stop`
 

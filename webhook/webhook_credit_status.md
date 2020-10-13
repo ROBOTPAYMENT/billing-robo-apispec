@@ -88,17 +88,17 @@
 
 | API名                                         | URL                                                   | 条件                                              |
 | --------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------- |
-| 請求先登録更新(複数) v1.0/billing/bulk_upsert | /api/v1.0/billing/bulk_upsert                         | 決済手段を「クレジットカード」にて決済情報を登録  |
+| 請求先登録更新 v1.0/billing/bulk_upsert       | /api/v1.0/billing/bulk_upsert                         | 決済手段を「クレジットカード」にて決済情報を登録  |
 | 請求先登録 billing/register                   | /api/billing/register                                 | 決済手段を「クレジットカード」にて決済情報を登録  |
 | 請求先登録 billing/add                        | /api/billing/add                                      | 決済手段を「クレジットカード」にて決済情報を登録  |
 | 請求先部署登録 billing_individual/add         | /api/billing_individual/add                           | 決済手段を「クレジットカード」にて決済情報を登録  |
 | 請求先部署編集 billing_individual/edit        | /api/billing_individual/edit                          | 決済手段を「クレジットカード」にて決済情報を登録  |
-| 請求先登録更新(複数) billing/bulk_upsert      | /api/billing/bulk_upsert                              | 決済手段を「クレジットカード」にて決済情報を登録  |
+| 請求先登録更新 billing/bulk_upsert            | /api/billing/bulk_upsert                              | 決済手段を「クレジットカード」にて決済情報を登録  |
 | クレジットカード登録(トークン方式)            | /api/v1.0/billing_payment_method/credit_card_token    | 決済手段を「クレジットカード」にて決済情報を登録  |
 
 ※以下廃止予定のAPIのクレジットカード有効性チェックリターン時のwebhook送信は対象外
 - 請求先登録：api/billing/register
 - 請求先部署編集：api/billing_individual/edit
-- 請求先登録更新(複数)：api/bulk_upsert
+- 請求先登録更新：api/bulk_upsert
 
 [TOPへ戻る](../index.md)

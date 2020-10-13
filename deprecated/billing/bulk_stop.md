@@ -1,4 +1,4 @@
-# 請求先停止(複数)
+# 請求先停止
 
 `/api/billing/bulk_stop`
 

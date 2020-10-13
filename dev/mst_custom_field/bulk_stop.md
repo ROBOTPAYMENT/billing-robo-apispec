@@ -1,4 +1,4 @@
-# カスタム項目削除(複数)
+# カスタム項目削除
 
 `/api/v1.0/custom_field/bulk_stop`
 
