@@ -47,7 +47,7 @@
 | ---------------------- | -------------------------- | ------------- |
 | user_id                | ユーザーID                 | string        |
 | access_key             | アクセスキー               | string        |
-| [bill](#bill-response) | bb請求書に属するパラメータ | `array` |
+| [bill](#bill-response) | 請求書に属するパラメータ   | `array` |
 
 #### bill (response)
 

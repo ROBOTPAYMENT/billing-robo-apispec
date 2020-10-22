@@ -1,4 +1,4 @@
-# 請求書登録更新(複数)
+# 請求書登録更新
 
 `/api/billing/bulk_upsert`
 

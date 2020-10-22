@@ -120,7 +120,7 @@
 | consumption_tax_amount         | 消費税額                                                                                                               | int    |               |
 | total_amount_billed            | 請求金額合計                                                                                                           | int    |               |
 | unclearing_amount              | 未消込金額                                                                                                             | int |               |
-| message_column                 | 通信欄                                                                                                                  | string | 発行時の情報を返却します|
+| message_column                 | 通信欄                                                                                                                  | string |          |
 | billing_method                 | 請求方法 <br> 0:請求無し <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール＋自動郵送 <br> 6:手動メール＋手動郵送   | int    |     |
 | issue_date                     | 請求書発行日                                                                                                             | date |               |
 | make_date                      | 請求書作成日                                                                                                             | date |               |
