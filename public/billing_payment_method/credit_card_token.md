@@ -271,7 +271,7 @@ Status: 200 OK
 
 [共通エラー](../../index.md#共通エラー)
 
-[決済システムエラーコード](https://keirinomikata.zendesk.com/hc/ja/sections/200486505-%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E8%A1%A8)
+[決済システムエラーコード](https://keirinomikata.zendesk.com/hc/ja/sections/200486505)
 
 個別エラー
 
