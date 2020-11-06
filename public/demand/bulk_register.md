@@ -317,7 +317,7 @@ Status: 200 OK
 
 [共通エラー](../../index.md#共通エラー)
 
-[決済システムエラーコード](../../payment_ec.md)
+[決済システムエラーコード](https://keirinomikata.zendesk.com/hc/ja/sections/200486505)
 
 個別エラー
 
