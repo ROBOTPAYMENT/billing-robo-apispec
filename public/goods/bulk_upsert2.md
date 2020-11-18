@@ -69,6 +69,19 @@
 | sub_account_title_code_account_receivable_trade | 売掛金補助科目コード <br> ※補助科目コード設定対象：商品の場合登録可、商品以外の場合登録不可                                                                                                                               | 25           | 文字                        |                                    |
 | account_title_id_advances_received              | 前受金勘定科目コード <br> ※固定値：2111                                                                                                                                                                                   | 18           | 半角数字                        |                                    |
 | sub_account_title_code_advances_received        | 前受金補助科目コード <br> ※補助科目コード設定対象：商品の場合登録可、商品以外の場合登録不可                                                                                                                               | 25           | 文字                        |                                    |
+| [custom](#custom-request)                       | 商品カスタム項目に属するパラメータ                                                                                                                                                                                     |           | array                                 |                               |
+
+#### custom (request)
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                                            | 概要                                                                                                                                                                                                                                                                                                                                                        | 桁数         | 種別                                   | 必須                          |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------- | ----------------------------- |
+| number                                          | カスタム項目番号                                                                                                                                                                                                                                                                                                                                                    | 18           | 数値                                   | (必須※1)^1 |
+| code                                            | カスタム項目コード                                                                                                                                                                                                                                                                                                                                                  | 20           | [半角英数 + 記号](../../index.md#種別)  | (必須※1)^1 |
+| value                                           | カスタム項目値                                                                                                                                                                                                                                                                                                                                                      | 300          | 文字列                                 |                       |
+
+※1 カスタム項目必須フラグONでカスタム項目を登録してる場合必須です。また商品カスタム項目の登録更新時にはnumberもしくはcodeが必須です。
 
 
 
@@ -128,7 +141,20 @@
 | sub_account_title_code_account_receivable_trade | 売掛金補助科目コード                                                                                                                                                                                   | string |
 | account_title_id_advances_received              | 前受金勘定科目コード                                                                                                                                                                                   | int    |
 | sub_account_title_code_advances_received        | 前受金補助科目コード                                                                                                                                                                                   | string |
+| [custom](#custom-response)                      | 商品カスタム項目に属するパラメータ           | `array` |
 
+#### custom (response)
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前                      | 概要                                                                                                                      | 型     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------ |
+| error_code                | エラーコード <br> ※正常時はnull                                                                                            | int    |
+| error_message             | エラーメッセージ <br> ※正常時はnull                                                                                        | string |
+| number                    | カスタム項目番号                                                                                                            | int    |
+| code                      | カスタム項目コード                                                                                                          | string |
+| name                      | カスタム項目名                                                                                                              | string |
+| value                     | カスタム項目値                                                                                                              | string |
 
 ## 使用例
 
@@ -174,7 +200,13 @@
             "account_title_id_account_receivable_trade": 1162,
             "sub_account_title_code_account_receivable_trade": "5678abc",
             "account_title_id_advances_received": 2111,
-            "sub_account_title_code_advances_received": "1234cde"
+            "sub_account_title_code_advances_received": "1234cde",
+            "custom":[
+                {
+                    "number": 15,
+                    "value": "カスタム項目値登録"
+                }
+            ]
         }
     ]
 }
@@ -226,7 +258,25 @@ Status: 200 OK
             "account_title_code_account_receivable_trade": 1162,
             "sub_account_title_code_account_receivable_trade": "5678abc",
             "account_title_code_advances_received": 2111,
-            "sub_account_title_code_advances_received": "1234cde"
+            "sub_account_title_code_advances_received": "1234cde",
+            "custom":[
+                {
+                    "error_code": null,
+                    "error_message": null,
+                    "number": 15,
+                    "code": "mst_costom15",
+                    "name": "カスタム項目１５",
+                    "value": "カスタム項目値登録"
+                },
+                {
+                    "error_code": null,
+                    "error_message": null,
+                    "number": 16,
+                    "code": "mst_costom16",
+                    "name": "カスタム項目１６",
+                    "value": null
+                }
+            ]
         }
     ]
 }
@@ -277,6 +327,15 @@ Status: 200 OK
 | 1835         | 前受金補助科目コードが不正       |
 | 1836         | 更新対象の商品が存在しません     |
 | 1837         | 商品コードが既に存在しています。 |
+| 1838         | カスタム項目情報のデータにエラーがあった場合              |
+| 1839         | カスタム項目番号が不正                                  |
+| 1840         | カスタム項目コードが不正                                |
+| 1841         | カスタム項目値が不正                                   |
+| 1842         | カスタム項目番号とカスタム項目コードは同時に指定できません |
+| 1843         | 対象のカスタム項目情報が存在しません                    |
+| 1844         | カスタム項目リクエスト件数が上限を超えています           |
+| 1845         | カスタム項目情報にはarrayを指定してください             |
+| 1846         | 商品登録更新に失敗しました                             |
 
 ----
 

@@ -153,6 +153,7 @@
 
 | 名前  | 概要               | 型     |
 | ----- | ------------------ | ------ |
+| number | カスタム項目番号  | int |
 | code  | カスタム項目コード | string |
 | name  | カスタム項目名     | string |
 | value | カスタム項目値     | string |
@@ -271,6 +272,7 @@ Status: 200 OK
       "valid_flg": 0,
       "custom": [
         {
+          "number": 15,
           "code": "code1",
           "name": "カスタム項目名",
           "value": "カスタム１"

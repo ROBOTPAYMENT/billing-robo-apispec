@@ -107,6 +107,7 @@
 
 | 名前 | 概要               | 型     |
 | ---- | ------------------ | ------ |
+| number | カスタム項目番号 | int |
 | code | カスタム項目コード | string |
 | name | カスタム項目名     | string |
 | value | カスタム項目値    | string |
@@ -185,11 +186,13 @@ Status: 200 OK
       "sub_account_title_code_advances_received": "1234cde",
       "custom": [
         {
+          "number": 15,
           "code": "custom_1",
           "name": "カスタム項目名",
           "value": "カスタム項目値"
         },
         {
+          "number": 16,
           "code": "custom_2",
           "name": "カスタム項目名2",
           "value": "カスタム項目値2"
