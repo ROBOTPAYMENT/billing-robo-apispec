@@ -162,7 +162,7 @@
 | bill_template_code        | 請求書テンプレートコード                                                                                                  | int    |
 | bs_owner_code             | 請求元担当者コード                                                                                                        | string |
 | account_title_code        | 勘定科目コード                                                                                                            | string |
-| text_pattern_code         | 文書パターンコード                                                                                                        | string |
+| text_pattern_code         | 文章パターンコード                                                                                                        | string |
 | bill_group_key            | 請求書合算キー                                                                                                            | string |
 | outside_billing_number | 外部連携用請求書番号 | string |
 | [custom](#custom-response) | 請求情報カスタム項目に属するパラメータ           | `array` |
@@ -298,8 +298,8 @@ Status: 200 OK
             "memo": "",
             "bill_template_code": 10010,
             "bs_owner_code": "bs_owner_code",
-            "account_title_code": "",
-            "text_pattern_code": "",
+            "account_title_code": "4100",
+            "text_pattern_code": null,
             "bill_group_key" : null,
             "outside_billing_number" : null,
             "custom":[
@@ -363,8 +363,8 @@ Status: 200 OK
             "memo": "",
             "bill_template_code": 10010,
             "bs_owner_code": "bs_owner_code",
-            "account_title_code": "",
-            "text_pattern_code": "",
+            "account_title_code": "4100",
+            "text_pattern_code": null,
             "bill_group_key" : null,
             "outside_billing_number" : null,
             "custom":[
