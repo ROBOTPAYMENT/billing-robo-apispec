@@ -110,7 +110,7 @@
 | bill_template_code                    | 請求書テンプレートコード                                                                                                  | int                   |
 | bs_owner_code                         | 請求元担当者コード                                                                                                        | string                |
 | account_title_code                    | 勘定科目コード                                                                                                            | string                |
-| text_pattern_code                     | 文書パターンコード                                                                                                        | string                |
+| text_pattern_code                     | 文章パターンコード                                                                                                        | string                |
 | url                                   | 請求情報詳細画面URL                                                                                                       | string                |
 | created                               | 登録日時                                                                                                                  | datetime              |
 | modified                              | 更新日時                                                                                                                  | datetime              |
@@ -301,9 +301,9 @@ Status: 200 OK
             "next_sales_make_date": "",
             "memo": "",
             "bill_template_code": "",
-            "bs_owner_code": "",
-            "account_title_code": "",
-            "text_pattern_code": "",
+            "bs_owner_code": null,
+            "account_title_code": "4100",
+            "text_pattern_code": null,
             "url": "",
             "created": "",
             "modified": "",
