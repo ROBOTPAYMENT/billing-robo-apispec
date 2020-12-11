@@ -156,7 +156,7 @@
 | 名前        | 概要             | 型       |
 | ----------- | ---------------- | -------- |
 | update_date | 更新日時         | datetime |
-| count       | 更新日時毎の件数  | int      |
+| update_count | 更新日時毎の件数  | int      |
 
 ## 使用例
 
@@ -270,8 +270,8 @@ Status: 200 OK
     ],
     "count_update_date": [
         {
-            "update_time": "2020/07/21 10:00:00",
-            "count": 4
+            "update_date": "2020/07/21 10:00:00",
+            "update_count": 4
         }
     ]
 }
