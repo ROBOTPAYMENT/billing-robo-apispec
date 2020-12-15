@@ -131,6 +131,7 @@
 | unclearing_amount              | 未消込金額                                                                                                             | int |
 | remark                         | 備考                                                                                                                  | string |
 | recorded_date                  | 売上計上日                                                                                                             | date |
+| detail_clearing_status         | 請求書明細消込ステータス <br> 0:未処理 <br> 1:完了 <br> 2:確認済み <br> 3:未収 <br> 4:貸倒 <br> 5:手数料 <br> 6:現金 <br> 7:長期滞留債権 <br> 8:破産更生債権 <br> 9:売上取消 | int |
 | carryover_flg                  | 繰越フラグ <br> 0:通常請求書明細 1:繰越請求書明細                                                                         | int    |
 | carryover_original_bill_number | 繰越元請求書番号                                                                                                        | string |
 | regist_date                    | 登録日時                                                                                                               | datetime |
@@ -248,6 +249,7 @@ Status: 200 OK
             "unclearing_amount": 2200,
             "remark": "これは備考です",
             "recorded_date": "2020/05/31",
+            "detail_clearing_status": 3,
             "carryover_flg": 0,
             "carryover_original_bill_number": "202007-sample-2",
             "regist_date": "2020/07/01 10:11:12",
