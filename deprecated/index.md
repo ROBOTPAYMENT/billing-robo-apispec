@@ -1,4 +1,7 @@
-非推奨のAPI一覧(間も無く運用停止になります)
+## 非推奨のAPI一覧
+
+こちらのAPIは非推奨APIとなっており順次廃止予定となっております。廃止予定の非推奨APIにあわせて、代替APIをご用意させていただいておりますので、そちらのご利用をお願い致します。
+各API画面にてご確認お願い致します。
 
 - [請求先登録 billing/add](billing/add.md)
 - [請求先部署登録 billing_individual/add](billing_individual/add.md)

@@ -1,3 +1,6 @@
+> このAPIは非推奨APIとなっており順次廃止予定となっております。廃止予定の非推奨APIにあわせて、代替APIを下記の通りご用意させていただいております。
+- [請求情報登録更新 v1.0/demand/bulk_upsert](/public/demand/bulk_upsert.html)
+
 # 請求情報登録
 
 `/api/demand/add`

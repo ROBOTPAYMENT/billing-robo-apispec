@@ -1,3 +1,6 @@
+> このAPIは非推奨APIとなっており順次廃止予定となっております。廃止予定の非推奨APIにあわせて、代替APIを下記の通りご用意させていただいております。
+- [商品登録更新2 v1.0/goods/bulk_upsert2](/public/goods/bulk_upsert2.html)
+
 # 商品登録更新
 
 `/api/v1.0/goods/bulk_upsert`
