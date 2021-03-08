@@ -48,6 +48,10 @@
 | transfer_status            | 振替区分 <br> 0:仮受 <br> 1:入金                                                                                                                                                                                                                                                                                                                                          | 1    | 数値   |      |          |
 | suspense_name              | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | 100  | 文字列 |      | 部分一致 |
 | valid_flg                  | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | 1    | 数値   |      |          |
+| regist_date_from           | 入金登録日時(開始日) <br> ＊yyyy/mm/dd hh:ii:ss 形式 <br> ＊時刻省略時 00:00:00 で検索します                                                                                                                                                                                                                                                                                      | 19   | 日時   |      |          |
+| regist_date_to             | 入金登録日時(終了日) <br> ＊yyyy/mm/dd hh:ii:ss 形式 <br> ＊時刻省略時 23:59:59 で検索します                                                                                                                                                                                                                                                                                      | 19   | 日時   |      |          |
+| update_date_from           | 入金更新日時(終了日) <br> ＊yyyy/mm/dd hh:ii:ss 形式 <br> ＊時刻省略時 00:00:00 で検索します                                                                                                                                                                                                                                                                                       | 19   | 日時   |      |          |
+| update_date_to             | 入金更新日時(終了日) <br> ＊yyyy/mm/dd hh:ii:ss 形式 <br> ＊時刻省略時 23:59:59 で検索します                                                                                                                                                                                                                                                                                       | 19   | 日時   |      |          |
 
 ## レスポンス
 
@@ -88,6 +92,8 @@
 | transfer_status       | 振替区分 <br> 0:仮受 <br> 1:入金                                                                                                                                                                                                                                                                                                                                          | int    |
 | suspense_name         | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | string |
 | valid_flg             | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | string |
+| regist_date           | 登録日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
+| update_date           | 更新日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
 
 ## 使用例
 
@@ -111,7 +117,11 @@
     "import_format": 1,
     "transfer_status": 1,
     "suspense_name": "sample株式会社",
-    "valid_flg": 1
+    "valid_flg": 1,
+    "regist_date_from": "2019/01/01 00:00:00",
+    "regist_date_to": "2019/08/01 23:59:59",
+    "update_date_from": "2019/01/01 00:00:00",
+    "update_date_to": "2019/08/01 23:59:59"
   }
 }
 ```
@@ -145,7 +155,9 @@ Status: 200 OK
       "import_format": 1,
       "transfer_status": 0,
       "suspense_name": "sample株式会社",
-      "valid_flg": 1
+      "valid_flg": 1,
+      "regist_date": "2019/06/21 13:57:01",
+      "update_date": "2019/06/21 13:57:02"
     }
   ]
 }
@@ -174,6 +186,10 @@ Status: 200 OK
 | 3513         | 入金情報取得件数が不正             |
 | 3514         | 入金情報取得開始インデックスが不正 |
 | 3515         | 入金参照に失敗                     |
+| 3516         | 入金登録日の開始日が不正                     |
+| 3517         | 入金登録日の終了日が不正                     |
+| 3518         | 入金更新日の開始日が不正                     |
+| 3519         | 入金更新日の終了日が不正                     |
 
 ---
 
