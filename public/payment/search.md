@@ -48,6 +48,7 @@
 | transfer_status            | 振替区分 <br> 0:仮受 <br> 1:入金                                                                                                                                                                                                                                                                                                                                          | 1    | 数値   |      |          |
 | suspense_name              | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | 100  | 文字列 |      | 部分一致 |
 | valid_flg                  | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | 1    | 数値   |      |          |
+| bs_bank_transfer_code      | 請求元銀行口座コード <br> ※追加省略時、null で登録される                                                                                                                                                                                                                                                                                                                        | 20    | [半角英数 + 記号](../../index.md#種別)   |      | 完全一致 |
 
 ## レスポンス
 
@@ -88,6 +89,7 @@
 | transfer_status       | 振替区分 <br> 0:仮受 <br> 1:入金                                                                                                                                                                                                                                                                                                                                          | int    |
 | suspense_name         | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | string |
 | valid_flg             | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | string |
+| bs_bank_transfer_code | 請求元銀行口座コード                                                                                                                                                                                                                                                                                                                                                       | string |
 
 ## 使用例
 
@@ -111,7 +113,8 @@
     "import_format": 1,
     "transfer_status": 1,
     "suspense_name": "sample株式会社",
-    "valid_flg": 1
+    "valid_flg": 1,
+    "bs_bank_transfer_code": "1234"
   }
 }
 ```
@@ -145,7 +148,8 @@ Status: 200 OK
       "import_format": 1,
       "transfer_status": 0,
       "suspense_name": "sample株式会社",
-      "valid_flg": 1
+      "valid_flg": 1,
+      "bs_bank_transfer_code": "1234"
     }
   ]
 }
@@ -174,6 +178,8 @@ Status: 200 OK
 | 3513         | 入金情報取得件数が不正             |
 | 3514         | 入金情報取得開始インデックスが不正 |
 | 3515         | 入金参照に失敗                     |
+| 3520         | 請求元銀行口座コードが不正                     |
+| 3521         | 振込先銀行口座が存在しません                     |
 
 ---
 
