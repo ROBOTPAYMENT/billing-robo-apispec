@@ -27,7 +27,7 @@
 | user_id                     | ユーザー ID（管理画面へのログイン ID）                                                        | 100  | [メール形式](../../index.md#種別) | 必須 |
 | access_key                  | アクセスキー                                                                                  | 100  | [半角英数](../../index.md#種別)   | 必須 |
 | limit_count                 | 入金情報取得件数 <br> ※0〜200 の数値を設定する。 <br> 省略した場合、20 が設定される           | 3    | 数値                              |      |
-| page_count                  | 入金情報取得開始インデックス <br> ※0〜99 の数値を設定する。 <br> 省略した場合、0 が設定される | 2    | 数値                              |      |
+| page_count                  | 入金情報取得開始インデックス <br> ※0〜24999 の数値を設定する。 <br> 省略した場合、0 が設定される | 5    | 数値                              |      |
 | [payment](#payment-request) | 入金情報に属するパラメータ                                                                    |      | `array`                           |      |
 
 #### payment (request)
@@ -49,6 +49,10 @@
 | suspense_name              | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | 100  | 文字列 |      | 部分一致 |
 | valid_flg                  | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | 1    | 数値   |      |          |
 | bs_bank_transfer_code      | 請求元銀行口座コード <br> ※追加省略時、null で登録される                                                                                                                                                                                                                                                                                                                        | 20    | [半角英数 + 記号](../../index.md#種別)   |      | 完全一致 |
+| regist_date_from           | 入金登録日時(開始日時) <br> ＊yyyy/MM/dd HH:mm:ss 形式 <br> ＊時刻省略時 00:00:00 で検索します                                                                                                                                                                                                                                                                                      | 19   | 日時   |      |          |
+| regist_date_to             | 入金登録日時(終了日時) <br> ＊yyyy/MM/dd HH:mm:ss 形式 <br> ＊時刻省略時 23:59:59 で検索します                                                                                                                                                                                                                                                                                      | 19   | 日時   |      |          |
+| update_date_from           | 入金更新日時(開始日時) <br> ＊yyyy/MM/dd HH:mm:ss 形式 <br> ＊時刻省略時 00:00:00 で検索します                                                                                                                                                                                                                                                                                       | 19   | 日時   |      |          |
+| update_date_to             | 入金更新日時(終了日時) <br> ＊yyyy/MM/dd HH:mm:ss 形式 <br> ＊時刻省略時 23:59:59 で検索します                                                                                                                                                                                                                                                                                       | 19   | 日時   |      |          |
 
 ## レスポンス
 
@@ -90,6 +94,8 @@
 | suspense_name         | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | string |
 | valid_flg             | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | string |
 | bs_bank_transfer_code | 請求元銀行口座コード                                                                                                                                                                                                                                                                                                                                                       | string |
+| regist_date           | 登録日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
+| update_date           | 更新日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
 
 ## 使用例
 
@@ -114,6 +120,10 @@
     "transfer_status": 1,
     "suspense_name": "sample株式会社",
     "valid_flg": 1,
+    "regist_date_from": "2019/01/01 00:00:00",
+    "regist_date_to": "2019/08/01 23:59:59",
+    "update_date_from": "2019/01/01 00:00:00",
+    "update_date_to": "2019/08/01 23:59:59",
     "bs_bank_transfer_code": "1234"
   }
 }
@@ -149,7 +159,15 @@ Status: 200 OK
       "transfer_status": 0,
       "suspense_name": "sample株式会社",
       "valid_flg": 1,
+      "regist_date": "2019/06/21 13:57:01",
+      "update_date": "2019/06/21 13:57:02",
       "bs_bank_transfer_code": "1234"
+    }
+  ],
+  "count_update_date": [
+    {
+      "update_date": "2019/06/21 13:57:02",
+      "update_count": 1
     }
   ]
 }
@@ -178,8 +196,13 @@ Status: 200 OK
 | 3513         | 入金情報取得件数が不正             |
 | 3514         | 入金情報取得開始インデックスが不正 |
 | 3515         | 入金参照に失敗                     |
+| 3516         | 入金登録日時の開始日時が不正                     |
+| 3517         | 入金登録日時の終了日時が不正                     |
+| 3518         | 入金更新日時の開始日時が不正                     |
+| 3519         | 入金更新日時の終了日時が不正                     |
 | 3520         | 請求元銀行口座コードが不正                     |
 | 3521         | 振込先銀行口座が存在しません                     |
+| 3522         | 入金件数が25,000件に到達しました                     |
 
 ---
 
