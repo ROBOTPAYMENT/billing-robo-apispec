@@ -45,7 +45,7 @@
 | billing_individual_number                 | int       | 請求先部署番号                                |
 | billing_method                            | int       | 請求方法<br> 0：送付なし 1：自動メール 2：手動メール 3：自動郵送 4：手動郵送 5：自動メール＋手動郵送 6：手動メール+手動郵送 |
 | bill_sending_scheduled_date               | string    | 請求送付予定日                                |
-| payment_method                            | int       | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4)  7:コンビニ払込票(ハガキ) <br> 8:その他コンビニ払込票 | 
+| payment_method                            | int       | [決済手段](../../index.md#決済手段) | 
 | demand_number                             | int       | 請求件数                                      |
 | subtotal_amount_billed                    | int       | 請求金額小計                                  |
 | consumption_tax_amount                    | int       | 消費税額                                      |
