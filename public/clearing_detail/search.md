@@ -111,7 +111,7 @@
 | page_count                                       | 消込情報取得開始インデックス <br> ※取得した消込情報の開始インデックスを返却する                                                               | int     |
 | total_page_count                                 | 消込情報取得開始インデックス合計 <br> ※指定された検索条件によって取得可能な消込情報の全件数／消込情報取得件数によって、算出される値を返却する | int     |
 | [sort](#sort-response)                           | 検索順序に属するパラメータ                                                                                                                    | `object` |
-| [clearing](#clearing-response)                   | 消込結果明細に属するパラメータ                                                                                                                | `array` |
+| [erasure_detail](#erasure_detail-response)                   | 消込結果明細に属するパラメータ                                                                                                                | `array` |
 | [count_update_date](#count_update_date-response) | 更新日時に属するパラメータ                                                                                                                    | `array` |
 
 #### sort (response)
@@ -123,7 +123,7 @@
 | key   | キー名                             | string |
 | order | ソート順 <br> 0: 昇順 <br> 1: 降順 | int    |
 
-#### clearing (response)
+#### erasure_detail (response)
 
 下記のような項目のオブジェクトを持つリスト
 
