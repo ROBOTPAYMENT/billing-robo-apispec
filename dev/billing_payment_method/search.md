@@ -39,7 +39,7 @@
 | number           | 決済情報番号                                              | 18   | 数値          | 完全一致 |
 | code             | 決済情報コード                                            | 20   | 半角英数+記号 | 完全一致 |
 | name             | 決済情報名                                               | 100   | 文字列        | 部分一致 |
-| payment_method   | 決済手段 <br> 0:銀行振込 <br>1:クレジットカード <br>2:バンクチェック <br> 3:RP口座振替 <br>4:RL口座振替 <br>5:その他口座振替 <br>6:コンビニ払込票(A4) <br>7:コンビニ払込票(ハガキ) <br>8:その他コンビニ払込票 <br>9:バーチャル口座 <br>10:その他決済1<br>11:その他決済2<br>12:その他決済3<br>13:その他決済4<br>14:その他決済5 | 2    | 数値          |          |
+| payment_method   | [決済手段](../../index.md#決済手段) | 2    | 数値          |          |
 | register_status  | 登録ステータス <br> 0:未処理 <br>1:登録待ち <br>2:メール送信済み <br>3:申請中 <br> 4:登録情報_送信エラー <br>5:登録完了 <br>6:登録失敗  | 1    | 数値          |          |
 | regist_date_from | 登録日の検索開始日                                     | 10    | 日付          |          |
 | regist_date_to   | 登録日の検索終了日                                     | 10    | 日付          |          |
@@ -77,7 +77,7 @@
 | code                           | 決済情報コード                                                                                                                                                                                                                                                   | string |
 | name                           | 決済情報名                                                                                                                                                                                                                                                       | string |
 | bank_transfer_pattern_code     | 請求元銀行口座パターンコード                                                                                                                                                                                                                                     | string |
-| payment_method                 | 決済手段 <br> 0:銀行振込 <br> 1:クレジットカード <br> 2:バンクチェック <br> 3:RP口座振替 <br> 4:RL口座振替 <br> 5:その他口座振替 <br> 6:コンビニ払込票(A4) <br> 7:コンビニ払込票(ハガキ) <br> 8:その他コンビニ払込票 <br> 9:バーチャル口座 <br> 10:その他決済1<br> 11:その他決済2<br> 12:その他決済3<br> 13:その他決済4<br> 14:その他決済5 | int    |
+| payment_method                 | [決済手段](../../index.md#決済手段) | int    |
 | register_status                | 登録ステータス <br> 0:未処理 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報_送信エラー <br> 5:登録完了 <br> 6:登録失敗                                                                                                                                               | int    |
 | source_bank_account_name       | 振込元口座名義 <br> ※payment_method=0,2,9以外はnull                                                                                                                                                                                                            | string |
 | customer_number                | 顧客番号 <br> ※payment_method=3,4,5以外はnull                                                                                                                                                                                                                    | string |

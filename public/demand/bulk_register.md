@@ -108,7 +108,7 @@
 | billing_individual_number | 請求先部署番号                                                                                                                                                  | int    |
 | billing_individual_code   | 請求先部署コード                                                                                                                                                | string |
 | billing_individual_name   | 請求先部署名                                                                                                                                                    | string |
-| payment_method            | 決済手段 <br> 0:銀行振込 1:クレジットカード 2:バンクチェック <br> 3:RP口座振替 4:RL口座振替 5:その他口座振替 <br> 6:コンビニ払込票(A4) 7:コンビニ払込票(ハガキ) | int    |
+| payment_method            | [決済手段](../../index.md#決済手段) | int    |
 | code                      | 請求情報番号                                                                                                                                                    | int    |
 | type                      | 請求タイプ <br> 0:単発 1:定期定額 2:定期従量                                                                                                                    | int    |
 | goods_code                | 商品コード                                                                                                                                                      | string |
