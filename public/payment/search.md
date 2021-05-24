@@ -28,7 +28,17 @@
 | access_key                  | アクセスキー                                                                                  | 100  | [半角英数](../../index.md#種別)   | 必須 |
 | limit_count                 | 入金情報取得件数 <br> ※0〜200 の数値を設定する。 <br> 省略した場合、20 が設定される           | 3    | 数値                              |      |
 | page_count                  | 入金情報取得開始インデックス <br> ※0〜24999 の数値を設定する。 <br> 省略した場合、0 が設定される | 5    | 数値                              |      |
+| [sort](#sort-request)       | 検索順序に属するパラメータ <br> ※省略時は入金 ID の昇順で返却する                                  |      | `object`                          |      |
 | [payment](#payment-request) | 入金情報に属するパラメータ                                                                    |      | `array`                           |      |
+
+#### sort (request)
+
+下記のような項目のオブジェクト
+
+| 名前  | 概要                                                                                                                                                                                                                                         | 桁数 | 種別   | 必須 | 一致 |
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------ | ---- | ---- |
+| key   | キー名 <br> ※以下の項目からのみ有効、複数選択可(カンマ区切り) <br> ※左の項目から優先的にソート順序が指定される <br> payment_id:入金ID, <br> regist_date: 登録日時, <br> update_date: 更新日時                                                                   | 52   | 文字列 |      |      |
+| order | ソート順 <br> 0: 昇順 <br> 1: 降順                                                                                                                                                                                                           | 1    | 数値   |      |      |
 
 #### payment (request)
 
@@ -68,7 +78,18 @@
 | limit_count                  | 入金情報取得件数 <br> ※最大件数は、リクエストで指定された「入金情報取得件数」に依存                                                           | int     |
 | page_count                   | 入金情報取得開始インデックス <br> ※取得した入金情報の開始インデックスを返却する                                                               | int     |
 | total_page_count             | 入金情報取得開始インデックス合計 <br> ※指定された検索条件によって取得可能な入金情報の全件数／入金情報取得件数によって、算出される値を返却する | int     |
+| [sort](#sort-response)       | 検索順序に属するパラメータ                                                                                                                    | `object` |
 | [payment](#payment-response) | 入金情報に属するパラメータ                                                                                                                    | `array` |
+| [count_update_date](#count_update_date-response) | 更新日時に属するパラメータ                                                                                                                    | `array` |
+
+#### sort (response)
+
+下記のような項目のオブジェクト
+
+| 名前  | 概要                               | 型     |
+| ----- | ---------------------------------- | ------ |
+| key   | キー名                             | string |
+| order | ソート順 <br> 0: 昇順 <br> 1: 降順 | int    |
 
 #### payment (response)
 
@@ -97,6 +118,15 @@
 | regist_date           | 登録日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
 | update_date           | 更新日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
 
+#### count_update_date (response)
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前        | 概要             | 型       |
+| ----------- | ---------------- | -------- |
+| update_date | 更新日時         | datetime |
+| count       | 更新日時毎の件数 | int      |
+
 ## 使用例
 
 ### リクエスト例
@@ -107,6 +137,10 @@
   "access_key": "xxxxxxxxxxxxxxxx",
   "limit_count": 20,
   "page_count": 0,
+  "sort": {
+    "key": "regist_date,payment_id",
+    "order": 0
+  },
   "payment": {
     "payment_id": "123456",
     "payment_method": 1,
@@ -140,6 +174,10 @@ Status: 200 OK
   "limit_count": 20,
   "page_count": 0,
   "total_page_count": 0,
+  "sort": {
+    "key": "regist_date,payment_id",
+    "order": 0
+  },
   "payment": [
     {
       "error_code": null,
@@ -203,6 +241,8 @@ Status: 200 OK
 | 3520         | 請求元銀行口座コードが不正                     |
 | 3521         | 振込先銀行口座が存在しません                     |
 | 3522         | 入金件数が25,000件に到達しました                     |
+| 3523         | キー名が不正                     |
+| 3524         | ソート順が不正                     |
 
 ---
 
