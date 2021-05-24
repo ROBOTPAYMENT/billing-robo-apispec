@@ -48,9 +48,9 @@
 | tax_category                                    | 税区分                                                                                                                                                                                                                    | 1            | 半角数字                        | (登録時)                           |
 | tax_rate                                        | 消費税率                                                                                                                                                                                                                  | 2            | 半角数字                        | (登録時) <br> (tax_category=0,1時) |
 | remarks_column                                  | 備考欄 <br> ※60文字×17行入力が可能                                                                                                                                                                                        | -            | 文字                            |                                    |
-| repetition_period_number                        | 繰り返し周期_数字 <br> 入力可能値:1～50                                                                                                                                                                                   | 2            | 半角数字                        | demand_type=1,2時)                 |
-| repetition_period_unit                          | 繰り返し周期_単位 <br> 1：月※請求の繰り返し周期の単位を入力（単発の場合は、値を入力しない）                                                                                                                               | 1            | 半角数字                        |                                    |
-| repeat_count_max                                | 繰り返し回数 <br>                                                                                                                                                                                                         | 2            | 半角数字                        | (登録時でdemand_type=1,2時)        |
+| repetition_period_number                        | 繰返し周期_数字 <br> 入力可能値:1～50                                                                                                                                                                                   | 2            | 半角数字                        | demand_type=1,2時)                 |
+| repetition_period_unit                          | 繰返し周期_単位 <br> 1：月※請求の繰返し周期の単位を入力（単発の場合は、値を入力しない）                                                                                                                               | 1            | 半角数字                        |                                    |
+| repeat_count_max                                | 繰返し回数 <br>                                                                                                                                                                                                         | 2            | 半角数字                        | (登録時でdemand_type=1,2時)        |
 | period_format                                   | 対象期間形式 <br> 0：◯年◯月分1：◯年◯月◯日分2：◯年◯月～△年△月3：◯年◯月◯日～△年△月△日99：表示なし                                                                                                                           | 1            | 半角数字                        | (登録時)                           |
 | period_value                                    | 対象期間 <br> 入力可能値：1-31※対象期間形式が2：◯年◯月～△年△月、3：◯年◯月◯日～△年△月△日 の場合に設定                                                                                                                      | 2            | 半角数字                        |                                    |
 | period_unit                                     | 対象期間_単位 <br> 1：月※対象期間形式が2：◯年◯月～△年△月、3：◯年◯月◯日～△年△月△日 の場合に設定                                                                                                                            | 1            | 半角数字                        |                                    |
@@ -105,9 +105,9 @@
 | tax_category                                    | 税区分                                                                                                                                                                                                 | int    |
 | tax_rate                                        | 消費税率                                                                                                                                                                                               | int    |
 | remarks_column                                  | 備考欄                                                                                                                                                                                                 | string |
-| repetition_period_number                        | 繰り返し周期_数字                                                                                                                                                                                      | int    |
-| repetition_period_unit                          | 繰り返し周期_単位 <br> 1：月                                                                                                                                                                           | int    |
-| repeat_count_max                                | 繰り返し回数                                                                                                                                                                                           | int    |
+| repetition_period_number                        | 繰返し周期_数字                                                                                                                                                                                      | int    |
+| repetition_period_unit                          | 繰返し周期_単位 <br> 1：月                                                                                                                                                                           | int    |
+| repeat_count_max                                | 繰返し回数                                                                                                                                                                                           | int    |
 | period_format                                   | 対象期間形式 <br> 0：◯年◯月分1：◯年◯月◯日分2：◯年◯月～△年△月3：◯年◯月◯日～△年△月△日99：表示なし                                                                                                        | int    |
 | period_value                                    | 対象期間                                                                                                                                                                                               | int    |
 | period_unit                                     | 対象期間_単位 <br> 1：月                                                                                                                                                                               | int    |
@@ -252,9 +252,9 @@ Status: 200 OK
 | 1810         | 税区分が不正                     |
 | 1811         | 消費税率が不正                   |
 | 1812         | 備考欄が不正                     |
-| 1813         | 繰り返し周期_数字が不正          |
-| 1814         | 繰り返し周期_単位が不正          |
-| 1815         | 繰り返し回数が不正               |
+| 1813         | 繰返し周期_数字が不正          |
+| 1814         | 繰返し周期_単位が不正          |
+| 1815         | 繰返し回数が不正               |
 | 1816         | 対象期間形式が不正               |
 | 1817         | 対象期間が不正                   |
 | 1818         | 対象期間_単位が不正              |
