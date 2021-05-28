@@ -298,13 +298,13 @@
             "payment": [
                 {
                     "number": 123,
-                    "code": "bank-123",
+                    "code": null,
                     "name": "銀行振込123",
                     "bank_transfer_pattern_code": "bank-123",
                     "payment_method": 0
                 },
                 {
-                    "number": 456,
+                    "number": null,
                     "code": "bank-456",
                     "name": "銀行振込456",
                     "bank_transfer_pattern_code": "bank-456",
