@@ -111,7 +111,7 @@
 | page_count                                       | 消込情報取得開始インデックス <br> ※取得した消込情報の開始インデックスを返却する                                                               | int     |
 | total_page_count                                 | 消込情報取得開始インデックス合計 <br> ※指定された検索条件によって取得可能な消込情報の全件数／消込情報取得件数によって、算出される値を返却する | int     |
 | [sort](#sort-response)                           | 検索順序に属するパラメータ                                                                                                                    | `object` |
-| [clearing](#clearing-response)                   | 消込結果明細に属するパラメータ                                                                                                                | `array` |
+| [erasure_detail](#erasure_detail-response)       | 消込結果明細に属するパラメータ                                                                                                                | `array` |
 | [count_update_date](#count_update_date-response) | 更新日時に属するパラメータ                                                                                                                    | `array` |
 
 #### sort (response)
@@ -123,7 +123,7 @@
 | key   | キー名                             | string |
 | order | ソート順 <br> 0: 昇順 <br> 1: 降順 | int    |
 
-#### clearing (response)
+#### erasure_detail (response)
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -142,6 +142,7 @@
 | bill_detail_id                | 請求書明細 ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | int   |
 | bill_amount                   | 請求金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int      |
 | clearing_bill_billing_number  | 消込請求書番号                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string   |
+| clearing_sales_id             | 消込売上ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | int   |
 | payment_id                    | 入金 ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | int      |
 | payment_transfer_date         | 入金日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | date     |
 | account_name                  | 振込名義                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string   |
@@ -245,6 +246,7 @@ Status: 200 OK
       "bill_detail_id": 1,
       "bill_amount": 1080,
       "clearing_bill_billing_number": null,
+      "clearing_sales_id": 6,
       "payment_id": 12,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
@@ -268,6 +270,7 @@ Status: 200 OK
       "bill_detail_id": 2,
       "bill_amount": 1080,
       "clearing_bill_billing_number": null,
+      "clearing_sales_id": 5,
       "payment_id": 12,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
@@ -291,6 +294,7 @@ Status: 200 OK
       "bill_detail_id": 3,
       "bill_amount": 1080,
       "clearing_bill_billing_number": "202005-sample-5",
+      "clearing_sales_id": 4,
       "payment_id": null,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
