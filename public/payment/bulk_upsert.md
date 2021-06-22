@@ -141,7 +141,7 @@
   "access_key": "xxxxxxxxxxxxxxxx",
   "payment_bank_transfer": [
     {
-      "pyament_id": "",
+      "payment_id": "",
       "payment_transfer_date": "2020/04/01",
       "amount": 10000,
       "account_name": "ｺｳｻﾞﾒｲｷﾞ",
@@ -154,10 +154,10 @@
       "accrued_clearing_auto_flg": 0
     },
     {
-      "pyament_id": 2,
+      "payment_id": 2,
       "payment_transfer_date": "2020/04/03",
       "amount": 20000,
-      "account_name": null,
+      "account_name": "ｺｳｻﾞﾒｲｷﾞｿﾉﾆ",
       "bs_bank_transfer_code": null,
       "suspense_received_flg": null,
       "billing_code": null,
@@ -183,7 +183,7 @@ Status: 200 OK
     {
       "error_code": null,
       "error_message": null,
-      "pyament_id": 3,
+      "payment_id": 3,
       "payment_transfer_date": "2020/04/01",
       "amount": 10000,
       "account_name": "ｺｳｻﾞﾒｲｷﾞ",
@@ -198,7 +198,7 @@ Status: 200 OK
     {
       "error_code": null,
       "error_message": null,
-      "pyament_id": 2,
+      "payment_id": 2,
       "payment_transfer_date": "2020/04/03",
       "amount": 20000,
       "account_name": "ｺｳｻﾞﾒｲｷﾞｿﾉﾆ",
