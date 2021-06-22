@@ -157,7 +157,7 @@
       "payment_id": 2,
       "payment_transfer_date": "2020/04/03",
       "amount": 20000,
-      "account_name": null,
+      "account_name": "ｺｳｻﾞﾒｲｷﾞｿﾉﾆ",
       "bs_bank_transfer_code": null,
       "suspense_received_flg": null,
       "billing_code": null,
