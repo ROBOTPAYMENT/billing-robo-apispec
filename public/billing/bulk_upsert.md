@@ -286,13 +286,11 @@
                     "pref": "東京都",
                     "city_address": "渋谷区",
                     "email": "email@robotpayment.co.jp",
-                    "sub_account_title": [
-                        {
-                            "account_receivable_code": null,
-                            "advances_received_code": null,
-                            "suspense_received_code": null
-                        }
-                    ]
+                    "sub_account_title": {
+                        "account_receivable_code": null,
+                        "advances_received_code": null,
+                        "suspense_received_code": null
+                    }
                 }
             ],
             "payment": [
@@ -381,13 +379,11 @@ Status: 200 OK
                     "ref_individual_number": null,
                     "ref_individual_code": "",
                     "bill_template_code": null,
-                    "sub_account_title": [
-                        {
-                            "account_receivable_code": null,
-                            "advances_received_code": null,
-                            "suspense_received_code": null
-                        }
-                    ]
+                    "sub_account_title": {
+                        "account_receivable_code": null,
+                        "advances_received_code": null,
+                        "suspense_received_code": null
+                    }
                 }
             ],
             "payment": [
