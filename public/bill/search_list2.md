@@ -49,7 +49,7 @@
 | payment_method                | [決済手段](../../index.md#決済手段) | 2    | 数値                              |                                                      |
 | goods_code                    | 集計用商品コード                                                                                                                                            | 100  | 文字列                            |                                                      |
 | bs_owner_code                 | 請求元担当者コード <br> ※両端のスペース除去                                                                                                                     | 20   | [半角英数 + 記号](../../index.md#種別) |                                                      |
-| payment_status                | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越                                   | 2    | 数値                              |                                                      |
+| payment_status                | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越 11:まるなげ                                   | 2    | 数値                              |                                                      |
 | carryover_status              | 繰越ステータス <br> 0:対象外 1:繰越待ち 2:繰越完了                                                                                                              | 2    | 数値                              |                                                      |
 | carryover_transit_bill_number | 繰越先請求書番号                                                                                                                                                | 100  | [半角英数 + 記号](../../index.md#種別) |                                                      |
 
@@ -111,7 +111,7 @@
 | transfer_deadline                            | 決済期限                                                                                                                                                        | date                 |
 | slip_deadline                                | 払込票有効期限                                                                                                                                                  | date                 |
 | transfer_date                                | 決済日                                                                                                                                                          | date                 |
-| payment_status                               | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越                                   | int                  |
+| payment_status                               | 消込ステータス <br> 0:未処理 1:完了 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 10:繰越 11:まるなげ                                  | int                  |
 | carryover_status                             | 繰越ステータス <br> 0:対象外 1:繰越待ち 2:繰越完了                                                                                                              | int                  |
 | memo                                         | メモ                                                                                                                                                            | string               |
 | template_code                                | 請求書テンプレート                                                                                                                                              | string               |
