@@ -83,11 +83,11 @@
 | ref_individual_code                                                               | 合計請求書用請求先部署コード <br> ※追加省略時、nullで登録される                                                                                                                                                                             | 20   | [半角英数 + 記号](../../index.md#種別) | (合計請求書時)^2                     |
 | bill_template_code                                                                | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください <br> ※追加省略時、nullで登録される                                                                                                          | 18   | 数値                                   |                                      |
 | auto_erase_commission_amount                                                      | 手数料自動消込許容金額 <br> ※追加省略時、0で登録される                                                                                                                                                                                      | 9    | 数値                                   |                                      |
-| [billing.individual.sub_account_title](#billingindividualsubaccounttitle-request) | 請求先部署補助科目に属するパラメータ ※省略可能                                                                                                                                                                                              |      | `array`                                |                                      |
+| [billing.individual.sub_account_title](#billingindividualsubaccounttitle-request) | 請求先部署補助科目に属するパラメータ ※省略可能                                                                                                                                                                                              |      | `object`                                |                                      |
 
 #### billing.individual.sub_account_title (request)
 
-下記のような項目のオブジェクトを持つリスト
+下記のような項目を持つオブジェクト
 
 | 名前                    | 概要                                                              | 桁数 | 種別   | 必須 |
 | ----------------------- | ----------------------------------------------------------------- | ---- | ------ | ---- |
@@ -204,11 +204,11 @@
 | ref_individual_number                | 合計請求書用請求先部署番号                                            | int    |
 | ref_individual_code                  | 合計請求書用請求先部署コード                                          | string |
 | bill_template_code                   | 請求書テンプレートコード                                              | int    |
-| billing.individual.sub_account_title | 請求先部署補助科目に属するパラメータ                                  |        |
+| billing.individual.sub_account_title | 請求先部署補助科目に属するパラメータ                                  | object  |
 
 #### billing.individual.sub_account_title (response)
 
-下記のような項目のオブジェクトを持つリスト
+下記のような項目を持つオブジェクト
 
 | 名前                    | 概要                           | 型     |
 | ----------------------- | ------------------------------ | ------ |
