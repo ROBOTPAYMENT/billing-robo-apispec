@@ -46,8 +46,6 @@
 
 
 
-[開発中のAPI一覧](/dev/index.md)
-
 [非推奨のAPI一覧](/deprecated/index.md)
 
 ## Webhook一覧
