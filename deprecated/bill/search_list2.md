@@ -1,3 +1,7 @@
+> このAPIは非推奨APIとなっており順次廃止予定となっております。廃止予定の非推奨APIにあわせて、代替APIを下記の通りご用意させていただいております。
+- [請求書参照 v1.0/bill/search](/public/bill/search.html)
+- [請求書明細参照 v1.0/bill_detail/search](/public/bill_detail/search.html)
+
 # 請求書参照2
 
 `/api/v1.0/bill/search_list2`
