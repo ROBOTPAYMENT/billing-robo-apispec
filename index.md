@@ -21,7 +21,6 @@
 - [請求書明細参照 bill_detail/search](/public/bill_detail/search.md)
 - [請求書更新 v1.0/bill/update](/public/bill/update.md)
 - [請求書無効 v1.0/bill/stop](/public/bill/stop.md)
-- [請求書参照2 v1.0/bill/search_list2](/public/bill/search_list2.md)
 - [入金登録更新 payment/bulk_upsert](/public/payment/bulk_upsert.md)
 - [入金参照 payment/search](/public/payment/search.md)
 - [入金無効削除 payment/bulk_stop](/public/payment/bulk_stop.md)
