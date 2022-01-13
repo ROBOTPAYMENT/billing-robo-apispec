@@ -27,9 +27,9 @@
 | access_key            | アクセスキー                                                                     | 100  | [半角英数](../../index.md#種別)   | 必須 |
 | limit_count           | 与信情報取得件数<br> ※0〜200の数値を設定する。省略した場合、20が設定される           |   3  | int                              |      |
 | page_count            | 与信情報取得開始インデックス<br> ※0～99の数値を設定する。省略した場合、0が設定される  |   2  | int                              |      |
-| credit                | 与信に属するパラメータ                                                            |      | `object`                         |      |
+| marunage_credit       | 与信に属するパラメータ                                                            |      | `object`                         |      |
 
-#### credit (request)
+#### marunage_credit (request)
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -58,9 +58,9 @@
 | limit_count       | 与信情報取得件数<br> ※最大件数は、リクエストで指定された「与信情報取得件数」に依存                                                      | int      |
 | page_count        | 与信情報取得開始インデックス<br> ※取得した与信情報の開始インデックスを返却する                                                          | int      |
 | total_page_count  | 与信情報取得開始インデックス合計<br> ※指定された検索条件によって取得可能な与信情報の全件数／与信情報取得件数によって、算出される値を返却する | int      |
-| credit            | 与信に属するパラメータ                                                                                                              | `array`  |
+| marunage_credit   | 与信に属するパラメータ                                                                                                              | `array`  |
 
-#### credit (response)
+#### marunage_credit (response)
 
 下記のような項目のオブジェクトを持つリスト
 
@@ -84,7 +84,7 @@
     "access_key": "xxxxxxxxxxxxxxxx",
     "limit_count": 100,
     "page_count": 0,
-    "credit": {
+    "marunage_credit": {
     	"requested_date_from": "2021/11/11"
     }
 }
@@ -101,7 +101,7 @@ Status: 200 OK
     "limit_count": 100,
     "page_count": 0,
     "total_page_count": 2,
-    "credit": [
+    "marunage_credit": [
 	{
             "error_code": null,
             "error_message": null,
