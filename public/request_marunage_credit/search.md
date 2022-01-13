@@ -1,4 +1,4 @@
-# 請求先与信参照
+# まるなげ与信参照API
 
 `/api/v1.0/request_marunage_credit/search`
 
@@ -82,10 +82,10 @@
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
-	"limit_count": 100,
-	"page_count": 0,
+    "limit_count": 100,
+    "page_count": 0,
     "credit": {
-		"requested_date_from": "2021/11/11"
+    	"requested_date_from": "2021/11/11"
     }
 }
 ```
@@ -98,27 +98,27 @@ Status: 200 OK
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
-	"limit_count": 100,
-	"page_count": 0,
-	"total_page_count": 2
+    "limit_count": 100,
+    "page_count": 0,
+    "total_page_count": 2,
     "credit": [
-		{
-			"error_code": null,
-			"error_message": null,
-			"billing_code": "billing_code_1",
-			"status": 1,
-			"requested_date":"2021/11/11 00:00:00",
-			"responded_date":"2021/11/11 00:00:00"
-		},
-		{
-			"error_code": null,
-			"error_message": null,
-			"billing_code": "billing_code_2",
-			"status": 2,
-			"requested_date":"2021/11/12 00:00:00",
-			"responded_date":"2021/11/12 00:00:00"
-		}
-	]
+	{
+            "error_code": null,
+            "error_message": null,
+            "billing_code": "billing_code_1",
+            "status": 1,
+            "requested_date":"2021/11/11 00:00:00",
+            "responded_date":"2021/11/11 00:00:00"
+	},
+	{
+            "error_code": null,
+            "error_message": null,
+            "billing_code": "billing_code_2",
+            "status": 2,
+            "requested_date":"2021/11/12 00:00:00",
+            "responded_date":"2021/11/12 00:00:00"
+	}
+    ]
 }
 ```
 
