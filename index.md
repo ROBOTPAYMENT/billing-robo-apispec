@@ -43,7 +43,9 @@
 - [カスタム項目登録更新 custom_field/bulk_upsert](/public/mst_custom_field/bulk_upsert.md)
 - [カスタム項目削除 custom_field/bulk_stop](/public/mst_custom_field/bulk_stop.md)
 - [カスタム項目参照 custom_field/search](/public/mst_custom_field/search.md)
-- [まるなげ与信参照API request_marunage_credit/search](/public/request_marunage_credit/search.md)
+- [まるなげ与信申請 request_marunage_credit/bulk_register](/public/request_marunage_credit/bulk_register.md)
+- [まるなげ与信解除 request_marunage_credit/bulk_stop](/public/request_marunage_credit/bulk_stop.md)
+- [まるなげ与信参照 request_marunage_credit/search](/public/request_marunage_credit/search.md)
 
 
 
