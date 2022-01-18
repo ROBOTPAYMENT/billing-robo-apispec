@@ -1,4 +1,4 @@
-# まるなげ与信参照API
+# まるなげ与信申請参照API
 
 `/api/v1.0/request_marunage_credit/search`
 
@@ -27,7 +27,7 @@
 | access_key            | アクセスキー                                                                     | 100  | [半角英数](../../index.md#種別)   | 必須 |
 | limit_count           | 与信情報取得件数<br> ※0〜200の数値を設定する。省略した場合、20が設定される           |   3  | int                              |      |
 | page_count            | 与信情報取得開始インデックス<br> ※0～99の数値を設定する。省略した場合、0が設定される  |   2  | int                              |      |
-| marunage_credit       | 与信に属するパラメータ                                                            |      | `object`                         |      |
+| marunage_credit       | まるなげ与信に属するパラメータ                                                     |      | `object`                         |      |
 
 #### marunage_credit (request)
 
@@ -58,7 +58,7 @@
 | limit_count       | 与信情報取得件数<br> ※最大件数は、リクエストで指定された「与信情報取得件数」に依存                                                      | int      |
 | page_count        | 与信情報取得開始インデックス<br> ※取得した与信情報の開始インデックスを返却する                                                          | int      |
 | total_page_count  | 与信情報取得開始インデックス合計<br> ※指定された検索条件によって取得可能な与信情報の全件数／与信情報取得件数によって、算出される値を返却する | int      |
-| marunage_credit   | 与信に属するパラメータ                                                                                                              | `array`  |
+| marunage_credit   | まるなげ与信に属するパラメータ                                                                                                       | `array`  |
 
 #### marunage_credit (response)
 
