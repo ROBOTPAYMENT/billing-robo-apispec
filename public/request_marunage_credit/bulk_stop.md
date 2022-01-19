@@ -58,7 +58,7 @@
 | --------------| ----------------------------------| ------- |
 | error_code    | エラーコード<br> ※正常時はnull     | int     |
 | error_message | エラーメッセージ<br> ※正常時はnull | string  |
-| billing_code  | 請求先コード                       | `array` |
+| billing_code  | 請求先コード                       | string  |
 
 
 ## 使用例
@@ -71,10 +71,10 @@
     "access_key": "xxxxxxxxxxxxxxxx",
     "marunage_credit": [
         {
-            "billing_code": "billing_code_001",
+            "billing_code": "billing_code_001"
         },
 	{
-            "billing_code": "billing_code_002",
+            "billing_code": "billing_code_002"
         }
     ]
 }
@@ -92,12 +92,12 @@ Status: 200 OK
         {
             "error_code": null,
             "error_message": null,
-	    "billing_code": "billing_code_001",
+	    "billing_code": "billing_code_001"
         },
         {
             "error_code": null,
             "error_message": null,
-            "billing_code": "billing_code_002",
+            "billing_code": "billing_code_002"
         }
     ]
 }
@@ -115,7 +115,7 @@ Status: 200 OK
 | 5502         | 請求先が存在しません                                       |
 | 5503         | 請求先コードが不正                                         |
 | 5504         | 対象のまるなげ与信が申請中又は停止中の為解除できません        |
-| 5505         | 解除できるまるなげ与信のデータが存在しません                 |
+| 5505         | まるなげ与信のデータが存在しません                          |
 | 5506         | 同じ請求先に対して、２件以上のリクエストは出来ません          |
 | 5507         | リクエストパラメータにmarunage_creditオブジェクトが存在しない |
 | 5508         | 他のまるなげ与信の解除に失敗しました                         |
