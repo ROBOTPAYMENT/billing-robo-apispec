@@ -44,7 +44,7 @@
 - [カスタム項目削除 custom_field/bulk_stop](/public/mst_custom_field/bulk_stop.md)
 - [カスタム項目参照 custom_field/search](/public/mst_custom_field/search.md)
 - [まるなげ与信申請登録 request_marunage_credit/bulk_register](/public/request_marunage_credit/bulk_register.md)
-- [まるなげ与信申請解除 request_marunage_credit/bulk_stop](/public/request_marunage_credit/bulk_stop.md)
+- [まるなげ与信解除 marunage_credit/bulk_stop](/public/marunage_credit/bulk_stop.md)
 - [まるなげ与信申請参照 request_marunage_credit/search](/public/request_marunage_credit/search.md)
 
 
@@ -158,20 +158,20 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 
 ### エラーコード
 
-| エラーコード | 内容                       |
-| ------------ | -------------------------- |
-| 1            | 内部エラー                 |
-| 10           | 不明なURI                  |
-| 11           | ログインIDが不正           |
-| 12           | アクセスキーが不正         |
-| 13           | 接続IPが不正               |
-| 14           | 店舗IDが不正               |
-| 15           | 外部システムとの連携に失敗 |
-| 16           | ログイン失敗               |
-| 17           | 権限が不正                 |
-| 18           | 利用企業が不正             |
-| 19           | メンテナンス中             |
-| 20           | リクエスト数が不正         |
+| エラーコード | 内容                                        |
+| ----------- | ------------------------------------------ |
+| 1           | 内部エラー                                  |
+| 10          | 不明なURI                                  |
+| 11          | ログインIDが不正                            |
+| 12          | アクセスキーが不正                          |
+| 13          | 接続IPが不正                                |
+| 14          | 店舗IDが不正                                |
+| 15          | 外部システムとの連携に失敗                   |
+| 16          | ログイン失敗                                |
+| 17          | 権限が不正                                  |
+| 18          | 利用企業が不正                              |
+| 19          | メンテナンス中                              |
+| 20          | リクエスト数が不正                          |
 
 ### レスポンス例
 
@@ -190,9 +190,10 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 
 ### その他の特殊なエラーコード
 
-| エラーコード | 内容                   |
-| ------------ | ---------------------- |
-| 21           | まるなげ請求書編集不可 |
+| エラーコード | 内容                     |
+| ----------- | ------------------------ |
+| 21          | まるなげ請求書編集不可     |
+| 22          | まるなげオプション利用不可 |
 
 
 ## 推奨SSL/TLSバージョン
