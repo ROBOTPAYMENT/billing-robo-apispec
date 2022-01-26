@@ -43,13 +43,10 @@
 - [カスタム項目登録更新 custom_field/bulk_upsert](/public/mst_custom_field/bulk_upsert.md)
 - [カスタム項目削除 custom_field/bulk_stop](/public/mst_custom_field/bulk_stop.md)
 - [カスタム項目参照 custom_field/search](/public/mst_custom_field/search.md)
-- [まるなげ与信申請登録 request_marunage_credit/bulk_register](/public/request_marunage_credit/bulk_register.md)
-- [まるなげ与信解除 marunage_credit/bulk_stop](/public/marunage_credit/bulk_stop.md)
-- [まるなげ与信申請参照 request_marunage_credit/search](/public/request_marunage_credit/search.md)
 
 
 
-[非推奨のAPI一覧](/deprecated/index.md)
+[非推奨のAPI一覧](/deprecated/index.md)<br>[開発中のAPI一覧(β版)](/dev/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
@@ -192,8 +189,8 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 
 | エラーコード | 内容                     |
 | ----------- | ------------------------ |
-| 21          | まるなげ請求書編集不可     |
-| 22          | まるなげオプション利用不可 |
+| 101         | まるなげ請求書編集不可     |
+| 102         | まるなげオプション利用不可 |
 
 
 ## 推奨SSL/TLSバージョン
