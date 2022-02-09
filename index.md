@@ -43,9 +43,9 @@
 | [請求元担当者登録更新](/public/bs_owner/bulk_upsert.md) | bs_owner/bulk_upsert |
 | [請求元担当者停止削除](/public/bs_owner/bulk_stop.md) | bs_owner/bulk_stop |
 
-
-
-[非推奨のAPI一覧](/deprecated/index.md)<br>[開発中のAPI一覧(β版)](/dev/index.md)
+<br>
+- [非推奨のAPI一覧](/deprecated/index.md)
+- [開発中のAPI一覧(β版)](/dev/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
