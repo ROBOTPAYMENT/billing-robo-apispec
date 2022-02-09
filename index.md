@@ -52,6 +52,13 @@
 - [Webhook郵送通知](/webhook/webhook_postmail.md)
 - [Webhookクレジットカード登録状況通知](/webhook/webhook_credit_status.md)
 
+## 概要
+
+- Base URL: `https://billing-robo.jp:10443`
+    - デモ環境の Base URL: `https://demo.billing-robo.jp:10443`
+- Accepted content types: `application/json`
+- Encode: `UTF-8`
+
 ## 注釈
 
 ### APIアクセス制限
