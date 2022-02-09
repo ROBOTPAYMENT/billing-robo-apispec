@@ -15,7 +15,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/bs_bank_transfer/bulk_upsert`
+- Path: `/api/v1.0/bs_bank_transfer/bulk_upsert`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`

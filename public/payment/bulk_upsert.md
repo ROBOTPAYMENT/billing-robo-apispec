@@ -15,7 +15,7 @@
 
 ## リクエスト
 
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/payment/bulk_upsert`
+- Path: `/api/v1.0/payment/bulk_upsert`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`

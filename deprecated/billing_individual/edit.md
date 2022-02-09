@@ -17,7 +17,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/billing_individual/edit`
+- Path: `/api/billing_individual/edit`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/x-www-form-urulencoded`
 - Encode: `UTF-8`
