@@ -1,7 +1,16 @@
 # billing-robo-apispec
 
+## 概要
+
+- Base URL: `https://billing-robo.jp:10443`
+    - デモ環境の Base URL: `https://demo.billing-robo.jp:10443`
+- Accepted content types: `application/json`
+- Encode: `UTF-8`
+
 ## API一覧
 
+| API | Path |
+| --- | ---- |
 | [請求先登録更新](/public/billing/bulk_upsert.md) | /api/v1.0/billing/bulk_upsert |
 | [請求先停止削除](/public/billing/bulk_stop.md) | /api/v1.0/billing/bulk_stop |
 | [口座振替依頼書発行](/public/billing/bulk_download_pdf.md) | /api/v1.0/billing/bulk_download_pdf |
@@ -51,13 +60,6 @@
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
 - [Webhook郵送通知](/webhook/webhook_postmail.md)
 - [Webhookクレジットカード登録状況通知](/webhook/webhook_credit_status.md)
-
-## 概要
-
-- Base URL: `https://billing-robo.jp:10443`
-    - デモ環境の Base URL: `https://demo.billing-robo.jp:10443`
-- Accepted content types: `application/json`
-- Encode: `UTF-8`
 
 ## 注釈
 
