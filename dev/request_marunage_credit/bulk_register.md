@@ -14,7 +14,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/request_marunage_credit/bulk_register`
+- Path: `/api/v1.0/request_marunage_credit/bulk_register`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`

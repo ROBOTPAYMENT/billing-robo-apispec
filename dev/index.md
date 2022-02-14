@@ -3,6 +3,8 @@
 β版のため仕様を変更する場合があります。
 その際の仕様変更については告知いたしません。
 
-- [まるなげ与信申請登録 request_marunage_credit/bulk_register](./request_marunage_credit/bulk_register.md)
-- [まるなげ与信申請参照 request_marunage_credit/search](./request_marunage_credit/search.md)
-- [まるなげ与信解除 marunage_credit/bulk_stop](./marunage_credit/bulk_stop.md)
+| API | Method | Path |
+| --- | ------ | ---- |
+| [まるなげ与信申請登録](./request_marunage_credit/bulk_register.md) | POST | /api/api/v1.0/request_marunage_credit/bulk_register |
+| [まるなげ与信申請参照](./request_marunage_credit/search.md) | POST | /api/api/v1.0/request_marunage_credit/search |
+| [まるなげ与信解除](./marunage_credit/bulk_stop.md) | POST | /api/api/v1.0/marunage_credit/bulk_stop |

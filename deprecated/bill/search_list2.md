@@ -19,7 +19,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/bill/search_list2`
+- Path: `/api/v1.0/bill/search_list2`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`

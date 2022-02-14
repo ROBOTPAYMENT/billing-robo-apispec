@@ -205,7 +205,7 @@ CPToken.TokenCreate (
 
 ### リクエスト
 
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/billing_payment_method/credit_card_token`
+- Path: `/api/v1.0/billing_payment_method/credit_card_token`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
