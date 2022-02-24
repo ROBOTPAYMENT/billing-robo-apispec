@@ -123,7 +123,7 @@
 | item_number                    | 商品番号                                                                                                              | string |
 | item_code                      | 商品コード                                                                                                            | string |
 | goods_name                     | 商品名                                                                                                                | string |
-| pattern_period_format          | 対象期間形式 <br> 0：○年○月分 <br> 1：○年○月○日分 <br> 2：○年○月～○年○月 <br> 3：○年○月○日～○年○月○日 <br> 99：非表示      | string |
+| pattern_period_format          | 対象期間形式 <br> 0:○年○月分 <br> 1:○年○月○日分 <br> 2:○年○月～○年○月 <br> 3:○年○月○日～○年○月○日 <br> 99:非表示      | string |
 | demand_start_date              | 対象期間_開始                                                                                                         | date |
 | demand_end_date                | 対象期間_終了                                                                                                         | date |
 | criterion_date                 | 基準日                                                                                                                | date |
@@ -133,7 +133,7 @@
 | unit_price                     | 単価                                                                                                                  | string |
 | quantity                       | 数量                                                                                                                  | string |
 | unit                           | 単位                                                                                                                  | string |
-| tax_category                   | 税区分 <br> 0:外税 1:内税 2:対象外 3:非課税                                                                             | int    |
+| tax_category                   | 税区分 <br> 0:外税 <br> 1:内税 <br> 2:対象外 <br> 3:非課税                                                             | int    |
 | consumption_tax                | 消費税率                                                                                                              | int    |
 | subtotal_amount_billed         | 請求金額小計                                                                                                           | int    |
 | consumption_tax_amount         | 消費税額                                                                                                               | int    |
@@ -142,7 +142,7 @@
 | remark                         | 備考                                                                                                                  | string |
 | recorded_date                  | 売上計上日                                                                                                             | date |
 | clearing_status                | 消込ステータス <br> 0:未処理 <br> 1:完了 <br> 2:確認済み <br> 3:未収 <br> 4:貸倒 <br> 5:手数料 <br> 6:現金 <br> 7:長期滞留債権 <br> 8:破産更生債権 <br> 9:売上取消 <br> 10:繰越 | int |
-| carryover_flg                  | 繰越フラグ <br> 0:通常請求書明細 1:繰越請求書明細                                                                         | int    |
+| carryover_flg                  | 繰越フラグ <br> 0:通常請求書明細 <br> 1:繰越請求書明細                                                                    | int    |
 | carryover_original_bill_number | 繰越元請求書番号                                                                                                        | string |
 | regist_date                    | 登録日時                                                                                                               | datetime |
 | update_date                    | 更新日時                                                                                                               | datetime |

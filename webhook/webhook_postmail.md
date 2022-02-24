@@ -48,8 +48,8 @@ event_detailパラメーターのmailの中身
 | --------------------- | --------- | --------------------------------------------- |
 | number                | int       | 郵送コード                                    |
 | bill_number           | string    | 請求書番号                                    |
-| status                | int       | 郵送ステータス<br> 0:受付中 1:発送済 2:完了 3:失敗 4:取り消し 5:差止 |
-| error_type            | int       | 郵送エラータイプ<br> 0:その他エラー 1:枚数超過 2:ロゴファイルエラー |
+| status                | int       | 郵送ステータス<br> 0:受付中 <br> 1:発送済 <br> 2:完了 <br> 3:失敗 <br> 4:取り消し <br> 5:差止 |
+| error_type            | int       | 郵送エラータイプ<br> 0:その他エラー <br> 1:枚数超過 <br> 2:ロゴファイルエラー |
 | order_date            | string    | 郵送注文日                                    |
 | mail_date             | string    | 郵送発送日                                    |
 | nondelivery_flg       | int       | 郵送不達フラグ                                |
