@@ -36,9 +36,9 @@
 | number                 | 請求書番号                                                                                                            | 100  | [半角英数 + 記号](../../index.md#種別) | 必須                            |
 | billing_code           | 請求先コード                                                                                                          | 20   | [半角英数 + 記号](../../index.md#種別) | 必須                            |
 | message_column         | 通信欄                                                                                                                | 300  | 文字列                                 |                                 |
-| sending_scheduled_date | 請求書送付予定日                                                                                                      | 10   | 日付                                   | [(消込未完了時)](#必須条件詳細) |
+| sending_scheduled_date | 請求書送付予定日                                                                                                      | 10   | 日付                                   |                                 |
 | sending_date           | 請求書送付日                                                                                                          | 10   | 日付                                   |                                 |
-| transfer_deadline      | 決済期限                                                                                                              | 10   | 日付                                   | [(消込未完了時)](#必須条件詳細) |
+| transfer_deadline      | 決済期限                                                                                                              | 10   | 日付                                   |                                 |
 | payment_status         | 消込ステータス <br> 0:未処理 2:確認済み 3:未収 4:貸倒 5:手数料 6:現金 7:長期滞留債権 8:破産更生債権 9:売上取消 | 2    | 数値                                   |                                 |
 | erasure_deposit_date   | 消込計上日                                                                                                            | 10   | 日付                                   | [(消込時)](#必須条件詳細)       |
 | erasure_cancel_date    | キャンセル計上日                                                                                                      | 10   | 日付                                   | [(消込取消時)](#必須条件詳細)   |
