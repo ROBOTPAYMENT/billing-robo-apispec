@@ -115,7 +115,7 @@
 | suspense_received_flg     | 仮受金フラグ <br> 0:仮受金として登録しない <br> 1:仮受金として登録する                                                                | int    |
 | billing_code              | 請求先コード                                                                                                                          | string |
 | billing_individual_number | 請求先部署番号                                                                                                                        | int    |
-| payment_method            | 決済手段 <br> 10:その他決済⼿段 1 <br> 11:その他決済⼿段 2 <br> 12:その他決済⼿段 3 <br> 13:その他決済⼿段 4 <br> 14:その他決済⼿段 5 | int    |
+| payment_method            | 決済手段 <br> 10:その他決済⼿段 1 <br> 11:その他決済⼿段 2 <br> 12:その他決済⼿段 3 <br> 13:その他決済⼿段 4 <br> 14:その他決済⼿段 5      | int    |
 | clearing_key              | 消込キー                                                                                                                              | string |
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込                                                                                              | int    |
 | clearing_status           | 消込ステータス <br> 0:未消込 <br> 2:確認済み                                                                                          | int    |

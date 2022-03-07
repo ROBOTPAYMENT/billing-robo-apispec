@@ -40,12 +40,12 @@
 | bank_name                     | 銀行名                                               | 15   | 文字列                                 | (登録時) |
 | branch_code                   | 支店コード                                           | 3    | 数値                                   |          |
 | branch_name                   | 支店名                                               | 15   | 文字列                                 | (登録時) |
-| bank_account_type             | 預金種目1:普通 2:当座                                | 1    | 数値                                   | (登録時) |
+| bank_account_type             | 預金種目 <br>1:普通 <br> 2:当座                       | 1    | 数値                                   | (登録時) |
 | bank_account_number           | 口座番号                                             | 7    | 数値                                   | (登録時) |
 | bank_account_name             | 口座名義                                             | 30   | [口座名義](../../index.md#種別)        | (登録時) |
 | bs_department_code            | 請求元部署コード  <br> ※未所属の場合は「0000」を指定 | 20   | [半角英数 + 記号](../../index.md#種別) | 必須     |
 | journal_cooperation_bank_code | 会計ソフト連携用銀行コード                           | 33   | [半角英数](../../index.md#種別)        |          |
-| account_title_id              | 勘定科目ID <br> 普通預金：1120（固定値）             | 20   | 半角数字                               | 必須     |
+| account_title_id              | 勘定科目ID <br> 普通預金:1120（固定値）             | 20   | 半角数字                               | 必須     |
 | sub_account_title_code        | 補助科目コード                                       | 25   | [半角英数](../../index.md#種別)        |          |
 
 
