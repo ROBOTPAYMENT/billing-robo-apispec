@@ -94,7 +94,7 @@
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
-    " bs_bank_transfer ": [
+    "bs_bank_transfer": [
         {
             "code": "code",
             "title": "銀行口座名",
