@@ -1,51 +1,61 @@
 # billing-robo-apispec
 
+## 概要
+
+- Base URL:
+    - 本番環境: `https://billing-robo.jp:10443`
+    - デモ環境: `https://demo.billing-robo.jp:10443`
+- Accepted content types: `application/json`
+- Encode: `UTF-8`
+
 ## API一覧
 
-- [請求先登録更新 v1.0/billing/bulk_upsert](/public/billing/bulk_upsert.md)
-- [請求先部署参照 billing_individual/search](/public/billing_individual/search.md)
-- [請求先停止削除 v1.0/billing/bulk_stop](/public/billing/bulk_stop.md)
-- [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.md)
-- [クレジットカード登録(トークン方式) v1.0/billing_payment_method/credit_card_token](/public/billing_payment_method/credit_card_token.md)
-- [決済情報参照 billing_payment_method/search](/public/billing_payment_method/search.md)
-- [請求情報登録更新 v1.0/demand/bulk_upsert](/public/demand/bulk_upsert.md)
-- [請求情報参照 demand/search2](/public/demand/search2.md)
-- [請求情報停止削除 v1.0/demand/bulk_stop](/public/demand/bulk_stop.md)
-- [即時決済 請求書合算 demand/bulk_register](/public/demand/bulk_register.md)
-- [売上消込結果参照 v1.0/demand/search](/public/demand/search.md)
-- [請求書発行 demand/bulk_issue_bill_select](/public/demand/bulk_issue_bill_select.md)
-- [請求書送付メール bill/send_bill_by_email](/public/bill/send_bill_by_email.md)
-- [請求書送付郵送 bill/send_bill_by_mail](/public/bill/send_bill_by_mail.md)
-- [繰越予約 bill/update_carryover](/public/bill/update_carryover.md)
-- [請求書参照 bill/search](/public/bill/search.md)
-- [請求書明細参照 bill_detail/search](/public/bill_detail/search.md)
-- [請求書更新 v1.0/bill/update](/public/bill/update.md)
-- [請求書無効 v1.0/bill/stop](/public/bill/stop.md)
-- [入金登録更新 payment/bulk_upsert](/public/payment/bulk_upsert.md)
-- [入金参照 payment/search](/public/payment/search.md)
-- [入金無効削除 payment/bulk_stop](/public/payment/bulk_stop.md)
-- [消込 clearing/exec](/public/clearing/exec.md)
-- [消込結果参照 clearing/search](/public/clearing/search.md)
-- [消込結果明細参照 clearing_detail/search](/public/clearing_detail/search.md)
-- [消込取消 clearing/bulk_cancel](/public/clearing/bulk_cancel.md)
-- [商品登録更新2 v1.0/goods/bulk_upsert2](/public/goods/bulk_upsert2.md)
-- [商品参照 goods/search](/public/goods/search.md)
-- [商品停止削除 v1.0/goods/bulk_stop](/public/goods/bulk_stop.md)
-- [カスタム項目登録更新 custom_field/bulk_upsert](/public/mst_custom_field/bulk_upsert.md)
-- [カスタム項目参照 custom_field/search](/public/mst_custom_field/search.md)
-- [カスタム項目削除 custom_field/bulk_stop](/public/mst_custom_field/bulk_stop.md)
-- [請求元銀行口座登録更新 bs_bank_transfer/bulk_upsert](/public/bs_bank_transfer/bulk_upsert.md)
-- [請求元銀行口座停止削除 bs_bank_transfer/bulk_stop](/public/bs_bank_transfer/bulk_stop.md)
-- [請求元銀行口座パターン登録更新 bs_bank_transfer_pattern/bulk_upsert](/public/bs_bank_transfer_pattern/bulk_upsert.md)
-- [請求元銀行口座パターン停止削除 bs_bank_transfer_pattern/bulk_stop](/public/bs_bank_transfer_pattern/bulk_stop.md)
-- [請求元部署登録更新 bs_department/bulk_upsert](/public/bs_department/bulk_upsert.md)
-- [請求元部署停止削除 bs_department/bulk_stop](/public/bs_department/bulk_stop.md)
-- [請求元担当者登録更新 bs_owner/bulk_upsert](/public/bs_owner/bulk_upsert.md)
-- [請求元担当者停止削除 bs_owner/bulk_stop](/public/bs_owner/bulk_stop.md)
+| API | Method | Path |
+| --- | ------ | ---- |
+| [請求先登録更新](/public/billing/bulk_upsert.md) | POST | /api/v1.0/billing/bulk_upsert |
+| [請求先停止削除](/public/billing/bulk_stop.md) | POST | /api/v1.0/billing/bulk_stop |
+| [口座振替依頼書発行](/public/billing/bulk_download_pdf.md) | POST | /api/v1.0/billing/bulk_download_pdf |
+| [請求先部署参照](/public/billing_individual/search.md) | POST | /api/v1.0/billing_individual/search |
+| [クレジットカード登録(トークン方式)](/public/billing_payment_method/credit_card_token.md) | POST | /api/v1.0/billing_payment_method/credit_card_token |
+| [決済情報参照](/public/billing_payment_method/search.md) | POST | /api/v1.0/billing_payment_method/search |
+| [請求情報登録更新](/public/demand/bulk_upsert.md) | POST | /api/v1.0/demand/bulk_upsert |
+| [請求情報停止削除](/public/demand/bulk_stop.md) | POST | /api/v1.0/demand/bulk_stop |
+| [売上消込結果参照](/public/demand/search.md) | POST | /api/v1.0/demand/search |
+| [請求情報参照](/public/demand/search2.md) | POST | /api/v1.0/demand/search2 |
+| [請求書発行](/public/demand/bulk_issue_bill_select.md) | POST | /api/v1.0/demand/bulk_issue_bill_select |
+| [即時決済 請求書合算](/public/demand/bulk_register.md) | POST | /api/demand/bulk_register |
+| [請求書送付メール](/public/bill/send_bill_by_email.md) | POST | /api/v1.0/bill/send_bill_by_email |
+| [請求書送付郵送](/public/bill/send_bill_by_mail.md) | POST | /api/v1.0/bill/send_bill_by_mail |
+| [繰越予約](/public/bill/update_carryover.md) | POST | /api/v1.0/bill/update_carryover |
+| [請求書参照](/public/bill/search.md) | POST | /api/v1.0/bill/search |
+| [請求書更新](/public/bill/update.md) | POST | /api/v1.0/bill/update |
+| [請求書無効](/public/bill/stop.md) | POST | /api/v1.0/bill/stop |
+| [請求書明細参照](/public/bill_detail/search.md) | POST | /api/v1.0/bill_detail/search |
+| [入金登録更新](/public/payment/bulk_upsert.md) | POST | /api/v1.0/payment/bulk_upsert |
+| [入金無効削除](/public/payment/bulk_stop.md) | POST | /api/v1.0/payment/bulk_stop |
+| [入金参照](/public/payment/search.md) | POST | /api/v1.0/payment/search |
+| [消込](/public/clearing/exec.md) | POST | /api/v1.0/clearing/exec |
+| [消込結果参照](/public/clearing/search.md) | POST | /api/v1.0/clearing/search |
+| [消込取消](/public/clearing/bulk_cancel.md) | POST | /api/v1.0/clearing/bulk_cancel |
+| [消込結果明細参照](/public/clearing_detail/search.md) | POST | /api/v1.0/clearing_detail/search |
+| [商品登録更新2](/public/goods/bulk_upsert2.md) | POST | /api/v1.0/goods/bulk_upsert2 |
+| [商品停止削除](/public/goods/bulk_stop.md) | POST | /api/v1.0/goods/bulk_stop |
+| [商品参照](/public/goods/search.md) | POST | /api/v1.0/goods/search |
+| [カスタム項目登録更新](/public/mst_custom_field/bulk_upsert.md) | POST | /api/v1.0/custom_field/bulk_upsert |
+| [カスタム項目削除](/public/mst_custom_field/bulk_stop.md) | POST | /api/v1.0/custom_field/bulk_stop |
+| [カスタム項目参照](/public/mst_custom_field/search.md) | POST | /api/v1.0/custom_field/search |
+| [請求元銀行口座登録更新](/public/bs_bank_transfer/bulk_upsert.md) | POST | /api/v1.0/bs_bank_transfer/bulk_upsert |
+| [請求元銀行口座停止削除](/public/bs_bank_transfer/bulk_stop.md) | POST | /api/v1.0/bs_bank_transfer/bulk_stop |
+| [請求元銀行口座パターン登録更新](/public/bs_bank_transfer_pattern/bulk_upsert.md) | POST | /api/v1.0/bs_bank_transfer_pattern/bulk_upsert |
+| [請求元銀行口座パターン停止削除](/public/bs_bank_transfer_pattern/bulk_stop.md) | POST | /api/v1.0/bs_bank_transfer_pattern/bulk_stop |
+| [請求元部署登録更新](/public/bs_department/bulk_upsert.md) | POST | /api/v1.0/bs_department/bulk_upsert |
+| [請求元部署停止削除](/public/bs_department/bulk_stop.md) | POST | /api/v1.0/bs_department/bulk_stop |
+| [請求元担当者登録更新](/public/bs_owner/bulk_upsert.md) | POST | /api/v1.0/bs_owner/bulk_upsert |
+| [請求元担当者停止削除](/public/bs_owner/bulk_stop.md) | POST | /api/v1.0/bs_owner/bulk_stop |
 
-
-
-[非推奨のAPI一覧](/deprecated/index.md)
+<br>
+- [非推奨のAPI一覧](/deprecated/index.md)
+- [開発中のAPI一覧(β版)](/dev/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
@@ -100,6 +110,8 @@
 | 12   | その他決済3            |
 | 13   | その他決済4            |
 | 14   | その他決済5            |
+| 15   | まるなげ口座振替       |
+| 16   | まるなげバンクチェック  |
 
 ### 消込手段
 
@@ -120,8 +132,10 @@
 | 12   | その他決済手段3        |
 | 13   | その他決済手段4        |
 | 14   | その他決済手段5        |
-| 98   | 相殺                   |
-| 101  | 貸倒                   |
+| 15   | まるなげ口座振替       |
+| 16   | まるなげバンクチェック  |
+| 98   | 相殺                  |
+| 101  | 貸倒                  |
 | 102  | 確認済み               |
 | 103  | 手数料                 |
 | 104  | 請求書明細相殺           |
@@ -154,20 +168,19 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 
 ### エラーコード
 
-| エラーコード | 内容                       |
-| ------------ | -------------------------- |
-| 1            | 内部エラー                 |
-| 10           | 不明なURI                  |
-| 11           | ログインIDが不正           |
-| 12           | アクセスキーが不正         |
-| 13           | 接続IPが不正               |
-| 14           | 店舗IDが不正               |
-| 15           | 外部システムとの連携に失敗 |
-| 16           | ログイン失敗               |
-| 17           | 権限が不正                 |
-| 18           | 利用企業が不正             |
-| 19           | メンテナンス中             |
-| 20           | リクエスト数が不正         |
+| エラーコード | 内容                                        |
+| ----------- | ------------------------------------------ |
+| 1           | 内部エラー                                  |
+| 10          | 不明なURI                                  |
+| 11          | ログインIDが不正                            |
+| 12          | アクセスキーが不正                          |
+| 13          | 接続IPが不正                                |
+| 14          | 店舗IDが不正                                |
+| 16          | ログイン失敗                                |
+| 17          | 権限が不正                                  |
+| 18          | 利用企業が不正                              |
+| 19          | メンテナンス中                              |
+| 20          | リクエスト数が不正                          |
 
 ### レスポンス例
 
@@ -186,9 +199,10 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 
 ### その他の特殊なエラーコード
 
-| エラーコード | 内容                   |
-| ------------ | ---------------------- |
-| 21           | まるなげ請求書編集不可 |
+| エラーコード | 内容                     |
+| ----------- | ------------------------ |
+| 51         | まるなげ請求書編集不可     |
+| 52         | まるなげオプション利用不可 |
 
 
 ## 推奨SSL/TLSバージョン

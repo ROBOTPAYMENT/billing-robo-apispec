@@ -15,7 +15,7 @@
 
 ## リクエスト
 
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/demand/search2`
+- Path: `/api/v1.0/demand/search2`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
@@ -112,7 +112,7 @@
 | start_date                 | サービス提供開始日                                                                                                                                                                                                                                                                                                                                                        | date     |
 | end_date                   | 最終サービス提供期間                                                                                                                                                                                                                                                                                                                                                      | date     |
 | repeat_count               | 繰返し回数 <br> ※type=1,2 以外は null                                                                                                                                                                                                                                                                                                                                     | int      |
-| period_format              | 対象期間形式 <br> 0：○年 ○月分 <br> 1：○年 ○月 ○日分 <br> 2：○年 ○月 ～ ○年 ○月 <br> 3：○年 ○月 ○日 ～ ○年 ○月 ○日 <br> 99：非表示                                                                                                                                                                                                                                        | int      |
+| period_format              | 対象期間形式 <br> 0:○年 ○月分 <br> 1:○年 ○月 ○日分 <br> 2:○年 ○月 ～ ○年 ○月 <br> 3:○年 ○月 ○日 ～ ○年 ○月 ○日 <br> 99:非表示                                                                                                                                                                                                                                        | int      |
 | period_value               | 対象期間 <br> ※period_format=2,3 以外はnull                                                                                                                                                                                                                                                                                                                              | int      |
 | period_unit                | 対象期間単位 <br> ※period_format=3 以外はnull                                                                                                                                                                                                                                                                                                                            | int      |
 | period_criterion           | 基準 <br> 0:対象期間開始日 <br> 1:対象期間終了日 <br> ※period_format=2,3 以外は0                                                                                                                                                                                                                                                                                         | int      |

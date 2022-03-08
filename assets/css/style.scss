@@ -6,3 +6,9 @@
 .project-name-link {
   color: #fff;
 }
+
+.main-content {
+    @media screen and (min-width: 64em){
+      max-width: 96rem;
+    }
+}

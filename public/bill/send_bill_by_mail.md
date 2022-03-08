@@ -14,7 +14,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/bill/send_bill_by_mail`
+- Path: `/api/v1.0/bill/send_bill_by_mail`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`

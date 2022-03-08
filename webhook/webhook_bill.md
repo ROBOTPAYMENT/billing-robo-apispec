@@ -39,11 +39,11 @@
 | 名前                                      | 型        |  概要                                         |
 | ----------------------------------------- | --------- | --------------------------------------------- |
 | billing_number                            | string    | 請求書番号                                    |
-| type                                      | int       | 請求書タイプ<br> 1:請求 2:繰越請求 3:親請求書 4:子請求書 |
+| type                                      | int       | 請求書タイプ<br> 1:請求 <br> 2:繰越請求 <br> 3:親請求書 <br> 4:子請求書 |
 | bill_issue_date                           | string    | 請求書発行日<br>                              |
 | make_date                                 | string    | 請求書作成日                                  |
 | billing_individual_number                 | int       | 請求先部署番号                                |
-| billing_method                            | int       | 請求方法<br> 0：送付なし 1：自動メール 2：手動メール 3：自動郵送 4：手動郵送 5：自動メール＋手動郵送 6：手動メール+手動郵送 |
+| billing_method                            | int       | 請求方法<br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール＋手動郵送 <br> 6:手動メール+手動郵送 |
 | bill_sending_scheduled_date               | string    | 請求送付予定日                                |
 | payment_method                            | int       | [決済手段](../../index.md#決済手段) | 
 | demand_number                             | int       | 請求件数                                      |

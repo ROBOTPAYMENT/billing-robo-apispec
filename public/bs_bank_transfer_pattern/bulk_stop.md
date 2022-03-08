@@ -14,7 +14,7 @@
 - [エラー](#エラー)
 
 ## リクエスト
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/bs_bank_transfer_pattern/bulk_stop`
+- Path: `/api/v1.0/bs_bank_transfer_pattern/bulk_stop`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
@@ -34,7 +34,7 @@
 | 名前    | 概要                     | 桁数 | 種別                                   | 必須 |
 | ------- | ------------------------ | ---- | -------------------------------------- | ---- |
 | code    | 銀行口座パターンコード   | 20   | [半角英数 + 記号](../../index.md#種別) | 必須 |
-| del_flg | 削除フラグ0: 停止 1:削除 | 1    | 数値                                   | 必須 |
+| del_flg | 削除フラグ <br> 0: 停止 <br> 1:削除 | 1    | 数値                                   | 必須 |
 
 
 ## レスポンス
@@ -60,7 +60,7 @@
 | error_message | エラーメッセージ※正常時はnull | string  |
 | code          | 銀行口座パターンコード        | string |
 | name          | 銀行口座パターン管理名        | string |
-| del_flg       | 削除フラグ0: 停止 1:削除      | int    |
+| del_flg       | 削除フラグ <br> 0: 停止 <br> 1:削除      | int    |
 
 
 ## 使用例

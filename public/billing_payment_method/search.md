@@ -15,7 +15,7 @@
 
 ## リクエスト
 
-- Method URL: `https://billing-robo.jp:10443/api/v1.0/billing_payment_method/search`
+- Path: `/api/v1.0/billing_payment_method/search`
 - Preferred HTTP method: `POST`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
@@ -40,7 +40,7 @@
 | code             | 決済情報コード                                            | 20   | 半角英数+記号 | 完全一致 |
 | name             | 決済情報名                                               | 100   | 文字列        | 部分一致 |
 | payment_method   | [決済手段](../../index.md#決済手段) | 2    | 数値          |          |
-| register_status  | 登録ステータス <br> 0:未処理 <br>1:登録待ち <br>2:メール送信済み <br>3:申請中 <br> 4:登録情報_送信エラー <br>5:登録完了 <br>6:登録失敗  | 1    | 数値          |          |
+| register_status  | 登録ステータス <br> 0:未処理 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報_送信エラー <br> 5:登録完了 <br> 6:登録失敗  | 1    | 数値          |          |
 | regist_date_from | 登録日の検索開始日                                     | 10    | 日付          |          |
 | regist_date_to   | 登録日の検索終了日                                     | 10    | 日付          |          |
 | update_date_from | 更新日の検索開始日                                     | 10    | 日付          |          |
@@ -85,16 +85,16 @@
 | bank_name                      | 銀行名 <br> ※payment_method=5,9以外はnull                                                                                                                                                                                                                      | string |
 | branch_code                    | 支店コード <br> ※payment_method=3,4,5,9以外はnull                                                                                                                                                                                                              | string |
 | branch_name                    | 支店名 <br> ※payment_method=5,9以外はnull                                                                                                                                                                                                                      | string |
-| bank_account_type              | 預金種目 <br> 1:普通 2:当座 <br> ※payment_method=3,4,5,9以外はnull                                                                                                                                                                                             | string |
+| bank_account_type              | 預金種目 <br> 1:普通 <br> 2:当座 <br> ※payment_method=3,4,5,9以外はnull                                                                                                                                                                                             | string |
 | bank_account_number            | 口座番号 <br> ※payment_method=3,4,5,9以外はnull                                                                                                                                                                                                                | string |
 | bank_account_name              | 口座名義 <br> ※payment_method=3,4,5,9以外はnull                                                                                                                                                                                                                | string |
-| payment_type                   | 決済タイプ <br> ※payment_method=8以外はnull <br>0：ハガキ・マルチレコードタイプ 1：B5督促用                                                                                                                                                                           | string |
+| payment_type                   | 決済タイプ <br> ※payment_method=8以外はnull <br>0:ハガキ・マルチレコードタイプ 1:B5督促用                                                                                                                                                                           | string |
 | cod                            | 店舗オーダー番号 <br> ※payment_method=1以外はnull                                                                                                                                                                                                              | string |
 | bank_check_bank_code           | バンクチェック銀行コード <br> ※payment_method=2以外はnull                                                                                                                                                                                                      | string |
 | bank_check_bank_name           | バンクチェック銀行名 <br> ※payment_method=2以外はnull                                                                                                                                                                                                          | string |
 | bank_check_branch_code         | バンクチェック支店コード <br> ※payment_method=2以外はnull                                                                                                                                                                                                      | string |
 | bank_check_branch_name         | バンクチェック支店名 <br> ※payment_method=2以外はnull                                                                                                                                                                                                          | string |
-| bank_check_kind                | バンクチェック口座種別 <br> 1:普通 2:当座 <br> ※payment_method=2以外はnull                                                                                                                                                                                     | string |
+| bank_check_kind                | バンクチェック口座種別 <br> 1:普通 <br> 2:当座 <br> ※payment_method=2以外はnull                                                                                                                                                                                     | string |
 | bank_check_bank_account_number | バンクチェック口座番号 <br> ※payment_method=2以外はnull                                                                                                                                                                                                        | string |
 | clearing_key                   | 消込キー <br> ※payment_method=10-14以外はnull                                                                                                                                                                                                                    | string | 
 | regist_date                    | 登録日                                                                                                                                                                                                                                                      | date | 
@@ -197,23 +197,23 @@ Status: 200 OK
 
 個別エラー
 
-| エラーコード | 内容                               |
+| エラーコード | 内容                                |
 | ------------ | ---------------------------------- |
-| 4501         | 請求先番号が不正                     |
-| 4502         | 請求先名が不正                     |
+| 4501         | 請求先コードが不正                  |
+| 4502         | 請求先名が不正                      |
 | 4503         | 決済情報番号が不正                  |
 | 4504         | 決済情報コードが不正                |
 | 4505         | 決済情報名が不正                    |
 | 4506         | 決済手段が不正                      |
-| 4507         | 登録ステータスが不正                 |
-| 4508         | 登録日の検索開始日                   |
-| 4509         | 登録日の検索終了日                   |
-| 4510         | 更新日の検索開始日                   |
-| 4511         | 更新日の検索終了日                   |
+| 4507         | 登録ステータスが不正                |
+| 4508         | 登録日の検索開始日                  |
+| 4509         | 登録日の検索終了日                  |
+| 4510         | 更新日の検索開始日                  |
+| 4511         | 更新日の検索終了日                  |
 | 4512         | 状態が不正                          |
-| 4513         | 決済情報取得件数が不正            |
-| 4514         | 決済情報取得開始インデックスが不正  |
-| 4515         | 決済情報参照に失敗                   |
+| 4513         | 決済情報取得件数が不正              |
+| 4514         | 決済情報取得開始インデックスが不正   |
+| 4515         | 決済情報参照に失敗                  |
 
 ---
 
