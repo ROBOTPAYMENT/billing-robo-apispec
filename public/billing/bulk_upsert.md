@@ -231,22 +231,22 @@
 | bank_transfer_pattern_code     | 請求元銀行口座パターンコード                                                                                                            | string |
 | payment_method                 | [決済手段](../../index.md#決済手段)                                                                                                    | int    |
 | register_status                | 登録ステータス <br> 0:未処理 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報_送信エラー <br> 5:登録完了 <br> 6:登録失敗  | int    |
-| source_bank_account_name       | 振込元口座名義 <br> ※payment_method=0,2,9以外は空文字                                                                                  | string |
-| customer_number                | 顧客番号 <br> ※payment_method=3,5以外は空文字                                                                                          | string |
-| bank_code                      | 銀行コード <br> ※payment_method=3,4,5,9以外は空文字                                                                                    | string |
-| bank_name                      | 銀行名 <br> ※payment_method=5,9以外は空文字                                                                                            | string |
-| branch_code                    | 支店コード <br> ※payment_method=3,4,5,9以外は空文字                                                                                    | string |
-| branch_name                    | 支店名 <br> ※payment_method=5,9以外は空文字                                                                                            | string |
-| bank_account_type              | 預金種目 <br> 1:普通 <br> 2:当座 <br> ※payment_method=3,4,5,9以外は空文字                                                                   | string |
-| bank_account_number            | 口座番号 <br> ※payment_method=3,4,5,9以外は空文字                                                                                      | string |
-| bank_account_name              | 口座名義 <br> ※payment_method=3,4,5,9以外は空文字                                                                                      | string |
-| cod                            | 店舗オーダー番号 <br> ※payment_method=1以外は空文字                                                                                    | string |
-| bank_check_bank_code           | バンクチェック銀行コード <br> ※payment_method=2以外は空文字                                                                            | string |
-| bank_check_bank_name           | バンクチェック銀行名 <br> ※payment_method=2以外は空文字                                                                                | string |
-| bank_check_branch_code         | バンクチェック支店コード <br> ※payment_method=2以外は空文字                                                                            | string |
-| bank_check_branch_name         | バンクチェック支店名 <br> ※payment_method=2以外は空文字                                                                                | string |
-| bank_check_kind                | バンクチェック口座種別 <br> 1:普通 <br> 2:当座 <br> ※payment_method=2以外は空文字                                                            | string |
-| bank_check_bank_account_number | バンクチェック口座番号 <br> ※payment_method=2以外は空文字                                                                              | string |
+| source_bank_account_name       | 振込元口座名義 <br> ※payment_method=0,2,9以外はnull                                                                                  | string |
+| customer_number                | 顧客番号 <br> ※payment_method=3,5以外はnull                                                                                          | string |
+| bank_code                      | 銀行コード <br> ※payment_method=3,4,5,9以外はnull                                                                                    | string |
+| bank_name                      | 銀行名 <br> ※payment_method=5,9以外はnull                                                                                            | string |
+| branch_code                    | 支店コード <br> ※payment_method=3,4,5,9以外はnull                                                                                    | string |
+| branch_name                    | 支店名 <br> ※payment_method=5,9以外はnull                                                                                            | string |
+| bank_account_type              | 預金種目 <br> 1:普通 <br> 2:当座 <br> ※payment_method=3,4,5,9以外はnull                                                                   | string |
+| bank_account_number            | 口座番号 <br> ※payment_method=3,4,5,9以外はnull                                                                                      | string |
+| bank_account_name              | 口座名義 <br> ※payment_method=3,4,5,9以外はnull                                                                                      | string |
+| cod                            | 店舗オーダー番号 <br> ※payment_method=1以外はnull                                                                                    | string |
+| bank_check_bank_code           | バンクチェック銀行コード <br> ※payment_method=2以外はnull                                                                            | string |
+| bank_check_bank_name           | バンクチェック銀行名 <br> ※payment_method=2以外はnull                                                                                | string |
+| bank_check_branch_code         | バンクチェック支店コード <br> ※payment_method=2以外はnull                                                                            | string |
+| bank_check_branch_name         | バンクチェック支店名 <br> ※payment_method=2以外はnull                                                                                | string |
+| bank_check_kind                | バンクチェック口座種別 <br> 1:普通 <br> 2:当座 <br> ※payment_method=2以外はnull                                                            | string |
+| bank_check_bank_account_number | バンクチェック口座番号 <br> ※payment_method=2以外はnull                                                                              | string |
 | credit_card_regist_kind        | クレジットカード登録方法                                                                                                               | int    |
 | credit_card_email              | クレジットカード登録メール送信先                                                                                                        | string |
 | clearing_key                   | 消込キー                                                                                                                              | string |
