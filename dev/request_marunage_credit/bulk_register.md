@@ -60,16 +60,16 @@
 
 | 名前                | 概要                                                | 型      |
 | ------------------- | -------------------------------------------------- | ------- |
-| error_code          | エラーコード<br> ※正常時はnull                      | int     |
-| error_message       | エラーメッセージ<br> ※正常時はnull                  | string  |
-| id                  | 申請ID                                             | int     |
-| billing_code        | 請求先コード                                        | string  |
-| representative_name | 代表者名                                            | string  |
-| contract_date       | 契約日                                              | date    |
-| transaction_count   | 取引回数                                            | int     |
-| company_url         | 企業URL                                             | string  |
-| status              | ステータス<br> 0: 却下<br> 1: 承認<br> 2: 申請中      | int     |
-| requested_date      | 申請日時                                            | datetime |
+| error_code          | エラーコード<br> ※正常時はnull                          | int     |
+| error_message       | エラーメッセージ<br> ※正常時はnull                       | string  |
+| id                  | 申請ID                                              | int     |
+| billing_code        | 請求先コード                                         　| string  |
+| representative_name | 代表者名                                            　| string  |
+| contract_date       | 契約日                                               | date    |
+| transaction_count   | 取引回数                                            　| int     |
+| company_url         | 企業URL                                              | string  |
+| status              | まるなげ与信申請状態<br> 0: 却下<br> 1: 承認<br> 2: 申請中  | int     |
+| requested_date      | 申請日時                                            　| datetime |
 
 
 ## 使用例
