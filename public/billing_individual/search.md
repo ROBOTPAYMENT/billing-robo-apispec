@@ -122,7 +122,7 @@
 | regist_date                             | 登録日時                                   | datetime   |
 | update_date                             | 更新日時                                   | datetime   |
 | valid_flg                               | 状態                                       | int       |
-| [sub_account_title](#sub_account_title) | 請求先部署補助科目に属するパラメータ          | `array`   |
+| [sub_account_title](#sub_account_title) | 請求先部署補助科目に属するパラメータ          | `object`   |
 
 #### sub_account_title
 
@@ -224,13 +224,11 @@ Status: 200 OK
             "regist_date": "2020/08/01 10:00:00",
             "update_date": "2020/08/01 10:00:00",
             "valid_flg": 1,
-            "sub_account_title": [
-                {
+            "sub_account_title": {
                   "account_receivable_code": null,
                   "advances_received_code": null,
                   "suspense_received_code": null
-                }
-            ]
+            }
         }
     ]
 }
