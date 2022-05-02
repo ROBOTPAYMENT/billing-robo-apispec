@@ -167,7 +167,7 @@
 | ------------------------------------ | --------------------------------------------------------------------- | ------ |
 | error_code                           | エラーコード <br> ※正常時はnull                                       | int    |
 | error_message                        | エラーメッセージ <br> ※正常時はnull                                   | string |
-| number                               | 請求先部署番号 <br> ※登録時に請求管理ロボ側で発番される番号となります | string |
+| number                               | 請求先部署番号 <br> ※登録時に請求管理ロボ側で発番される番号となります | int |
 | code                                 | 請求先部署コード                                                      | string |
 | name                                 | 請求先部署名                                                          | string |
 | link_customer_code                   | 会計ソフト連携用取引先コード                                          | string |
@@ -191,19 +191,19 @@
 | cc_email                             | CC送信先メールアドレス                                                | string |
 | memo                                 | メモ                                                                  | string |
 | auto_erase_commission_amount         | 手数料自動消込許容金額                                                | int    |
-| billing_method                       | 請求方法                                                              | string |
-| issue_month                          | 請求書発行日_月                                                       | string |
-| issue_day                            | 請求書発行日_日                                                       | string |
-| sending_month                        | 請求書送付日_月                                                       | string |
-| sending_day                          | 請求書送付日_日                                                       | string |
-| deadline_month                       | 決済期限_月                                                           | string |
-| deadline_day                         | 決済期限_日                                                           | string |
+| billing_method                       | 請求方法                                                              | int |
+| issue_month                          | 請求書発行日_月                                                       | int |
+| issue_day                            | 請求書発行日_日                                                       | int |
+| sending_month                        | 請求書送付日_月                                                       | int |
+| sending_day                          | 請求書送付日_日                                                       | rint |
+| deadline_month                       | 決済期限_月                                                           | int |
+| deadline_day                         | 決済期限_日                                                           | int |
 | payment_method_code                  | 決済情報コード                                                        | string |
 | bs_owner_code                        | 請求元担当者コード                                                    | string |
 | ref_billing_code                     | 合計請求書用請求先コード                                              | string |
-| ref_individual_number                | 合計請求書用請求先部署番号                                            | string |
+| ref_individual_number                | 合計請求書用請求先部署番号                                            | int |
 | ref_individual_code                  | 合計請求書用請求先部署コード                                          | string |
-| bill_template_code                   | 請求書テンプレートコード                                              | string |
+| bill_template_code                   | 請求書テンプレートコード                                              | int |
 | billing.individual.sub_account_title | 請求先部署補助科目に属するパラメータ                                  | object  |
 
 #### billing.individual.sub_account_title (response)
@@ -225,7 +225,7 @@
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | error_code                     | エラーコード <br> ※正常時はnull                                                                                                        | int    |
 | error_message                  | エラーメッセージ <br> ※正常時はnull                                                                                                    | string |
-| number                         | 決済情報番号                                                                                                                           | string |
+| number                         | 決済情報番号                                                                                                                           | int |
 | code                           | 決済情報コード                                                                                                                         | string |
 | name                           | 決済情報名                                                                                                                             | string |
 | bank_transfer_pattern_code     | 請求元銀行口座パターンコード                                                                                                            | string |
