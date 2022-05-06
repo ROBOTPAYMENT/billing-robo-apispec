@@ -25,11 +25,11 @@
 | --------------------- | ------------------------------------ | ---- | --------------------------------- | ---- |
 | user_id               | ユーザーID（管理画面へのログインID） | 100  | [メール形式](../../index.md#種別) | 必須 |
 | access_key            | アクセスキー                         | 100  | [半角英数](../../index.md#種別)   | 必須 |
-| [bill](#bill-request) | 請求書に属するパラメータ             |      | `array`                     |      |
+| [bill](#bill-request) | 請求書に属するパラメータ             |      | `object`                     |      |
 
 #### bill (request)
 
-下記のような項目のオブジェクトを持つリスト
+下記のような項目のオブジェクト
 
 | 名前                      | 概要                                                                                                                                                                               | 桁数 | 種別                                   | 必須                                                         |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | ------------------------------------------------------------ |
@@ -73,10 +73,10 @@
 | bs_residence_code             | 請求元差出人コード                                                                                                                                                                     | string |
 | billing_code                  | 請求先コード                                                                                                                                                                           | string |
 | billing_name                  | 請求先名                                                                                                                                                                               | string |
-| billing_individual_number     | 請求先部署番号                                                                                                                                                                         | string |
+| billing_individual_number     | 請求先部署番号                                                                                                                                                                         | int    |
 | billing_individual_code       | 請求先部署コード                                                                                                                                                                       | string |
 | billing_individual_name       | 請求先部署名                                                                                                                                                                           | string |
-| demand_number                 | 請求件数                                                                                                                                                                               | string |
+| demand_number                 | 請求件数                                                                                                                                                                               | int    |
 | subtotal_amount_billed        | 請求金額小計                                                                                                                                                                           | int    |
 | consumption_tax_amount        | 消費税額                                                                                                                                                                               | int    |
 | total_amount_billed           | 請求金額合計                                                                                                                                                                           | int    |
@@ -92,7 +92,7 @@
 | mail_send_flg                 | メールステータス <br> 0:未送信 <br> 1:送信済み                                                                                                                                         | int    |
 | post_send_flg                 | 郵送ステータス <br> 0:未送信 <br> 1:送信済み                                                                                                                                           | int    |
 | payment_method                | [決済手段](../../index.md#決済手段) | int    |
-| payment_method_number         | 決済情報番号                                                                                                                                                                           | string |
+| payment_method_number         | 決済情報番号                                                                                                                                                                           | int    |
 | payment_method_code           | 決済情報コード                                                                                                                                                                         | string |
 | payment_method_name           | 決済情報名                                                                                                                                                                             | string |
 | settlement_result             | 決済連携ステータス <br> 0:申請中 <br> 1:送信失敗 <br> 2:決済成功 <br> 3:決済失敗                                                                                                       | int    |
@@ -108,10 +108,8 @@
 | bs_owner_name                 | 請求元担当者名                                                                                                                                                                         | string |
 | valid_flg                     | 請求書有効フラグ <br> 0:無効 <br> 1:有効                                                                                                                                                     | int    |
 | delete_flg                    | 請求書削除フラグ <br> 0:未削除 <br> 1:削除 <br> ※現行削除機能は未実装のため未削除が返却されます。                                                                                           | int    |
-| gid                           | 決済ID                                                                                                                                                                                 | int    |
+| gid                           | 決済ID                                                                                                                                                                                 | string |
 | carryover_status              | 繰越ステータス <br> 0:対象外 <br> 1:繰越待ち                                                                                                                                                | int    |
-| carryover_transit_bill_number | 繰越先請求書番号                                                                                                                                                                       | string |
-| carryover_total_amount        | 繰越金額                                                                                                                                                                               | int    |
 
 
 
@@ -123,21 +121,19 @@
 {
     "user_id": "sample@robotpayment.co.jp",
     "access_key": "xxxxxxxxxxxxxxxx",
-    "bill": [
-        {
-            "number": "",
-            "billing_code": "",
-            "billing_individual_number": "",
-            "billing_individual_code": "",
-            "bs_owner_code": "",
-            "payment_method": "0",
-            "issue_start_date": "2016/04/01",
-            "issue_stop_date": "2017/07/31",
-            "deadline_start_date": "",
-            "deadline_stop_date": "",
-            "carryover_flg": "1"
-        }
-    ]
+    "bill": {
+        "number": "",
+        "billing_code": "",
+        "billing_individual_number": "",
+        "billing_individual_code": "",
+        "bs_owner_code": "",
+        "payment_method": 0,
+        "issue_start_date": "2016/04/01",
+        "issue_stop_date": "2017/07/31",
+        "deadline_start_date": "",
+        "deadline_stop_date": "",
+        "carryover_flg": 1
+    }
 }
 ```
 
@@ -162,7 +158,7 @@ Status: 200 OK
             "billing_individual_number": 1,
             "billing_individual_code": "",
             "billing_individual_name": "経理",
-            "demand_number": "1",
+            "demand_number": 1,
             "subtotal_amount_billed": 5000,
             "consumption_tax_amount": 0,
             "total_amount_billed": 1080,
@@ -178,7 +174,7 @@ Status: 200 OK
             "mail_send_flg": 0,
             "post_send_flg": 0,
             "payment_method": 2,
-            "payment_method_number": "1",
+            "payment_method_number": 1,
             "payment_method_code": "",
             "payment_method_name": "バンクチェック",
             "settlement_result": 2,
@@ -196,8 +192,6 @@ Status: 200 OK
             "delete_flg": 0,
             "gid": "1234567",
             "carryover_status": 1,
-            "carryover_transit_bill_number": null,
-            "carryover_total_amount": ""
         }
     ]
 }
