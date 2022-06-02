@@ -38,7 +38,7 @@
 | contract_date            | 契約日                                              | 10   | 日付                                  | 必須  |
 | transaction_count        | 取引回数                                            | 4    | 数値                                  |       |
 | company_url              | 企業URL                                             | 200  | 文字列                                | 必須  |
-| estimated_billing_amount | 請求予定金額                                        |      | 数値                                  | 必須  |
+| estimated_billing_amount | 請求予定金額                                         | 15   | 数値                                  | 必須  |
 
 
 
