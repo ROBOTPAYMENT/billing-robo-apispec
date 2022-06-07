@@ -35,6 +35,7 @@
 
 | 名前                | 概要                                               | 桁数  | 種別                                  | 必須 |
 | ------------------- | -------------------------------------------------- | ---- | ------------------------------------- | ---- |
+| id                  | まるなげ与信申請ID                                   | 18   | 数値
 | billing_code        | 請求先コード                                         | 20   | [半角英数 + 記号](../../index.md#種別) |      |
 | status              | まるなげ与信申請状態<br> 0: 却下<br> 1: 承認<br> 2: 申請中 | 1     | 数値                                  |      |
 | requested_date_from | 申請日（from）                                       | 10   | 日付                                  |      |
@@ -68,6 +69,7 @@
 | -------------- | -------------------------------------------------- | ------- |
 | error_code     | エラーコード<br> ※正常時はnull                          | int     |
 | error_message  | エラーメッセージ<br> ※正常時はnull                      | string  |
+| id             | まるなげ与信申請ID                                   | int     |
 | billing_code   | 請求先コード                                          | string  |
 | status         | まるなげ与信申請状態<br> 0: 却下<br> 1: 承認<br> 2: 申請中 | int      |
 | requested_date | 申請日                                              | datetime |
@@ -105,6 +107,7 @@ Status: 200 OK
 	{
             "error_code": null,
             "error_message": null,
+            "id": 2,
             "billing_code": "billing_code_1",
             "status": 1,
             "requested_date":"2022/01/11 00:00:00",
@@ -113,6 +116,7 @@ Status: 200 OK
 	{
             "error_code": null,
             "error_message": null,
+            "id": 1,
             "billing_code": "billing_code_2",
             "status": 2,
             "requested_date":"2022/01/12 00:00:00",
@@ -140,6 +144,7 @@ Status: 200 OK
 | 5606         | 回答日時（to）が不正                                       |
 | 5607         | まるなげ与信申請情報取得件数が不正                          　　|
 | 5608         | まるなげ与信申請情報取得開始インデックス件数が不正           　　　　 |
+| 5609         | まるなげ与信申請IDが不正                                   |
 
 ----
 
