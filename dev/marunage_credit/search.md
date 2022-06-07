@@ -113,20 +113,20 @@ Status: 200 OK
         {
             "error_code": null,
             "error_message": null,
-            "id": 1,
-            "billing_code": "billing_code_1",
-            "status": 1,
-            "regist_date":"2022/05/13 00:00:00",
-            "update_date":"2022/05/13 00:00:00"
-        },
-        {
-            "error_code": null,
-            "error_message": null,
             "id": 2,
             "billing_code": "billing_code_2",
             "status": 1,
             "regist_date":"2022/05/14 23:59:59",
             "update_date":"2022/05/14 23:59:59"
+        },
+        {
+            "error_code": null,
+            "error_message": null,
+            "id": 1,
+            "billing_code": "billing_code_1",
+            "status": 1,
+            "regist_date":"2022/05/13 00:00:00",
+            "update_date":"2022/05/13 00:00:00"
         }
     ]
 }
