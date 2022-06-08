@@ -110,8 +110,8 @@ Status: 200 OK
             "id": 2,
             "billing_code": "billing_code_1",
             "status": 1,
-            "requested_date":"2022/01/11 00:00:00",
-            "responded_date":"2022/01/11 00:00:00"
+            "requested_date":"2022/01/12 00:00:00",
+            "responded_date":"2022/01/12 00:00:00"
 	},
 	{
             "error_code": null,
@@ -119,8 +119,8 @@ Status: 200 OK
             "id": 1,
             "billing_code": "billing_code_2",
             "status": 2,
-            "requested_date":"2022/01/12 00:00:00",
-            "responded_date":"2022/01/12 00:00:00"
+            "requested_date":"2022/01/11 00:00:00",
+            "responded_date": null
 	}
     ]
 }
