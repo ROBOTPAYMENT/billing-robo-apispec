@@ -31,13 +31,14 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                | 概要                                                | 桁数  | 種別                                  | 必須 |
-| ------------------- | -------------------------------------------------- | ---- | -------------------------------------- | ---- |
-| billing_code        | 請求先コード                                        | 20   | [半角英数 + 記号](../../index.md#種別)  | 必須  |
-| representative_name | 代表者名                                            | 40   | 文字列                                 | 必須  |
-| contract_date       | 契約日                                              | 10   | 日付                                   | 必須  |
-| transaction_count   | 取引回数                                            | 4    | 数値                                   | 必須  |
-| company_url         | 企業URL                                             | 200  | 文字列                                 | 必須  |
+| 名前                     | 概要                                                | 桁数  | 種別                                 | 必須 |
+| ------------------------ | -------------------------------------------------- | ---- | ------------------------------------- | ---- |
+| billing_code             | 請求先コード                                        | 20   | [半角英数 + 記号](../../index.md#種別) | 必須  |
+| representative_name      | 代表者名                                            | 40   | 文字列                                | 必須  |
+| contract_date            | 契約日                                              | 10   | 日付                                  | 必須  |
+| transaction_count        | 取引回数                                            | 4    | 数値                                  |       |
+| company_url              | 企業URL                                             | 200  | 文字列                                | 必須  |
+| estimated_billing_amount | 請求予定金額                                         | 15   | 数値                                  | 必須  |
 
 
 
@@ -58,18 +59,19 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                | 概要                                                | 型      |
-| ------------------- | -------------------------------------------------- | ------- |
-| error_code          | エラーコード<br> ※正常時はnull                          | int     |
-| error_message       | エラーメッセージ<br> ※正常時はnull                       | string  |
-| id                  | 申請ID                                              | int     |
-| billing_code        | 請求先コード                                         　| string  |
-| representative_name | 代表者名                                            　| string  |
-| contract_date       | 契約日                                               | date    |
-| transaction_count   | 取引回数                                            　| int     |
-| company_url         | 企業URL                                              | string  |
-| status              | まるなげ与信申請状態<br> 0: 却下<br> 1: 承認<br> 2: 申請中  | int     |
-| requested_date      | 申請日時                                            　| datetime |
+| 名前                     | 概要                                                    | 型       |
+| ------------------------ | ------------------------------------------------------ | -------- |
+| error_code               | エラーコード<br> ※正常時はnull                          | int      |
+| error_message            | エラーメッセージ<br> ※正常時はnull                      | string   |
+| id                       | 申請ID                                                 | int      |
+| billing_code             | 請求先コード                                            | string   |
+| representative_name      | 代表者名                                                | string   |
+| contract_date            | 契約日                                                  | date     |
+| transaction_count        | 取引回数                                                | int      |
+| company_url              | 企業URL                                                 | string   |
+| estimated_billing_amount | 請求予定金額                                             | int      |
+| status                   | まるなげ与信申請状態<br> 0: 却下<br> 1: 承認<br> 2: 申請中 | int      |
+| requested_date           | 申請日時                                                 | datetime |
 
 
 ## 使用例
@@ -86,14 +88,16 @@
             "representative_name": "代表者名1",
             "contract_date": "2022/01/01",
             "transaction_count": 12,
-            "company_url": "https://www.sample1.co.jp"
+            "company_url": "https://www.sample1.co.jp",
+            "estimated_billing_amount": 10000
         },
 	{
             "billing_code": "billing_code_002",
             "representative_name": "代表者名2",
             "contract_date": "2022/01/01",
             "transaction_count": 24,
-            "company_url": "https://www.sample2.co.jp"
+            "company_url": "https://www.sample2.co.jp",
+	    "estimated_billing_amount": 50000
         }
     ]
 }
@@ -117,6 +121,7 @@ Status: 200 OK
             "contract_date": "2022/01/01",
             "transaction_count": 12,
             "company_url": "https://www.sample1.co.jp",
+            "estimated_billing_amount": 10000,
             "status": 2,
             "requested_date": "2022/01/02 00:00:00"
         },
@@ -129,6 +134,7 @@ Status: 200 OK
             "contract_date": "2022/01/01",
             "transaction_count": 24,
             "company_url": "https://www.sample2.co.jp",
+            "estimated_billing_amount": 50000,
             "status": 2,
             "requested_date": "2022/01/02 00:00:00"
         }
@@ -152,13 +158,13 @@ Status: 200 OK
 | 5404         | 契約日が不正                                                  |
 | 5405         | 取引回数が不正                                                |
 | 5406         | 企業URLが不正                                                 |
-| 5407         | 契約日が未来の日付の為まるなげ与信申請登録できません              |
 | 5408         | 電話番号が未登録の請求先部署がある為まるなげ与信申請登録できません |
 | 5409         | 請求先部署が未承認の為まるなげ与信申請登録できません              |
 | 5410         | 既に与信申請中又はまるなげ与信が有効になっています                |
 | 5411         | 他のまるなげ与信申請の登録に失敗しました                         |
 | 5412         | 同じ請求先に対して２件以上のリクエストはできません                |
 | 5413         | リクエストパラメータにまるなげ与信申請オブジェクトがない          |
+| 5414         | 請求予定金額が不正                                             |
 
 ----
 
