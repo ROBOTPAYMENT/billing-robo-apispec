@@ -72,8 +72,8 @@
 | id             | まるなげ与信申請ID                                   | int     |
 | billing_code   | 請求先コード                                          | string  |
 | status         | まるなげ与信申請状態<br> 0: 却下<br> 1: 承認<br> 2: 申請中 | int      |
-| requested_date | 申請日                                              | datetime |
-| responded_date | 回答日                                              | datetime |
+| requested_date | 申請日時                                              | datetime |
+| responded_date | 回答日時                                              | datetime |
 
 
 ## 使用例
@@ -108,7 +108,7 @@ Status: 200 OK
             "error_code": null,
             "error_message": null,
             "id": 2,
-            "billing_code": "billing_code_1",
+            "billing_code": "billing_code_2",
             "status": 1,
             "requested_date":"2022/01/12 00:00:00",
             "responded_date":"2022/01/12 00:00:00"
@@ -117,7 +117,7 @@ Status: 200 OK
             "error_code": null,
             "error_message": null,
             "id": 1,
-            "billing_code": "billing_code_2",
+            "billing_code": "billing_code_1",
             "status": 2,
             "requested_date":"2022/01/11 00:00:00",
             "responded_date": null
