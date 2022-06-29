@@ -1,4 +1,4 @@
-# まるなげ与信申請参照API
+# まるなげ与信申請参照
 
 `/api/v1.0/request_marunage_credit/search`
 

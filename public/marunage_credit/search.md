@@ -1,4 +1,4 @@
-# まるなげ与信参照API
+# まるなげ与信参照
 
 `/api/v1.0/marunage_credit/search`
 
