@@ -1,4 +1,4 @@
-# まるなげ与信解除API
+# まるなげ与信解除
 
 `/api/v1.0/marunage_credit/bulk_stop`
 

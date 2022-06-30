@@ -52,10 +52,13 @@
 | [請求元部署停止削除](/public/bs_department/bulk_stop.md) | POST | /api/v1.0/bs_department/bulk_stop |
 | [請求元担当者登録更新](/public/bs_owner/bulk_upsert.md) | POST | /api/v1.0/bs_owner/bulk_upsert |
 | [請求元担当者停止削除](/public/bs_owner/bulk_stop.md) | POST | /api/v1.0/bs_owner/bulk_stop |
+| [まるなげ与信申請登録](/public/request_marunage_credit/bulk_register.md) |  POST  | /api/v1.0/request_marunage_credit/bulk_register |
+| [まるなげ与信申請参照](/public/request_marunage_credit/search.md)        |  POST  | /api/v1.0/request_marunage_credit/search        |
+| [まるなげ与信解除](/public/marunage_credit/bulk_stop.md)                |  POST  | /api/v1.0/marunage_credit/bulk_stop             |
+| [まるなげ与信参照](/public/marunage_credit/search.md)                   |  POST  | /api/v1.0/marunage_credit/search                |
 
 <br>
 - [非推奨のAPI一覧](/deprecated/index.md)
-- [開発中のAPI一覧(β版)](/dev/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)

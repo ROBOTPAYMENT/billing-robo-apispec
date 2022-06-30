@@ -1,4 +1,4 @@
-# まるなげ与信申請登録API
+# まるなげ与信申請登録
 
 `/api/v1.0/request_marunage_credit/bulk_register`
 
