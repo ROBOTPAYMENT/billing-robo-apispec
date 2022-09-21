@@ -230,7 +230,7 @@
 | name                           | 決済情報名                                                                                                                             | string |
 | bank_transfer_pattern_code     | 請求元銀行口座パターンコード                                                                                                            | string |
 | payment_method                 | [決済手段](../../index.md#決済手段)                                                                                                    | int    |
-| register_status                | 登録ステータス <br> 0:未処理 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報_送信エラー <br> 5:登録完了 <br> 6:登録失敗  | int    |
+| register_status                | 登録ステータス <br> 0:未処理 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報_送信エラー <br> 5:登録完了 <br> 6:登録失敗 <br> 7:まるなげ与信停止中 | int    |
 | source_bank_account_name       | 振込元口座名義 <br> ※payment_method=0,2,9以外はNULL                                                                                  | string |
 | customer_number                | 顧客番号 <br> ※payment_method=3,5以外はNULL                                                                                          | string |
 | bank_code                      | 銀行コード <br> ※payment_method=3,4,5,9以外はNULL                                                                                    | string |
