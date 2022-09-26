@@ -185,7 +185,7 @@ Status: 200 OK
             "code": "individualcode",
             "name": "サンプル部",
             "link_customer_code": "link_customer_code",
-            "address1": "宛名１",
+            "address1": "宛名1",
             "address2": "",
             "address3": "",
             "zip_code": 1651111,
