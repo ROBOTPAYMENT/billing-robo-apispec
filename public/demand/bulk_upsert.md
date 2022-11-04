@@ -72,6 +72,7 @@
 | slip_deadline_day         | 払込票有効期限_日 <br> 入力可能値:1～30、99(末日) <br> ※決済手段が、コンビニ払込票（ハガキ）で、払込票有効期限を設定する場合に指定 <br> ※追加省略時、nullで登録される                                                                                                                                                                                       | 2            | 数値                                   |                               |
 | memo                      | メモ <br> ※省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                                                                                                        | 300          | 文字列                                 |                               |
 | bill_template_code        | 請求書テンプレートコード <br> 10000:基本テンプレート <br> 10010:シンプル  <br> ※請求先部署に登録されている場合は任意 <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください                                                                                                                                                                 | 18           | 数値                                   | (追加時)                      |
+| bs_residence_code         | 請求元差出人コード <br> ※両端のスペース除去 <br> ※（追加時）空文字・省略・NULLの場合、請求元設定で登録しているデフォルト差出人が適用されます <br> ※（更新時）空文字、省略、nullの場合は更新しません                                                                                                                                                                                                                                  | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | bs_owner_code             | 請求元担当者コード <br> ※両端のスペース除去 <br> ※請求先部署に登録されている場合は任意 <br> ※追加省略時、nullで登録される                                                                                                                                                                                                                                   | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | account_title_code        | 勘定科目コード <br> ※両端のスペース除去 <br> ※追加省略時、4100で登録される                                                                                                                                                                                                                                                                                  | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | bill_group_key            | 請求書合算キー                                                                                                                                                                                                                                                                                                                                              | 256          | 文字列                                 |                               |
@@ -160,6 +161,7 @@
 | next_issue_date           | 次回請求書発行日 <br> ※次回請求書が存在しない場合はnull                                                                                | date   |
 | memo                      | メモ                                                                                                                                   | string |
 | bill_template_code        | 請求書テンプレートコード                                                                                                               | int    |
+| bs_residence_code         | 請求元差出人コード                                                                                                                     | string |
 | bs_owner_code             | 請求元担当者コード                                                                                                                     | string |
 | account_title_code        | 勘定科目コード                                                                                                                         | string |
 | text_pattern_code         | 文章パターンコード                                                                                                                     | string |
@@ -297,6 +299,7 @@ Status: 200 OK
             "next_issue_date": null,
             "memo": "",
             "bill_template_code": 10010,
+            "bs_residence_code": "bs_residence_code",
             "bs_owner_code": "bs_owner_code",
             "account_title_code": "4100",
             "text_pattern_code": null,
@@ -462,6 +465,9 @@ Status: 200 OK
 | 1363         | 対象のカスタム項目情報が存在しません                                                                               |
 | 1364         | カスタム項目リクエスト件数が上限を超えています                                                                      |
 | 1365         | カスタム項目情報にはarrayを指定してください                                                                         |
+| 1366         | 請求元差出人コードが不正                                                                                          |
+| 1367         | 請求元差出人が存在しません                                                                                        |
+| 1368         | 選択された消費税率は利用不可です                                                                                   |
 
 - 注１.このデフォルト利用可能決済手段は「コンビニ払込票（ハガキ）、その他コンビニ払込票」を指します
 
