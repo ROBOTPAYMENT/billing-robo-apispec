@@ -5,7 +5,7 @@
 <br>※非推奨APIの新機能の追加や不具合の改善は原則行われません。
 
 | 非推奨API                              | 代替API     | 廃止通知日     | 廃止予定時期     |
-| --------------------------------- | ------------- | ------------- | ------------- | ------------- |
+| --------------------------------- | ------------- | ------------- | ------------- |
 |[請求先登録 billing/add](billing/add.md)| [請求先登録更新 v1.0/billing/bulk_upsert](../public/billing/bulk_upsert.html)|未定 | 未定 |
 |[請求先部署登録 billing_individual/add](billing_individual/add.md)|[請求先登録更新 v1.0/billing/bulk_upsert](../public/billing/bulk_upsert.html)|未定 | 未定 |
 |[請求先部署編集 billing_individual/edit](billing_individual/edit.md)|[請求先登録更新 v1.0/billing/bulk_upsert](../public/billing/bulk_upsert.html)|未定 | 未定 |
