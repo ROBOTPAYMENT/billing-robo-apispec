@@ -137,6 +137,7 @@
 | tax_category                   | 税区分 <br> 0:外税 1:内税 2:対象外 3:非課税                                                                                                                                                 | int      |
 | consumption_tax                | 消費税率                                                                                                                                                                                   | int      |
 | subtotal_amount_billed         | 請求金額小計                                                                                                                                                                               | int      |
+| tax_exclusive_amount           | 税抜金額                                                                                                                                                                               | int      |
 | consumption_tax_amount         | 消費税額                                                                                                                                                                                   | int      |
 | total_amount_billed            | 請求金額合計                                                                                                                                                                               | int      |
 | unclearing_amount              | 未消込金額                                                                                                                                                                                 | int      |
@@ -261,6 +262,7 @@ Status: 200 OK
             "tax_category": 0,
             "consumption_tax": 10,
             "subtotal_amount_billed": 2000,
+            "tax_exclusive_amount": 2000,
             "consumption_tax_amount": 200,
             "total_amount_billed": 2200,
             "unclearing_amount": 2200,

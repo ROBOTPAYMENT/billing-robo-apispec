@@ -121,6 +121,7 @@
 | subtotal_amount_billed          | 請求金額小計                                                                                                                                                                                | int    |                         |
 | consumption_tax_amount          | 消費税額                                                                                                                                                                                    | int    |                         |
 | total_amount_billed             | 請求金額合計                                                                                                                                                                                | int    |                         |
+| [consumption_tax_items](#consumption_tax_items-response) | 消費税内訳                                                                                                                                                        | array | 税率がない（対象外、非課税）場合はnullを返却 | 
 | unclearing_amount               | 未消込金額                                                                                                                                                                                  | int    |                         |
 | message_column                  | 通信欄                                                                                                                                                                                     | string |                          |
 | billing_method                  | 請求方法 <br> 0:請求無し <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール＋自動郵送 <br> 6:手動メール＋手動郵送                                             | int    |                         |
@@ -167,6 +168,15 @@
 | update_date                     | 更新日時                                                                                                                                                                                    | datetime |                      |
 | valid_flg                       | 有効フラグ  <br> 0:無効  <br> 1:有効                                                                                                                                                        | int      |                       |
 
+#### consumption_tax_items (response)
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前             | 概要       | 型     | 備考   |
+| --------------- | --------- | ------ | ----- |
+| taxable_amount  | 課税基準額   | int    | 税抜額 |
+| tax_amount      | 消費税額    | int    | |
+| tax_rate        | 税率       | int    | |
 
 #### count_update_date (response)
 
@@ -255,6 +265,13 @@ Status: 200 OK
             "subtotal_amount_billed": 10000,
             "consumption_tax_amount": 800,
             "total_amount_billed": 10800,
+            "consumption_tax_items":[
+              {
+                "taxable_amount": 10000,
+                "tax_amount": 800,
+                "tax_rate": 8
+              }
+            ],
             "unclearing_amount": 0,
             "message_column": "message_column",
             "billing_method": 6,

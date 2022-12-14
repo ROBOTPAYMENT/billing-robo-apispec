@@ -141,6 +141,7 @@
 | period_date_start                                  | 請求対象期間開始日                                                                                                                                                                          | date            |
 | period_date_end                                    | 請求対象期間終了日                                                                                                                                                                          | date            |
 | payment_method                                     | [決済手段](../../index.md#決済手段) | int             |
+| tax_exclusive_amount                               | 税抜金額                                                                                                                                                                                    | int             |
 | total_amount                                       | 売上金額                                                                                                                                                                                    | int             |
 | unclearing_amount                                  | 未消込金額                                                                                                                                                                                  | int             |
 | recorded_date                                      | 売上計上日                                                                                                                                                                                  | date            |
@@ -182,6 +183,7 @@
 | demand_count              | 請求件数 <br> ※請求書明細の件数                                                                                                                                                             | int      |
 | subtotal_amount           | 小計                                                                                                                                                                                        | int      |
 | tax_amount                | 消費税額                                                                                                                                                                                    | int      |
+| [consumption_tax_items](#consumption_tax_items-response) | 消費税内訳                                                                                                                                                        | array |
 | total_amount              | 合計                                                                                                                                                                                        | int      |
 | unclearing_amount         | 未消込金額                                                                                                                                                                                  | int      |
 | message_column            | 通信欄                                                                                                                                                                                      | string   |
@@ -223,6 +225,16 @@
 | status                | 状態 <br> 0:削除 <br> 1:有効 <br> 2:無効                                                                                                                                                                                                                                                                                                                                         | int      |
 | created               | 登録日時                                                                                                                                                                                                                                                                                                                                                                         | datetime |
 | modified              | 更新日時                                                                                                                                                                                                                                                                                                                                                                         | datetime |
+
+#### consumption_tax_items (response)
+
+下記のような項目のオブジェクトを持つリスト
+
+| 名前             | 概要       | 型     | 備考   |
+| --------------- | --------- | ------ | ----- |
+| taxable_amount  | 課税基準額   | int    | 税抜額 |
+| tax_amount      | 消費税額    | int    | |
+| tax_rate        | 税率       | int    | |
 
 
 ## 使用例
@@ -328,6 +340,7 @@ Status: 200 OK
                     "period_date_start": "2020/11/01",
                     "period_date_end": "2020/11/30",
                     "payment_method": 0,
+                    "tax_exclusive_amount": 1000,
                     "total_amount": 1080,
                     "unclearing_amount": 0,
                     "recorded_date": "2020/11/30",
@@ -359,6 +372,13 @@ Status: 200 OK
                             "demand_count": 1,
                             "subtotal_amount": 1000,
                             "tax_amount": 80,
+                            "consumption_tax_items":[
+                              {
+                                "taxable_amount": 1000,
+                                "tax_amount": 80,
+                                "tax_rate": 8
+                              }
+                            ],
                             "total_amount": 1080,
                             "unclearing_amount": 0,
                             "message_column": null,
