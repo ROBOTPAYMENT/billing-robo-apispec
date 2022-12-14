@@ -141,6 +141,7 @@
 | period_date_start                                  | 請求対象期間開始日                                                                                                                                                                          | date            |
 | period_date_end                                    | 請求対象期間終了日                                                                                                                                                                          | date            |
 | payment_method                                     | [決済手段](../../index.md#決済手段) | int             |
+| tax_exclusive_amount                               | 税抜金額                                                                                                                                                                                    | int             |
 | total_amount                                       | 売上金額                                                                                                                                                                                    | int             |
 | unclearing_amount                                  | 未消込金額                                                                                                                                                                                  | int             |
 | recorded_date                                      | 売上計上日                                                                                                                                                                                  | date            |
@@ -339,6 +340,7 @@ Status: 200 OK
                     "period_date_start": "2020/11/01",
                     "period_date_end": "2020/11/30",
                     "payment_method": 0,
+                    "tax_exclusive_amount": 1000,
                     "total_amount": 1080,
                     "unclearing_amount": 0,
                     "recorded_date": "2020/11/30",
@@ -372,9 +374,9 @@ Status: 200 OK
                             "tax_amount": 80,
                             "consumption_tax_items":[
                               {
-                                "taxable_amount":1000,
-                                "tax_amount":80,
-                                "tax_rate":8
+                                "taxable_amount": 1000,
+                                "tax_amount": 80,
+                                "tax_rate": 8
                               }
                             ],
                             "total_amount": 1080,
