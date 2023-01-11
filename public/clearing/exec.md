@@ -65,7 +65,6 @@
 | 名前                           | 概要                                   | 型       |
 | ------------------------------ | -------------------------------------- | -------- |
 | user_id                        | ユーザー ID（管理画面へのログイン ID） | string   |
-| access_key                     | アクセスキー                           | string   |
 | [clearing](#clearing-response) | 消込に属するパラメータ                 | `object` |
 
 #### clearing (response)
@@ -161,7 +160,6 @@ Status: 200 OK<br>入金と請求書の消込の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "clearing": {
     "error_code": null,
     "error_message": null,
@@ -215,7 +213,6 @@ Status: 200 OK<br>入金と請求書の消込の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "clearing": {
     "error_code": null,
     "error_message": null,

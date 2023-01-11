@@ -76,7 +76,6 @@
 | 名前                                                     | 概要                                   | 型      |
 | -------------------------------------------------------- | -------------------------------------- | ------- |
 | user_id                                                  | ユーザー ID（管理画面へのログイン ID） | string  |
-| access_key                                               | アクセスキー                           | string  |
 | [payment_bank_transfer](#payment_bank_transfer-response) | 銀行振込形式に属するパラメータ         | `array` |
 | [payment_other](#payment_other-response)                 | その他形式に属するパラメータ           | `array` |
 
@@ -178,7 +177,6 @@ Status: 200 OK
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "payment_bank_transfer": [
     {
       "error_code": null,

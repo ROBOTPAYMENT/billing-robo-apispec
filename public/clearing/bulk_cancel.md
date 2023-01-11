@@ -48,7 +48,6 @@
 | 名前                         | 概要                       | 型      |
 | ---------------------------- | -------------------------- | ------- |
 | user_id                      | ユーザー ID                | string  |
-| access_key                   | アクセスキー               | string  |
 | [erasure](#erasure-response) | 消込結果に属するパラメータ | `array` |
 
 #### erasure (response)
@@ -98,7 +97,6 @@ Status: 200 OK <br> 入金と請求書の消込取消の場合
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "erusure": [
     {
       "error_code": null,

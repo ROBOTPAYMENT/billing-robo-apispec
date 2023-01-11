@@ -93,7 +93,6 @@
 | 名前                      | 概要                     | 型      |
 | ------------------------- | ------------------------ | ------- |
 | user_id                   | ユーザID                 | string  |
-| access_key                | アクセスキー             | string  |
 | [demand](#demand-request) | 請求書に属するパラメータ | `array` |
 
 
@@ -212,7 +211,6 @@ Status: 200 OK
 {
     "user": {
         "user_id": "sample@robotpayment.co.jp",
-        "access_key": "xxxxxxxxxxxxxxxx",
         "demand": {
             "billing_code": "billing",
             "billing_name": "請求先名",
@@ -264,7 +262,6 @@ Status: 200 OK
 {
     "user": {
         "user_id": "sample@robotpayment.co.jp",
-        "access_key": "xxxxxxxxxxxxxxxx",
         "bill": [
             {
                 "error_code": 234,

@@ -59,7 +59,6 @@
 | 名前                       | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概要&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 型      |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | user_id                                           | ユーザーID（管理画面へのログインID）                                                                                                                  | string                           |
-| access_key                                        | アクセスキー                                                                                                                                        | string                           |
 | limit_count                                       | カスタム項目情報取得件数 <br> ※最大件数は、リクエストで指定された「カスタム項目情報取得件数」に依存                                                           | int                              |
 | page_count                                        | カスタム項目情報取得開始インデックス <br> ※取得したカスタム項目情報の開始インデックスを返却する                                                               | int                              |
 | total_page_count                                  | カスタム項目情報取得開始インデックス合計 <br> ※指定された検索条件によって取得可能なカスタム項目情報の全件数／カスタム項目情報取得件数によって、算出される値を返却する | int                              |
@@ -113,7 +112,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "limit_count": 20,
     "page_count": 0,
     "total_page_count": 1,

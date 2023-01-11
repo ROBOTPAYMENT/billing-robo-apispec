@@ -47,7 +47,6 @@
 | 名前            | 概要                             | 型      |
 | ----------------| ------------------------------- | ------- |
 | user_id         | ユーザーID                       | string  |
-| access_key      | アクセスキー                     | string  |
 | marunage_credit | まるなげ与信解除に属するパラメータ | `array` |
 
 #### marunage_credit (response)
@@ -87,7 +86,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "marunage_credit": [
         {
             "error_code": null,

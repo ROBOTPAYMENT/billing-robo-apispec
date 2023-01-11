@@ -47,7 +47,6 @@
 | 名前                          | 概要                           | 型                |
 | ----------------------------- | ------------------------------ | ----------------- |
 | user_id                       | ユーザーID                     | string            |
-| access_key                    | アクセスキー                   | string            |
 | [bs_owner](#bsowner-response) | 請求元担当者に属するパラメータ | `array` |
 
 #### bs_owner (response)
@@ -91,7 +90,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "bs_owner": [
         {
             "error_code": null,

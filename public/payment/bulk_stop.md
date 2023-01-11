@@ -47,7 +47,6 @@
 | 名前                         | 概要                       | 型      |
 | ---------------------------- | -------------------------- | ------- |
 | user_id                      | ユーザー ID                | string  |
-| access_key                   | アクセスキー               | string  |
 | [payment](#payment-response) | 入金情報に属するパラメータ | `array` |
 
 #### payment (response)
@@ -89,7 +88,6 @@ Status: 200 OK
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "payment": [
     {
       "error_code": null,

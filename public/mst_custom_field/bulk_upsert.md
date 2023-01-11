@@ -51,7 +51,6 @@
 | 名前                                    | 概要                                                                                                                                          | 型      |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | user_id                                 | ユーザー ID                                                                                                                                   | string  |
-| access_key                              | アクセスキー                                                                                                                                  | string  |
 | [custom_field](#custom_field-response) | カスタム項目に属するパラメータ                                                                                                                  | `array` |
 
 #### custom_field (response)
@@ -97,7 +96,6 @@
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "custom_field": [
     {
       "error_code": null,

@@ -48,7 +48,6 @@
 | 名前                                    | 概要                         | 型                     |
 | --------------------------------------- | ---------------------------- | ---------------------- |
 | user_id                                 | ユーザーID                   | string                 |
-| access_key                              | アクセスキー                 | string                 |
 | [bs_department](#bsdepartment-response) | 請求元部署に属するパラメータ | `array` |
 
 #### bs_department (response)
@@ -94,7 +93,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "bs_department": [
         {
             "error_code": null,

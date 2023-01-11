@@ -47,7 +47,6 @@
 | 名前                                                        | 概要                                     | 型                                |
 | ----------------------------------------------------------- | ---------------------------------------- | --------------------------------- |
 | user_id                                                     | ユーザーID（管理画面へのログインID）     | string                            |
-| access_key                                                  | アクセスキー                             | string                            |
 | [bs_bank_transfer_pattern](#bsbanktransferpattern-response) | 請求元銀行口座パターンに属するパラメータ | `array` |
 
 #### bs_bank_transfer_pattern (response)
@@ -87,7 +86,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "bs_bank_transfer_pattern": [
         {
             "error_code": null,

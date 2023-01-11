@@ -74,7 +74,6 @@
 | 名前                       | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;概要&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 型      |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | user_id                    | ユーザー ID（管理画面へのログイン ID）                                                                                                                                                                                                                                                                                                                                       | string  |
-| access_key                 | アクセスキー                                                                                                                                                                                                                                                                                                                                                                 | string  |
 | limit_count                | 請求情報取得件数 <br> ※最大件数は、リクエストで指定された「請求書取得件数」に依存                                                                                                                                                                                                                                                                                              | int     |
 | page_count                 | 請求情報取得開始インデックス <br> ※取得した請求書の開始インデックスを返却する                                                                                                                                                                                                                                                                                                  | int     |
 | total_page_count           | 請求情報取得開始インデックス合計 <br> ※指定された検索条件によって取得可能な請求書の全件数／請求書取得件数によって、算出される値を返却する                                                                                                                                                                                                                                      | int     |
@@ -208,7 +207,6 @@ Status: 200 OK
 ```json
 {
   "user_id": "sample@robotpayment.co.jp",
-  "access_key": "xxxxxxxxxxxxxxxx",
   "limit_count": 20,
   "page_count": 0,
   "total_page_count": 0,

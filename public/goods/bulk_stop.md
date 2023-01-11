@@ -48,7 +48,6 @@
 | 名前                     | 概要                   | 型             |
 | ------------------------ | ---------------------- | -------------- |
 | user_id                  | ユーザーID             | string         |
-| access_key               | アクセスキー           | string         |
 | [goods](#goods-response) | 商品に属するパラメータ | `array` |
 
 #### goods (response)
@@ -88,7 +87,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "goods":[
         {
             "error_code": null,

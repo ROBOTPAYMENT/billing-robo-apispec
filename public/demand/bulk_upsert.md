@@ -110,7 +110,6 @@
 | 名前                       | 概要                                 | 型              |
 | -------------------------- | ------------------------------------ | --------------- |
 | user_id                    | ユーザーID（管理画面へのログインID） | string          |
-| access_key                 | アクセスキー                         | string          |
 | [demand](#demand-response) | 請求情報に属するパラメータ           | `array` |
 
 #### demand (response)
@@ -254,9 +253,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
-    "user_id": "1234567",
-    "access_key": "abcd1234",
     "demand": [
         {
             "error_code": null,

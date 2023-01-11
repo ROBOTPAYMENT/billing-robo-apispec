@@ -52,7 +52,6 @@
 | 名前                    | 概要                                                                                                                               | 型       |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | user_id                 | ユーザーID                                                                                                                         | string   |
-| access_key              | アクセスキー                                                                                                                       | string   |
 | request_marunage_credit | まるなげ与信申請情報に属するパラメータ                                                                                               | `array`  |
 
 #### request_marunage_credit (response)
@@ -110,7 +109,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "request_marunage_credit": [
         {
             "error_code": null,
