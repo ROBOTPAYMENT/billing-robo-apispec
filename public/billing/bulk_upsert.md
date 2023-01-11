@@ -142,7 +142,6 @@
 | 名前                | 概要                                 | 型             |
 | ------------------- | ------------------------------------ | -------------- |
 | user_id             | ユーザーID（管理画面へのログインID） | string         |
-| access_key          | アクセスキー                         | string         |
 | [billing](#billing) | 請求先に属するパラメータ             | Array(billing) |
 
 #### billing (response)
@@ -331,7 +330,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "billing": [
         {
             "error_code": null,

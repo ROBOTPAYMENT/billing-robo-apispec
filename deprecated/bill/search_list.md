@@ -67,7 +67,6 @@
 | 名前                   | 概要                                                                                                                                    | 型            |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
 | user_id                | ユーザーID                                                                                                                              | string        |
-| access_key             | アクセスキー                                                                                                                            | string        |
 | error_code             | エラーコード <br> ※正常時はnull                                                                                                         | int          |
 | error_message          | エラーメッセージ <br> ※正常時はnull                                                                                                     | string        |
 | limit_count            | 請求書取得件数 <br> ※最大件数は、リクエストで指定された「請求書取得件数」に依存                                                         | int           |
@@ -204,7 +203,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "limit_count": 20,
     "page_count": 0,
     "total_page_count": 0,

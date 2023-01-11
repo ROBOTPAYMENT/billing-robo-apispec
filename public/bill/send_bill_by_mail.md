@@ -46,7 +46,6 @@
 | 名前                   | 概要                     | 型            |
 | ---------------------- | ------------------------ | ------------- |
 | user_id                | ユーザーID               | string        |
-| access_key             | アクセスキー             | string        |
 | [bill](#bill-response) | 請求書に属するパラメータ | `array` |
 
 #### bill (response)
@@ -84,7 +83,6 @@ Status: 200 OK
 ```json
 {
     "user_id": "sample@robotpayment.co.jp",
-    "access_key": "xxxxxxxxxxxxxxxx",
     "bill": [
         {
             "error_code": null,
