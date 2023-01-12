@@ -46,6 +46,7 @@
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込 <br> ※追加省略時、1 で登録される                                                                                                                                                                                                                                                                                                    | 1    | 数値                                   |                |
 | clearing_status           | 消込ステータス <br> 0:未消込 <br> 2:確認済み <br> ※追加省略時、0 で登録される                                                                                                                                                                                                                                                                                                | 1    | 数値                                   |                |
 | accrued_clearing_auto_flg | 未収自動消込フラグ <br> 0:未収を自動消込の対象に含めない <br> 1:未収を自動消込の対象に含める <br> ※追加省略時、または消込方法:手動消込の場合 0 で登録される                                                                                                                                                                                                                  | 1    | 数値                                   |                |
+| memo                      | メモ <br> ※省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                                                                                                        | 300          | 文字列                                 |                               |
 
 #### payment_other (request)
 
@@ -65,6 +66,7 @@
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込 <br> ※追加省略時、1 で登録される                                                                                                                                                                                                                                                                                                    | 1    | 数値                                   |                |
 | clearing_status           | 消込ステータス <br> 0:未消込 <br> 2:確認済み <br> ※追加省略時、0 で登録される                                                                                                                                                                                                                                                                                                | 1    | 数値                                   |                |
 | accrued_clearing_auto_flg | 未収自動消込フラグ <br> 0:未収を自動消込の対象に含めない <br> 1:未収を自動消込の対象に含める <br> ※追加省略時、または消込方法:手動消込の場合 0 で登録される                                                                                                                                                                                                                  | 1    | 数値                                   |                |
+| memo                      | メモ <br> ※省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                                                                                                        | 300          | 文字列                                 |                               |
 
 ## レスポンス
 
@@ -98,6 +100,7 @@
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込                                                     | int    |
 | clearing_status           | 消込ステータス <br> 0:未消込 <br> 2:確認済み                                                 | int    |
 | accrued_clearing_auto_flg | 未収自動消込フラグ <br> 0:未収を自動消込の対象に含めない <br> 1:未収を自動消込の対象に含める | int    |
+| memo                      | メモ                                                                                       | string |
 
 #### payment_other (response)
 
@@ -119,6 +122,7 @@
 | clearing_method           | 消込方法 <br> 0:自動消込 <br> 1:手動消込                                                                                              | int    |
 | clearing_status           | 消込ステータス <br> 0:未消込 <br> 2:確認済み                                                                                          | int    |
 | accrued_clearing_auto_flg | 未収自動消込フラグ <br> 0:未収を自動消込の対象に含めない <br> 1:未収を自動消込の対象に含める                                          | int    |
+| memo                      | メモ                                                                                                                               | string |
 
 ## 使用例
 
@@ -150,7 +154,8 @@
       "billing_individual_number": 123456,
       "clearing_method": 0,
       "clearing_status": 0,
-      "accrued_clearing_auto_flg": 0
+      "accrued_clearing_auto_flg": 0,
+      "memo": "メモ1",
     },
     {
       "payment_id": 2,
@@ -163,7 +168,8 @@
       "billing_individual_number": null,
       "clearing_method": null,
       "clearing_status": 2,
-      "accrued_clearing_auto_flg": 1
+      "accrued_clearing_auto_flg": 1,
+      "memo": "メモ2",
     }
   ],
   "payment_other": []
@@ -191,7 +197,8 @@ Status: 200 OK
       "billing_individual_number": 123456,
       "clearing_method": 0,
       "clearing_status": 0,
-      "accrued_clearing_auto_flg": 0
+      "accrued_clearing_auto_flg": 0,
+      "memo": "メモ1",
     },
     {
       "error_code": null,
@@ -206,7 +213,8 @@ Status: 200 OK
       "billing_individual_number": 123456,
       "clearing_method": 0,
       "clearing_status": 2,
-      "accrued_clearing_auto_flg": 1
+      "accrued_clearing_auto_flg": 1,
+      "memo": "メモ2",
     }
   ],
   "payment_other": []
@@ -249,6 +257,7 @@ Status: 200 OK
 | 3626         | 入金情報の登録更新に失敗しました。                                   |
 | 3627         | 確認済みの入金情報は仮受金フラグを変更できません。                    |
 | 3628         | リクエスト件数が上限を超えています。                                 |
+| 3629         | メモが不正                                                         |
 
 ---
 

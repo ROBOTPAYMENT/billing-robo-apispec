@@ -113,6 +113,7 @@
 | import_format         | 取込形式 <br> 1:全銀 <br> 2:CSV-銀行振込 <br> 3:金融機関連携 <br> 5:CSV-その他 <br> 6:API                                                                                                                                                                                                                                                                                 | int    |
 | transfer_status       | 振替区分 <br> 0:仮受 <br> 1:入金                                                                                                                                                                                                                                                                                                                                          | int    |
 | suspense_name         | 仮受先名                                                                                                                                                                                                                                                                                                                                                                  | string |
+| memo                      | メモ                                                                                                                                   | string |
 | valid_flg             | 状態 <br> 0:無効 <br> 1:有効                                                                                                                                                                                                                                                                                                                                              | string |
 | bs_bank_transfer_code | 請求元銀行口座コード                                                                                                                                                                                                                                                                                                                                                       | string |
 | regist_date           | 登録日時                                                                                                                                                                                                                                                                                                                                                                  | datetime |
@@ -195,6 +196,7 @@ Status: 200 OK
       "import_format": 1,
       "transfer_status": 0,
       "suspense_name": "sample株式会社",
+      "memo": "メモ",
       "valid_flg": 1,
       "regist_date": "2019/06/21 13:57:01",
       "update_date": "2019/06/21 13:57:02",
