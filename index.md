@@ -23,8 +23,12 @@
 ## 概要
 
 - Base URL:
-    - 本番環境: `https://billing-robo.jp:10443`
-    - デモ環境: `https://demo.billing-robo.jp:10443`
+    - 本番環境: 
+      - `https://billing-robo.jp`【推奨】
+      - `https://billing-robo.jp:10443`
+    - デモ環境:
+      - `https://demo.billing-robo.jp`【推奨】
+      - `https://demo.billing-robo.jp:10443`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
 
