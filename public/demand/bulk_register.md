@@ -121,7 +121,7 @@
 | tax                       | 消費税率 <br> 画面上で選択できる消費税率のみ入力可能 <br> ※「tax_category = 3:対象外、4:非課税」の場合、空白                                                          | int    |
 | withholding_tax           | 源泉所得税設定 <br> 0:無し 1:有り <br> ※請求情報登録画面上にこの項目が表示されていない場合は0固定。                                                                   | int    |
 | remark                    | 備考                                                                                                                                                            | string |
-| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信 (※マイページ機能を利用可能な方のみ設定できます) <br> 8:自動マイページ配信                     | int    |
+| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信 <br> 8:自動マイページ配信                     | int    |
 | repetition_period_number  | 繰返し周期 <br> 1～60                                                                                                                                           | string |
 | repetition_period_unit    | 繰返し周期単位 <br> 1:月                                                                                                                                        | string |
 | start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                                                              | date   |
