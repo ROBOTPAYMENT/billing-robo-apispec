@@ -76,7 +76,7 @@
 | tax_category                          | 税区分 <br> 0:外税 <br> 1:内税 <br> 2:対象外 <br> 3:非課税                                                                                  | int                   |
 | tax                                   | 消費税率                                                                                                                                   | int                   |
 | remark                                | 備考                                                                                                                                       | string                |
-| billing_method                        | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:マイページ配信 | int                   |
+| billing_method                        | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信 <br> 8:自動マイページ配信 | int                   |
 | repetition_period_number              | 繰返し周期                                                                                                                                  | int                   |
 | repetition_period_unit                | 繰返し周期単位                                                                                                                              | int                   |
 | start_date                            | サービス提供開始日 <br> yyyy/mm/dd                                                                                                          | date                  |
@@ -136,7 +136,7 @@
 | tax                                                | 消費税率                                                                                                                                                                                    | int             |
 | tax_amount                                         | 消費税額                                                                                                                                                                                    | int             |
 | remark                                             | 備考                                                                                                                                                                                        | string          |
-| billing_method                                     | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:マイページ配信                                                | int             |
+| billing_method                                     | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信 <br> 8:自動マイページ配信                                                | int             |
 | period_date_start                                  | 請求対象期間開始日                                                                                                                                                                          | date            |
 | period_date_end                                    | 請求対象期間終了日                                                                                                                                                                          | date            |
 | payment_method                                     | [決済手段](../../index.md#決済手段) | int             |
@@ -186,7 +186,7 @@
 | total_amount              | 合計                                                                                                                                                                                        | int      |
 | unclearing_amount         | 未消込金額                                                                                                                                                                                  | int      |
 | message_column            | 通信欄                                                                                                                                                                                      | string   |
-| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:マイページ配信                                                | int      |
+| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信 <br> 8:自動マイページ配信                                                | int      |
 | type                      | 請求書タイプ <br> 1:請求 <br> 2:繰越請求 <br> 3:親請求 <br> 4:子請求                                                                                                                       | int      |
 | payment_method            | [決済手段](../../index.md#決済手段) | int      |
 | issue_date                | 請求書発行日                                                                                                                                                                                | date     |
