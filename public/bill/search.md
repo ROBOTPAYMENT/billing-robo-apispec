@@ -148,6 +148,7 @@
 | template_code                   | 請求書テンプレート                                                                                                                                                                          | string  |                        |
 | bs_residence_code               | 請求元差出人コード                                                                                                                                                                          | string  |                        |
 | bs_residence_name               | 請求元差出人名                                                                                                                                                                          | string  |                        |
+| bs_invoice_supplier_code        | 適格請求書発行事業者 登録番号                                                                                                                                                              | string  | 発行時の情報を返却します  |
 | bs_residence_zip_code           | 請求元差出人郵便番号                                                                                                                                                                          | string  | 発行時の情報を返却します                       |
 | bs_residence_pref              | 請求元差出人都道府県                                                                                                                                                                          | string  | 発行時の情報を返却します                       |
 | bs_residence_address           | 請求元差出人市区町村番地                                                                                                                                                                          | string  | 発行時の情報を返却します                       |
@@ -297,6 +298,7 @@ Status: 200 OK
             "template_code": "10010",
             "bs_residence_code": "bs_residence001",
             "bs_residence_name": "差出人1",
+            "bs_invoice_supplier_code": "T1234567890123",
             "bs_residence_zip_code": "1234567",
             "bs_residence_pref": "北海道",
             "bs_residence_address": "札幌市1-1",
