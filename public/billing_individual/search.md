@@ -35,24 +35,25 @@
 
 下記のような項目のオブジェクト
 
-| 名前                | 概要                                                                                                                                                                                                                                                                                                                          | 桁数 | 種別                                    | 必須                                             | 一致 |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------------------------------------- | ------------------------------------------------ | ---- |
-| billing_code        | 請求先コード                                                                                                                                                                                                                                                                                                                  | 20   | 半角英数 + 記号                         | (請求先部署番号指定時) <br> (請求先部署コード指定時) | 完全 |
-| billing_name        | 請求先名                                                                                                                                                                                                                                                                                                                      | 100  | 文字列                                 |                                                  | 部分 |
-| number              | 請求先部署番号                                                                                                                                                                                                                                                                                                                | 18   | 数値                                   |                                                  |     |
-| code                | 請求先部署コード                                                                                                                                                                                                                                                                                                              | 20   | 半角英数 + 記号                         |                                                  | 完全 |
-| name                | 請求先部署名                                                                                                                                                                                                                                                                                                                  | 100  | 文字列                                 |                                                  | 部分 |
-| email               | メールアドレス                                                                                                                                                                                                                                                                                                                | 100  | メール形式                              |                                                  | 完全 |
-| payment_method_code | 決済情報コード                                                                                                                                                                                                                                                                                                                 | 20   | 半角英数 + 記号                         |                                                 | 完全 |
-| payment_method      | [決済手段](../../index.md#決済手段) | 2     | 数値                                   |                                                 |     |
-| register_status     | 決済手段状況 <br> 0:未登録 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報送信エラー <br> 5:登録完了 <br>6:登録失敗 <br>7:まるなげ与信停止中                                                                                                                                                                                              | 1    | 数値                                   |                                                  |     |
-| bs_department_code  | 請求元部署コード                                                                                                                                                                                                                                                                                                               | 40   | 半角英数 + 記号                         |                                                  | 完全 |
-| bs_owner_code       | 請求元担当者コード                                                                                                                                                                                                                                                                                                             | 20   | 半角英数 + 記号                         |                                                  | 完全 |
-| regist_date_from    | 登録日時の検索開始日                                                                                                                                                                                                                                                                                                            | 19   | 日時                                   |                                                 |     |
-| regist_date_to      | 登録日時の検索終了日                                                                                                                                                                                                                                                                                                            | 19   | 日時                                   |                                                 |     |
-| update_date_from    | 更新日時の検索開始日                                                                                                                                                                                                                                                                                                            | 19   | 日時                                   |                                                 |     |
-| update_date_to      | 更新日時の検索終了日                                                                                                                                                                                                                                                                                                            | 19   | 日時                                   |                                                 |     |
-| valid_flg           | 状態 <br> 0: 停止 <br> 1: 有効                                                                                                                                                                                                                                                                                                 | 1    | 数値                                   |                                                 |     |
+| 名前                | 概要                                                                                                                                                                                                                                                                                                                          | 桁数  | 種別                          | 必須                                             | 一致  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |-----|-----------------------------| ------------------------------------------------ |-----|
+| billing_code        | 請求先コード                                                                                                                                                                                                                                                                                                                  | 20  | 半角英数 + 記号                   | (請求先部署番号指定時) <br> (請求先部署コード指定時) | 完全  |
+| billing_name        | 請求先名                                                                                                                                                                                                                                                                                                                      | 100 | 文字列                         |                                                  | 部分  |
+| number              | 請求先部署番号                                                                                                                                                                                                                                                                                                                | 18  | 数値                          |                                                  |     |
+| code                | 請求先部署コード                                                                                                                                                                                                                                                                                                              | 20  | 半角英数 + 記号                   |                                                  | 完全  |
+| name                | 請求先部署名                                                                                                                                                                                                                                                                                                                  | 100 | 文字列                         |                                                  | 部分  |
+| email               | メールアドレス                                                                                                                                                                                                                                                                                                                | 100 | メール形式                       |                                                  | 完全  |
+| payment_method_code | 決済情報コード                                                                                                                                                                                                                                                                                                                 | 20  | 半角英数 + 記号                   |                                                 | 完全  |
+| payment_method      | [決済手段](../../index.md#決済手段) | 2   | 数値                          |                                                 |     |
+| register_status     | 決済手段状況 <br> 0:未登録 <br> 1:登録待ち <br> 2:メール送信済み <br> 3:申請中 <br> 4:登録情報送信エラー <br> 5:登録完了 <br>6:登録失敗 <br>7:まるなげ与信停止中                                                                                                                                                                                              | 1   | 数値                          |                                                  |     |
+| bs_department_code  | 請求元部署コード                                                                                                                                                                                                                                                                                                               | 40  | 半角英数 + 記号                   |                                                  | 完全  |
+| bs_owner_code       | 請求元担当者コード                                                                                                                                                                                                                                                                                                             | 20  | 半角英数 + 記号                   |                                                  | 完全  |
+| attachment_planned_flg | 添付予定フラグ <br> ※ファイル添付機能利用中のみ利用可能                                                                                                                                                                                                                                                                          | 1   | 数値                        　 |                                                  |     |
+| regist_date_from    | 登録日時の検索開始日                                                                                                                                                                                                                                                                                                            | 19  | 日時                          |                                                 |     |
+| regist_date_to      | 登録日時の検索終了日                                                                                                                                                                                                                                                                                                            | 19  | 日時                          |                                                 |     |
+| update_date_from    | 更新日時の検索開始日                                                                                                                                                                                                                                                                                                            | 19  | 日時                          |                                                 |     |
+| update_date_to      | 更新日時の検索終了日                                                                                                                                                                                                                                                                                                            | 19  | 日時                          |                                                 |     |
+| valid_flg           | 状態 <br> 0: 停止 <br> 1: 有効                                                                                                                                                                                                                                                                                                 | 1   | 数値                          |                                                 |     |
 
 
 
@@ -76,55 +77,56 @@
 下記のような項目のオブジェクトを持つリスト
 
 | 名前                                    | 概要                                          | 型        |
-| --------------------------------------- | -------------------------------------------- | --------- |
+| --------------------------------------- | -------------------------------------------- |----------|
 | error_code                              | エラーコード <br> ※正常時はnull               | int      |
 | error_message                           | エラーメッセージ <br> ※正常時はnull            | string   |
-| billing_code                            | 請求先コード                                  | string    |
-| billing_name                            | 請求先名                                      | string    |
-| number                                  | 請求先部署番号                                | int       |
-| code                                    | 請求先部署コード                              | string    |
-| name                                    | 請求先部署名                                  | string    |
-| link_customer_code                      | 会計ソフト連携用取引先コード                   | string    |
-| address1                                | 宛名1                                        | string    |
-| address2                                | 宛名2                                        | string    |
-| address3                                | 宛名3                                        | string    |
-| zip_code                                | 郵便番号                                     | string    |
-| pref                                    | 都道府県                                     | string    |
-| city_address                            | 市区町村番地                                 | string    |
-| building_name                           | 建物名                                       | string    |
-| set_post_address                        | 郵送宛先情報 <br> 0:使用しない <br> 1:使用する | int       |
-| post_address1                           | 郵送先宛名1                                  | string    |
-| post_address2                           | 郵送先宛名2                                  | string    |
-| post_address3                           | 郵送先宛名3                                  | string    |
-| post_zip_code                           | 郵送先郵便番号                               | string    |
-| post_pref                               | 郵送先都道府県                               | string    |
-| post_city_address                       | 郵送先市区町村番地                           | string    |
-| post_building_name                      | 郵送先建物名                                | string    |
-| tel                                     | 電話番号                                    | string    |
-| email                                   | メールアドレス                               | string    |
-| cc_email                                | CC送信先メールアドレス                       | string    |
-| memo                                    | メモ                                       | string    |
-| auto_erase_commission_amount            | 手数料自動消込許容金額                       | int       |
-| billing_method                          | 請求方法                                    | int       |
-| issue_month                             | 請求書発行日_月                             | int       |
-| issue_day                               | 請求書発行日_日                             | int       |
-| sending_month                           | 請求書送付日_月                             | int       |
-| sending_day                             | 請求書送付日_日                             | int       |
-| deadline_month                          | 決済期限_月                                 | int       |
-| deadline_day                            | 決済期限_日                                 | int       |
-| payment_method_number                   | 決済情報番号                                | int       |
-| payment_method_code                     | 決済情報コード                              | string    |
-| register_status                         | 決済手段状況                                | int       |
-| bs_department_code                      | 請求元部署コード                            | string    |
-| bs_owner_code                           | 請求元担当者コード                          | string    |
-| ref_billing_code                        | 合計請求書用請求先コード                     | string    |
-| ref_individual_number                   | 合計請求書用請求先部署番号                   | int       |
-| ref_individual_code                     | 合計請求書用請求先部署コード                 | string    |
-| bill_template_code                      | 請求書テンプレートコード                     | int       |
-| regist_date                             | 登録日時                                   | datetime   |
-| update_date                             | 更新日時                                   | datetime   |
-| valid_flg                               | 状態                                       | int       |
-| [sub_account_title](#sub_account_title) | 請求先部署補助科目に属するパラメータ          | `object`   |
+| billing_code                            | 請求先コード                                  | string   |
+| billing_name                            | 請求先名                                      | string   |
+| number                                  | 請求先部署番号                                | int      |
+| code                                    | 請求先部署コード                              | string   |
+| name                                    | 請求先部署名                                  | string   |
+| link_customer_code                      | 会計ソフト連携用取引先コード                   | string   |
+| address1                                | 宛名1                                        | string   |
+| address2                                | 宛名2                                        | string   |
+| address3                                | 宛名3                                        | string   |
+| zip_code                                | 郵便番号                                     | string   |
+| pref                                    | 都道府県                                     | string   |
+| city_address                            | 市区町村番地                                 | string   |
+| building_name                           | 建物名                                       | string   |
+| set_post_address                        | 郵送宛先情報 <br> 0:使用しない <br> 1:使用する | int      |
+| post_address1                           | 郵送先宛名1                                  | string   |
+| post_address2                           | 郵送先宛名2                                  | string   |
+| post_address3                           | 郵送先宛名3                                  | string   |
+| post_zip_code                           | 郵送先郵便番号                               | string   |
+| post_pref                               | 郵送先都道府県                               | string   |
+| post_city_address                       | 郵送先市区町村番地                           | string   |
+| post_building_name                      | 郵送先建物名                                | string   |
+| tel                                     | 電話番号                                    | string   |
+| email                                   | メールアドレス                               | string   |
+| cc_email                                | CC送信先メールアドレス                       | string   |
+| memo                                    | メモ                                       | string   |
+| auto_erase_commission_amount            | 手数料自動消込許容金額                       | int      |
+| billing_method                          | 請求方法                                    | int      |
+| issue_month                             | 請求書発行日_月                             | int      |
+| issue_day                               | 請求書発行日_日                             | int      |
+| sending_month                           | 請求書送付日_月                             | int      |
+| sending_day                             | 請求書送付日_日                             | int      |
+| deadline_month                          | 決済期限_月                                 | int      |
+| deadline_day                            | 決済期限_日                                 | int      |
+| payment_method_number                   | 決済情報番号                                | int      |
+| payment_method_code                     | 決済情報コード                              | string   |
+| register_status                         | 決済手段状況                                | int      |
+| bs_department_code                      | 請求元部署コード                            | string   |
+| bs_owner_code                           | 請求元担当者コード                          | string   |
+| attachment_planned_flg                  | 添付予定フラグ                          | int      |
+| ref_billing_code                        | 合計請求書用請求先コード                     | string   |
+| ref_individual_number                   | 合計請求書用請求先部署番号                   | int      |
+| ref_individual_code                     | 合計請求書用請求先部署コード                 | string   |
+| bill_template_code                      | 請求書テンプレートコード                     | int      |
+| regist_date                             | 登録日時                                   | datetime |
+| update_date                             | 更新日時                                   | datetime |
+| valid_flg                               | 状態                                       | int      |
+| [sub_account_title](#sub_account_title) | 請求先部署補助科目に属するパラメータ          | `object` |
 
 #### sub_account_title
 
@@ -220,6 +222,7 @@ Status: 200 OK
             "register_status": 5,
             "bs_department_code": "bs_department_code",
             "bs_owner_code": "",
+            "attachment_planned_flg": 0,
             "ref_billing_code": "",
             "ref_individual_number": null,
             "ref_individual_code": "",
@@ -244,26 +247,28 @@ Status: 200 OK
 個別エラー
 
 | エラーコード | 内容                                   |
-| ------------ | ------------------------------------- |
-| 4401         | 請求先コードが不正                     |
-| 4402         | 請求先名が不正                         |
-| 4403         | 請求先部署番号が不正                    |
-| 4404         | 請求先部署コードが不正                  |
-| 4405         | 請求先部署名が不正                      |
-| 4406         | メールアドレスが不正                    |
-| 4407         | 決済情報コードが不正                    |
-| 4408         | 決済手段が不正                         |
-| 4409         | 決済手段状況が不正                     |
-| 4410         | 請求元部署コードが不正                 |
-| 4411         | 請求元担当者コードが不正               |
-| 4412         | 登録日時の検索開始日が不正             |
-| 4413         | 登録日時の検索終了日が不正             |
-| 4414         | 更新日時の検索開始日が不正             |
-| 4415         | 更新日時の検索終了日が不正             |
-| 4416         | 状態が不正                            |
-| 4417         | 請求先部署情報取得開始インデックスが不正 |
-| 4418         | 請求先部署情報取得件数が不正            |
-| 4419         | 請求先部署参照に失敗しました            |
+|--------| ------------------------------------- |
+| 4401   | 請求先コードが不正                     |
+| 4402   | 請求先名が不正                         |
+| 4403   | 請求先部署番号が不正                    |
+| 4404   | 請求先部署コードが不正                  |
+| 4405   | 請求先部署名が不正                      |
+| 4406   | メールアドレスが不正                    |
+| 4407   | 決済情報コードが不正                    |
+| 4408   | 決済手段が不正                         |
+| 4409   | 決済手段状況が不正                     |
+| 4410   | 請求元部署コードが不正                 |
+| 4411   | 請求元担当者コードが不正               |
+| 4412   | 登録日時の検索開始日が不正             |
+| 4413   | 登録日時の検索終了日が不正             |
+| 4414   | 更新日時の検索開始日が不正             |
+| 4415   | 更新日時の検索終了日が不正             |
+| 4416   | 状態が不正                            |
+| 4417   | 請求先部署情報取得開始インデックスが不正 |
+| 4418   | 請求先部署情報取得件数が不正            |
+| 4419   | 請求先部署参照に失敗しました            |
+| 4420   | ファイル添付予定フラグが不正            |
+| 4421   | ファイル添付予定フラグ利用不可            |
 
 ----
 
