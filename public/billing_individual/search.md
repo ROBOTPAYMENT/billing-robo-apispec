@@ -161,6 +161,7 @@
         "register_status": 5,
         "bs_department_code": "0001",
         "bs_owner_code": "bs_owner",
+      　"attachment_planned_flg": 0,
         "regist_date_from": "2020/07/01 10:00:00",
         "regist_date_to": "2020/07/30 20:00:00",
         "update_date_from": "2020/07/01 10:00:00",
