@@ -32,19 +32,19 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                      | 概要                                                                                                                                                                                                                                                                                                                                                      | 桁数         | 種別                                   | 必須                          |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------- | ----------------------------- |
-| billing_code              | 請求先コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                         | 20           | [半角英数 + 記号](../../index.md#種別) | (追加時)                      |
-| billing_individual_number | 請求先部署番号  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                       | 18           | 数値                                   | (追加時)^1                    |
-| billing_individual_code   | 請求先部署コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                     | 20           | [半角英数 + 記号](../../index.md#種別) | (追加時)^1                    |
-| payment_method_code       | 決済情報コード  <br> ※請求先部署に登録されている場合は任意 <br> ※両端のスペース除去                                                                                                                                                                                                                                                                         | 20           | [半角英数 + 記号](../../index.md#種別) | (追加時)                      |
-| number                    | 請求情報番号  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                         | 18           | 数値                                   | (更新時)^2                    |
-| code                      | 請求情報コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                       | 20           | [半角英数 + 記号](../../index.md#種別) | (更新時)^2                    |
-| item_code                 | 商品コード <br> ※商品マスタに登録されているコード <br> ※追加省略時、nullで登録される <br> ※登録後は変更できません                                                                                                                                                                                                                                           | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
-| type                      | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量  <br> ※商品マスタに登録されている場合は任意 <br> ※登録後は変更できません                                                                                                                                                                                                                                       | 1            | 数値                                   | (追加時)                      |
-| goods_code                | 集計用商品コード <br> ※項目未指定の場合、商品マスタの値をセット <br> ※追加省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                                         | 100           | 文字列                                 |                               |
-| link_goods_code           | 会計ソフト連携用商品コード <br> ※項目未指定の場合、商品マスタの値をセット <br> ※追加省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                               | 33           | 文字列                                 |                               |
-| goods_name                | 商品名  <br> ※商品マスタに登録されている場合は任意 <br> ※両端のスペース除去                                                                                                                                                                                                                                                                                 | 60           | 文字列                                 | (追加時)                      |
+| 名前                      | 概要                                                                                                                                                                                                                                                                                                                                                      | 桁数       | 種別                                   | 必須                          |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |----------| -------------------------------------- | ----------------------------- |
+| billing_code              | 請求先コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                         | 20       | [半角英数 + 記号](../../index.md#種別) | (追加時)                      |
+| billing_individual_number | 請求先部署番号  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                       | 18       | 数値                                   | (追加時)^1                    |
+| billing_individual_code   | 請求先部署コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                     | 20       | [半角英数 + 記号](../../index.md#種別) | (追加時)^1                    |
+| payment_method_code       | 決済情報コード  <br> ※請求先部署に登録されている場合は任意 <br> ※両端のスペース除去                                                                                                                                                                                                                                                                         | 20       | [半角英数 + 記号](../../index.md#種別) | (追加時)                      |
+| number                    | 請求情報番号  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                         | 18       | 数値                                   | (更新時)^2                    |
+| code                      | 請求情報コード  <br> ※両端のスペース除去 <br> ※登録後は変更できません                                                                                                                                                                                                                                                                                       | 20       | [半角英数 + 記号](../../index.md#種別) | (更新時)^2                    |
+| item_code                 | 商品コード <br> ※商品マスタに登録されているコード <br> ※追加省略時、nullで登録される <br> ※登録後は変更できません                                                                                                                                                                                                                                           | 20       | [半角英数 + 記号](../../index.md#種別) |                               |
+| type                      | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量  <br> ※商品マスタに登録されている場合は任意 <br> ※登録後は変更できません                                                                                                                                                                                                                                       | 1        | 数値                                   | (追加時)                      |
+| goods_code                | 集計用商品コード <br> ※項目未指定の場合、商品マスタの値をセット <br> ※追加省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                                         | 100      | 文字列                                 |                               |
+| link_goods_code           | 会計ソフト連携用商品コード <br> ※項目未指定の場合、商品マスタの値をセット <br> ※追加省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                               | 33       | 文字列                                 |                               |
+| goods_name                | 商品名  <br> ※商品マスタに登録されている場合は任意 <br> ※両端のスペース除去                                                                                                                                                                                                                                                                                 | 60       | 文字列                                 | (追加時)                      |
 | price                     | 単価 <br> ※商品マスタに登録されている場合は任意 <br> ※両端のスペース除去 <br> ※クレジットカード決済の場合は桁数上限整数7桁                                                                                                                                                                                                                                  | 整数10,小数4 | 数値                                   | (追加時でtype=0,1時)          |
 | quantity                  | 数量 <br> ※両端のスペース除去                                                                                                                                                                                                                                                                                                                             | 整数6,小数2  | 数値                                   | (追加時でtype=0,1時)          |
 | unit                      | 単位 <br> ※追加省略時、nullで登録される <br> ※更新時、空文字指定で空白にできます。                                                                                                                                                                                                                                                                                                                 | 3            | 文字列                                 |                               |
@@ -74,6 +74,7 @@
 | bill_template_code        | 請求書テンプレートコード <br> 10000:基本テンプレート <br> 10010:シンプル  <br> ※請求先部署に登録されている場合は任意 <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください                                                                                                                                                                 | 18           | 数値                                   | (追加時)                      |
 | bs_residence_code         | 請求元差出人コード <br> ※両端のスペース除去 <br> ※（追加時）空文字・省略・NULLの場合、請求元設定で登録しているデフォルト差出人が適用されます <br> ※（更新時）空文字、省略、nullの場合は更新しません                                                                                                                                                                                                                                | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | bs_owner_code             | 請求元担当者コード <br> ※両端のスペース除去 <br> ※請求先部署に登録されている場合は任意 <br> ※追加省略時、nullで登録される                                                                                                                                                                                                                                   | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
+| attachment_planned_flg    | ファイル添付 <br> ※ファイル添付機能利用中のみ利用可能                                                                                                                                                                                                                                   | 1        | 数値 |                               |
 | account_title_code        | 勘定科目コード <br> ※両端のスペース除去 <br> ※追加省略時、4100で登録される                                                                                                                                                                                                                                                                                  | 20           | [半角英数 + 記号](../../index.md#種別) |                               |
 | bill_group_key            | 請求書合算キー                                                                                                                                                                                                                                                                                                                                            | 256          | 文字列                                 |                               |
 | outside_billing_number | 外部連携用請求書番号 <br>指定しない・null・`""`(空文字)の場合、通常通り請求書番号が発番されます<br>更新時、`""`を指定すると通常通り請求書番号を発番できます　| 32 | [半角英数 + 記号](../../index.md#種別) | |
@@ -116,57 +117,58 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                      | 概要                                                                                                                      | 型     |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------ |
-| error_code                | エラーコード <br> ※正常時はnull                                                                                                        | int    |
-| error_message             | エラーメッセージ <br> ※正常時はnull                                                                                                    | string |
-| billing_code              | 請求先コード                                                                                                                           | string |
-| billing_individual_number | 請求先部署番号                                                                                                                         | int    |
-| billing_individual_code   | 請求先部署コード                                                                                                                       | string |
-| payment_method_code       | 決済情報コード                                                                                                                         | string |
-| number                    | 請求情報番号 <br> ※登録時、請求管理ロボ側で発番される番号となります                                                                    | int    |
-| code                      | 請求情報コード                                                                                                                         | string |
-| item _code                | 商品コード                                                                                                                             | string |
-| type                      | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量                                                                                   | int    |
-| goods_code                | 集計用商品コード                                                                                                                       | string |
-| link_goods_code           | 会計ソフト連携用商品コード                                                                                                             | string |
-| goods_name                | 商品名                                                                                                                                 | string |
-| price                     | 単価                                                                                                                                   | string |
-| quantity                  | 数量                                                                                                                                   | string |
-| unit                      | 単位                                                                                                                                   | string |
-| tax_category              | 税区分 <br> 0:外税 <br> 1:内税 <br> 2:対象外 <br> 3:非課税                                                                               | int    |
-| tax                       | 消費税率<br>※税区分が対象外、非課税の場合は空文字が返却されます                                                                                                                              | int&#124;string   |
-| remark                    | 備考                                                                                                                                   | string |
-| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信  <br> 8:自動マイページ配信 | int    |
-| repetition_period_number  | 繰返し周期                                                                                                                             | int    |
-| repetition_period_unit    | 繰返し周期単位                                                                                                                         | int    |
-| start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                                     | date   |
-| end_date                  | 最終サービス提供期間 <br> yyyy/mm/dd <br> ※repeat_count=0の場合はnull                                                                  | date   |
-| repeat_count              | 繰返し回数 <br> ※type=1,2以外はnull                                                                                                    | int    |
-| period_format             | 対象期間形式 <br> 0:○年○月分 <br> 1:○年○月○日分 <br> 2:○年○月～○年○月 <br> 3:○年○月○日～○年○月○日 <br> 99:非表示                            | int    |
-| period_value              | 対象期間 <br> ※period_format=2,3以外はnull                                                                                             | int    |
-| period_unit               | 対象期間単位 <br> ※period_format=3以外はnull                                                                                           | int    |
-| period_criterion          | 基準 <br> 0:対象期間開始日 <br> 1:対象期間終了日 <br> ※period_format=2,3以外は0                                                          | int    |
-| sales_recorded_month      | 売上計上日_月                                                                                                                          | int    |
-| sales_recorded_day        | 売上計上日_日                                                                                                                          | int    |
-| issue_month               | 請求書発行日_月                                                                                                                        | int    |
-| issue_day                 | 請求書発行日_日                                                                                                                        | int    |
-| sending_month             | 請求書送付日_月                                                                                                                        | int    |
-| sending_day               | 請求書送付日_日                                                                                                                        | int    |
-| deadline_month            | 決済期限_月                                                                                                                            | int    |
-| deadline_day              | 決済期限_日                                                                                                                            | int    |
-| slip_deadline_month       | 払込票有効期限_月                                                                                                                      | int    |
-| slip_deadline_day         | 払込票有効期限_日                                                                                                                      | int    |
-| next_issue_date           | 次回請求書発行日 <br> ※次回請求書が存在しない場合はnull                                                                                | date   |
-| memo                      | メモ                                                                                                                                   | string |
-| bill_template_code        | 請求書テンプレートコード                                                                                                               | int    |
-| bs_residence_code         | 請求元差出人コード                                                                                                                     | string |
-| bs_owner_code             | 請求元担当者コード                                                                                                                     | string |
-| account_title_code        | 勘定科目コード                                                                                                                         | string |
-| text_pattern_code         | 文章パターンコード                                                                                                                     | string |
-| bill_group_key            | 請求書合算キー                                                                                                                         | string |
-| outside_billing_number | 外部連携用請求書番号 | string |
-| [custom](#custom-response) | 請求情報カスタム項目に属するパラメータ           | `array` |
+| 名前                      | 概要                                                                                                                      | 型               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------- |-----------------|
+| error_code                | エラーコード <br> ※正常時はnull                                                                                                        | int             |
+| error_message             | エラーメッセージ <br> ※正常時はnull                                                                                                    | string          |
+| billing_code              | 請求先コード                                                                                                                           | string          |
+| billing_individual_number | 請求先部署番号                                                                                                                         | int             |
+| billing_individual_code   | 請求先部署コード                                                                                                                       | string          |
+| payment_method_code       | 決済情報コード                                                                                                                         | string          |
+| number                    | 請求情報番号 <br> ※登録時、請求管理ロボ側で発番される番号となります                                                                    | int             |
+| code                      | 請求情報コード                                                                                                                         | string          |
+| item _code                | 商品コード                                                                                                                             | string          |
+| type                      | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量                                                                                   | int             |
+| goods_code                | 集計用商品コード                                                                                                                       | string          |
+| link_goods_code           | 会計ソフト連携用商品コード                                                                                                             | string          |
+| goods_name                | 商品名                                                                                                                                 | string          |
+| price                     | 単価                                                                                                                                   | string          |
+| quantity                  | 数量                                                                                                                                   | string          |
+| unit                      | 単位                                                                                                                                   | string          |
+| tax_category              | 税区分 <br> 0:外税 <br> 1:内税 <br> 2:対象外 <br> 3:非課税                                                                               | int             |
+| tax                       | 消費税率<br>※税区分が対象外、非課税の場合は空文字が返却されます                                                                                                                              | int&#124;string |
+| remark                    | 備考                                                                                                                                   | string          |
+| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信  <br> 8:自動マイページ配信 | int             |
+| repetition_period_number  | 繰返し周期                                                                                                                             | int             |
+| repetition_period_unit    | 繰返し周期単位                                                                                                                         | int             |
+| start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                                     | date            |
+| end_date                  | 最終サービス提供期間 <br> yyyy/mm/dd <br> ※repeat_count=0の場合はnull                                                                  | date            |
+| repeat_count              | 繰返し回数 <br> ※type=1,2以外はnull                                                                                                    | int             |
+| period_format             | 対象期間形式 <br> 0:○年○月分 <br> 1:○年○月○日分 <br> 2:○年○月～○年○月 <br> 3:○年○月○日～○年○月○日 <br> 99:非表示                            | int             |
+| period_value              | 対象期間 <br> ※period_format=2,3以外はnull                                                                                             | int             |
+| period_unit               | 対象期間単位 <br> ※period_format=3以外はnull                                                                                           | int             |
+| period_criterion          | 基準 <br> 0:対象期間開始日 <br> 1:対象期間終了日 <br> ※period_format=2,3以外は0                                                          | int             |
+| sales_recorded_month      | 売上計上日_月                                                                                                                          | int             |
+| sales_recorded_day        | 売上計上日_日                                                                                                                          | int             |
+| issue_month               | 請求書発行日_月                                                                                                                        | int             |
+| issue_day                 | 請求書発行日_日                                                                                                                        | int             |
+| sending_month             | 請求書送付日_月                                                                                                                        | int             |
+| sending_day               | 請求書送付日_日                                                                                                                        | int             |
+| deadline_month            | 決済期限_月                                                                                                                            | int             |
+| deadline_day              | 決済期限_日                                                                                                                            | int             |
+| slip_deadline_month       | 払込票有効期限_月                                                                                                                      | int             |
+| slip_deadline_day         | 払込票有効期限_日                                                                                                                      | int             |
+| next_issue_date           | 次回請求書発行日 <br> ※次回請求書が存在しない場合はnull                                                                                | date            |
+| memo                      | メモ                                                                                                                                   | string          |
+| bill_template_code        | 請求書テンプレートコード                                                                                                               | int             |
+| bs_residence_code         | 請求元差出人コード                                                                                                                     | string          |
+| bs_owner_code             | 請求元担当者コード                                                                                                                     | string          |
+| attachment_planned_flg    | ファイル添付                                                                                                                     | int             |
+| account_title_code        | 勘定科目コード                                                                                                                         | string          |
+| text_pattern_code         | 文章パターンコード                                                                                                                     | string          |
+| bill_group_key            | 請求書合算キー                                                                                                                         | string          |
+| outside_billing_number | 外部連携用請求書番号 | string          |
+| [custom](#custom-response) | 請求情報カスタム項目に属するパラメータ           | `array`         |
 
 #### custom (response)
 
@@ -235,6 +237,7 @@
             "deadline_month": 0,
             "deadline_day": 1,
             "bill_template_code": 10010,
+            "attachment_planned_flg": 1,
             "custom":[
                 {
                     "code": "custom16",
@@ -362,6 +365,7 @@ Status: 200 OK
             "memo": "",
             "bill_template_code": 10010,
             "bs_owner_code": "bs_owner_code",
+            "attachment_planned_flg": 1,
             "account_title_code": "4100",
             "text_pattern_code": null,
             "bill_group_key" : null,
@@ -465,6 +469,8 @@ Status: 200 OK
 | 1367   | 請求元差出人が存在しません                                                                   |
 | 1368   | 選択された消費税率は利用不可です                                                                |
 | 1369   | 請求情報配列内のリクエスト形式が不正です。<br/> - 請求情報の配列内でオブジェクトを持つリスト以外の形式が含まれている場合                |
+| 1370   | ファイル添付予定フラグが不正                |
+| 1371   | ファイル添付予定フラグ利用不可                |
 | 1372   | 請求まるなげロボに連携中です。しばらく経ってから更新してください。                                    |
 
 - 注１.このデフォルト利用可能決済手段は「コンビニ払込票（ハガキ）、その他コンビニ払込票」を指します
