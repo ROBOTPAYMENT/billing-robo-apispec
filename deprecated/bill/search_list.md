@@ -107,6 +107,7 @@
 | payment_method_code                          | 決済情報コード                                                                                                                                                  | string               |
 | payment_method_name                          | 決済情報名                                                                                                                                                      | string               |
 | settlement_result                            | 決済連携ステータス <br> 0：申請中、1：送信失敗、2：決済成功、3：決済失敗                                                                                        | int                  |
+| settlement_linkage_status                    | 決済データ連携ステータス  <br> 0:未連携   <br> 1:連携失敗   <br> 2:決済成功   <br> 3:決済失敗   <br> 4:連携なし   <br> 5:連携済み   <br> 6:再連携待ち              | int    |
 | transfer_deadline                            | 決済期限                                                                                                                                                        | string               |
 | slip_deadline                                | 払込票有効期限                                                                                                                                                  | string               |
 | transfer_date                                | 決済日                                                                                                                                                          | string               |
@@ -237,6 +238,7 @@ Status: 200 OK
             "payment_method_code": "",
             "payment_method_name": "バンクチェック",
             "settlement_result": 2,
+            "settlement_linkage_status": 2,
             "transfer_deadline": "2017/04/30",
             "slip_deadline": "2017/04/30",
             "transfer_date": "2016/07/06",
