@@ -44,17 +44,17 @@
 ##### mail (request)
 event_detailパラメーターのmailの中身
 
-| 名前                  | 型        |  概要                                         |
-| --------------------- | --------- | --------------------------------------------- |
-| number                | int       | 郵送コード                                    |
-| bill_number           | string    | 請求書番号                                    |
-| status                | int       | 郵送ステータス<br> 0:受付中 <br> 1:発送済 <br> 2:完了 <br> 3:失敗 <br> 4:取り消し <br> 5:差止 |
-| error_type            | int       | 郵送エラータイプ<br> 0:その他エラー <br> 1:枚数超過 <br> 2:ロゴファイルエラー |
-| order_date            | string    | 郵送注文日                                    |
-| mail_date             | string    | 郵送発送日                                    |
-| nondelivery_flg       | int       | 郵送不達フラグ                                |
-| nondelivery_date      | string    | 郵送不達処理日                                |
-| update_date           | string    | 更新日時                                      |
+| 名前                  | 型        | 概要                                                                                                                   |
+| --------------------- | --------- |----------------------------------------------------------------------------------------------------------------------|
+| number                | int       | 郵送コード                                                                                                                |
+| bill_number           | string    | 請求書番号                                                                                                                |
+| status                | int       | 郵送ステータス<br> 0:注文済 <br> 1:発送済 <br> 2:完了 <br> 3:注文失敗 <br> 4:注文取り消し <br> 5:注文差止                                         |
+| error_type            | int       | 郵送エラータイプ<br> 0:その他エラー <br> 1:枚数超過 <br> 2:ロゴファイルエラー <br> 3:郵送不可の添付ファイルが含まれているため <br> 4:枚数制限(349枚)オーバー <br> 5:PDF生成エラー |
+| order_date            | string    | 郵送注文日                                                                                                                |
+| mail_date             | string    | 郵送発送日                                                                                                                |
+| nondelivery_flg       | int       | 郵送不達フラグ                                                                                                              |
+| nondelivery_date      | string    | 郵送不達処理日                                                                                                              |
+| update_date           | string    | 更新日時                                                                                                                 |
 
 ### サンプル
 ```json
