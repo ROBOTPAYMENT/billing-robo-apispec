@@ -238,7 +238,6 @@ Status: 200 OK
             "billing_code": "sample",
             "billing_individual_number": 1,
             "billing_individual_code": "individual_code",
-            "transfer_deadline": "2020/06/30",
             "bill_detail_id": 40,
             "demand_number": 6,
             "demand_code": "demand_code",
