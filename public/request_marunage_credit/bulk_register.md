@@ -139,7 +139,7 @@ Status: 200 OK
             "id": 2,
             "billing_code": "billing_code_002",
             "business_type": 2,
-            "corporate_number":"", 
+            "corporate_number": null, 
             "representative_name": "代表者名2",
             "contract_date": "2022/01/01",
             "transaction_count": 24,
