@@ -34,6 +34,8 @@
 | 名前                     | 概要                                                | 桁数  | 種別                                 | 必須 |
 | ------------------------ | -------------------------------------------------- | ---- | ------------------------------------- | ---- |
 | billing_code             | 請求先コード                                        | 20   | [半角英数 + 記号](../../index.md#種別) | 必須  |
+| business_type            | 事業体区分                                           | 1   | 数値                                  | 必須  |
+| corporate_number         | 法人番号<br> 1: 法人<br> 2: 個人       　            | 13   | 数値                                  | (申請時でbusiness_type=1時)  |
 | representative_name      | 代表者名                                            | 40   | 文字列                                | 必須  |
 | contract_date            | 契約日                                              | 10   | 日付                                  | 必須  |
 | transaction_count        | 取引回数                                            | 4    | 数値                                  |       |
@@ -64,6 +66,8 @@
 | error_message            | エラーメッセージ<br> ※正常時はnull                      | string   |
 | id                       | 申請ID                                                 | int      |
 | billing_code             | 請求先コード                                            | string   |
+| business_type            | 事業体区分<br> 1: 法人<br> 2: 個人                        | int   |
+| corporate_number         | 法人番号                                                | int   |
 | representative_name      | 代表者名                                                | string   |
 | contract_date            | 契約日                                                  | date     |
 | transaction_count        | 取引回数                                                | int      |
@@ -84,6 +88,8 @@
     "request_marunage_credit": [
         {
             "billing_code": "billing_code_001",
+			"business_type": 1,
+			"corporate_number":1234567891234, 
             "representative_name": "代表者名1",
             "contract_date": "2022/01/01",
             "transaction_count": 12,
@@ -92,6 +98,8 @@
         },
 	{
             "billing_code": "billing_code_002",
+			"business_type": 2,
+			"corporate_number":"", 
             "representative_name": "代表者名2",
             "contract_date": "2022/01/01",
             "transaction_count": 24,
@@ -115,6 +123,8 @@ Status: 200 OK
             "error_message": null,
             "id": 1,
 	    "billing_code": "billing_code_001",
+            "business_type": 1,
+            "corporate_number":1234567891234, 
             "representative_name": "代表者名1",
             "contract_date": "2022/01/01",
             "transaction_count": 12,
@@ -128,6 +138,8 @@ Status: 200 OK
             "error_message": null,
             "id": 2,
             "billing_code": "billing_code_002",
+            "business_type": 2,
+            "corporate_number":"", 
             "representative_name": "代表者名2",
             "contract_date": "2022/01/01",
             "transaction_count": 24,
