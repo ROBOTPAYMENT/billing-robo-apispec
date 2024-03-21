@@ -88,8 +88,8 @@
     "request_marunage_credit": [
         {
             "billing_code": "billing_code_001",
-			"business_type": 1,
-			"corporate_number":1234567891234, 
+            "business_type": 1,
+            "corporate_number":1234567891234, 
             "representative_name": "代表者名1",
             "contract_date": "2022/01/01",
             "transaction_count": 12,
@@ -98,8 +98,8 @@
         },
 	{
             "billing_code": "billing_code_002",
-			"business_type": 2,
-			"corporate_number":"", 
+            "business_type": 2,
+            "corporate_number":"", 
             "representative_name": "代表者名2",
             "contract_date": "2022/01/01",
             "transaction_count": 24,
