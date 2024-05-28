@@ -1,4 +1,4 @@
-# クレジットカード登録(トークン方式)
+# クレジットカード登録(トークン方式 3Dセキュア利用)
 
 ### [※3Dセキュア未対応の方はこちらのAPI仕様書をご参照ください。](https://apispec.billing-robo.jp/public/billing_payment_method/credit_card_token_old.html)
 
