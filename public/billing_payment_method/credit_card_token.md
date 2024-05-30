@@ -1,6 +1,6 @@
 # クレジットカード登録(トークン方式 3Dセキュア利用)
 
-### [※3Dセキュア未対応の方はこちらのAPI仕様書をご参照ください。](https://apispec.billing-robo.jp/public/billing_payment_method/credit_card_token_old.html)
+### [※3Dセキュア未対応のAPI仕様書はこちらをご参照ください。](https://apispec.billing-robo.jp/public/billing_payment_method/credit_card_token_old.html)
 
 `/api/v1.0/billing_payment_method/credit_card_token`
 
@@ -28,7 +28,6 @@
 3. 「PC用決済フォーム設定」→「決済データ送信元URL」
 
 トークンはJavascriptの非同期通信により生成されるため、対応ブラウザは下記の通りになります。
-- internet Explorer(Microsoftがサポート対象としているバージョンに限る)
 - Microsoft Edge 最新版
 - Google Chrome 最新版
 - Firefox 最新版

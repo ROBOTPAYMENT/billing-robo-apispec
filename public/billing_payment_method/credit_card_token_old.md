@@ -20,7 +20,6 @@
 3. 「PC用決済フォーム設定」→「決済データ送信元URL」
 
 トークンはJavascriptの非同期通信により生成されるため、対応ブラウザは下記の通りになります。
-- internet Explorer(Microsoftがサポート対象としているバージョンに限る)
 - Microsoft Edge 最新版
 - Google Chrome 最新版
 - Firefox 最新版
