@@ -1,6 +1,4 @@
-# クレジットカード登録(トークン方式 3Dセキュア利用)
-
-### [※3Dセキュア未対応のAPI仕様書はこちらをご参照ください。](https://apispec.billing-robo.jp/public/billing_payment_method/credit_card_token_old.html)
+# クレジットカード登録(トークン方式)
 
 `/api/v1.0/billing_payment_method/credit_card_token`
 
@@ -11,16 +9,6 @@
 カスタマイズ方式とは、加盟店様サイト内でカード情報を入力後、JavaScriptで弊社サーバーへ通信しカード情報をトークンに置き換えて、加盟店様へ返却しクレジットカード登録を行う方式です。
 
 **トークン決済をご利用される場合、弊社側の設定が必要となりますので、ご希望の際は下記カスタマーサポートまでご連絡をお願い致します。**
-
-- **3Dセキュア導入に関する留意点**
-  - **原則2025年3月末までに実装が必要なものとなります。**
-  - **仕様上、検証環境での検証を行うことはできかねますのでご了承ください。**
-  - **既にトークン決済をご利用されている方でも3Dセキュアを導入する場合は事前に弊社側での設定が必要となりますので、ご希望の方は下記カスタマーサポートへご連絡ください。**
-
-## 3Dセキュア2.0 概要
-3Dセキュア2.0はEMVCo（国際カードブランド6社によるカード決済の安全、促進のための団体）によって作成された3Dセキュアの改良版となります。
-従来どおり本人認証はしつつ、不正利用のリスクが低ければ本人認証画面をスキップするフリクションレスフローが導入されました。
-3Dセキュアの最大のメリットとして、ネット決済でも実店舗での決済と同様に本人確認をすることができるために、加盟店様で「なりすまし被害」等によるチャージバックを防ぐことができる点があげられます。
 
 ＜カスタマーサポート＞
 - TEL：03-4405-0665(平日9:00-18:00)
@@ -57,69 +45,40 @@
 
     ``` HTML
     <head>
-        <meta charset="utf-8" />
         <script type="text/javascript"
-                src="https://credit.j-payment.co.jp/gateway/js/jquery.js"></script> <!--※1-->
+                src="https://credit.j-payment.co.jp/gateway/js/jquery.js"></script>
         <script type="text/javascript"
-                src="https://credit.j-payment.co.jp/gateway/js/CPToken.js"></script><!--※2-->
-        <script type="text/javascript"
-                src="https://credit.j-payment.co.jp/gateway/js/EMV3DSAdapter.js"></script><!--※3-->
+                src="https://credit.j-payment.co.jp/gateway/js/CPToken.js"></script>
     </head>
     ```
-
-   ※1. 加盟店様側でjQueryの読み込み部分を実装されている場合は以下jQuery読み込みは不要です。<br>
-   ※2 トークン決済に必要なjavascriptです。<br>
-   ※3 3Dセキュア2.0に必要なjavascriptです。
-
 
 2. 受け取ったトークンを格納するフィールドとポップアップ表示用の `<div>` タグを設置
     (`CPToken.CardInfo()` を呼び出すと自動で `<form id="mainform">` の `<input id="tkn" ..>` に値が格納されます)
 
     ``` HTML
     <form id="mainform">
-        <!-- input要素としてtknの追加をします -->
         <input id="tkn" name="tkn" type="hidden" value="">
-        <!-- ポップアップ表示用の要素としてCARD_INPUT_FORMを追加をします -->
-        <div id="CARD_INPUT_FORM"></div>
-        <!-- 3Dセキュアポップアップ表示用としてEMV3DS_INPUT_FORMの追加をします -->
-        <div id="EMV3DS_INPUT_FORM"></div>
+        <div id="CARD_INPUT_FORM" />
         <input type="button" value="購入する" onclick="doPurchase()"/>
     </form>
     ```
 
-3. クレジットカードトークンの作成を行う JavaScript を実装
+3. カード情報入力フォーム表示の JavaScript を実装
 
     ``` JavaScript
+    // カード情報入力フォーム表示
     function doPurchase() {
-        // トークン作成処理を呼び出します。
-        CPToken.CardInfo({
-            aid: '000000' // 店舗IDを設定します。
-        }, execAuth);     // 3Dセキュア2.0認証用関数をコールバックにセットします。
+        //CP非同期通信よりカード番号入力画面を表示する
+        CPToken.CardInfo (
+            {
+                aid: 'xxxxxx'
+            },
+            execPurchase
+        );
     }
     ```
 
-4. 3Dセキュア2.0の認証を実行を行う JavaScript を実装
-
-    ``` JavaScript
-    // コールバック関数
-    function execAuth(resultCode, errMsg) {
-        if (resultCode != "Success") {
-            // 戻り値がSuccess以外の場合はエラーメッセージを表示
-            window.alert(errMsg);
-        } else {
-            // 3Dセキュア2.0認証処理（商品登録なし）を呼び出します。
-            ThreeDSAdapter.authenticate({ 
-                tkn: $("#tkn").val(), // トークン作成後にtkn要素に値が入力されます
-                aid: '000000', // 店舗IDを設定します。
-                am: 1000,      // 決済時と同様の価格を設定します。(不一致の場合はエラーとなります)
-                tx: 0,         // 決済時と同様の税額を設定します。(不一致の場合はエラーとなります)
-                sf: 0,         // 決済時と同様の送料を設定します。(不一致の場合はエラーとなります)
-            }, execPurchase);  // 決済実行用の関数をコールバックにセットします。
-        }
-    }
-    ```
-
-5. 決済処理の実行を行う JavaScript を実装
+4. 受け取ったトークン情報を設定し、フォームの送信処理を行う JavaScript を実装
 
     ``` JavaScript
     // コールバック関数
@@ -128,9 +87,7 @@
             // 戻り値がSuccess以外の場合はエラーメッセージを表示
             window.alert(errMsg);
         } else {
-            window.alert("PAYMENT SUCCESS!!");
-            // 加盟店様サーバーに決済リクエストを実行する処理の実装をします。
-            // 以下はサンプルです。
+            // スクリプトからフォームをsubmit
             $("#mainform").submit();
         }
     }
@@ -158,85 +115,55 @@ CPToken.CardInfo (
 
     ``` HTML
     <head>
-        <meta charset="utf-8" />
         <script type="text/javascript"
-                src="https://credit.j-payment.co.jp/gateway/js/jquery.js"></script> <!--※1-->
+                src="https://credit.j-payment.co.jp/gateway/js/jquery.js"></script>
         <script type="text/javascript"
-                src="https://credit.j-payment.co.jp/gateway/js/CPToken.js"></script><!--※2-->
-        <script type="text/javascript"
-                src="https://credit.j-payment.co.jp/gateway/js/EMV3DSAdapter.js"></script><!--※3-->
+                src="https://credit.j-payment.co.jp/gateway/js/CPToken.js"></script>
     </head>
     ```
-
-   ※1. 加盟店様側でjQueryの読み込み部分を実装されている場合は以下jQuery読み込みは不要です。<br>
-   ※2 トークン決済に必要なjavascriptです。<br>
-   ※3 3Dセキュア2.0に必要なjavascriptです。
-
 
 2. 受け取ったトークンを格納するフィールドを設置
     (`CPToken.TokenCreate()` を呼び出すと自動で `<form id="mainform">` の `<input id="tkn" ..>` に値が格納されます)
 
     ``` HTML
-    <form id="mainform">
-        カード番号：
-        <input type="text" value="" name="cn" id="cn" />
-        カード有効期限：
-        <input type="text" value="" name="ed_year" id="ed_year" /> /
-        <input type="text" value="" name="ed_month" id="ed_month" />
-        カード名義人：
-        <input type="text" value="" name="fn" id="fn" />
-        <input type="text" value="" name="ln" id="ln" />
-        <!-- input要素としてtknの追加をします -->
-        <input id="tkn" name="tkn" type="hidden" value="">
-        <!-- 3Dセキュアポップアップ表示用としてEMV3DS_INPUT_FORMの追加をします -->
-        <div id="EMV3DS_INPUT_FORM"></div>
-        <input type="button" value="購入する" onclick="doPurchase()"/>
-     </form>
+        <form id="mainform">
+            カード番号：
+                <input type="text" value="" name="cn" id="cn" />
+            カード有効期限：
+                <input type="text" value="" name="ed_year" id="ed_year" /> /
+                <input type="text" value="" name="ed_month" id="ed_month" />
+            カード名義人：
+                <input type="text" value="" name="fn" id="fn" />
+                <input type="text" value="" name="ln" id="ln" />
+                <input id="tkn" name="tkn" type="hidden" value="">
+            <input type="button" value="購入する" onclick="doPurchase()"/>
+        </form>
     ```
 
-3. クレジットカードトークンの作成を行う JavaScript を実装
+3. トークンを生成するための JavaScript を実装
 
     ``` JavaScript
     function doPurchase() {
-        // トークン作成処理を呼び出します。
-        CPToken.TokenCreate ({
-            aid: '000000', // 店舗IDを設定します。
-            cn: $("#cn").val(),
-            ed: $("#ed_year").val() + $("#ed_month").val(),
-            fn: $("#fn").val(),
-            ln: $("#ln").val()
-        }, execAuth); // 3Dセキュア2.0認証用関数をコールバックにセットします。
+        // CP非同期通信よりトークンを生成する
+        CPToken.TokenCreate (
+            {
+                aid: 'xxxxxx',
+                cn: $("#cn").val(),
+                ed: $("#ed_year").val() + $("#ed_month").val(),
+                fn: $("#fn").val(),
+                ln: $("#ln").val()
+            },
+            execPurchase
+        );
     }
     ```
 
-4. 3Dセキュア2.0の認証を行う JavaScript を実装
-
-    ``` JavaScript
-    // コールバック関数
-    function execAuth(resultCode, errMsg) {
-        if (resultCode != "Success") {
-            // 戻り値がSuccess以外の場合はエラーメッセージを表示します
-            window.alert(errMsg);
-        } else {
-            // 3Dセキュア2.0認証処理（商品登録なし）を呼び出します。
-            ThreeDSAdapter.authenticate({
-                tkn: $("#tkn").val(), // トークン作成後にtkn要素に値が入力されます
-                aid: '000000', // 店舗IDを設定します。
-                am: 1000,      // 決済時と同様の価格を設定します。(不一致の場合はエラーとなります)
-                tx: 0,         // 決済時と同様の税額を設定します。(不一致の場合はエラーとなります)
-                sf: 0,         // 決済時と同様の送料を設定します。(不一致の場合はエラーとなります)
-            }, execPurchase);  // 決済実行用の関数をコールバックにセットします。
-        }
-   }
-    ```
-
-5. 決済処理の実行を行う JavaScript を実装
+4. 受け取ったトークン情報を送信するための JavaScript を実装
 
     ``` JavaScript
     // コールバック関数
     function execPurchase(resultCode, errMsg) {
         if (resultCode != "Success") {
-            // 戻り値がSuccess以外の場合はエラーメッセージを表示します
             window.alert(errMsg);
         } else {
             // カード情報を消去
@@ -245,14 +172,11 @@ CPToken.CardInfo (
             $("#ed_month").val("");
             $("#fn").val("");
             $("#ln").val("");
-            // 加盟店様サーバーに決済リクエストを実行する処理の実装をします。
-            // 以下はサンプルです。
+            //スクリプトからフォームをsubmit
             $("#mainform").submit();
         }
     }
     ```
-   ※ お客様の入力されたカード情報の削除をお願いします。<br>
-   ※ お客様の入力されたカード情報の加盟店様サーバへ送信をしないようにお願いします。
 
 #### カスタマイズ方式のトークン生成用関数
 
