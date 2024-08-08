@@ -138,7 +138,7 @@
 | tax_category              | 税区分 <br> 0:外税 <br> 1:内税 <br> 2:対象外 <br> 3:非課税                                                                               | int             |
 | tax                       | 消費税率<br>※税区分が対象外、非課税の場合は空文字が返却されます                                                                                                                              | int&#124;string |
 | remark                    | 備考                                                                                                                                   | string          |
-| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:手動マイページ配信  <br> 8:自動マイページ配信 | int             |
+| billing_method            | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送 <br> 7:自動マイページ配信  <br> 8:手動マイページ配信 | int             |
 | repetition_period_number  | 繰返し周期                                                                                                                             | int             |
 | repetition_period_unit    | 繰返し周期単位                                                                                                                         | int             |
 | start_date                | サービス提供開始日 <br> yyyy/mm/dd                                                                                                     | date            |
