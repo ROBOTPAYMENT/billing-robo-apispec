@@ -34,52 +34,55 @@
 
 ## API一覧
 
-| API                                                                                    | Method | Path |
-|----------------------------------------------------------------------------------------| ------ | ---- |
-| [請求先登録更新](/public/billing/bulk_upsert.md)                                              | POST | /api/v1.0/billing/bulk_upsert |
-| [請求先停止削除](/public/billing/bulk_stop.md)                                                | POST | /api/v1.0/billing/bulk_stop |
-| [口座振替依頼書発行](/public/billing/bulk_download_pdf.md)                                      | POST | /api/v1.0/billing/bulk_download_pdf |
-| [請求先部署参照](/public/billing_individual/search.md)                                        | POST | /api/v1.0/billing_individual/search |
+| API                                                                                    | Method | Path                                               |
+|----------------------------------------------------------------------------------------| ------ |----------------------------------------------------|
+| [請求先登録更新](/public/billing/bulk_upsert.md)                                              | POST | /api/v1.0/billing/bulk_upsert                      |
+| [請求先停止削除](/public/billing/bulk_stop.md)                                                | POST | /api/v1.0/billing/bulk_stop                        |
+| [口座振替依頼書発行](/public/billing/bulk_download_pdf.md)                                      | POST | /api/v1.0/billing/bulk_download_pdf                |
+| [請求先部署参照](/public/billing_individual/search.md)                                        | POST | /api/v1.0/billing_individual/search                |
 | [クレジットカード登録<br>(トークン方式 3Dセキュア利用)](/public/billing_payment_method/credit_card_token.md) | POST | /api/v1.0/billing_payment_method/credit_card_token |
-| [決済情報参照](/public/billing_payment_method/search.md)                                     | POST | /api/v1.0/billing_payment_method/search |
-| [請求情報登録更新](/public/demand/bulk_upsert.md)                                              | POST | /api/v1.0/demand/bulk_upsert |
-| [請求情報停止削除](/public/demand/bulk_stop.md)                                                | POST | /api/v1.0/demand/bulk_stop |
-| [売上消込結果参照](/public/demand/search.md)                                                   | POST | /api/v1.0/demand/search |
-| [請求情報参照](/public/demand/search2.md)                                                    | POST | /api/v1.0/demand/search2 |
-| [請求書発行](/public/demand/bulk_issue_bill_select.md)                                      | POST | /api/v1.0/demand/bulk_issue_bill_select |
-| [即時決済 請求書合算](/public/demand/bulk_register.md)                                          | POST | /api/demand/bulk_register |
-| [請求書送付メール](/public/bill/send_bill_by_email.md)                                         | POST | /api/v1.0/bill/send_bill_by_email |
-| [請求書送付郵送](/public/bill/send_bill_by_mail.md)                                           | POST | /api/v1.0/bill/send_bill_by_mail |
-| [繰越予約](/public/bill/update_carryover.md)                                               | POST | /api/v1.0/bill/update_carryover |
-| [請求書参照](/public/bill/search.md)                                                        | POST | /api/v1.0/bill/search |
-| [請求書更新](/public/bill/update.md)                                                        | POST | /api/v1.0/bill/update |
-| [請求書無効](/public/bill/stop.md)                                                          | POST | /api/v1.0/bill/stop |
-| [請求書明細参照](/public/bill_detail/search.md)                                               | POST | /api/v1.0/bill_detail/search |
-| [入金登録更新](/public/payment/bulk_upsert.md)                                               | POST | /api/v1.0/payment/bulk_upsert |
-| [入金無効削除](/public/payment/bulk_stop.md)                                                 | POST | /api/v1.0/payment/bulk_stop |
-| [入金参照](/public/payment/search.md)                                                      | POST | /api/v1.0/payment/search |
-| [消込](/public/clearing/exec.md)                                                         | POST | /api/v1.0/clearing/exec |
-| [消込結果参照](/public/clearing/search.md)                                                   | POST | /api/v1.0/clearing/search |
-| [消込取消](/public/clearing/bulk_cancel.md)                                                | POST | /api/v1.0/clearing/bulk_cancel |
-| [消込結果明細参照](/public/clearing_detail/search.md)                                          | POST | /api/v1.0/clearing_detail/search |
-| [商品登録更新2](/public/goods/bulk_upsert2.md)                                               | POST | /api/v1.0/goods/bulk_upsert2 |
-| [商品停止削除](/public/goods/bulk_stop.md)                                                   | POST | /api/v1.0/goods/bulk_stop |
-| [商品参照](/public/goods/search.md)                                                        | POST | /api/v1.0/goods/search |
-| [カスタム項目登録更新](/public/mst_custom_field/bulk_upsert.md)                                  | POST | /api/v1.0/custom_field/bulk_upsert |
-| [カスタム項目削除](/public/mst_custom_field/bulk_stop.md)                                      | POST | /api/v1.0/custom_field/bulk_stop |
-| [カスタム項目参照](/public/mst_custom_field/search.md)                                         | POST | /api/v1.0/custom_field/search |
-| [請求元銀行口座登録更新](/public/bs_bank_transfer/bulk_upsert.md)                                 | POST | /api/v1.0/bs_bank_transfer/bulk_upsert |
-| [請求元銀行口座停止削除](/public/bs_bank_transfer/bulk_stop.md)                                   | POST | /api/v1.0/bs_bank_transfer/bulk_stop |
-| [請求元銀行口座パターン登録更新](/public/bs_bank_transfer_pattern/bulk_upsert.md)                     | POST | /api/v1.0/bs_bank_transfer_pattern/bulk_upsert |
-| [請求元銀行口座パターン停止削除](/public/bs_bank_transfer_pattern/bulk_stop.md)                       | POST | /api/v1.0/bs_bank_transfer_pattern/bulk_stop |
-| [請求元部署登録更新](/public/bs_department/bulk_upsert.md)                                      | POST | /api/v1.0/bs_department/bulk_upsert |
-| [請求元部署停止削除](/public/bs_department/bulk_stop.md)                                        | POST | /api/v1.0/bs_department/bulk_stop |
-| [請求元担当者登録更新](/public/bs_owner/bulk_upsert.md)                                          | POST | /api/v1.0/bs_owner/bulk_upsert |
-| [請求元担当者停止削除](/public/bs_owner/bulk_stop.md)                                            | POST | /api/v1.0/bs_owner/bulk_stop |
-| [まるなげ与信申請登録](/public/request_marunage_credit/bulk_register.md)                         |  POST  | /api/v1.0/request_marunage_credit/bulk_register |
-| [まるなげ与信申請参照](/public/request_marunage_credit/search.md)                                |  POST  | /api/v1.0/request_marunage_credit/search        |
-| [まるなげ与信解除申請](/public/marunage_credit/bulk_stop.md)                                     |  POST  | /api/v1.0/marunage_credit/bulk_stop             |
-| [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                |
+| [決済情報参照](/public/billing_payment_method/search.md)                                     | POST | /api/v1.0/billing_payment_method/search            |
+| [請求情報登録更新](/public/demand/bulk_upsert.md)                                              | POST | /api/v1.0/demand/bulk_upsert                       |
+| [請求情報停止削除](/public/demand/bulk_stop.md)                                                | POST | /api/v1.0/demand/bulk_stop                         |
+| [売上消込結果参照](/public/demand/search.md)                                                   | POST | /api/v1.0/demand/search                            |
+| [請求情報参照](/public/demand/search2.md)                                                    | POST | /api/v1.0/demand/search2                           |
+| [請求書発行](/public/demand/bulk_issue_bill_select.md)                                      | POST | /api/v1.0/demand/bulk_issue_bill_select            |
+| [即時決済 請求書合算](/public/demand/bulk_register.md)                                          | POST | /api/demand/bulk_register                          |
+| [請求書送付メール](/public/bill/send_bill_by_email.md)                                         | POST | /api/v1.0/bill/send_bill_by_email                  |
+| [請求書送付郵送](/public/bill/send_bill_by_mail.md)                                           | POST | /api/v1.0/bill/send_bill_by_mail                   |
+| [繰越予約](/public/bill/update_carryover.md)                                               | POST | /api/v1.0/bill/update_carryover                    |
+| [請求書参照](/public/bill/search.md)                                                        | POST | /api/v1.0/bill/search                              |
+| [請求書更新](/public/bill/update.md)                                                        | POST | /api/v1.0/bill/update                              |
+| [請求書無効](/public/bill/stop.md)                                                          | POST | /api/v1.0/bill/stop                                |
+| [請求書明細参照](/public/bill_detail/search.md)                                               | POST | /api/v1.0/bill_detail/search                       |
+| [入金登録更新](/public/payment/bulk_upsert.md)                                               | POST | /api/v1.0/payment/bulk_upsert                      |
+| [入金無効削除](/public/payment/bulk_stop.md)                                                 | POST | /api/v1.0/payment/bulk_stop                        |
+| [入金参照](/public/payment/search.md)                                                      | POST | /api/v1.0/payment/search                           |
+| [消込](/public/clearing/exec.md)                                                         | POST | /api/v1.0/clearing/exec                            |
+| [消込結果参照](/public/clearing/search.md)                                                   | POST | /api/v1.0/clearing/search                          |
+| [消込取消](/public/clearing/bulk_cancel.md)                                                | POST | /api/v1.0/clearing/bulk_cancel                     |
+| [消込結果明細参照](/public/clearing_detail/search.md)                                          | POST | /api/v1.0/clearing_detail/search                   |
+| [商品登録更新2](/public/goods/bulk_upsert2.md)                                               | POST | /api/v1.0/goods/bulk_upsert2                       |
+| [商品停止削除](/public/goods/bulk_stop.md)                                                   | POST | /api/v1.0/goods/bulk_stop                          |
+| [商品参照](/public/goods/search.md)                                                        | POST | /api/v1.0/goods/search                             |
+| [カスタム項目登録更新](/public/mst_custom_field/bulk_upsert.md)                                  | POST | /api/v1.0/custom_field/bulk_upsert                 |
+| [カスタム項目削除](/public/mst_custom_field/bulk_stop.md)                                      | POST | /api/v1.0/custom_field/bulk_stop                   |
+| [カスタム項目参照](/public/mst_custom_field/search.md)                                         | POST | /api/v1.0/custom_field/search                      |
+| [請求元銀行口座登録更新](/public/bs_bank_transfer/bulk_upsert.md)                                 | POST | /api/v1.0/bs_bank_transfer/bulk_upsert             |
+| [請求元銀行口座停止削除](/public/bs_bank_transfer/bulk_stop.md)                                   | POST | /api/v1.0/bs_bank_transfer/bulk_stop               |
+| [請求元銀行口座パターン登録更新](/public/bs_bank_transfer_pattern/bulk_upsert.md)                     | POST | /api/v1.0/bs_bank_transfer_pattern/bulk_upsert     |
+| [請求元銀行口座パターン停止削除](/public/bs_bank_transfer_pattern/bulk_stop.md)                       | POST | /api/v1.0/bs_bank_transfer_pattern/bulk_stop       |
+| [請求元部署登録更新](/public/bs_department/bulk_upsert.md)                                      | POST | /api/v1.0/bs_department/bulk_upsert                |
+| [請求元部署停止削除](/public/bs_department/bulk_stop.md)                                        | POST | /api/v1.0/bs_department/bulk_stop                  |
+| [請求元担当者登録更新](/public/bs_owner/bulk_upsert.md)                                          | POST | /api/v1.0/bs_owner/bulk_upsert                     |
+| [請求元担当者停止削除](/public/bs_owner/bulk_stop.md)                                            | POST | /api/v1.0/bs_owner/bulk_stop                       |
+| [まるなげ与信申請登録](/public/request_marunage_credit/bulk_register.md)                         |  POST  | /api/v1.0/request_marunage_credit/bulk_register    |
+| [まるなげ与信申請参照](/public/request_marunage_credit/search.md)                                |  POST  | /api/v1.0/request_marunage_credit/search           |
+| [まるなげ与信解除申請](/public/marunage_credit/bulk_stop.md)                                     |  POST  | /api/v1.0/marunage_credit/bulk_stop                |
+| [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                   |
+| [入金繰越予約](/public/payment/carryover_suspense.md)                                        |  POST  | /api/v1.0/payment/carryover_suspense               |
+| [入金繰越予約取消](/public/payment/carryover_suspense_cancel.md)                               |  POST  | /api/v1.0/payment/carryover_suspense_cancel        |
+
 
 <br>
 - [非推奨のAPI一覧](/deprecated/index.md)
