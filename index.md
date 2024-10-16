@@ -58,6 +58,8 @@
 | [入金登録更新](/public/payment/bulk_upsert.md)                                               | POST | /api/v1.0/payment/bulk_upsert                      |
 | [入金無効削除](/public/payment/bulk_stop.md)                                                 | POST | /api/v1.0/payment/bulk_stop                        |
 | [入金参照](/public/payment/search.md)                                                      | POST | /api/v1.0/payment/search                           |
+| [入金繰越予約](/public/payment/carryover_suspense.md)                                        |  POST  | /api/v1.0/payment/carryover_suspense               |
+| [入金繰越予約取消](/public/payment/carryover_suspense_cancel.md)                               |  POST  | /api/v1.0/payment/carryover_suspense_cancel        |
 | [消込](/public/clearing/exec.md)                                                         | POST | /api/v1.0/clearing/exec                            |
 | [消込結果参照](/public/clearing/search.md)                                                   | POST | /api/v1.0/clearing/search                          |
 | [消込取消](/public/clearing/bulk_cancel.md)                                                | POST | /api/v1.0/clearing/bulk_cancel                     |
@@ -80,9 +82,6 @@
 | [まるなげ与信申請参照](/public/request_marunage_credit/search.md)                                |  POST  | /api/v1.0/request_marunage_credit/search           |
 | [まるなげ与信解除申請](/public/marunage_credit/bulk_stop.md)                                     |  POST  | /api/v1.0/marunage_credit/bulk_stop                |
 | [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                   |
-| [入金繰越予約](/public/payment/carryover_suspense.md)                                        |  POST  | /api/v1.0/payment/carryover_suspense               |
-| [入金繰越予約取消](/public/payment/carryover_suspense_cancel.md)                               |  POST  | /api/v1.0/payment/carryover_suspense_cancel        |
-
 
 <br>
 - [非推奨のAPI一覧](/deprecated/index.md)
