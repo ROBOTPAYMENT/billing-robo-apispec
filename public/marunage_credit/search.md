@@ -70,7 +70,7 @@
 | error_message  | エラーメッセージ<br> ※正常時はnull                      | string   |
 | id             | まるなげ与信ID                                        | int      |
 | billing_code   | 請求先コード                                          | string   |
-| status         | まるなげ与信状態<br> 0: 停止<br> 1: 有効<br> 2: 申請中<br> 3: 未申請    | int      |
+| status         | まるなげ与信状態<br> 0: 停止<br> 1: 有効<br> 2: 申請中<br> 3: 未申請<br> 4: 有効（停止申請中）    | int      |
 | regist_date    | 登録日時                                             | datetime |
 | update_date    | 更新日時                                             | datetime |
 
