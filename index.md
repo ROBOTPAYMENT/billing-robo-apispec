@@ -80,7 +80,7 @@
 | [請求元担当者停止削除](/public/bs_owner/bulk_stop.md)                                            | POST | /api/v1.0/bs_owner/bulk_stop                       |
 | [まるなげ与信申請登録](/public/request_marunage_credit/bulk_register.md)                         |  POST  | /api/v1.0/request_marunage_credit/bulk_register    |
 | [まるなげ与信申請参照](/public/request_marunage_credit/search.md)                                |  POST  | /api/v1.0/request_marunage_credit/search           |
-| [まるなげ与信停止申請](/public/marunage_credit/bulk_stop.md)                                     |  POST  | /api/v1.0/marunage_credit/bulk_stop                |
+| [まるなげ与信解除申請](/public/marunage_credit/bulk_stop.md)                                     |  POST  | /api/v1.0/marunage_credit/bulk_stop                |
 | [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                   |
 
 <br>
