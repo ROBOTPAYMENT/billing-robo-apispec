@@ -100,7 +100,7 @@ Status: 200 OK
     "user_id": "sample@robotpayment.co.jp",
     "limit_count": 100,
     "page_count": 0,
-    "total_page_count": 2,
+    "total_page_count": 1,
     "request_marunage_credit": [
         {
             "error_code": null,
