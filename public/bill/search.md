@@ -121,7 +121,9 @@
 | bill_detail_count                                        | 請求書明細件数                                                                                                                                                       | int    |                         |
 | subtotal_amount_billed                                   | 請求金額小計                                                                                                                                                        | int    |                         |
 | consumption_tax_amount                                   | 消費税額                                                                                                                                                          | int    |                         |
+| bill_carryover_suspense_total_amount_billed              | 入金繰越額                                                                                                                                                          | int    |                         |
 | total_amount_billed                                      | 請求金額合計                                                                                                                                                        | int    |                         |
+| bill_total_amount_billed_before_suspense_carryover       | 合計（入金繰越前）                                                                                                                                                          | int    |                         |
 | [consumption_tax_items](#consumption_tax_items-response) | 消費税内訳                                                                                                                                                         | array | 税率がない（対象外、非課税）場合はnullを返却 |
 | unclearing_amount                                        | 未消込金額                                                                                                                                                         | int    |                         |
 | message_column                                           | 通信欄                                                                                                                                                           | string |                          |
@@ -270,7 +272,9 @@ Status: 200 OK
             "bill_detail_count": 1,
             "subtotal_amount_billed": 10000,
             "consumption_tax_amount": 800,
+            "bill_carryover_suspense_total_amount_billed": 0,
             "total_amount_billed": 10800,
+            "bill_total_amount_billed_before_suspense_carryover": 0,
             "consumption_tax_items":[
               {
                 "taxable_amount": 10000,
