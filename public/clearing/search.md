@@ -120,7 +120,8 @@
 | payment_amount                | 入金金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
 | erasure_cancel_flg            | 取消フラグ <br> 0:未取消 <br> 1:取消済み                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
 | erasure_cancel_recorded_date  | 消込取消計上日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string |
-| erasure_carryover_suspense_flg    | 自動合算消込フラグ <br> ０：　自動合算消込による消し込みでない <br> １：　自動合算消込による消し込み                                                                                                                                                                                                                                                                                                                                                                                                  | int    |
+| erasure_total_auto_clearing_flg  | 自動合算消込フラグ <br> ０：　自動合算消込による消し込みでない <br> １：　自動合算消込による消し込み                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | int |
+
 ## 使用例
 
 ### リクエスト例
@@ -246,6 +247,7 @@ Status: 200 OK
 | 3914         | 消込結果情報取得件数が不正             |
 | 3915         | 消込結果情報取得開始インデックスが不正 |
 | 3917         | 自動合算消込フラグが不正 |
+
 ---
 
 [TOP へ戻る](../../index.md)
