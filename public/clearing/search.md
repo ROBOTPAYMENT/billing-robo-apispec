@@ -49,7 +49,6 @@
 | erasure_cancel_recorded_date_to       | 消込取消計上日(終了日)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 10   | 日付    |      |      |
 | payment_transfer_date_from            | 入金日(開始日)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 10   | 日付    |      |      |
 | payment_transfer_date_to              | 入金日(終了日)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 10   | 日付    |      |      |
-| erasure_total_auto_clearing_flg              | 自動合算消込フラグ <br> ０：　自動合算消込による消し込みでない <br> １：　自動合算消込による消し込み | 1 | 数値 | | |
 
 #### payment (request)
 
@@ -120,7 +119,7 @@
 | payment_amount                | 入金金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
 | erasure_cancel_flg            | 取消フラグ <br> 0:未取消 <br> 1:取消済み                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
 | erasure_cancel_recorded_date  | 消込取消計上日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string |
-| erasure_carryover_suspense_flg    | 自動合算消込フラグ <br> ０：　自動合算消込による消し込みでない <br> １：　自動合算消込による消し込み                                                                                                                                                                                                                                                                                                                                                                                                  | int    |
+
 ## 使用例
 
 ### リクエスト例
@@ -162,7 +161,6 @@
     "erasure_deposit_recorded_date_to": "2020/04/11",
     "erasure_cancel_recorded_date_from": "",
     "erasure_cancel_recorded_date_to": null,
-    "erasure_total_auto_clearing_flg": 0,
     "payment_transfer_date_from": "2020/03/01",
     "payment_transfer_date_to": "2020/04/11"
   }
@@ -196,8 +194,7 @@ Status: 200 OK
       "account_name": "振込名義",
       "payment_amount": 1080,
       "erasure_cancel_flg": 0,
-      "erasure_cancel_recorded_date": null,
-      "erasure_total_auto_clearing_flg": 0
+      "erasure_cancel_recorded_date": null
     },
     {
       "error_code": null,
@@ -215,8 +212,7 @@ Status: 200 OK
       "account_name": "振込名義",
       "payment_amount": 1080,
       "erasure_cancel_flg": 1,
-      "erasure_cancel_recorded_date": "2020/04/01",
-      "erasure_total_auto_clearing_flg": 0
+      "erasure_cancel_recorded_date": "2020/04/01"
     }
   ]
 }
@@ -245,7 +241,7 @@ Status: 200 OK
 | 3913         | 消込結果参照に失敗しました             |
 | 3914         | 消込結果情報取得件数が不正             |
 | 3915         | 消込結果情報取得開始インデックスが不正 |
-| 3917         | 自動合算消込フラグが不正 |
+
 ---
 
 [TOP へ戻る](../../index.md)
