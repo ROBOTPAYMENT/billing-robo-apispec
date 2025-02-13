@@ -86,7 +86,7 @@
 
 <br>
 
-- [廃止されたのAPI一覧](/obsolete/index.md)
+- [廃止されたAPI一覧](/obsolete/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
