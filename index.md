@@ -85,7 +85,8 @@
 | [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                   |
 
 <br>
-- [非推奨のAPI一覧](/deprecated/index.md)
+
+- [廃止されたのAPI一覧](/obsolete/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
@@ -225,6 +226,7 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 | 18          | 利用企業が不正                              |
 | 19          | メンテナンス中                              |
 | 20          | リクエスト数が不正                          |
+| 21          | 廃止されたAPI |
 
 ### レスポンス例
 

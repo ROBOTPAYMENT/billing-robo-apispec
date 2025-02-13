@@ -1,4 +1,4 @@
-> このAPIは非推奨APIとなっており順次廃止予定となっております。廃止予定の非推奨APIにあわせて、代替APIを下記の通りご用意させていただいております。
+> このAPIは廃止されたAPIとなっております。代替APIを下記の通りご用意させていただいております。
 - [請求先登録更新 v1.0/billing/bulk_upsert](/public/billing/bulk_upsert.html)
 
 # 請求先登録
