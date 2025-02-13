@@ -1,4 +1,4 @@
-> このAPIは非推奨APIとなっており順次廃止予定となっております。廃止予定の非推奨APIにあわせて、代替APIを下記の通りご用意させていただいております。
+> このAPIは廃止されたAPIとなっております。代替APIを下記の通りご用意させていただいております。
 - [口座振替依頼書発行 v1.0/billing/bulk_download_pdf](/public/billing/bulk_download_pdf.html)
 
 # 口座振替依頼書発行
