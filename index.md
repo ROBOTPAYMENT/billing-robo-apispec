@@ -31,6 +31,7 @@
       - `https://demo.billing-robo.jp:10443`
 - Accepted content types: `application/json`
 - Encode: `UTF-8`
+- API実行時のユーザーIDとアクセスキー: 請求管理ロボの[ヘルプサイト](https://keirinomikata.zendesk.com/hc/ja/articles/115000131162-API%E6%8E%A5%E7%B6%9A%E8%A8%AD%E5%AE%9A#:~:text=%E4%BE%8B%EF%BC%89192.0.2.0%EF%BD%9E192.0.2.255-,%E2%96%A0API%E5%AE%9F%E8%A1%8C,-%E2%97%8F%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%0A%E3%80%80%E3%80%80%E3%80%80%E3%80%80user_id)参照
 
 ## API一覧
 
@@ -84,7 +85,8 @@
 | [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                   |
 
 <br>
-- [非推奨のAPI一覧](/deprecated/index.md)
+
+- [廃止されたAPI一覧](/obsolete/index.md)
 
 ## Webhook一覧
 - [Webhook請求書発行イベント](/webhook/webhook_bill.md)
@@ -224,6 +226,7 @@ APIによる操作が失敗した場合、サーバは可能な限りエラー�
 | 18          | 利用企業が不正                              |
 | 19          | メンテナンス中                              |
 | 20          | リクエスト数が不正                          |
+| 21          | 廃止されたAPI |
 
 ### レスポンス例
 
