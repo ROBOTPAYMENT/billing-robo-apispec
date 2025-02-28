@@ -100,7 +100,7 @@ Status: 200 OK
       "error_code": 9999,
       "error_message": "error_text",
       "bill_number": "202401-sample-2",
-      "status"：null,
+      "status":null,
       "apply_date":null
     }
   ]
