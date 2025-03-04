@@ -145,6 +145,7 @@
 | payment_id                    | 入金 ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | int      |
 | payment_transfer_date         | 入金日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | date     |
 | account_name                  | 振込名義                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string   |
+| description                   | 摘要義                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string |
 | payment_amount                | 入金金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int      |
 | erasure_cancel_flg            | 取消フラグ <br> 0:未取消 <br> 1:取消済み                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int      |
 | erasure_cancel_recorded_date  | 消込取消計上日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string   |
@@ -248,6 +249,7 @@ Status: 200 OK
       "payment_id": 12,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
+      "description": "フリコミ 振込名義",
       "payment_amount": 1080,
       "erasure_cancel_flg": 1,
       "erasure_cancel_recorded_date": "2020/04/01",
@@ -272,6 +274,7 @@ Status: 200 OK
       "payment_id": 12,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
+      "description": "フリコミ 振込名義",
       "payment_amount": 1080,
       "erasure_cancel_flg": 1,
       "erasure_cancel_recorded_date": "2020/04/01",
@@ -296,6 +299,7 @@ Status: 200 OK
       "payment_id": null,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
+      "description": "フリコミ 振込名義",
       "payment_amount": 1080,
       "erasure_cancel_flg": 1,
       "erasure_cancel_recorded_date": "2020/04/01",
