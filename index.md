@@ -83,7 +83,8 @@
 | [まるなげ与信申請参照](/public/request_marunage_credit/search.md)                                |  POST  | /api/v1.0/request_marunage_credit/search           |
 | [まるなげ与信停止申請](/public/marunage_credit/bulk_stop.md)                                     |  POST  | /api/v1.0/marunage_credit/bulk_stop                |
 | [まるなげ与信参照](/public/marunage_credit/search.md)                                          |  POST  | /api/v1.0/marunage_credit/search                   |
-
+| [債権譲渡申請](/public/marunage_bill_credit/bulk_apply.md)                                   |  POST  | /api/v1.0/marunage_bill_credit/bulk_apply                |
+| [債権譲渡申請参照](/public/marunage_bill_credit/search.md)                                     |  POST  | /api/v1.0/marunage_bill_credit/search                   |
 <br>
 
 - [廃止されたAPI一覧](/obsolete/index.md)
