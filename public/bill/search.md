@@ -64,7 +64,7 @@
 | attachment_flg                | 添付ファイルフラグ <br> 0:添付ファイルなし <br> 1:添付ファイルあり <br> ※ファイル添付機能利用中のみ利用可能                                                                                                                                                                                                                                                                                                          | 1   | 数値 |                                                   |  |
 | carryover_status              | 繰越ステータス <br> 0:対象外 <br> 1:繰越待ち <br> 2:繰越完了                                                                                                                                                                                                                                                                                                                                 | 1   | 数値                              |                                                   |         |
 | carryover_transit_bill_number | 繰越先請求書番号                                                                                                                                                                                                                                                                                                                                                                   | 100 | [半角英数 + 記号](../../index.md#種別) |                                                   | 完全一致 |
-| marunage_bill_credit_status           | 債権譲渡申請ステータス  | 100 | 数値                              |    |
+| marunage_bill_credit_status           | 債権譲渡申請ステータス  | 1   | 数値                              |    |
 | marunage_bill_credit_apply_date_from  | 債権譲渡申請日（開始日） | 10  | 日付                              |    |
 | marunage_bill_credit_apply_date_to    | 債権譲渡申請日（終了日） | 10  | 日付                              |    |
 | marunage_bill_credit_answer_date_from | 債権譲渡申請日（開始日） | 10  | 日付                              |    |
@@ -236,12 +236,12 @@
         "attachment_planned_flg": 0,
         "attachment_flg": 0,
         "carryover_status": 0,
-        "carryover_transit_bill_number": "",
         "marunage_bill_credit_status": 1,
         "marunage_bill_credit_apply_date_from": "2020/07/01",
         "marunage_bill_credit_apply_date_to": "2020/07/31",
         "marunage_bill_credit_answer_date_from": "2020/07/01",
         "marunage_bill_credit_answer_date_to": "2020/07/31",
+        "carryover_transit_bill_number": "",
         "regist_date_from": "2020/07/01 10:00:00",
         "regist_date_to": "2020/07/31 10:00:00",
         "update_date_from": "2020/07/01 10:00:00",
