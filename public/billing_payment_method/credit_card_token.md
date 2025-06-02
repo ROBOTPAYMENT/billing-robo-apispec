@@ -334,8 +334,8 @@ CPToken.TokenCreate (
     "billing_code" : "billing_code",
     "billing_payment_method_number" : 1,
     "token" : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "email" : "email@robotpayment.co.jp",
-    "tel" : "0312345678"
+    "email" : "sample@sample.com",
+    "tel" : "0300000000"
 }
 ```
 
