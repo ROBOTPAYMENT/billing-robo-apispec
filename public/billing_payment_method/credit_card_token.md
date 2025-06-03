@@ -300,6 +300,9 @@ CPToken.TokenCreate (
 | billing_payment_method_number | 決済情報番号                       | 18   | 数値                                   | (必須)^1 |
 | billing_payment_method_code   | 決済情報コード                     | 20   | [半角英数 + 記号](../../index.md#種別) | (必須)^1 |
 | token                         | トークン情報                       |      | [半角英数 ](../../index.md#種別)       | 必須     |
+| email                                                                             | メールアドレス  <br> ※両端のスペース除去                                                                                                                                                                                                                                      | 100 | [メール形式](../../index.md#種別)      |                              |
+| tel                                                                               | 電話番号  <br> ※両端のスペース除去                                                                                                                                                                                                                  | 15  | 数値、半角ハイフン                     | |
+
 
 ### レスポンス
 
@@ -330,7 +333,9 @@ CPToken.TokenCreate (
     "access_key": "xxxxxxxxxxxxxxxx",
     "billing_code" : "billing_code",
     "billing_payment_method_number" : 1,
-    "token" : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    "token" : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "email" : "sample@sample.com",
+    "tel" : "0300000000"
 }
 ```
 
@@ -355,10 +360,12 @@ Status: 200 OK
 
 個別エラー
 
-| エラーコード | 内容                                                 |
-| ------------ | ---------------------------------------------------- |
-| 3401         | 請求先コードが不正                                   |
-| 3402         | 決済情報番号が不正                                   |
-| 3403         | 決済情報コードが不正                                 |
-| 3404         | 請求先決済番号と請求先決済コードは同時に指定できない |
-| 3405         | トークン情報が不正                                   |
+| エラーコード | 内容                         |
+|--------|----------------------------|
+| 3401   | 請求先コードが不正                  |
+| 3402   | 決済情報番号が不正                  |
+| 3403   | 決済情報コードが不正                 |
+| 3404   | 請求先決済番号と請求先決済コードは同時に指定できない |
+| 3405   | トークン情報が不正                  |
+| 3406   | メールアドレスが不正           |
+| 3407   | 電話番号が不正                    |
