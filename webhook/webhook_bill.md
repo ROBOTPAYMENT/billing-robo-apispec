@@ -61,8 +61,8 @@
   "org": "BillingRobo_RobotPayment",
   "id": "25",
   "event_name": "bill_issue",
-  "regist_time": "2019-12-06 08:09:26",
-  "notification_time": "2019-12-06 05:09:32",
+  "regist_time": "2019-12-06 15:09:26",
+  "notification_time": "2019-12-06 15:09:32",
   "billing_source_id": "1",
   "event_detail": {
     "bill": {

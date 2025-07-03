@@ -56,8 +56,8 @@
   "org": "BillingRobo_RobotPayment",
   "id": "17",
   "event_name": "credit_status_issue",
-  "regist_time": "2019-11-28 04:35:15",
-  "notification_time": "2019-11-28 01:35:40",
+  "regist_time": "2019-11-28 16:35:15",
+  "notification_time": "2019-11-28 13:35:40",
   "billing_source_id": "1",
   "event_detail": {
     "billing_id": "5",
@@ -67,7 +67,7 @@
     "payment_status": "1",
     "credit_status": "",
     "credit_error_code": null,
-    "credit_update_time": "2019-11-28 01:35:15"
+    "credit_update_time": "2019-11-28 13:35:15"
   }
 }
 ```
