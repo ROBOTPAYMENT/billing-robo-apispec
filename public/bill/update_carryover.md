@@ -66,50 +66,51 @@
 
 下記のような項目のオブジェクトを持つリスト
 
-| 名前                          | 概要                                                                                                                                                                                   | 型     |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| number                        | 請求書番号                                                                                                                                                                             | string |
-| bs_residence_code             | 請求元差出人コード                                                                                                                                                                     | string |
-| billing_code                  | 請求先コード                                                                                                                                                                           | string |
-| billing_name                  | 請求先名                                                                                                                                                                               | string |
-| billing_individual_number     | 請求先部署番号                                                                                                                                                                         | int    |
-| billing_individual_code       | 請求先部署コード                                                                                                                                                                       | string |
-| billing_individual_name       | 請求先部署名                                                                                                                                                                           | string |
-| demand_number                 | 請求件数                                                                                                                                                                               | int    |
-| subtotal_amount_billed        | 請求金額小計                                                                                                                                                                           | int    |
-| consumption_tax_amount        | 消費税額                                                                                                                                                                               | int    |
-| total_amount_billed           | 請求金額合計                                                                                                                                                                           | int    |
-| unclearing_amount             | 未消込金額                                                                                                                                                                             | int    |
-| message_column                | 通信欄                                                                                                                                                                                 | string |
-| billing_method                | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送                                      | int    |
-| issue_date                    | 請求書発行日                                                                                                                                                                           | string |
-| make_date                     | 請求書作成日                                                                                                                                                                           | string |
-| sending_scheduled_date        | 請求書送付予定日                                                                                                                                                                       | string |
-| sending_date                  | 請求書送付日                                                                                                                                                                           | string |
-| update_date                   | 請求書更新日                                                                                                                                                                           | string |
-| confirm_date                  | 請求書確認日                                                                                                                                                                           | string |
-| mail_send_flg                 | メールステータス <br> 0:未送信 <br> 1:送信済み                                                                                                                                         | int    |
-| post_send_flg                 | 郵送ステータス <br> 0:未送信 <br> 1:送信済み                                                                                                                                           | int    |
-| payment_method                | [決済手段](../../index.md#決済手段) | int    |
-| payment_method_number         | 決済情報番号                                                                                                                                                                           | int    |
-| payment_method_code           | 決済情報コード                                                                                                                                                                         | string |
-| payment_method_name           | 決済情報名                                                                                                                                                                             | string |
-| settlement_result             | 決済連携ステータス <br> 0:申請中 <br> 1:送信失敗 <br> 2:決済成功 <br> 3:決済失敗                                                                                                       | int    |
-| settlement_linkage_status     | 決済データ連携ステータス  <br> 0:未連携   <br> 1:連携失敗   <br> 2:決済成功   <br> 3:決済失敗   <br> 4:連携なし   <br> 5:連携済み   <br> 6:再連携待ち                                        | int    |
-| transfer_deadline             | 決済期限                                                                                                                                                                               | string |
-| slip_deadline                 | 払込票有効期限                                                                                                                                                                         | string |
-| transfer_date                 | 決済日                                                                                                                                                                                 | string |
-| payment_status                | 消込ステータス <br> 0:未処理 <br> 1:完了 <br> 2:確認済み <br> 3:未収 <br> 4:貸倒 <br> 5:手数料 <br> 6:現金 <br> 7:長期滞留債権 <br> 8:破産更生債権 <br> 9:売上取消 <br> 10:繰越               | int    |
-| memo                          | メモ                                                                                                                                                                                   | string |
-| template_code                 | 請求書テンプレート                                                                                                                                                                     | string |
-| bs_department_code            | 請求元部署コード                                                                                                                                                                       | string |
-| bs_department_name            | 請求元部署名                                                                                                                                                                           | string |
-| bs_owner_code                 | 請求元担当者コード                                                                                                                                                                     | string |
-| bs_owner_name                 | 請求元担当者名                                                                                                                                                                         | string |
-| valid_flg                     | 請求書有効フラグ <br> 0:無効 <br> 1:有効                                                                                                                                                     | int    |
-| delete_flg                    | 請求書削除フラグ <br> 0:未削除 <br> 1:削除 <br> ※現行削除機能は未実装のため未削除が返却されます。                                                                                           | int    |
-| gid                           | 決済ID                                                                                                                                                                                 | string |
-| carryover_status              | 繰越ステータス <br> 0:対象外 <br> 1:繰越待ち                                                                                                                                                | int    |
+| 名前                          | 概要                                                                                                                                   | 型      |
+| ----------------------------- |--------------------------------------------------------------------------------------------------------------------------------------|--------|
+| number                        | 請求書番号                                                                                                                                | string |
+| bs_residence_code             | 請求元差出人コード                                                                                                                            | string |
+| billing_code                  | 請求先コード                                                                                                                               | string |
+| billing_name                  | 請求先名                                                                                                                                 | string |
+| billing_individual_number     | 請求先部署番号                                                                                                                              | int    |
+| billing_individual_code       | 請求先部署コード                                                                                                                             | string |
+| billing_individual_name       | 請求先部署名                                                                                                                               | string |
+| demand_number                 | 請求件数                                                                                                                                 | int    |
+| subtotal_amount_billed        | 請求金額小計                                                                                                                               | int    |
+| consumption_tax_amount        | 消費税額                                                                                                                                 | int    |
+| total_amount_billed           | 請求金額合計                                                                                                                               | int    |
+| unclearing_amount             | 未消込金額                                                                                                                                | int    |
+| message_column                | 通信欄                                                                                                                                  | string |
+| billing_method                | 請求方法 <br> 0:送付なし <br> 1:自動メール <br> 2:手動メール <br> 3:自動郵送 <br> 4:手動郵送 <br> 5:自動メール+自動郵送 <br> 6:手動メール+手動郵送                               | int    |
+| issue_date                    | 請求書発行日                                                                                                                               | string |
+| make_date                     | 請求書作成日                                                                                                                               | string |
+| sending_scheduled_date        | 請求書送付予定日                                                                                                                             | string |
+| sending_date                  | 請求書送付日                                                                                                                               | string |
+| update_date                   | 請求書更新日                                                                                                                               | string |
+| confirm_date                  | 請求書確認日                                                                                                                               | string |
+| mail_send_flg                 | メールステータス <br> 0:未送信 <br> 1:送信済み                                                                                                      | int    |
+| post_send_flg                 | 郵送ステータス <br> 0:未送信 <br> 1:送信済み                                                                                                       | int    |
+| payment_method                | [決済手段](../../index.md#決済手段)                                                                                                          | int    |
+| payment_method_number         | 決済情報番号                                                                                                                               | int    |
+| payment_method_code           | 決済情報コード                                                                                                                              | string |
+| payment_method_name           | 決済情報名                                                                                                                                | string |
+| settlement_result             | 決済連携ステータス <br> 0:申請中 <br> 1:送信失敗 <br> 2:決済成功 <br> 3:決済失敗                                                                             | int    |
+| settlement_linkage_status     | 決済データ連携ステータス  <br> 0:未連携   <br> 1:連携失敗   <br> 2:決済成功   <br> 3:決済失敗   <br> 4:連携なし   <br> 5:連携済み   <br> 6:再連携待ち                        | int    |
+| transfer_deadline             | 決済期限                                                                                                                                 | string |
+| slip_deadline                 | 払込票有効期限                                                                                                                              | string |
+| transfer_date                 | 決済日                                                                                                                                  | string |
+| payment_status                | 消込ステータス <br> 0:未処理 <br> 1:完了 <br> 2:確認済み <br> 3:未収 <br> 4:貸倒 <br> 5:手数料 <br> 6:現金 <br> 7:長期滞留債権 <br> 8:破産更生債権 <br> 9:売上取消 <br> 10:繰越 | int    |
+| memo                          | メモ                                                                                                                                   | string |
+| template_code                 | 請求書テンプレート                                                                                                                            | string |
+| template_version              | 請求書テンプレートバージョン                                                                                                                       | int    |
+| bs_department_code            | 請求元部署コード                                                                                                                             | string |
+| bs_department_name            | 請求元部署名                                                                                                                               | string |
+| bs_owner_code                 | 請求元担当者コード                                                                                                                            | string |
+| bs_owner_name                 | 請求元担当者名                                                                                                                              | string |
+| valid_flg                     | 請求書有効フラグ <br> 0:無効 <br> 1:有効                                                                                                         | int    |
+| delete_flg                    | 請求書削除フラグ <br> 0:未削除 <br> 1:削除 <br> ※現行削除機能は未実装のため未削除が返却されます。                                                                         | int    |
+| gid                           | 決済ID                                                                                                                                 | string |
+| carryover_status              | 繰越ステータス <br> 0:対象外 <br> 1:繰越待ち                                                                                                       | int    |
 
 
 
@@ -184,6 +185,7 @@ Status: 200 OK
             "payment_status": 1,
             "memo": null,
             "template_code": "10000",
+            "template_version": 1,
             "bs_department_code": null,
             "bs_department_name": null,
             "bs_owner_code": null,
