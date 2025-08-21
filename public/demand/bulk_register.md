@@ -55,7 +55,8 @@
 | 名前                     | 概要                                                                                                                              | 桁数        | 種別   | 必須                  |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------ | --------------------- |
 | demand_type              | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量                                                                              | 1           | 数値   | 必須                  |
-| goods_code               | 商品コード                                                                                                                        | 100         | 文字列 |                       |
+| item_code                | 商品コード                                                                                                                        | 20         | [半角英数 + 記号](../../index.md#種別) |                       |
+| goods_code               | 集計用商品コード                                                                                                                        | 100         | 文字列 |                       |
 | link_goods_code          | 会計ソフト連携用商品コード                                                                                                        | 33          | 文字列 |                       |
 | goods_name               | 商品名                                                                                                                            | 60          | 文字列 | 必須                  |
 | price                    | 単価  <br> 両端のスペース除去 <br> ※クレジットカード決済のため桁数上限整数7桁                                                     | 整数7,小数4 | 数値   | (demand_type=0,1時)   |
@@ -72,6 +73,7 @@
 | period_value             | 対象期間 <br> 入力可能値:1～60                                                                                                    | 2           | 数値   | (period_format=2,3時) |
 | period_unit              | 対象期間単位 <br> 1:月                                                                                                            | 1           | 数値   | (period_format=3時)   |
 | period_criterion         | 基準 <br> 0:対象期間開始日 <br> 1:対象期間終了日                                                                                  | 1           | 数値   | (period_format=2,3時) |
+| sales_recorded_date      | 売上計上日                                                                                                                     |      | [日付形式](../../index.md#種別)        |        |
 
 
 
@@ -111,7 +113,8 @@
 | payment_method            | [決済手段](../../index.md#決済手段) | int    |
 | code                      | 請求情報番号                                                                                                                                                    | int    |
 | type                      | 請求タイプ <br> 0:単発 <br> 1:定期定額 <br> 2:定期従量                                                                                                            | int    |
-| goods_code                | 商品コード                                                                                                                                                      | string |
+| item_code                 | 商品コード                                                                                                                                                      | string |
+| goods_code                | 集計用商品コード                                                                                                                                                      | string |
 | link_goods_code           | 会計ソフト連携用商品コード                                                                                                                                        | string |
 | goods_name                | 商品名                                                                                                                                                          | string |
 | price                     | 単価                                                                                                                                                            | string |
@@ -131,6 +134,8 @@
 | period_value              | 対象期間 <br> ※period_format=2,3以外はNULL                                                                                                                      | int    |
 | period_unit               | 対象期間単位 <br> 1:月 <br> ※period_format=3以外はNULL                                                                                                          | string |
 | period_criterion          | 基準 <br> 0:対象期間開始日 <br> 1:対象期間終了日 <br> ※period_format=2,3以外は0                                                                                  | string |
+| sales_recorded_month      | 売上計上日_月                                                                                                                                                 | int    |
+| sales_recorded_day        | 売上計上日_日                                                                                                                                                 | int    |
 | issue_month               | 請求書発行日_月                                                                                                                                                 | int    |
 | issue_day                 | 請求書発行日_日                                                                                                                                                 | int    |
 | sending_month             | 請求書送付日_月                                                                                                                                                 | int    |
@@ -179,6 +184,7 @@
             "bill_detail": [
                 {
                     "demand_type": 0,
+                    "item_code": "item",
                     "goods_code": "goods",
                     "link_goods_code": "link_goods",
                     "goods_name": "商品",
@@ -194,7 +200,8 @@
                     "period_format": 0,
                     "period_value": null,
                     "period_unit": null,
-                    "period_criterion": 0
+                    "period_criterion": 0,
+                    "sales_recorded_date": "2014/11/11"
                 }
             ]
         }
@@ -220,6 +227,7 @@ Status: 200 OK
             "payment_method": 0,
             "code": 1,
             "type": 0,
+            "item_code": "item",
             "goods_code": "goods",
             "link_goods_code": "link_goods",
             "goods_name": "商品",
@@ -240,6 +248,8 @@ Status: 200 OK
             "period_value": null,
             "period_unit": null,
             "period_criterion": "0",
+            "sales_recorded_month": 0,
+            "sales_recorded_day": 11,
             "issue_month": 0,
             "issue_day": 1,
             "sending_month": 0,
@@ -324,7 +334,7 @@ Status: 200 OK
 | 201          | 請求先部署が存在しない                                                                                                                                                                                |
 | 202          | 請求先部署の登録ステータスが不正                                                                                                                                                                      |
 | 203          | 請求タイプが不正                                                                                                                                                                                      |
-| 204          | 商品コードが不正                                                                                                                                                                                      |
+| 204          | 集計用商品コードが不正                                                                                                                                                                                      |
 | 205          | 会計ソフト連携用商品コードが不正                                                                                                                                                                      |
 | 206          | 商品名が不正                                                                                                                                                                                          |
 | 207          | 単価が不正                                                                                                                                                                                            |
@@ -365,6 +375,10 @@ Status: 200 OK
 | 242          | 請求書発行件数が不正 <br> リクエストした請求書が1件より多い場合                                                                                                                                       |
 | 243          | 既に締められた期間への請求書発行日は設定できません                                                                                                                                                    |
 | 244          | 既に締められた期間への売上計上日の指定はできません                                                                                                                                                    |
+| 245          | 選択された消費税率は利用不可です                                                                                                                                                    |
+| 246          | 商品コードが不正                                                                                                                                                                                      |
+| 247          | 売上計上日が不正                                                                                                                                                                                 |
+
 
 ----
 
