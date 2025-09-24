@@ -63,8 +63,8 @@ event_detailパラメーターのmailの中身
   "org": "BillingRobo_RobotPayment",
   "id": "26",
   "event_name": "credit_status_issue",
-  "regist_time": "2019-12-06 08:31:33",
-  "notification_time": "2019-12-06 06:39:50",
+  "regist_time": "2019-12-06 15:31:33",
+  "notification_time": "2019-12-06 15:39:50",
   "billing_source_id": "1",
   "event_detail": {
     "type": "complete",
