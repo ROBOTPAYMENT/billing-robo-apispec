@@ -27,7 +27,7 @@
 | user_id                 | ユーザー ID                                                                             | 100  | [メール形式](../../index.md#種別) | 必須 |
 | access_key              | アクセスキー                                                                            | 100  | [半角英数](../../index.md#種別)   | 必須 |
 | limit_count             | 決済情報取得件数 <br> ※0〜200の数値を設定する。省略した場合、20 が設定される                   | 3    | 数値                              |      |
-| page_count              | 決済情報取得開始インデックス <br> ※0〜99の数値を設定する。省略した場合、0 が設定される           | 2    | 数値                              |      |
+| page_count              | 決済情報取得開始インデックス <br> ※0〜999の数値を設定する。省略した場合、0 が設定される           | 3    | 数値                              |      |
 | [billing_payment_method](#billing_payment_method-request) | 決済情報に属するパラメータ                                                                  |      | `object`                          |      |
 
 #### billing_payment_method (request)
