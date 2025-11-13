@@ -107,6 +107,7 @@
 | cc_email                                | CC送信先メールアドレス                       | string   |
 | memo                                    | メモ                                       | string   |
 | auto_erase_commission_amount            | 手数料自動消込許容金額                       | int      |
+| auto_erase_overpayment_amount           | 過入金自動消込許容金額                       | int      |
 | billing_method                          | 請求方法                                    | int      |
 | issue_month                             | 請求書発行日_月                             | int      |
 | issue_day                               | 請求書発行日_日                             | int      |
@@ -163,7 +164,7 @@
         "register_status": 5,
         "bs_department_code": "0001",
         "bs_owner_code": "bs_owner",
-      　"attachment_planned_flg": 0,
+        "attachment_planned_flg": 0,
         "regist_date_from": "2020/07/01 10:00:00",
         "regist_date_to": "2020/07/30 20:00:00",
         "update_date_from": "2020/07/01 10:00:00",
@@ -213,6 +214,7 @@ Status: 200 OK
             "cc_email": "",
             "memo": "",
             "auto_erase_commission_amount": null,
+            "auto_erase_overpayment_amount": null,
             "billing_method": null,
             "issue_month": null,
             "issue_day": null,
