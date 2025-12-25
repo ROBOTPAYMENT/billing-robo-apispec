@@ -84,6 +84,7 @@
 | ref_individual_code                                                               | 合計請求書用請求先部署コード <br> ※追加省略時、nullで登録される                                                                                                                                                                                                                          | 20  | [半角英数 + 記号](../../index.md#種別) | (合計請求書時)^2                     |
 | bill_template_code                                                                | 請求書テンプレートコード <br> ※合計請求書をご利用される場合は、お手数ですがお問い合わせください <br> ※追加省略時、nullで登録される                                                                                                                                                                                     | 18  | 数値                                   |                                      |
 | auto_erase_commission_amount                                                      | 手数料自動消込許容金額 <br> ※追加省略時、0で登録される                                                                                                                                                                                                                                | 9   | 数値                                   |                                      |
+| auto_erase_overpayment_amount                                                     | 過入金自動消込許容金額 <br> ※追加省略時、0で登録される                                                                                                                                                                                                                                | 5   | 数値(上限:10000)                             |                                      |
 | [billing.individual.sub_account_title](#billingindividualsubaccounttitle-request) | 請求先部署補助科目に属するパラメータ ※省略可能                                                                                                                                                                                                                                       |     | `object`                                |                                      |
 
 #### billing.individual.sub_account_title (request)
@@ -191,6 +192,7 @@
 | cc_email                             | CC送信先メールアドレス                                                | string |
 | memo                                 | メモ                                                                  | string |
 | auto_erase_commission_amount         | 手数料自動消込許容金額                                                | int    |
+| auto_erase_overpayment_amount        | 過入金自動消込許容金額                                                | int    |
 | billing_method                       | 請求方法                                                              | string |
 | issue_month                          | 請求書発行日_月                                                       | string |
 | issue_day                            | 請求書発行日_日                                                       | string |
@@ -366,6 +368,7 @@ Status: 200 OK
                     "cc_email": "",
                     "memo": "",
                     "auto_erase_commission_amount": 0,
+                    "auto_erase_overpayment_amount": 0,
                     "billing_method": null,
                     "issue_month": null,
                     "issue_day": null,
@@ -557,6 +560,7 @@ Status: 200 OK
 | 1190   | 債権譲渡決済手段で、利用不可な請求方法です                                                        |
 | 1191   | ファイル添付予定フラグが不正                                                               |
 | 1192   | ファイル添付予定フラグ利用不可                                                              |
+| 1193   | 過入金自動消込許容金額が不正                                                              |
 
 ----
 
