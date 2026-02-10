@@ -111,15 +111,15 @@
 | clearing_date                     | 消込処理日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | date   |
 | erasure_deposit_recorded_date     | 消込計上日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | date   |
 | clearing_method                   | [消込手段](../../index.md#消込手段)  | int    |
-| clearing_amount                   | 消込金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
+| clearing_amount                   | 消込金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string |
 | bill_billing_number               | 請求書番号                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | string |
-| bill_amount                       | 請求金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
+| bill_amount                       | 請求金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string |
 | clearing_bill_billing_number      | 消込請求書番号                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string |
 | payment_id                        | 入金 ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | int    |
 | payment_transfer_date             | 入金日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | date   |
 | account_name                      | 振込名義                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string |
 | description                       | 摘要                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string |
-| payment_amount                    | 入金金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
+| payment_amount                    | 入金金額                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string |
 | erasure_cancel_flg                | 取消フラグ <br> 0:未取消 <br> 1:取消済み                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | int    |
 | erasure_cancel_recorded_date      | 消込取消計上日                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | string |
 | erasure_total_auto_clearing_flg  | 自動合算消込フラグ <br> 0:自動合算消込による消し込みでない <br> 1:自動合算消込による消し込み                                                                                                                                                                                                                                                                                                                                                                                                                                              | int |
@@ -192,15 +192,15 @@ Status: 200 OK
       "clearing_date": "2020/04/01",
       "erasure_deposit_recorded_date": "2020/04/01",
       "clearing_method": 0,
-      "clearing_amount": 1080,
+      "clearing_amount": "1,080",
       "bill_billing_number": "202005-sample-1",
-      "bill_amount": 1080,
+      "bill_amount": "1,080",
       "clearing_bill_billing_number": "",
       "payment_id": 12,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
       "description": "フリコミ 振込名義",
-      "payment_amount": 1080,
+      "payment_amount": "1080",
       "erasure_cancel_flg": 0,
       "erasure_cancel_recorded_date": null,
       "erasure_total_auto_clearing_flg": 0,
@@ -213,15 +213,15 @@ Status: 200 OK
       "clearing_date": "2020/04/01",
       "erasure_deposit_recorded_date": "2020/04/01",
       "clearing_method": 0,
-      "clearing_amount": 1080,
+      "clearing_amount": "1,080",
       "bill_billing_number": "202005-sample-2",
-      "bill_amount": 1080,
+      "bill_amount": "1,080",
       "clearing_bill_billing_number": null,
       "payment_id": 13,
       "payment_transfer_date": "2020/04/01",
       "account_name": "振込名義",
       "description": "フリコミ 振込名義",
-      "payment_amount": 1080,
+      "payment_amount": "1080",
       "erasure_cancel_flg": 1,
       "erasure_cancel_recorded_date": "2020/04/01",
       "erasure_total_auto_clearing_flg": 0,
