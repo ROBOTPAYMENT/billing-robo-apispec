@@ -84,7 +84,7 @@
 | journal_cooperation_bank_code | 会計ソフト連携用銀行コード    | string |
 | account_title_id              | 勘定科目ID                    | int    |
 | sub_account_title_code        | 補助科目コード                | string |
-| moneytree_branch_code_type    | MoneyTree摘要欄の支店コード種別 | int    |
+| moneytree_branch_code_type    | MoneyTree摘要欄の支店コードの有無 | int    |
 
 
 ## 使用例
