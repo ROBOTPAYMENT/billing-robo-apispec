@@ -47,6 +47,7 @@
 | journal_cooperation_bank_code | 会計ソフト連携用銀行コード                                           | 33   | [半角英数](../../index.md#種別)       |         |
 | account_title_id              | 勘定科目ID <br> 普通預金:1120（固定値）                              | 20   | 半角数字                             | 必須     |
 | sub_account_title_code        | 補助科目コード                                                      | 25   | [半角英数](../../index.md#種別)       |         |
+| moneytree_branch_code_type    | MoneyTree摘要欄の支店コードの有無 <br> 0:指定しない <br> 1:支店コードあり <br> 2:支店コードなし <br> ※追加省略時は0で登録、更新省略時は既存値で登録 <br> 詳細は[ヘルプサイト](https://keirinomikata.zendesk.com/hc/ja/categories/200837873)にて確認                        | 1   | 数値   |         |
 
 
 
@@ -83,6 +84,7 @@
 | journal_cooperation_bank_code | 会計ソフト連携用銀行コード    | string |
 | account_title_id              | 勘定科目ID                    | int    |
 | sub_account_title_code        | 補助科目コード                | string |
+| moneytree_branch_code_type    | MoneyTree摘要欄の支店コードの有無 | int    |
 
 
 ## 使用例
@@ -107,7 +109,8 @@
             "bs_department_code": "",
             "journal_cooperation_bank_code": "",
             "account_title_id": 1120,
-            "sub_account_title_code": ""
+            "sub_account_title_code": "",
+            "moneytree_branch_code_type": 0
         }
     ]
 }
@@ -136,7 +139,8 @@ Status: 200 OK
             "bs_department_code": "",
             "journal_cooperation_bank_code": "",
             "account_title_id": 1120,
-            "sub_account_title_code": ""
+            "sub_account_title_code": "",
+            "moneytree_branch_code_type": 0
         }
     ]
 }
@@ -164,6 +168,7 @@ Status: 200 OK
 | 2212         | 勘定科目IDが不正                                                |
 | 2213         | 更新対象の銀行口座が存在しません                                  |
 | 2214         | 金融機関連携済みの請求元銀行口座では更新できない項目が含まれています |
+| 2215         | MoneyTree摘要欄の支店コードの有無が不正 |
 
 
 [TOPへ戻る](../../index.md)
